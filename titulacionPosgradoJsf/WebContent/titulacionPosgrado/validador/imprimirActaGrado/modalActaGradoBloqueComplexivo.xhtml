@@ -1,0 +1,59 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      			xmlns:ui="http://java.sun.com/jsf/facelets"
+      			xmlns:f="http://java.sun.com/jsf/core"
+      			xmlns:h="http://java.sun.com/jsf/html"
+     			xmlns:p="http://primefaces.org/ui">
+    <script language="JavaScript">
+	//<![CDATA[
+		function abrirVentaReporte(formato, nombreReporte, tipo){
+			var url = "/aplicacion/reportes";
+			url = url + "?nombreJasper=" + nombreReporte;
+			url = url + "&formato=" + formato;
+			url = url + "&tipo=" + tipo;
+			if(formato == 'vista'){
+				var reportWindow = window.open(url);
+			}else{
+				var reportWindow = window.open(url);
+				reportWindow.focus();
+			}
+	    } 
+	 //]]> 
+	</script>
+	<h:form id="frmModalActaGradoBloqueComplexivo" >
+		<p:dialog widgetVar="dlgActaGradoBloqueComplexivo" modal="true" draggable="false" closable="false" 
+				  resizable="false" height="120" width="400" styleClass="modal-sin-header" >
+			<p:outputLabel value="Impresión de actas grado" style="font-size: 1.2em !important;"/>	  
+			<table>
+				<tr>
+					<td>
+						<div style="width: 25px; padding: 2px; display: inline-block; margin-right: 7px;">	
+							<h:graphicImage value="/img/Alerta.png" alt="U.C.E" style="width: 100%; "/>
+						</div>
+					</td>
+					<td>
+						<p:outputLabel value="¿Está seguro que desea imprimir las actas de grado?" />
+					</td>
+				</tr>
+				<tr>
+					<td align="center" colspan="2">
+						<h:panelGroup>
+			    				
+							<p:commandButton value="Descargar" action="#{imprimirActaGradoBloqueComplexivoForm.irMenuPrincipalImpresion()}" 
+    							oncomplete="PF('dlgActaGradoBloqueComplexivo').hide();" update="frmModalActaGradoBloqueComplexivo" ajax="false" immediate="true">
+			    				<p:ajax oncomplete="abrirVentaReporte('PDFS','ActaDeGradoComplexivo','ACTA_BLOQUE_COMPLEXIVO');" />
+		    				</p:commandButton>
+		    				<p:commandButton value="Ver" action="#{imprimirActaGradoBloqueComplexivoForm.irMenuPrincipalImpresion()}" 
+    							oncomplete="PF('dlgActaGradoBloqueComplexivo').hide();" update="frmModalActaGradoBloqueComplexivo" ajax="false" immediate="true">
+			    				<p:ajax oncomplete="abrirVentaReporte('PDFS','vista','ACTA_BLOQUE_COMPLEXIVO_VISTA');" async="false"/>
+		    				</p:commandButton>
+		        			<p:commandButton value="Cancelar" oncomplete="PF('dlgActaGradoBloqueComplexivo').hide();"  style="margin-left: 5px;"
+		        						action="#{imprimirActaGradoBloqueComplexivoForm.verificarClickAceptarTramiteNo()}"/>
+						</h:panelGroup>
+					</td>
+				</tr>
+			</table>
+		</p:dialog> 
+	</h:form>
+</ui:composition>

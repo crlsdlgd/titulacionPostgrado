@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition
+	template="/componentesGenerales/plantillas/pltPrincipalSinMenuEjecModal.xhtml">
+	<ui:define name="paginacion">
+		<ui:include src="/componentesGenerales/plantillas/pltPaginacion.xhtml">
+			<ui:param name="pagina" value="Administración de autoridades " />
+		</ui:include>
+	</ui:define>
+	<ui:define name="cuerpo">
+		<h:form id="frmListarAutoridades" enctype="multipart/form-data"
+			acceptcharset="UTF-8">
+			<p:panel id="pnlBusqueda" header="Ingrese datos de busqueda">
+				<!-- ******************** TABLA RESPONSIVA ************************ -->
+				<div class="grid condensed">
+				<!-- ******************** FILA NUMERO 1 ************************ -->
+					<div class="row cells8">
+						<div class="cell colspan3">
+							<ui:decorate
+								template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+								<ui:define name="etiqueta">
+									<p:outputLabel id="lblAtrFacultad" for="slcAtrFacultad" value="Facultad: " />
+								</ui:define>
+								<ui:define name="valor">
+									<h:selectOneMenu id="slcAtrFacultad"
+										value="#{administracionAutoridadesForm.aafAutoridadBuscar.atrFacultad.fclId}"
+										required="false"
+										requiredMessage="#{generalesConstantesForm.msgCampoRequerido}"
+										style="width:100%">
+										<f:selectItem
+											itemLabel="#{generalesConstantesForm.appSeleccioneTodos}"
+											itemValue="#{generalesConstantesForm.appIdBase}" />
+										<f:selectItems var="item"
+											value="#{administracionAutoridadesForm.aafListFacultad}"
+											itemLabel="#{item.fclDescripcion}" itemValue="#{item.fclId}" />
+									</h:selectOneMenu>
+								</ui:define>
+							</ui:decorate>
+						</div>
+					</div>
+					<!-- ******************** FIN FILA NUMERO 1************************ -->
+					<!-- ******************** FILA NUMERO 2 ************************ -->
+					<div class="row cells8">
+						<div class="cell colspan3">
+							<ui:decorate
+								template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+								<ui:define name="etiqueta">
+									<p:outputLabel id="lblAtrTipo" for="slcAtrTipo" value="Tipo: " />
+								</ui:define>
+								<ui:define name="valor">
+									<h:selectOneMenu id="slcAtrTipo"
+										value="#{administracionAutoridadesForm.aafAutoridadBuscar.atrTipo}"
+										required="false"
+										requiredMessage="#{generalesConstantesForm.msgCampoRequerido}"
+										style="width:100%">
+										<f:selectItem
+											itemLabel="#{generalesConstantesForm.appSeleccioneTodos}"
+											itemValue="#{generalesConstantesForm.appIdBase}" />
+										<f:selectItems var="item"
+											value="#{listasCombosForm.listaTipoAutoridad}"
+											itemLabel="#{item.description}" itemValue="#{item.value}" />
+									</h:selectOneMenu>
+								</ui:define>
+							</ui:decorate>
+						</div>
+					</div>
+					<!-- ******************** FIN FILA NUMERO 2************************ -->
+					<!-- ******************** FILA NUMERO 3 ************************ -->
+					<div class="row cells8">
+						<div class="cell colspan3">
+							<ui:decorate
+								template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+								<ui:define name="etiqueta">
+									<p:outputLabel id="lblAtrEstado" for="slcAtrEstado"
+										value="Estado: " />
+								</ui:define>
+								<ui:define name="valor">
+									<h:selectOneMenu id="slcAtrEstado"
+										value="#{administracionAutoridadesForm.aafAutoridadBuscar.atrEstado}"
+										required="false"
+										requiredMessage="#{generalesConstantesForm.msgCampoRequerido}"
+										style="width:100%">
+										<f:selectItem
+											itemLabel="#{generalesConstantesForm.appSeleccioneTodos}"
+											itemValue="#{generalesConstantesForm.appIdBase}" />
+										<f:selectItems var="item"
+											value="#{listasCombosForm.listaEstadoAutoridad}"
+											itemLabel="#{item.description}" itemValue="#{item.value}" />
+									</h:selectOneMenu>
+								</ui:define>
+							</ui:decorate>
+						</div>
+					</div>
+					<!-- ******************** FIN FILA NUMERO 3 ************************ -->
+				</div>
+			</p:panel>
+			<div>
+				<p:commandButton id="btnBuscar" value="Buscar"
+					action="#{administracionAutoridadesForm.buscarAutoridad()}"
+					 onclick="PF('dialogoTrabajando').show();" onsuccess="PF('dialogoTrabajando').hide();"
+					update=":frmListarAutoridades:pnlResultados" />
+				<p:commandButton id="btnLimpiar" value="Limpiar"
+					action="#{administracionAutoridadesForm.limpiar()}"
+					update=":frmListarAutoridades:pnlResultados , :frmListarAutoridades:pnlBusqueda" />
+			</div>
+			
+			<p:panel id="pnlResultados" header="Resultados de la búsqueda">
+				<p:dataTable id="dtsUsuario" var="item"
+					value="#{administracionAutoridadesForm.aafListAutoridadBuscar}"
+					rows="10" paginator="true"
+					paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+					rowsPerPageTemplate="5,10,15"
+					emptyMessage="NO SE ENCONTRARON AUTORIDADES CON LOS PARÁMETROS DE BÚSQUEDA INGRESADOS"
+					style="text-align: left;">
+					<p:column headerText="Facultad" style="width: 16em ! important;">
+						<h:outputText value="#{item.atrFacultad.fclDescripcion}" />
+					</p:column>
+					<p:column headerText="Identificación" style="width: 6em ! important;">
+						<h:outputText value="#{item.atrIdentificacion}" />
+					</p:column>
+					<p:column headerText="Nombres" style="width: 7em ! important;">
+						<h:outputText value="#{item.atrNombres}" />
+					</p:column>
+					<p:column headerText="Primer Apellido" style="width: 7em ! important;">
+						<h:outputText value="#{item.atrPrimerApellido}" />
+					</p:column>
+					<p:column headerText="Segundo Apellido" style="width: 7em ! important;">
+						<h:outputText value="#{item.atrSegundoApellido}" />
+					</p:column>
+					<p:column headerText="Estado" style="width: 5em ! important;">
+						<h:outputText value="#{listasCombosForm.getLabelEstadoAutoridad(item.atrEstado)}"/>
+					</p:column>
+					<p:column headerText="Tipo" style="width: 5em ! important;">
+						<h:outputText value="#{listasCombosForm.getLabelTipoAutoridad(item.atrTipo)}" />
+					</p:column>
+					<p:column headerText="Opción" style="width: 6em ! important;  text-align:center">
+						<p:commandLink value="Ver"
+							action="#{administracionAutoridadesForm.irVerAutoridad(item)}"
+							onclick="PF('dialogoTrabajando').show();" ajax="false"
+							style="color:blue; margin: 0px 5px;"/>		        
+					</p:column>
+				</p:dataTable>
+			</p:panel>
+
+			<div>
+				<p:commandButton id="btnRegresar"
+					action="#{administracionAutoridadesForm.cancelarListar()}"
+					value="Regresar" immediate="true" />
+				<p:commandButton id="btnNueva" action="#{administracionAutoridadesForm.irNuevaAutoridad()}" value="Nuevo" />
+			</div>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

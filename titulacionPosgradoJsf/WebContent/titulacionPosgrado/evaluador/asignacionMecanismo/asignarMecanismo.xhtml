@@ -1,0 +1,314 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<ui:composition template="/componentesGenerales/plantillas/pltPrincipalSinMenuEjecModal.xhtml">
+<ui:define name="paginacion">
+		<ui:include src="/componentesGenerales/plantillas/pltPaginacion.xhtml">
+			<ui:param name="pagina"
+				value=" Asignación mecanismo  / Asignación de mecanismo de titulación / Asignar " />
+		</ui:include>
+</ui:define>
+
+<ui:define name="cuerpo">
+<script language="JavaScript">
+//<![CDATA[
+	function verificarErrores(){
+    	var idVarError = 'compOculto:txtValidador';
+    	var varError = document.getElementById(idVarError);
+    	if(varError.value == 1){
+    		document.getElementById('frVisualizar:btnAceptarModal').click();
+        }
+    } 
+      function verificarTutor(){
+    	var idVarError = 'compOcultoAsignar:txtAsignarTutor';
+    	var varError = document.getElementById(idVarError);
+    	if(varError.value == 1){
+    		document.getElementById('frVisualizar:btnAceptarModalAsignar').click();
+        }
+    }
+      function verificarDirector(){
+      	var idVarError = 'compOcultoAsignarDirector:txtAsignarDirector';
+      	var varError = document.getElementById(idVarError);
+      	if(varError.value == 1){
+      		document.getElementById('frVisualizar:btnAceptarModalAsignarDirector').click();
+          }
+      }
+ //]]> 
+</script>
+
+
+	<h:form id="frVisualizar" enctype="multipart/form-data" acceptcharset="UTF-8" >
+		<!-- ******************** PANEL DE INFORMACION DEL POSTULADO ************************ -->
+		<p:panel id="pnlDatosPersona" header="Información del estudiante declarado idóneo">
+			<!-- ******************** TABLA RESPONSIVA ************************ -->
+			<div class="grid condensed">
+				<!-- ******************** FILA NUMERO 1 ************************ -->
+				<div class="row cells8"> 
+				   <div class="cell colspan5"><!-- IDENTIFICACION -->
+						<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblIdentificacion" for="txtIdentificacion" value="No.Identificación: "/>	
+		       				</ui:define>
+		       				<ui:define name="valor">	
+		       					<p:outputLabel id="txtIdentificacion" value="#{asignacionMecanismoForm.amfEstudianteAsignacionMecanismoDtoEditar.prsIdentificacion}" 
+		       									style="font-weight: Normal !important;">
+		       					</p:outputLabel>	
+		       				</ui:define>
+		       			</ui:decorate>
+					</div>	
+				   <div class="cell colspan3"><!-- NOMBRES -->
+						<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblNombres" for="txtNombres" value="Nombres: "/>	
+		       				</ui:define>
+		       				<ui:define name="valor">	
+		       					<p:outputLabel id="txtNombres" value="#{asignacionMecanismoForm.amfEstudianteAsignacionMecanismoDtoEditar.prsPrimerApellido} #{asignacionMecanismoForm.amfEstudianteAsignacionMecanismoDtoEditar.prsSegundoApellido==null?'':asignacionMecanismoForm.amfEstudianteAsignacionMecanismoDtoEditar.prsSegundoApellido} #{asignacionMecanismoForm.amfEstudianteAsignacionMecanismoDtoEditar.prsNombres} "  
+		       									style="font-weight: Normal !important;">
+		       					</p:outputLabel>	
+		       				</ui:define>
+		       			</ui:decorate>
+					</div><!-- Fin fila 1 -->
+				</div>  
+				<div class="row cells8"> 
+				 <div class="cell colspan5"><!-- EMAIL -->
+						<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblEmail" for="txtEmail" value="Email: "/>	
+		       				</ui:define>
+		       				<ui:define name="valor">	
+		       					<p:outputLabel id="txtEmail" value="#{asignacionMecanismoForm.amfEstudianteAsignacionMecanismoDtoEditar.prsMailPersonal} "  
+		       									style="font-weight: Normal !important;">
+		       					</p:outputLabel>	
+		       				</ui:define>
+		       			</ui:decorate>
+					</div><!-- Fin fila 2 -->
+				</div>
+			</div>
+		</p:panel>
+		<!-- ******************** PANEL DE INFORMACION DE LA VALIDACION ************************ -->
+		<p:panel id="pnlDatosValidacion" header="Resultados del proceso de validación">
+			<!-- ******************** TABLA RESPONSIVA ************************ -->
+			<div class="grid condensed">
+				<!-- ******************** FILA NUMERO 1 ************************ -->
+				<div class="row cells8"> 
+				 <div class="cell colspan5"><!-- CULMINO_MALLA -->
+						<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblMalla" for="txtMalla" value="Fecha de inicio de cohorte: "/>	
+		       				</ui:define>
+		       				<ui:define name="valor">	
+		       					<p:outputLabel id="txtMalla" value="#{asignacionMecanismoForm.amfEstudianteAsignacionMecanismoDtoEditar.fcesFechaInicioCohorte}" 
+		       									style="font-weight: Normal !important;">
+		       					</p:outputLabel>	
+		       				</ui:define>
+		       			</ui:decorate>
+					</div>
+				   <div class="cell colspan3"><!-- FECHA EGRESAMIENTO -->
+						<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblFechaEgresamiento" for="txtFechaEgresamiento" value="Fecha de fin de cohorte: "/>	
+		       				</ui:define>
+		       				<ui:define name="valor">	
+		       					<p:outputLabel id="txtFechaEgresamiento" value="#{asignacionMecanismoForm.amfEstudianteAsignacionMecanismoDtoEditar.fcesFechaFinCohorte}" 
+		       									style="font-weight: Normal !important;">
+		       					</p:outputLabel>	
+		       				</ui:define>
+		       			</ui:decorate>
+					</div>	
+				  
+				</div>  
+				<div class="row cells8"> 
+				<!-- ******************** FILA NUMERO 3 ************************ -->
+					<div class="cell colspan5"><!-- RESULTADO -->
+						<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblObservacion" for="txtObservacion" value="Resultado: "/>	
+		       				</ui:define>
+		       				<ui:define name="valor">	
+		       					<p:outputLabel id="txtObservacion" value="#{asignacionMecanismoForm.amfEstudianteAsignacionMecanismoDtoEditar.trttObsValSec}  "  
+		       									style="font-weight: Normal !important;">
+		       					</p:outputLabel>	
+		       				</ui:define>
+		       			</ui:decorate>
+					</div><!-- Fin fila 3 -->
+				</div>
+				<div class="row cells8"> 
+				<!-- ******************** FILA NUMERO 3 ************************ -->
+				 <div class="cell colspan5" ><!-- APROBACION INGLES -->
+				 		<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblAproboIngles" for="txtAproboIngles" value="¿Es requisito del programa el idioma extranjero?: " />	
+		       				</ui:define>
+		       				<ui:define name="valor">	
+		       					<p:outputLabel id="txtAproboIngles" value="#{asignacionMecanismoForm.amfEstudianteAsignacionMecanismoDtoEditar.vldAproboIngles==0?'SI':'NO'} "  
+		       									style="font-weight: Normal !important;">
+		       					</p:outputLabel>	
+		       				</ui:define>
+		       			</ui:decorate>
+					</div>
+				</div>
+			</div>
+		</p:panel>		
+		<!-- ******************** PANEL DE INFORMACION DE LA ASIGNACION DE MECANISMO ************************ -->
+		<p:panel id="pnlDatosPostulcacion" header="Asignación mecanismo de titulación">
+			<!-- ******************** TABLA RESPONSIVA ************************ -->
+			<div class="grid condensed">
+				<!-- ******************** FILA NUMERO 3 ************************ -->
+				<div class="row cells8"> 
+					<div class="cell colspan5"><!-- Mecanismo estadistico -->
+					   <ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+								<ui:define name="etiqueta">
+									<p:outputLabel id="lblMcttcarrera" for="slcMcttcarrera" value="Mecanismo titulación: " />
+								</ui:define>
+								<ui:define name="valor">
+									<h:selectOneMenu id="slcMcttcarrera" value="#{asignacionMecanismoForm.amfEstudianteAsignacionMecanismoDtoEditar.fcesMecanismoTitulacionCarrera}"
+										required="true" requiredMessage="#{generalesConstantesForm.msgCampoRequerido}" style="width: 102%;">
+										<f:selectItem itemLabel="#{generalesConstantesForm.appSeleccione}" itemValue="#{generalesConstantesForm.appIdBase}"/>
+										<f:selectItems var="item"  value="#{asignacionMecanismoForm.amfListMecanismoTitulacionCarrera}"
+											itemLabel="#{item.mccrMecanismoTitulacion.mcttDescripcion}" itemValue="#{item.mccrId}" />
+										<p:ajax event="change" listener="#{asignacionMecanismoForm.cambiarMecanismoTitulacion()}" update=" lblMcttcarrera , slcMcttcarrera , msgMcttcarrera , 
+										lblTema , txtTema , msgTema , lblTutor , txtTutor , msgTutor,btnAsignar,btnGuardar , "/>
+									</h:selectOneMenu>
+								</ui:define>
+								<ui:define name="etiquetaError">
+									<p:message id="msgMcttcarrera" for="slcMcttcarrera" />
+								</ui:define>
+						</ui:decorate>
+					</div>
+				</div>
+				
+				
+				
+				<div class="row cells8"> 
+					<div class="cell colspan5">
+					<!-- *************** TEMA DE TESIS **************** -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblTema" for="txtTema" value="Tema trabajo titulación aprobado " />
+							</ui:define>
+							<ui:define name="valor">
+									<p:inputTextarea id="txtTema" value="#{asignacionMecanismoForm.amfEstudianteAsignacionMecanismoDtoEditar.assttTemaTrabajo}"
+										required="true" requiredMessage="#{generalesConstantesForm.msgCampoRequerido}"
+										validator="temaTitulacionValidator" maxlength="512" 
+										style="width: 100%;"
+										disabled="#{asignacionMecanismoForm.amfEstudianteAsignacionMecanismoDtoEditar.fcesMecanismoTitulacionCarrera == asignacionMecanismoForm.amfExamenComplexivoValue || asignacionMecanismoForm.amfEstudianteAsignacionMecanismoDtoEditar.fcesMecanismoTitulacionCarrera == generalesConstantesForm.appIdBase }">
+										<p:ajax  event="blur" update=" lblTema , txtTema , msgTema , lblTutor , txtTutor , msgTutor " />
+									</p:inputTextarea>
+							</ui:define>
+							<ui:define name="etiquetaError">
+								<p:message id="msgTema" for="txtTema" />
+							</ui:define>
+						</ui:decorate>
+					</div>
+				</div>
+				
+				<div class="row cells8"> 
+					<div class="cell colspan5">
+					<!-- ***************** TUTOR ******************** -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblTutor" for="txtTutor" value="Nombre director científico - metodológico designado " />
+							</ui:define>
+							<ui:define name="valor">
+									<p:inputText id="txtTutor" value="#{asignacionMecanismoForm.amfEstudianteAsignacionMecanismoDtoEditar.assttTutor}"
+										required="true" requiredMessage="#{generalesConstantesForm.msgCampoRequerido}"
+										validator="sinCaracteresEspecialesValidator" maxlength="64" 
+										style="width: 100%;"
+										disabled="true">
+										<p:ajax event="blur" update=" lblTema , txtTema , msgTema , lblTutor , msgTutor " />
+									</p:inputText>
+							</ui:define>
+							<ui:define name="etiquetaError">
+								<p:message id="msgTutor" for="txtTutor" />
+							</ui:define>
+						</ui:decorate>
+					</div>
+					<div class="cell colspan1"><!-- Botón asignar tutor -->
+						<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+		       				<ui:define name="etiqueta">
+								<p:commandButton id="btnAsignar" value="Asignar Director Científico/Metodológico" action="#{asignacionMecanismoForm.verificarClickAsignarTutor(0)}"  ajax="false" style="position: absolute;left: -148%;" disabled="#{asignacionMecanismoForm.amfhabilitadorAsignar}"/>
+									<p:commandButton id="btnAceptarModalAsignar" value="EjecutarModalAsignar" style="visibility:hidden;">
+										<p:ajax oncomplete="PF('dialogoAsignarTutor').show();" update=":frmModalAsignarTutor,btnAsignar,txtTutor" />
+								</p:commandButton>
+									
+							</ui:define>
+		       			</ui:decorate>
+					</div>
+					
+					<div class="row cells8">
+						<div class="cell colspan5">
+							<ui:decorate
+								template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+								<ui:define name="etiqueta">
+									<p:outputLabel id="lblArchivo" for="txtArchivo"
+										value="Archivo PDF de informe de aprobación: " />
+								</ui:define>
+								<ui:define name="valor">
+									<p:outputLabel id="txtArchivo"
+										style="font-weight: Normal !important;">
+									</p:outputLabel>
+									<p:fileUpload id="flupArchivoSubir" 
+										fileUploadListener="#{asignacionMecanismoForm.handleFileUpload}" mode="advanced" 
+										auto="true" sizeLimit="1572864" allowTypes="/(\.|\/)(pdf)$/"
+										update="flupArchivoSubir , txtArancel"  fileLimit="5"
+										fileLimitMessage="Máximo 5 intentos válidos"
+										invalidSizeMessage="Tamaño de archivo excedido! máximo 1.5 Mb"
+										label="Buscar archivo"
+										invalidFileMessage="Tipo de archivo no válido! solo formato PDF"
+										uploadLabel="Cargar" style="width:100%" required="true"
+										requiredMessage="Campo requerido" dragDropSupport="false" >
+									</p:fileUpload>
+								</ui:define>
+							</ui:decorate>
+						</div>
+						<div class="cell colspan3">
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblArchivoArancel" for="txtArancel" value="Archivo cargado: " />
+							</ui:define>
+							<ui:define name="valor">	
+		       					<p:outputLabel id="txtArancel" value="#{asignacionMecanismoForm.atfNombreArchivo}" 
+		       									style="font-weight: Normal !important;" >
+		       					</p:outputLabel>	
+		       				</ui:define>
+							
+						</ui:decorate>
+					</div>
+					</div>
+					
+					
+				</div>
+			</div>
+		</p:panel>	
+				
+		<div>
+			<p:commandButton id="btnCancelar" value="Regresar" action="#{asignacionMecanismoForm.irCancelarPostulacion()}" immediate="true" ajax="false"  />
+			<p:commandButton id="btnGuardar" value="Guardar" action="#{asignacionMecanismoForm.verificarClickAceptarTramite()}"  ajax="false" disabled="#{asignacionMecanismoForm.amfHabilitadorGuardar}"/>
+			<p:commandButton id="btnAceptarModal" value="EjecutarModalAceptar" style="visibility:hidden;">
+					<p:ajax oncomplete="PF('dialogoAsignacionMecanismo').show();" update=":frmModalAsignacionMecanismo" />	    				
+    		</p:commandButton>
+		</div>
+	</h:form>
+	
+	<ui:include src="/titulacionPosgrado/evaluador/asignacionMecanismo/modalAceptarAsignacionMecanismo.xhtml"/>
+		<h:form id="compOculto" style="visibility:hidden;">
+		 	<p:inputText id="txtValidador" value="#{asignacionMecanismoForm.amfValidadorClic}" >
+			</p:inputText>	
+		</h:form>
+		<ui:include src="/titulacionPosgrado/evaluador/asignacionMecanismo/modalAsignarTutor.xhtml"/>
+		<h:form id="compOcultoAsignar" style="visibility:hidden;">
+		 	<p:inputText id="txtAsignarTutor" value="#{asignacionMecanismoForm.amfValidadorClicTutor}" >
+			</p:inputText>	
+		</h:form>
+		<ui:include src="/titulacionPosgrado/evaluador/asignacionMecanismo/modalAsignarDirector.xhtml"/>
+		<h:form id="compOcultoAsignarDirector" style="visibility:hidden;">
+		 	<p:inputText id="txtAsignarDirector" value="#{asignacionMecanismoForm.amfValidadorClicDirector}" >
+			</p:inputText>	
+		</h:form>
+</ui:define>
+</ui:composition>
+</html>

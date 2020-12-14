@@ -1,0 +1,836 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+	<!-- =========================================================================================== 
+		===================================== NAVEGACIONES GENERALES ============================== 
+		=========================================================================================== -->
+	<navigation-rule>
+		<!-- ===== NAVEGACION DESDE CUALQUIER PAGINA (*)===== -->
+		<from-view-id>*</from-view-id>
+		<!-- Navegacion hasta el xhtml login -->
+		<navigation-case>
+			<from-outcome>logout</from-outcome>
+			<to-view-id>/j_spring_security_logout</to-view-id>
+		</navigation-case>
+		<!-- Navegacion general hasta el xhtml principal.xhtml -->
+		<navigation-case>
+			<from-outcome>irInicio</from-outcome>
+			<to-view-id>/titulacionPosgrado/generalidades/principal.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>irReporteEstados</from-outcome>
+			<to-view-id>/titulacionPosgrado/reportes/general/reportesEstadoPostulantes.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>irReporteValidacion</from-outcome>
+			<to-view-id>/titulacionPosgrado/reportes/evaluador/reportesValidados.xhtml</to-view-id>
+		</navigation-case>
+		<!-- ****************************************************************************** 
+			***************INICIO NAVEGACIONES PARA EL ROL POSTULANTE********************* 
+			****************************************************************************** 
+			Navegacion hasta el xhtml perfilPostulante.xhtml -->
+		<navigation-case>
+			<from-outcome>irEditarPerfilPostulante</from-outcome>
+			<to-view-id>/titulacionPosgrado/administracion/postulante/perfil/perfilPostulante.xhtml</to-view-id>
+		</navigation-case>
+		<!-- Navegacion hasta el xhtml canbiarComtraseña para el rol postulante -->
+		<navigation-case>
+			<from-outcome>irCambioClave</from-outcome>
+			<to-view-id>/titulacionPosgrado/administracion/postulante/cambioClave/cambioClave.xhtml</to-view-id>
+		</navigation-case>
+		<!-- Navegacion hasta el xhtml postulacion para el rol postulante -->
+		<navigation-case>
+			<from-outcome>iniciarPostulacion</from-outcome>
+			<to-view-id>/titulacionPosgrado/postulacion/postulacion.xhtml</to-view-id>
+		</navigation-case>
+		<!-- Navegacion hasta el xhtml listarPostulacion para el rol postulante -->
+		<navigation-case>
+			<from-outcome>irListarPostulacion</from-outcome>
+			<to-view-id>/titulacionPosgrado/postulacionUnidadTitulacion/visualizacion/listarPostulacion.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>irRegistroActualizacion</from-outcome>
+			<to-view-id>/titulacionPosgrado/postulacion/impresionComprobante.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>iniciarImpresion</from-outcome>
+			<to-view-id>/titulacionPosgrado/postulacion/impresionComprobante.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>irListarAdmUsuario</from-outcome>
+			<to-view-id>/titulacionPosgrado/administracion/soporte/usuario/listar.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>irAdministracionFotografias</from-outcome>
+			<to-view-id>/titulacionPosgrado/validador/administracionFoto/listarEstudiantes.xhtml</to-view-id>
+		</navigation-case>	
+		<!-- ****************************************************************************** 
+			****************FIN NAVEGACIONES PARA EL ROL POSTULANTE*********************** 
+			****************************************************************************** 
+			Navegacion hasta el xhtml listarUsuario para el rol administrador -->
+		<navigation-case>
+			<from-outcome>irListaReseteoMail</from-outcome>
+			<to-view-id>/titulacionPosgrado/administracion/soporte/reseteoMail/listarUsuarios.xhtml</to-view-id>
+		</navigation-case>
+		<!-- ============================ ROL VALIDADOR ======================== 
+			Navegacion hasta el xhtml reportesPostuladosV para el rol VALIDADOR -->
+		<navigation-case>
+			<from-outcome>irListarPostuladosValidacion</from-outcome>
+			<to-view-id>/titulacionPosgrado/validador/idoneidad/listarPostuladosValidacion.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>irReportesEstadoPostulantes</from-outcome>
+			<to-view-id>/titulacionPosgrado/reportes/general/reportesEstadoPostulantes.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>irListarEvaluadosAptitudOtrosMecanismos</from-outcome>
+			<to-view-id>/titulacionPosgrado/validador/otrosMecanismos/aptitud2018/listarEvaluadosAptitud.xhtml</to-view-id>
+		</navigation-case>
+		<!-- Navegacion hasta el xhtml listarPendientesTribunal para el rol VALIDADOR -->
+		<navigation-case>
+			<from-outcome>irListarPendientesLector</from-outcome>
+			<to-view-id>/titulacionPosgrado/validador/otrosMecanismos/notasTribunalOral/listarPendientesTribunal.xhtml</to-view-id>
+		</navigation-case>
+		<!-- Navegacion hasta el xhtml imprimir ActaGrado para el rol VALIDADOR -->
+		<navigation-case>
+			<from-outcome>irImprimirActaGrado</from-outcome>
+			<to-view-id>/titulacionPosgrado/validador/imprimirActaGrado/listar.xhtml</to-view-id>
+		</navigation-case>
+		<!-- Navegacion hasta el xhtml listarDocentes para el rol VALIDADOR -->
+		<navigation-case>
+			<from-outcome>irListarDocentes</from-outcome>
+			<to-view-id>/titulacionPosgrado/validador/editarDocente/listarDocentes.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>irListarActualizarConocimientos</from-outcome>
+			<to-view-id>/titulacionPosgrado/validador/actualizacionConocimientos/listarPostuladosActualizar.xhtml</to-view-id>
+		</navigation-case>
+				<!-- Navegacion hasta el xhtml listar ActaGrado para el rol VALIDADOR -->
+		<navigation-case>
+			<from-outcome>irlistarActaGrado</from-outcome>
+			<to-view-id>/titulacionPosgrado/validador/actaGrado/listar.xhtml</to-view-id>
+		</navigation-case>
+		<!-- ============================ ROL EVALUADOR ======================== -->
+
+		<navigation-case>
+			<from-outcome>irListarAsignacionMecanismos</from-outcome>
+			<to-view-id>/titulacionPosgrado/evaluador/asignacionMecanismo/listarValidadosXAsignar.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>irListarReAsignacionMecanismos</from-outcome>
+			<to-view-id>/titulacionPosgrado/evaluador/reAsignacionMecanismo/listarEvaluadosXReAsignar.xhtml</to-view-id>
+		</navigation-case>
+
+		
+
+		<!-- ============================ EDITOR DGIP ======================== -->
+		<navigation-case>
+			<from-outcome>irReporteMigracion</from-outcome>
+			<to-view-id>/titulacionPosgrado/reportes/general/reportesMigracionDatos.xhtml</to-view-id>
+		</navigation-case>
+				<navigation-case>
+			<from-outcome>irListarAutoridad</from-outcome>
+			<to-view-id>/titulacionPosgrado/administracion/autoridad/listarAutoridades.xhtml</to-view-id>
+		</navigation-case>
+				<navigation-case>
+			<from-outcome>irVerAutoridad</from-outcome>
+			<to-view-id>/titulacionPosgrado/administracion/autoridad/verAutoridades.xhtml</to-view-id>
+		</navigation-case>
+		<!-- Navegacion hasta el xhtml regresarListarAutoridades para el rol EDITOR DGA -->
+		<navigation-case>
+			<from-outcome>irCancelarVer</from-outcome>
+			<to-view-id>/titulacionPosgrado/administracion/autoridad/listarAutoridades.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<!--======================================================================================= 
+		============================ NAVEGACION FUNCIONALIDAD LOGIN/LOGOUT ======================== 
+		=========================================================================================== 
+		=========================================================================================== 
+		============================ NAVEGACION DESDE EL PRINCIPAL.XHTML ========================== 
+		=========================================================================================== 
+		=========================================================================================== 
+		============================ NAVEGACION DESDE EL INICIO:XHTML ============================= 
+		=========================================================================================== -->
+	<navigation-rule>
+		<from-view-id>/titulacionPosgrado/generalidades/inicio.xhtml</from-view-id>
+		<!-- Navegacion hasta el xhtml registro -->
+		<navigation-case>
+			<from-outcome>iniciarRegistro</from-outcome>
+			<to-view-id>/titulacionPosgrado/generalidades/registroPostulante/registroPostulante.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<!-- ====================================================================================== 
+		======================= NAVEGACION DESDE USUARIOS TITULACION =========================== 
+		========================================================================================= -->
+	<navigation-rule>
+		<from-view-id>/titulacionPosgrado/administracion/soporte/usuario/listar.xhtml</from-view-id>
+		<!-- Navegacion hasta la pagina principal -->
+		<navigation-case>
+			<from-outcome>irInicio</from-outcome>
+			<to-view-id>/titulacionPosgrado/generalidades/principal.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/titulacionPosgrado/administracion/soporte/usuario/listar.xhtml</from-view-id>
+		<navigation-case><!-- Navegacion hasta la pagina ver usuarios -->
+			<from-outcome>irVerUsuario</from-outcome>
+			<to-view-id>/titulacionPosgrado/administracion/soporte/usuario/ver.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/titulacionPosgrado/administracion/soporte/usuario/ver.xhtml</from-view-id>
+		<!-- Navegacion hasta la pagina listar usuarios -->
+		<navigation-case>
+			<from-outcome>irCancelarVer</from-outcome>
+			<to-view-id>/titulacionPosgrado/administracion/soporte/usuario/listar.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/titulacionPosgrado/administracion/soporte/usuario/ver.xhtml</from-view-id>
+		<!-- Navegacion hasta la pagina listar usuarios -->
+		<navigation-case>
+			<from-outcome>irEditarUsuario</from-outcome>
+			<to-view-id>/titulacionPosgrado/administracion/soporte/usuario/editar.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/titulacionPosgrado/administracion/soporte/usuario/editar.xhtml</from-view-id>
+		<!-- Navegacion hasta la pagina listar usuarios -->
+		<navigation-case>
+			<from-outcome>irCancelarEdicion</from-outcome>
+			<to-view-id>/titulacionPosgrado/administracion/soporte/usuario/listar.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/titulacionPosgrado/administracion/soporte/usuario/listar.xhtml</from-view-id>
+		<!-- Navegacion hasta la pagina listar usuarios -->
+		<navigation-case>
+			<from-outcome>irUsuarioNuevo</from-outcome>
+			<to-view-id>/titulacionPosgrado/administracion/soporte/usuario/nuevo.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/titulacionPosgrado/administracion/soporte/usuario/nuevo.xhtml</from-view-id>
+		<!-- Navegacion hasta la pagina listar usuarios -->
+		<navigation-case>
+			<from-outcome>irInicio</from-outcome>
+			<to-view-id>/titulacionPosgrado/generalidades/principal.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/titulacionPosgrado/administracion/soporte/usuario/listar.xhtml</from-view-id>
+		<!-- Navegacion hasta la pagina listar usuarios -->
+		<navigation-case>
+			<from-outcome>irAdministrarcarreras</from-outcome>
+			<to-view-id>/titulacionPosgrado/administracion/soporte/usuario/agregarCarreraUsuario.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/titulacionPosgrado/administracion/soporte/usuario/agregarCarreraUsuario.xhtml</from-view-id>
+		<!-- Navegacion hasta la pagina listar usuarios -->
+		<navigation-case>
+			<from-outcome>irInicio</from-outcome>
+			<to-view-id>/titulacionPosgrado/administracion/soporte/usuario/listar.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/titulacionPosgrado/administracion/soporte/usuario/nuevo.xhtml</from-view-id>
+		<!-- Navegacion hasta la pagina listar usuarios -->
+		<navigation-case>
+			<from-outcome>irAgregarCarrerasNuevoUsuario</from-outcome>
+			<to-view-id>/titulacionPosgrado/administracion/soporte/usuario/nuevoAgregarCarrera.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/titulacionPosgrado/administracion/soporte/usuario/nuevoAgregarCarrera.xhtml</from-view-id>
+		<!-- Navegacion hasta la pagina listar usuarios -->
+		<navigation-case>
+			<from-outcome>irInicio</from-outcome>
+			<to-view-id>/titulacionPosgrado/generalidades/principal.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<!-- =========================================================================================== 
+		============================ NAVEGACION DESDE EL REGISTRO.XHTML =========================== 
+		=========================================================================================== -->
+	<navigation-rule>
+		<from-view-id>/titulacionPosgrado/generalidades/registroPostulante/registroPostulante.xhtml</from-view-id>
+		<!-- Navegacion hasta el xhtml inicio -->
+		<navigation-case>
+			<from-outcome>irInicio</from-outcome>
+			<to-view-id>/titulacionPosgrado/generalidades/login.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/titulacionPosgrado/generalidades/registroPostulante/registroPostulante.xhtml</from-view-id>
+		<!-- Navegacion hasta el xhtml inicio -->
+		<navigation-case>
+			<from-outcome>confirmarRegistro</from-outcome>
+			<to-view-id>/titulacionPosgrado/generalidades/registroPostulante/confirmacionCorreo.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/titulacionPosgrado/generalidades/registroPostulante/registroPostulante.xhtml</from-view-id>
+		<!-- Navegacion hasta el xhtml inicio -->
+		<navigation-case>
+			<from-outcome>irErrorDigitoCedula</from-outcome>
+			<to-view-id>/titulacionPosgrado/generalidades/registroPostulante/errorDigitoCedula.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<!-- =========================================================================================== 
+		============================ NAVEGACION DESDE EL APTITUD.XHTML =========================== 
+		=========================================================================================== -->
+	<navigation-rule>
+		<from-view-id>/titulacionPosgrado/validador/otrosMecanismos/aptitud2018/listarEvaluadosAptitud.xhtml</from-view-id>
+		<!-- Navegacion hasta el xhtml inicio -->
+		<navigation-case>
+			<from-outcome>irAptitudEvaluadootrosMecanismos</from-outcome>
+			<to-view-id>/titulacionPosgrado/validador/otrosMecanismos/aptitud2018/aprobacionTutorPostulante.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>irAptitudOtrosMecanismos</from-outcome>
+			<to-view-id>/titulacionPosgrado/validador/otrosMecanismos/aptitud2018/aptitudPostulante.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/titulacionPosgrado/validador/otrosMecanismos/aptitud2018/aptitudPostulante.xhtml</from-view-id>
+		<!-- Navegacion hasta el xhtml inicio -->
+		<navigation-case>
+			<from-outcome>confirmarRegistro</from-outcome>
+			<to-view-id>/titulacionPosgrado/validador/otrosMecanismos/aptitud2018/listarEvaluadosAptitud.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>irCancelarAptitud</from-outcome>
+			<to-view-id>/titulacionPosgrado/validador/otrosMecanismos/aptitud2018/listarEvaluadosAptitud.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/titulacionPosgrado/validador/otrosMecanismos/aptitud2018/aprobacionTutorPostulante.xhtml</from-view-id>
+		<!-- Navegacion hasta el xhtml inicio -->
+		<navigation-case>
+			<from-outcome>irListarEvaluadosAptitudOtrosMecanismos</from-outcome>
+			<to-view-id>/titulacionPosgrado/validador/otrosMecanismos/aptitud2018/listarEvaluadosAptitud.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>irCancelarAptitud</from-outcome>
+			<to-view-id>/titulacionPosgrado/validador/otrosMecanismos/aptitud2018/listarEvaluadosAptitud.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<!-- =============================================================================================== 
+		================================= NAVEGACION DESDE EL RECUPERARCLAVE.XHTML 
+		============================ =============================================================================================== -->
+	<navigation-rule>
+		<from-view-id>/titulacionPosgrado/generalidades/recuperaClave/recuperaClave.xhtml</from-view-id>
+		<!-- Navegacion hasta el xhtml principal para todos los roles -->
+		<navigation-case>
+			<from-outcome>cancelarRecuperaClave</from-outcome>
+			<to-view-id>/titulacionPosgrado/generalidades/login.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>irVerPaginaCorreo</from-outcome>
+			<to-view-id>/titulacionPosgrado/generalidades/registroPostulante/confirmacionRecuperaPassword.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<!-- =========================================================================================== 
+		======================= NAVEGACION FUNCIONALIDAD DE POSTULACION =========================== 
+		===================== DESDE EL POSTULACION.XHTML ======================================= 
+		=========================================================================================== -->
+	<navigation-rule>
+		<from-view-id>/titulacionPosgrado/postulacion/postulacion.xhtml</from-view-id>
+		<!-- Navegacion hasta el xhtml principal.xhtml para rol administrador -->
+		<navigation-case>
+			<from-outcome>cancelarPostulacion</from-outcome>
+			<to-view-id>/titulacionPosgrado/generalidades/principal.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<!-- =========================================================================================== 
+		======================= NAVEGACION FUNCIONALIDAD DE VISUALIZACION ========================== 
+		=========================== DESDE EL LISTARPOSTULACION.XHTML ============================== 
+		=========================================================================================== -->
+	<navigation-rule>
+		<from-view-id>/titulacionPosgrado/postulacionUnidadtitulacionPosgrado/visualizacion/listarPostulacion.xhtml</from-view-id>
+		<!-- Navegacion hasta el xhtml principal.xhtml para rol postulante -->
+		<navigation-case>
+			<from-outcome>irInicio</from-outcome>
+			<to-view-id>/titulacionPosgrado/generalidades/principal.xhtml</to-view-id>
+		</navigation-case>
+		<!-- Navegacion hasta el xhtml visualizacionOdontologia.xhtml para rol 
+			postulante -->
+		<navigation-case>
+			<from-outcome>irVisualizarPostulacion</from-outcome>
+			<to-view-id>/titulacionPosgrado/postulacionUnidadTitulacion/visualizacion/visualizacion.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<!-- =========================== DESDE EL VISUALIZACIONODONTOLOGIA.XHTML 
+		============================== -->
+	<navigation-rule>
+		<from-view-id>/titulacionPosgrado/postulacionUnidadTitulacion/visualizacion/visualizacion.xhtml</from-view-id>
+		<!-- Navegacion hasta el xhtml principal.xhtml para rol postulante -->
+		<navigation-case>
+			<from-outcome>regresarAListaPostulaciones</from-outcome>
+			<to-view-id>/titulacionPosgrado/postulacionUnidadTitulacion/visualizacion/listarPostulacion.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<!-- =========================================================================================== 
+		============= NAVEGACION FUNCIONALIDAD ADMINISTRACION RESETEO DE MAIL =============== 
+		======================DESDE EL LISTARUSUARIOS.XHTML======================================= 
+		=========================================================================================== -->
+	<navigation-rule>
+		<from-view-id>/titulacionPosgrado/administracion/soporte/reseteoMail/listarUsuarios.xhtml</from-view-id>
+		<!-- Navegacion hasta el xhtml principal.xhtml para rol administrador -->
+		<navigation-case>
+			<from-outcome>cancelarReseteoMail</from-outcome>
+			<to-view-id>/titulacionPosgrado/generalidades/principal.xhtml</to-view-id>
+		</navigation-case>
+		<!-- Navegacion hasta el xhtml editarMail.xhtml para rol administrador -->
+		<navigation-case>
+			<from-outcome>irEditar</from-outcome>
+			<to-view-id>/titulacionPosgrado/administracion/soporte/reseteoMail/editarMail.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<!-- =========================================================================================== 
+		======================DESDE EL editarMail.XHTML======================================= 
+		=========================================================================================== -->
+	<navigation-rule>
+		<from-view-id>/titulacionPosgrado/administracion/reseteoMail/editarMail.xhtml</from-view-id>
+		<!-- Navegacion hasta el xhtml principal.xhtml para rol administrador -->
+		<navigation-case>
+			<from-outcome>irListaReseteoMail</from-outcome>
+			<to-view-id>/titulacionPosgrado/administracion/reseteoMail/listarUsuarios.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<!-- =========================================================================================== 
+		======================DESDE EL cambioClave.XHTML======================================= 
+		=========================================================================================== -->
+	<navigation-rule>
+		<from-view-id>/titulacionPosgrado/administracion/postulante/cambioClave/cambioClave.xhtml</from-view-id>
+		<!-- Navegacion hasta el xhtml principal.xhtml para rol administrador -->
+		<navigation-case>
+			<from-outcome>irInicio</from-outcome>
+			<to-view-id>/titulacionPosgrado/generalidades/principal.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<!-- ========================================================================================= 
+		============= NAVEGACION DESDE EDITAR perfilPostulante.XHTML ===================================== 
+		========================================================================================= -->
+	<navigation-rule>
+		<from-view-id>/titulacionPosgrado/administracion/postulante/perfil/perfilPostulante.xhtml</from-view-id>
+		<!-- Navegacion hasta la pagina editarPerfilPostulante.xhtml -->
+		<navigation-case>
+			<from-outcome>irEditarPerfil</from-outcome>
+			<to-view-id>/titulacionPosgrado/administracion/postulante/perfil/editarPerfilPostulante.xhtml</to-view-id>
+		</navigation-case>
+		<!-- Navegacion hasta la pagina principal -->
+		<navigation-case>
+			<from-outcome>irInicio</from-outcome>
+			<to-view-id>/titulacionPosgrado/generalidades/principal.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<!-- ========================================================================================= 
+		============= NAVEGACION DESDE REPORTES ================================================ 
+		========================================================================================= 
+		==================================================================================== 
+		================= NAVEGACION DESDE ASIGNACION MECANISMO =========================== 
+		==================================================================================== -->
+	<navigation-rule>
+		<from-view-id>/titulacionPosgrado/evaluador/asignacionMecanismo/listarValidadosXAsignar.xhtml</from-view-id>
+		<!-- Navegacion hasta la pagina principal -->
+		<navigation-case>
+			<from-outcome>irAsignacionMecanismo</from-outcome>
+			<to-view-id>/titulacionPosgrado/evaluador/asignacionMecanismo/asignarMecanismo.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/titulacionPosgrado/evaluador/asignacionMecanismo/asignarMecanismo.xhtml</from-view-id>
+		<!-- Navegacion hasta la pagina principal -->
+		<navigation-case>
+			<from-outcome>irListarAsignacionMecanismos</from-outcome>
+			<to-view-id>/titulacionPosgrado/evaluador/asignacionMecanismo/listarValidadosXAsignar.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<!-- ========================================================================================= 
+		============= NAVEGACION DESDE EVALUACION IDONEIDAD ================================================ 
+		========================================================================================= -->
+	<navigation-rule>
+		<from-view-id>/titulacionPosgrado/validador/idoneidad/listarPostuladosValidacion.xhtml</from-view-id>
+		<!-- Navegacion hasta la pagina principal -->
+		<navigation-case>
+			<from-outcome>irValidacionPostulado</from-outcome>
+			<to-view-id>/titulacionPosgrado/validador/idoneidad/validacionIdoneidad.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/titulacionPosgrado/validador/idoneidad/validacionIdoneidad.xhtml</from-view-id>
+		<!-- Navegacion hasta la pagina principal -->
+		<navigation-case>
+			<from-outcome>irCancelarPostulacion</from-outcome>
+			<to-view-id>/titulacionPosgrado/validador/idoneidad/listarPostuladosValidacion.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/titulacionPosgrado/validador/idoneidad/validacionIdoneidad.xhtml</from-view-id>
+		<!-- Navegacion hasta la pagina principal -->
+		<navigation-case>
+			<from-outcome>irListarPostulantesValidacion</from-outcome>
+			<to-view-id>/titulacionPosgrado/validador/idoneidad/listarPostuladosValidacion.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<!--========================================================================================= 
+		============= NAVEGACION DESDE Ingresar notas de grado ================================================ 
+		========================================================================================= -->
+	<!-- Navegación desde la página de modificar notas tribunal lector -->
+	<navigation-rule>
+		<from-view-id>/titulacionPosgrado/validador/otrosMecanismos/notasTribunalOral/listarPendientesTribunal.xhtml</from-view-id>
+		<!-- Navegacion hasta la pagina principal -->
+		<navigation-case>
+			<from-outcome>irModificarnotasTribunalOral</from-outcome>
+			<to-view-id>/titulacionPosgrado/validador/otrosMecanismos/notasTribunalOral/modificarNotasPendiente.xhtml</to-view-id>
+
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>irModificarNotasTribunalLector2018</from-outcome>
+			<to-view-id>/titulacionPosgrado/validador/otrosMecanismos/notasTribunalOral/modificarNotasPendiente2018.xhtml</to-view-id>
+
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/titulacionPosgrado/validador/otrosMecanismos/notasTribunalOral/modificarNotasPendiente.xhtml</from-view-id>
+		<!-- Navegacion hasta la pagina principal -->
+		<navigation-case>
+			<from-outcome>irCancelarModificarNotas</from-outcome>
+			<to-view-id>/titulacionPosgrado/validador/otrosMecanismos/notasTribunalOral/listarPendientesTribunal.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+<navigation-rule>
+		<from-view-id>/titulacionPosgrado/validador/otrosMecanismos/notasTribunalOral/modificarNotasPendiente2018.xhtml</from-view-id>
+		<!-- Navegacion hasta la pagina principal -->
+		<navigation-case>
+			<from-outcome>irCancelarModificarNotas</from-outcome>
+			<to-view-id>/titulacionPosgrado/validador/otrosMecanismos/notasTribunalOral/listarPendientesTribunal.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/titulacionPosgrado/validador/otrosMecanismos/notasTribunalOral/listarPendientesTribunal.xhtml</from-view-id>
+		<!-- Navegacion hasta la pagina principal -->
+		<navigation-case>
+			<from-outcome>irInicio</from-outcome>
+			<to-view-id>/titulacionPosgrado/generalidades/principal.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+
+	<!-- ====================================================================================== 
+		============= NAVEGACION DESDE EDITAR ACTA DE GRADO ============================ 
+		========================================================================================= -->
+	<navigation-rule>
+		<from-view-id>/titulacionPosgrado/validador/actaGrado/listar.xhtml</from-view-id>
+		<!-- Navegacion hasta la pagina principal -->
+		<navigation-case>
+			<from-outcome>irActaGrado</from-outcome>
+			<to-view-id>/titulacionPosgrado/validador/actaGrado/editar.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>irInicio</from-outcome>
+			<to-view-id>/titulacionPosgrado/generalidades/principal.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/titulacionPosgrado/validador/actaGrado/editar.xhtml</from-view-id>
+		<!-- Navegacion hasta la pagina principal -->
+		<navigation-case>
+			<from-outcome>irRegresarActaGrado</from-outcome>
+			<to-view-id>/titulacionPosgrado/validador/actaGrado/listar.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+
+	<!-- ====================================================================================== 
+		======== NAVEGACION DESDE IMPRIMIR ACTA DE GRADO COMPLEXIVO EN BLOQUE ================= 
+		======================================================================================= -->
+	<navigation-rule>
+		<from-view-id>/titulacion/validacion/imprimirActaGrado/bloqueComplexivo.xhtml</from-view-id>
+		<!-- Navegacion hasta la pagina principal -->
+		<navigation-case>
+			<from-outcome>irMenuPrincipal</from-outcome>
+			<to-view-id>/titulacion/generalidades/principal.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<!-- ===================================================================================== 
+		============= NAVEGACION DESDE IMPRIMIR ACTA DE GRADO ================================ 
+		====================================================================================== -->
+	<navigation-rule>
+		<from-view-id>/titulacionPosgrado/validador/imprimirActaGrado/listar.xhtml</from-view-id>
+		<!-- Navegacion hasta la pagina de visualización de acta -->
+		<navigation-case>
+			<from-outcome>irImprimirActaGradoOtrosMecanismosTresComponentes</from-outcome>
+			<to-view-id>/titulacionPosgrado/validador/imprimirActaGrado/visualizarOtrosMecanismo3Comp.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/titulacion/validacion/imprimirActaGrado/listar.xhtml</from-view-id>
+		<!-- Navegacion hasta la pagina de visualización de acta -->
+		<navigation-case>
+			<from-outcome>irImprimirActaGradoOtrosMecanismosEconomia</from-outcome>
+			<to-view-id>/titulacion/validacion/imprimirActaGrado/visualizarOtrosMecanismosEconomia.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/titulacion/validacion/imprimirActaGrado/listar.xhtml</from-view-id>
+		<!-- Navegacion hasta la pagina de visualización de acta -->
+		<navigation-case>
+			<from-outcome>irImprimirActaGradoOtrosMecanismos2Tribunal</from-outcome>
+			<to-view-id>/titulacion/validacion/imprimirActaGrado/visualizarOtrosMecanismos2Tribunal.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>irImprimirActaGradoOtrosMecanismos2Tribunal2018</from-outcome>
+			<to-view-id>/titulacion/validacion/imprimirActaGrado/visualizarOtrosMecanismos2Tribunal2018.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/titulacion/validacion/imprimirActaGrado/listar.xhtml</from-view-id>
+		<!-- Navegacion hasta la pagina de visualización de acta -->
+		<navigation-case>
+			<from-outcome>irImprimirActaGradoNoVigente</from-outcome>
+			<to-view-id>/titulacion/validacion/imprimirActaGrado/visualizarNoVigente.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/titulacion/validacion/imprimirActaGrado/listar.xhtml</from-view-id>
+		<!-- Navegacion hasta la pagina de visualización de acta -->
+		<navigation-case>
+			<from-outcome>irImprimirActaGradoSedes</from-outcome>
+			<to-view-id>/titulacion/validacion/imprimirActaGrado/visualizarSedes.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/titulacion/validacion/imprimirActaGrado/visualizar.xhtml</from-view-id>
+		<!-- Navegacion de retorno a la página de listar -->
+		<navigation-case>
+			<from-outcome>irRegresarActaGrado</from-outcome>
+			<to-view-id>/titulacion/validacion/imprimirActaGrado/listar.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/titulacion/validacion/imprimirActaGrado/visualizar2018.xhtml</from-view-id>
+		<!-- Navegacion de retorno a la página de listar -->
+		<navigation-case>
+			<from-outcome>irRegresarActaGrado</from-outcome>
+			<to-view-id>/titulacion/validacion/imprimirActaGrado/listar.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/titulacion/validacion/imprimirActaGrado/listar.xhtml</from-view-id>
+		<!-- Navegacion hasta la pagina principal -->
+		<navigation-case>
+			<from-outcome>irInicio</from-outcome>
+			<to-view-id>/titulacion/generalidades/principal.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/titulacion/validacion/imprimirActaGrado/visualizarOtrosMecanismos.xhtml</from-view-id>
+		<!-- Navegacion hasta la pagina principal -->
+		<navigation-case>
+			<from-outcome>irInicio</from-outcome>
+			<to-view-id>/titulacion/generalidades/principal.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/titulacion/validacion/imprimirActaGrado/visualizarOtrosMecanismos.xhtml</from-view-id>
+		<!-- Navegacion hasta la pagina principal -->
+		<navigation-case>
+			<from-outcome>irRegresarActaGrado</from-outcome>
+			<to-view-id>/titulacion/validacion/imprimirActaGrado/listar.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+		<navigation-rule>
+		<from-view-id>/titulacionPosgrado/validador/imprimirActaGrado/visualizarOtrosMecanismo3Comp.xhtml</from-view-id>
+		<!-- Navegacion hasta la pagina principal -->
+		<navigation-case>
+			<from-outcome>irRegresarActaGrado</from-outcome>
+			<to-view-id>/titulacionPosgrado/validador/imprimirActaGrado/listar.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/titulacion/validacion/imprimirActaGrado/visualizarOtrosMecanismos2Tribunal.xhtml</from-view-id>
+		<!-- Navegacion hasta la pagina principal -->
+		<navigation-case>
+			<from-outcome>irInicio</from-outcome>
+			<to-view-id>/titulacion/generalidades/principal.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/titulacion/validacion/imprimirActaGrado/visualizarOtrosMecanismos2Tribunal.xhtml</from-view-id>
+		<!-- Navegacion hasta la pagina principal -->
+		<navigation-case>
+			<from-outcome>irRegresarActaGrado</from-outcome>
+			<to-view-id>/titulacion/validacion/imprimirActaGrado/listar.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/titulacion/validacion/imprimirActaGrado/visualizarOtrosMecanismos2Tribunal2018.xhtml</from-view-id>
+		<!-- Navegacion hasta la pagina principal -->
+		<navigation-case>
+			<from-outcome>irInicio</from-outcome>
+			<to-view-id>/titulacion/generalidades/principal.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/titulacion/validacion/imprimirActaGrado/visualizarOtrosMecanismos2Tribunal2018.xhtml</from-view-id>
+		<!-- Navegacion hasta la pagina principal -->
+		<navigation-case>
+			<from-outcome>irRegresarActaGrado</from-outcome>
+			<to-view-id>/titulacion/validacion/imprimirActaGrado/listar.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/titulacion/validacion/imprimirActaGrado/visualizarNoVigente.xhtml</from-view-id>
+		<!-- Navegacion hasta la pagina principal -->
+		<navigation-case>
+			<from-outcome>irInicio</from-outcome>
+			<to-view-id>/titulacion/generalidades/principal.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/titulacion/validacion/imprimirActaGrado/visualizarNoVigente.xhtml</from-view-id>
+		<!-- Navegacion hasta la pagina principal -->
+		<navigation-case>
+			<from-outcome>irRegresarActaGrado</from-outcome>
+			<to-view-id>/titulacion/validacion/imprimirActaGrado/listar.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/titulacion/validacion/imprimirActaGrado/visualizarSedes.xhtml</from-view-id>
+		<!-- Navegacion hasta la pagina principal -->
+		<navigation-case>
+			<from-outcome>irInicio</from-outcome>
+			<to-view-id>/titulacion/generalidades/principal.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/titulacion/validacion/imprimirActaGrado/visualizarSedes.xhtml</from-view-id>
+		<!-- Navegacion hasta la pagina principal -->
+		<navigation-case>
+			<from-outcome>irRegresarActaGrado</from-outcome>
+			<to-view-id>/titulacion/validacion/imprimirActaGrado/listar.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<!-- ===================================================================================== 
+		============= NAVEGACION DESDE IMPRIMIR ACTA DE GRADO ================================ 
+		====================================================================================== -->
+	<navigation-rule>
+		<from-view-id>/titulacionPosgrado/validador/imprimirActaGrado/listar.xhtml</from-view-id>
+		<!-- Navegacion hasta la pagina de visualización de acta -->
+		<navigation-case>
+			<from-outcome>irInicio</from-outcome>
+			<to-view-id>/titulacionPosgrado/generalidades/principal.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/titulacionPosgrado/validador/imprimirActaGrado/listar.xhtml</from-view-id>
+		<!-- Navegacion hasta la pagina de visualización de acta -->
+		<navigation-case>
+			<from-outcome>irImprimirActaGradoOtrosMecanismos</from-outcome>
+			<to-view-id>/titulacionPosgrado/validador/imprimirActaGrado/visualizarOtrosMecanismos.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/titulacionPosgrado/validador/imprimirActaGrado/visualizarOtrosMecanismos.xhtml</from-view-id>
+		<!-- Navegacion hasta la pagina de visualización de acta -->
+		<navigation-case>
+			<from-outcome>irRegresarActaGrado</from-outcome>
+			<to-view-id>/titulacionPosgrado/validador/imprimirActaGrado/listar.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/titulacionPosgrado/validador/editarDocente/listarDocentes.xhtml</from-view-id>
+		<!-- Navegacion hasta la pagina de lista docentes -->
+		<navigation-case>
+			<from-outcome>irEdiciónDocente</from-outcome>
+			<to-view-id>/titulacionPosgrado/validador/editarDocente/edicionDocente.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/titulacionPosgrado/validador/editarDocente/edicionDocente.xhtml</from-view-id>
+		<!-- Navegacion hasta la pagina de lista docentes -->
+		<navigation-case>
+			<from-outcome>irCancelarEdicionDocentes</from-outcome>
+			<to-view-id>/titulacionPosgrado/validador/editarDocente/listarDocentes.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+		<!-- ========================================================================================= 
+		============= NAVEGACION DESDE REGISTRO ACTUALIZAR CONOCIMIENTOS ============================ 
+		============================================================================================== -->
+	<navigation-rule>
+		<from-view-id>/titulacionPosgrado/validador/actualizacionConocimientos/listarPostuladosActualizar.xhtml</from-view-id>
+		<!-- Navegacion hasta la pagina principal -->
+		<navigation-case>
+			<from-outcome>irRegistrarActualizar</from-outcome>
+			<to-view-id>/titulacionPosgrado/validador/actualizacionConocimientos/actualizarConocimientos.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/titulacionPosgrado/validador/actualizacionConocimientos/actualizarConocimientos.xhtml</from-view-id>
+		<!-- Navegacion hasta la pagina principal -->
+		<navigation-case>
+			<from-outcome>irRegresarListarActualizar</from-outcome>
+			<to-view-id>/titulacionPosgrado/validador/actualizacionConocimientos/listarPostuladosActualizar.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+		<!-- =========================================================================================== 
+ ============================ NAVEGACION FUNCIONALIDAD AUTORIDADES ======================== 
+ =========================================================================================== -->
+ <navigation-rule>
+  <!-- ===== Navegacion desde el XHTM listar Autoridades Editor DGA ===== -->
+  <from-view-id>/titulacionPosgrado/administracion/autoridad/listarAutoridades.xhtml</from-view-id>
+  <!-- Navegacion hasta el xhtml verAutorida.xhtml -->
+  <!-- Navegacion hasta la pagina principal -->
+		<navigation-case>
+			<from-outcome>irInicio</from-outcome>
+			<to-view-id>/titulacion/generalidades/principal.xhtml</to-view-id>
+		</navigation-case>
+		<!-- Navegacion hasta el xhtml EditarAutoridades para el rol EDITOR DGA -->
+		<navigation-case>
+			<from-outcome>irEditarAutoridad</from-outcome>
+			<to-view-id>/titulacionPosgrado/administracion/autoridad/editarAutoridades.xhtml</to-view-id>
+		</navigation-case>
+		<!-- Navegacion hasta el xhtml verAutoridades para el rol EDITOR DGA -->
+		<navigation-case>
+			<from-outcome>irVerAutoridad</from-outcome>
+			<to-view-id>/titulacionPosgrado/administracion/autoridad/verAutoridades.xhtml</to-view-id>
+		</navigation-case>
+		<!-- Navegacion hasta el xhtml regresarListarAutoridades para el rol EDITOR DGA -->
+		<navigation-case>
+			<from-outcome>irCancelarVer</from-outcome>
+			<to-view-id>/titulacionPosgrado/administracion/autoridad/listarAutoridades.xhtml</to-view-id>
+		</navigation-case>
+		<!-- Navegacion hasta el xhtml nuevoAutoridades para el rol EDITOR DGA -->
+		<navigation-case>
+			<from-outcome>irNuevaAutoridad</from-outcome>
+			<to-view-id>/titulacionPosgrado/administracion/autoridad/nuevaAutoridades.xhtml</to-view-id>
+		</navigation-case>
+ </navigation-rule>
+	
+	<!-- =========================================================================================== 
+		======================================== MANEJADOR DE LENGUAJE ============================ 
+		=========================================================================================== -->
+	<application>
+		<el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
+		<locale-config>
+			<default-locale>en</default-locale>
+		</locale-config>
+	</application>
+</faces-config>

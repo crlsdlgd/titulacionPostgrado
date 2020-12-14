@@ -1,0 +1,68 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      			xmlns:ui="http://java.sun.com/jsf/facelets"
+      			xmlns:f="http://java.sun.com/jsf/core"
+      			xmlns:h="http://java.sun.com/jsf/html"
+     			xmlns:p="http://primefaces.org/ui">
+	<h:form id="frmModalAgregarCarrera">
+		<p:dialog widgetVar="dialogoAgregarCarrera" modal="true" draggable="false" closable="false" 
+				  resizable="false" height="480" width="980" styleClass="modal-sin-header">
+			<p:outputLabel value="Asignar carrera"  style="font-size: 1.1em !important;" />
+			<p:panel id="pnlBusqueda" header="Ingrese los datos para buscar" >
+				<!-- ******************** TABLA RESPONSIVA ************************ -->
+				<div class="grid condensed">
+				<!-- ******************** FILA NUMERO 1 ************************ -->
+					<div class="row cells8"> 
+					<div class="cell colspan4"><!-- FACULTAD -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblFacultad" for="slcFacultad" value="Facultad: " />
+							</ui:define>
+							<ui:define name="valor">
+								<h:selectOneMenu id="slcFacultad" value="#{edicionDocentesForm.pfFacultad.fclId}"
+									required="true" requiredMessage="#{generalesConstantesForm.msgCampoRequerido}"
+									style="width:100%">
+									<f:selectItem itemLabel="#{generalesConstantesForm.appSeleccione}" />
+									<f:selectItems var="item"  value="#{edicionDocentesForm.pfListFacultades}"
+										itemLabel="#{item.fclDescripcion}" itemValue="#{item.fclId}" />
+									<p:ajax event="change" listener="#{edicionDocentesForm.cambiarFacultad()}"
+											update=" lblFacultad, slcFacultad, msgFacultad ,  pnlResultados " />
+								</h:selectOneMenu>
+							</ui:define>
+							<ui:define name="etiquetaError">
+								<p:message id="msgFacultad" for="slcFacultad" />
+							</ui:define>
+						</ui:decorate>
+					</div>
+				</div>
+				
+		    	</div>
+			</p:panel>
+			<div>	
+			<p:commandButton id="btnBuscar" value="Buscar"   action="#{edicionDocentesForm.buscarCarreraXfacultad(edicionDocentesForm.pfFacultad.fclId)}"
+							update=":frmModalAgregarCarrera:pnlResultados" /> 
+			<p:commandButton id="btnLimpiar" value="Limpiar"   action="#{edicionDocentesForm.limpiarAgredarCarrera()}" 
+							update=":frmModalAgregarCarrera:pnlResultados , :frmModalAgregarCarrera:pnlBusqueda" /> 
+			</div>
+		
+			<p:panel id="pnlResultados" header="Resultados de la búsqueda" >
+				<p:dataTable id="dtsRol" var="item" value="#{edicionDocentesForm.pfListCarreras}"
+		    		 		rows="5" paginator="true"
+		                         paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+		                         rowsPerPageTemplate="5,10,15" emptyMessage="NO SE ENCONTRARON DATOS CON LOS PARÁMETROS DE BÚSQUEDA INGRESADOS" paginatorPosition="bottom">
+				        <p:column headerText="Descripción" style="width: 85%;">
+				            <h:outputText value="#{item.crrDetalle}"/>
+				        </p:column>
+				        <p:column headerText="Opción" style="width: 15%; text-align:center;">
+				        	<p:commandLink value="Agregar " action="#{edicionDocentesForm.guardarAsignarCarrera(item.crrId)}" update=":frmListarAsignacionCarrerasDocente:pnlResultados"
+				        			onclick="PF('dialogoTrabajando').show();" ajax="false"  immediate="true" />
+				        </p:column>
+				</p:dataTable>
+			</p:panel>
+			<div >
+				<p:commandButton value="Regresar" action="#{edicionDocentesForm.limpiarAgredarCarrera()}" oncomplete="PF('dialogoAgregarCarrera').hide();"/>
+			</div>
+		</p:dialog> 
+	</h:form>
+</ui:composition>

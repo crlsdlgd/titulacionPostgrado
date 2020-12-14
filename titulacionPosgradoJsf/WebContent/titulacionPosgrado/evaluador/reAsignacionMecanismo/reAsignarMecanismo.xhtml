@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<ui:composition template="/componentesGenerales/plantillas/pltPrincipalSinMenuEjecModal.xhtml">
+<ui:define name="paginacion">
+		<ui:include src="/componentesGenerales/plantillas/pltPaginacion.xhtml">
+			<ui:param name="pagina"
+				value=" Evaluación / Reasignación de Mecanismo / Resignar " />
+		</ui:include>
+</ui:define>
+
+<ui:define name="cuerpo">
+<script language="JavaScript">
+//<![CDATA[
+	function verificarErrores(){
+    	var idVarError = 'compOculto:txtValidador';
+    	var varError = document.getElementById(idVarError);
+    	if(varError.value == 1){
+    		document.getElementById('frVisualizar:btnAceptarModal').click();
+        }
+    } 
+     function verificarTutor(){
+    	var idVarError = 'compOcultoAsignar:txtAsignarTutor';
+    	var varError = document.getElementById(idVarError);
+    	if(varError.value == 1){
+    		document.getElementById('frVisualizar:btnAceptarModalAsignar').click();
+        }
+    }
+ //]]> 
+</script>
+
+
+	<h:form id="frVisualizar" enctype="multipart/form-data" acceptcharset="UTF-8" >
+		<!-- ******************** PANEL DE INFORMACION DEL POSTULADO ************************ -->
+		<p:panel id="pnlDatosPersona" header="Información del estudiante evaluado">
+			<!-- ******************** TABLA RESPONSIVA ************************ -->
+			<div class="grid condensed">
+				<!-- ******************** FILA NUMERO 1 ************************ -->
+				<div class="row cells8"> 
+				   <div class="cell colspan4"><!-- IDENTIFICACION -->
+						<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblIdentificacion" for="txtIdentificacion" value="No.Identificación: "/>	
+		       				</ui:define>
+		       				<ui:define name="valor">	
+		       					<p:outputLabel id="txtIdentificacion" value="#{reAsignacionMecanismoForm.ramfEstudianteAsignacionMecanismoDtoEditar.prsIdentificacion}" 
+		       									style="font-weight: Normal !important;">
+		       					</p:outputLabel>	
+		       				</ui:define>
+		       			</ui:decorate>
+					</div>	<!-- Fin fila 1 -->
+				   <div class="cell colspan3"><!-- NOMBRES -->
+						<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblNombres" for="txtNombres" value="Nombres: "/>	
+		       				</ui:define>
+		       				<ui:define name="valor">	
+		       					<p:outputLabel id="txtNombres" value="#{reAsignacionMecanismoForm.ramfEstudianteAsignacionMecanismoDtoEditar.prsPrimerApellido} #{reAsignacionMecanismoForm.ramfEstudianteAsignacionMecanismoDtoEditar.prsSegundoApellido==null?'':reAsignacionMecanismoForm.ramfEstudianteAsignacionMecanismoDtoEditar.prsSegundoApellido} #{reAsignacionMecanismoForm.ramfEstudianteAsignacionMecanismoDtoEditar.prsNombres} "  
+		       									style="font-weight: Normal !important;">
+		       					</p:outputLabel>	
+		       				</ui:define>
+		       			</ui:decorate>
+					</div><!-- Fin fila 2 -->
+				</div>  
+				
+			</div>
+		</p:panel>	
+		<!-- ******************** PANEL DE INFORMACION DE LA ASIGNACION DE MECANISMO ************************ -->
+		<p:panel id="pnlDatosPostulcacion" header="Reasignación mecanismo de titulación">
+			<!-- ******************** TABLA RESPONSIVA ************************ -->
+			<div class="grid condensed">
+				<!-- ******************** FILA NUMERO 3 ************************ -->
+				<div class="row cells8"> 
+					<div class="cell colspan5"><!-- Mecanismo estadistico -->
+					   <ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+								<ui:define name="etiqueta">
+									<p:outputLabel id="lblMcttcarrera" for="slcMcttcarrera" value="Mecanismo titulación: " />
+								</ui:define>
+								<ui:define name="valor">
+									<h:selectOneMenu id="slcMcttcarrera" value="#{reAsignacionMecanismoForm.ramfEstudianteAsignacionMecanismoDtoEditar.fcesMecanismoTitulacionCarrera}"
+										required="true" requiredMessage="#{generalesConstantesForm.msgCampoRequerido}" style="width: 100%;">
+										
+										
+										<f:selectItems var="item"  value="#{reAsignacionMecanismoForm.ramfListMecanismoTitulacionCarrera}"
+											itemLabel="#{item.mccrMecanismoTitulacion.mcttDescripcion}" itemValue="#{item.mccrId}" />
+										<p:ajax event="change" listener="#{reAsignacionMecanismoForm.cambiarMecanismoTitulacion()}" update=" lblMcttcarrera , slcMcttcarrera , msgMcttcarrera , lblTema , txtTema , msgTema , lblTutor , txtTutor , msgTutor, btnGuardar , btnAsignar "/>
+									</h:selectOneMenu>
+								</ui:define>
+								<ui:define name="etiquetaError">
+									<p:message id="msgMcttcarrera" for="slcMcttcarrera" />
+								</ui:define>
+						</ui:decorate>
+					</div>
+				</div>
+				
+				
+				
+				<div class="row cells8"> 
+					<div class="cell colspan5">
+					<!-- *************** TEMA DE TESIS **************** -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblTema" for="txtTema" value="Tema trabajo titulación aprobado " />
+							</ui:define>
+							<ui:define name="valor">
+									<p:inputTextarea id="txtTema" value="#{reAsignacionMecanismoForm.ramfEstudianteAsignacionMecanismoDtoEditar.assttTemaTrabajo}"
+										required="true" requiredMessage="#{generalesConstantesForm.msgCampoRequerido}"
+										validator="temaTitulacionValidator" maxlength="512" 
+										style="width: 100%;"
+										disabled="#{reAsignacionMecanismoForm.ramfEstudianteAsignacionMecanismoDtoEditar.fcesMecanismoTitulacionCarrera == reAsignacionMecanismoForm.ramfExamenComplexivoValue  }">
+										<p:ajax event="blur" update=" lblTema ,  msgTema , lblTutor , txtTutor , msgTutor , btnGuardar "/>
+										<p:ajax event="click" update=" lblTema ,  msgTema , lblTutor , txtTutor , msgTutor , btnGuardar " listener="#{reAsignacionMecanismoForm.edicionTema()}"/>
+									</p:inputTextarea>
+							</ui:define>
+							<ui:define name="etiquetaError">
+								<p:message id="msgTema" for="txtTema" />
+							</ui:define>
+						</ui:decorate>
+					</div>
+				</div>
+				
+				<div class="row cells8"> 
+					<div class="cell colspan5">
+					<!-- ***************** TUTOR ******************** -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblTutor" for="txtTutor" value="Nombre tutor designado " />
+							</ui:define>
+							<ui:define name="valor">
+									<p:inputText id="txtTutor" value="#{reAsignacionMecanismoForm.ramfEstudianteAsignacionMecanismoDtoEditar.assttTutor}"
+										required="true" requiredMessage="#{generalesConstantesForm.msgCampoRequerido}"
+										validator="sinCaracteresEspecialesValidator" maxlength="64" 
+										style="width: 100%;"
+										disabled="true">
+										<p:ajax event="blur" update=" lblTema , txtTema , msgTema , lblTutor , txtTutor , msgTutor , btnGuardar" />
+									</p:inputText>
+							</ui:define>
+							<ui:define name="etiquetaError">
+								<p:message id="msgTutor" for="txtTutor" />
+							</ui:define>
+						</ui:decorate>
+					</div>
+					<div class="cell colspan1"><!-- Botón asignar tutor -->
+						<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+		       				<ui:define name="etiqueta">
+								<p:commandButton id="btnAsignar" value="Asignar" action="#{reAsignacionMecanismoForm.verificarClickAsignarTutor()}"  ajax="false"   disabled="#{reAsignacionMecanismoForm.ramfHabilitadorTutor}"  style="position: absolute;left: -148%;" />
+									<p:commandButton id="btnAceptarModalAsignar" value="EjecutarModalAsignar" style="visibility:hidden;">
+										<p:ajax oncomplete="PF('dialogoAsignarTutor').show();" update=":frmModalAsignarTutor,btnAsignar,txtTutor" />
+								</p:commandButton>
+									
+							</ui:define>
+		       			</ui:decorate>
+					</div>
+				</div>
+				
+			</div>
+		</p:panel>	
+				
+		<div>
+			<p:commandButton id="btnCancelar" value="Regresar" action="#{reAsignacionMecanismoForm.irCancelarReAsignacion()}" immediate="true" ajax="false"  />
+			<p:commandButton id="btnGuardar" value="Guardar" action="#{reAsignacionMecanismoForm.verificarClickAceptarTramite()}"  ajax="false" />
+			<p:commandButton id="btnAceptarModal" value="EjecutarModalAceptar" style="visibility:hidden;">
+					<p:ajax oncomplete="PF('dialogoAsignacionMecanismo').show();" update=":frmModalAsignacionMecanismo" />	    				
+    		</p:commandButton>
+		</div>
+	</h:form>
+	
+	<ui:include src="/titulacion/evaluacion/reAsignacionMecanismo/modalAceptarReAsignacionMecanismo.xhtml"/>
+		<h:form id="compOculto" style="visibility:hidden;">
+		 	<p:inputText id="txtValidador" value="#{reAsignacionMecanismoForm.ramfValidadorClic}" >
+			</p:inputText>	
+		</h:form>
+	<ui:include src="/titulacion/evaluacion/reAsignacionMecanismo/modalAsignarTutor.xhtml"/>
+		<h:form id="compOcultoAsignar" style="visibility:hidden;">
+		 	<p:inputText id="txtAsignarTutor" value="#{reAsignacionMecanismoForm.ramfValidadorClicTutor}" >
+			</p:inputText>	
+		</h:form>
+</ui:define>
+</ui:composition>
+</html>

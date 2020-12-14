@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+<ui:composition template="/componentesGenerales/plantillas/pltPrincipalSinMenuEjecModal.xhtml">
+<ui:define name="paginacion">
+		<ui:include src="/componentesGenerales/plantillas/pltPaginacion.xhtml">
+			<ui:param name="pagina"
+				value="Administración / Edición docentes / Asignar carreras al docente" />
+		</ui:include>
+</ui:define>
+<ui:define name="cuerpo">
+<script language="JavaScript">
+//<![CDATA[
+    function nobackbutton(){
+   		window.location.hash="no-back-button";
+   		window.location.hash="Again-No-back-button" //chrome
+   		window.onhashchange=function(){window.location.hash="no-back-button";}
+	}
+ //]]> 
+</script>
+	<h:form id="frmListarAsignacionCarrerasDocente" enctype="multipart/form-data" acceptcharset="UTF-8">
+			<p:panel id="pnlResultados" header="Lista de carreras asignadas al docente" >
+			<p:dataTable id="dtsUsuario" var="item" value="#{edicionDocentesForm.dpfListCarrerasDocente}"
+		    		 		rows="10" paginator="true"
+		                         paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+		                         rowsPerPageTemplate="5,10,15" emptyMessage="NO SE ENCONTRARON DATOS CON LOS PARÁMETROS DE BÚSQUEDA INGRESADOS">
+				        <p:column headerText="Facultad" style="width: 8em ! important;">
+				            <h:outputText value="#{item.fclDescripcion}"/>
+				        </p:column>
+				        <p:column headerText="Carrera" style="width: 12em ! important;">
+				            <h:outputText value="#{item.crrDetalle}"/>
+				        </p:column>
+				        <p:column headerText="Opción" style="width: 10em ! important;" >
+				        	<p:commandLink value=" Eliminar" action="#{edicionDocentesForm.elimiarCarrera(item.crrId)}" onclick="PF('dialogoTrabajando').show();" ajax="false" style="color:blue;margin:0 12px;"/>
+				       </p:column>
+			</p:dataTable>
+		</p:panel>
+		<div >
+		<p:commandButton id="btnRegresar" action="#{edicionDocentesForm.irListarCarrerasDocentes()}" value="Cancelar" immediate="true" />
+		<p:commandButton id="btnBuscarCarrera" value="Buscar Carreras">
+					<p:ajax oncomplete="PF('dialogoAgregarCarrera').show();" update=":frmModalAgregarCarrera" />
+			</p:commandButton>
+		</div>
+	</h:form>
+	
+	<ui:include src="/titulacion/administracion/dga/editarDocente/modalAgregarCarrera.xhtml" />
+</ui:define>
+</ui:composition>     
+</html>

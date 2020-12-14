@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<ui:composition template="/componentesGenerales/plantillas/pltPrincipalSinMenuEjecModal.xhtml">
+<ui:define name="paginacion">
+		<ui:include src="/componentesGenerales/plantillas/pltPaginacion.xhtml">
+			<ui:param name="pagina"
+				value="Validación /  Listar postulados que actualizan conocimientos" />
+		</ui:include>
+</ui:define>
+
+
+<ui:define name="cuerpo">
+
+<script language="JavaScript">
+//<![CDATA[
+	function verificarErrores(){
+    	var idVarError = 'compOculto:txtValidador';
+    	var varError = document.getElementById(idVarError);
+    	if(varError.value == 1){
+    		document.getElementById('frmListarActualizarPostulacion:btnAceptarModal').click();
+        }
+    } 
+    function nobackbutton(){
+   		window.location.hash="no-back-button";
+   		window.location.hash="Again-No-back-button" //chrome
+   		window.onhashchange=function(){window.location.hash="no-back-button";}
+	}
+    
+ //]]> 
+</script>
+
+
+	<h:form id="frmListarActualizarPostulacion" enctype="multipart/form-data" acceptcharset="UTF-8">
+		<p:panel id="pnlBusqueda" header="Ingrese los datos para buscar" >
+			<!-- ******************** TABLA RESPONSIVA ************************ -->
+			<div class="grid condensed">
+		    	
+		    	<!-- ******************** FILA NUMERO 1 ************************ -->
+		       	<div class="row cells8">
+		       		<div class="cell colspan3" >
+		       			<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblIdentificacion" for="txtIdentificacion" value="Identificación: "/>	
+		       				</ui:define>
+		       				<ui:define name="valor">	
+		       					<p:inputText id="txtIdentificacion" value="#{actualizarConocimientosForm.acfEstudianteValidacionJdbcDtoBuscar.prsIdentificacion}" >
+		       					</p:inputText>	
+		       				</ui:define>
+		       				<ui:define name="etiquetaError">	
+		       					<p:message id="msgIdentificacion" for="txtIdentificacion"/>	
+		       				</ui:define>
+		       			</ui:decorate>
+		       		</div>
+		       	</div>
+		    </div>
+		</p:panel>
+		<div>	
+		<p:commandButton id="btnBuscar" value="Buscar"  action="#{actualizarConocimientosForm.buscarValidados(sesionUsuarioForm.frmSuUsuario)}" 
+							 update = "pnlResultados,txtIdentificacion"/> 
+		<p:commandButton id="btnLimpiar" value="Limpiar"  action="#{actualizarConocimientosForm.limpiar()}"  
+							 update = "pnlResultados,txtIdentificacion"/> 
+		</div>
+		<p:panel id="pnlResultados" header="Resultados de la búsqueda" >
+			<p:dataTable id="dtsLstPostulacion" var="item" value="#{actualizarConocimientosForm.acfListaEstudianteValidacionJdbcDtoEditar}"
+		    		 		rows="10" paginator="true"
+		                         paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+		                         rowsPerPageTemplate="5,10,15" emptyMessage="NO SE ENCONTRARON POSTULACIONES CON LOS PARÁMETROS DE BÚSQUEDA INGRESADOS">
+				        <p:column headerText="Convocatoria" style="width: 4em ! important; text-align:center">
+				            <h:outputText value="#{item.cnvDescripcion}"/>
+				        </p:column>
+				        <p:column headerText="Facultad" style="width: 4em ! important; text-align:center">
+				            <h:outputText value="#{item.fclDescripcion}"/>
+				        </p:column>
+				        <p:column headerText="Carrera" style="width: 4em ! important; text-align:center">
+				            <h:outputText value="#{item.crrDetalle}"/>
+				        </p:column>
+				           <p:column headerText="Identificacion" style="width: 4em ! important; text-align:center">
+				            <h:outputText value="#{item.prsIdentificacion}"/>
+				        </p:column>
+				           <p:column headerText="Primer apellido" style="width: 4em ! important; text-align:center">
+				            <h:outputText value="#{item.prsPrimerApellido}"/>
+				        </p:column>
+				           <p:column headerText="Segundo apellido" style="width: 4em ! important; text-align:center">
+				            <h:outputText value="#{item.prsSegundoApellido}"/>
+				        </p:column>
+				           <p:column headerText="Nombres" style="width: 4em ! important; text-align:center">
+				            <h:outputText value="#{item.prsNombres}"/>
+				        </p:column>
+				        <p:column headerText="Opción" style="width: 4em ! important;text-align:center">
+				        	<p:commandLink value="Registrar pago" action="#{actualizarConocimientosForm.irRegistrarActualizar(item)}" onclick="PF('dialogoTrabajando').show();" ajax="false"/>
+				        </p:column>
+			</p:dataTable>
+		</p:panel>
+		
+		
+		
+		<div >
+		<p:commandButton id="btnRegresar" action="#{actualizarConocimientosForm.cancelarActualizar}" value="Regresar" immediate="true" />
+		<p:commandButton id="btnAceptarModal" value="EjecutarModalAceptar" style="visibility:hidden;">
+					<p:ajax oncomplete="PF('dialogoActualizarConocimientos').show();" update=":frmModalAceptarActualizar" />	    				
+    		</p:commandButton>
+		</div>
+		
+		
+		
+	</h:form>
+	<ui:include src="/titulacionPosgrado/validador/actualizacionConocimientos/modalAceptarActualizar.xhtml"/>
+		<h:form id="compOculto" style="visibility:hidden;">
+		 	<p:inputText id="txtValidador" value="#{actualizarConocimientosForm.acfValidadorClic}" >
+			</p:inputText>	
+	</h:form>
+</ui:define>
+</ui:composition>     
+</html>

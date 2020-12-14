@@ -1,0 +1,36 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      			xmlns:ui="http://java.sun.com/jsf/facelets"
+      			xmlns:f="http://java.sun.com/jsf/core"
+      			xmlns:h="http://java.sun.com/jsf/html"
+     			xmlns:p="http://primefaces.org/ui">
+	<h:form id="frmModalAviso">
+		<p:dialog widgetVar="dialogoAceptarAviso" modal="true" draggable="false" closable="false" 
+				  resizable="false" height="230" width="420" styleClass="modal-sin-header" >
+			<p:outputLabel value="Recuerde que" style="font-size: 1.2em !important;color:red;"/>	  
+			<table style="text-align: justify;">
+				<tr>
+					<td>
+						<div style="width: 25px; padding: 15px; display: inline-block; margin-right: 0px;">	
+							<h:graphicImage value="/img/Alerta.png" alt="U.C.E" style="width: 100%; "/>
+						</div>
+					</td>
+					<td>
+						<p:outputLabel value="Si usted se encuentra en un proceso de titulación, en el cual su participación aún no ha concluido, no podrá postularse al programa que desea.
+						Además se recuerda que solamente se permitira postulantes con fecha de culminación de malla
+						hasta 10 años antes de la fecha de inicio del nuevo proceso de titulación" style="color:gray;"/>
+					</td>
+				</tr>
+				<tr>
+					<td align="center" colspan="2">
+						<h:panelGroup>
+							<p:commandButton value="OK" action="#{postulacionForm.verificarClickAceptarTramiteNo()}" 
+		    							oncomplete="PF('dialogoAceptarAviso').hide();" ajax="true"  />
+						</h:panelGroup>
+					</td>
+				</tr>
+			</table>
+		</p:dialog> 
+	</h:form>
+</ui:composition>

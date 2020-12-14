@@ -1,0 +1,773 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<ui:composition template="/componentesGenerales/plantillas/pltPrincipalSinMenuEjecModal.xhtml">
+<ui:define name="paginacion">
+		<ui:include src="/componentesGenerales/plantillas/pltPaginacion.xhtml">
+			<ui:param name="pagina"
+				value="Registro acta de posgrado / Generar acta " />
+		</ui:include>
+</ui:define>
+<ui:define name="cuerpo">
+<script language="JavaScript">
+//<![CDATA[
+	function verificarErrores(){
+    	var idVarError = 'compOculto:txtValidador';
+    	var varError = document.getElementById(idVarError);
+    	if(varError.value == 1){
+    		document.getElementById('frmEditar:btnAceptarModal').click();
+        }
+    } 
+
+ //]]> 
+</script>
+	<h:form id="frmEditar" enctype="multipart/form-data" acceptcharset="UTF-8" >
+		<p:panel id="pnlDatosPersonales" header="Información personal">
+			<!-- ******************** TABLA RESPONSIVA ************************ -->
+			<div class="grid condensed">
+			<div class="row cells12">
+		       		<!-- identificacion -->
+		       		<div class="cell colspan6" >
+		       			<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblFotografia" for="txtFotografia" value="Fotografía del perfil: " />
+		       				</ui:define>
+		       				<ui:define name="valor">
+		       					<p:graphicImage id="txtFotografia" value="#{actaGradoSecretariaForm.image}" height="150" width="100"/>
+		       				</ui:define>
+		       			</ui:decorate>
+		        	</div>
+		        </div>
+				<!-- ******************** FILA NUMERO 1 ************************ -->
+				<div class="row cells8"> <!-- Tipo de documento -->
+					<div class="cell colspan4">
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblTipoDocumento" for="txtTipoDocumento" value="Tipo identificación: " />
+							</ui:define>
+							<ui:define name="valor">
+		       					<p:outputLabel id="txtTipoDocumento" value="#{generalesConstantesForm.traerTipoIdentificacion(actaGradoSecretariaForm.agfEstudianteEstudianteActaGradoJdbcDtoEditar.prsTipoIdentificacion)}"
+		       									style="font-weight: Normal !important;" />	
+							</ui:define>
+						</ui:decorate>
+					</div>
+					<div class="cell colspan4"> <!-- numero de documento -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblIdentificacion" for="txtIdentificacion" value="No. identificación: " />
+							</ui:define>
+							<ui:define name="valor">
+								<p:outputLabel id="txtIdentificacion" value="#{actaGradoSecretariaForm.agfEstudianteEstudianteActaGradoJdbcDtoEditar.prsIdentificacion}"
+		       									style="font-weight: Normal !important;" />	
+							</ui:define>
+						</ui:decorate>
+					</div>
+				</div><!-- Fin fila 1 -->
+			
+				<!-- ******************** FILA NUMERO 2 ************************ -->
+				<div class="row cells8"> 
+						
+				</div>
+				
+				
+				
+				<div class="row cells8"> 
+						<div class="cell colspan4"><!-- Nombres -->
+							<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+								<ui:define name="etiqueta">
+									<p:outputLabel id="lblNombres" for="txtNombres" value="Nombres: " />
+								</ui:define>
+								<ui:define name="valor">
+										<p:inputText  id="txtNombres" value = "#{actaGradoSecretariaForm.agfEstudianteEstudianteActaGradoJdbcDtoEditar.prsNombres}" 
+											 style="font-weight: Normal !important;width: 100%;opacity: .8;"
+				    						 requiredMessage="#{generalesConstantesForm.msgCampoRequerido}"
+				    						
+				    						 disabled="#{actaGradoSecretariaForm.agfEstadoValidado}">
+				       						<p:ajax event="blur" update=" lblNombres , txtNombres , msgNombres "/>			
+				       					</p:inputText>			       									
+								</ui:define>
+								<ui:define name="etiquetaError">
+								<p:message id="msgNombres" for="txtNombres" />
+								</ui:define>
+								
+							</ui:decorate>
+						</div>
+						<div class="cell colspan4"><!-- Primer apellido -->
+							<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+								<ui:define name="etiqueta">
+									<p:outputLabel id="lblPrimerApelido" for="txtPrimerApelido" value="Primer apellido: " />
+								</ui:define>
+								<ui:define name="valor">
+										<p:inputText  id="txtPrimerApelido" value = "#{actaGradoSecretariaForm.agfEstudianteEstudianteActaGradoJdbcDtoEditar.prsPrimerApellido}" 
+											style="font-weight: Normal !important;width: 100%;opacity: .8;"
+				    						 requiredMessage="#{generalesConstantesForm.msgCampoRequerido}"
+				    						 required="#{actaGradoSecretariaForm.agfEstadoValidado}"
+				    						 disabled="#{actaGradoSecretariaForm.agfEstadoValidado}">
+				       						<p:ajax event="blur" update=" lblPrimerApelido , txtPrimerApelido , msgPrimerApelido "/>			
+				       					</p:inputText>			       									
+			       									
+								</ui:define>
+								<ui:define name="etiquetaError">
+									<p:message id="msgPrimerApelido" for="txtPrimerApelido" />
+								</ui:define>
+							</ui:decorate>
+						</div>
+						
+				</div><!-- Fin fila 2 -->
+			<!-- ******************** FILA NUMERO 3 ************************ -->
+				<div class="row cells8"> 
+						<div class="cell colspan4"><!-- Segundo apellido -->
+							<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+								<ui:define name="etiqueta">
+									<p:outputLabel id="lblSegundoApellido" for="txtSegundoApellido" value="Segundo apellido: " />
+								</ui:define>
+								<ui:define name="valor">
+										<p:inputText  id="txtSegundoApellido" value = "#{actaGradoSecretariaForm.agfEstudianteEstudianteActaGradoJdbcDtoEditar.prsSegundoApellido}" 
+											 style="font-weight: Normal !important;width: 100%;opacity: .8;"
+				    						 requiredMessage="#{generalesConstantesForm.msgCampoRequerido}"
+				    						 required="#{actaGradoSecretariaForm.agfEstadoValidado}"
+				    						 disabled="#{actaGradoSecretariaForm.agfEstadoValidado}">
+				       						<p:ajax event="blur" update=" lblSegundoApellido , txtSegundoApellido , msgSegundoApellido "/>			
+				       					</p:inputText>			       									
+			       									
+								</ui:define>
+								<ui:define name="etiquetaError">
+									<p:message id="msgSegundoApellido" for="txtSegundoApellido" />
+								</ui:define>
+							</ui:decorate>
+						</div>
+						
+						<div class="cell colspan4"><!-- fecha de nacimiento -->
+							<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+								<ui:define name="etiqueta">
+									<p:outputLabel id="lblFechaNacimiento" for="txtFechaNacimiento" value="Fecha de nacimiento (dd-mm-aaaa): " />
+								</ui:define>
+								<ui:define name="valor">
+										<p:inputText  id="txtFechaNacimiento" value = "#{actaGradoSecretariaForm.fechaNacimientoLabel}" 
+											 style="font-weight: Normal !important;width: 100%;opacity: .8;"
+				    						 requiredMessage="#{generalesConstantesForm.msgCampoRequerido}"
+				    						 required="#{actaGradoSecretariaForm.agfEstadoValidado}"
+				    						 disabled="#{actaGradoSecretariaForm.agfEstadoValidado}">
+				       						<p:ajax event="blur" update=" lblFechaNacimiento , txtFechaNacimiento , msgFechaNacimiento "/>			
+				       					</p:inputText>			       									
+			       									
+								</ui:define>
+								<ui:define name="etiquetaError">
+									<p:message id="msgFechaNacimiento" for="txtFechaNacimiento" />
+								</ui:define>
+							</ui:decorate>
+						</div>
+				</div><!-- Fin fila 3 -->
+				<!-- ******************** FILA NUMERO 4 ************************ -->
+				<div class="row cells8"> 
+					<div class="cell colspan4"><!-- Etnia -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+								<ui:define name="etiqueta">
+									<p:outputLabel id="lblEtnia" for="slcEtnia" value="Etnia: " />
+								</ui:define>
+								<ui:define name="valor">
+									<h:selectOneMenu id="slcEtnia" value="#{actaGradoSecretariaForm.agfEstudianteEstudianteActaGradoJdbcDtoEditar.prsEtnId}"
+										required="true" requiredMessage="#{generalesConstantesForm.msgCampoRequerido}" style="width: 100%;">
+										<f:selectItem itemLabel="#{generalesConstantesForm.appSeleccione}" />
+										<f:selectItems var="item"  value="#{actaGradoSecretariaForm.agfListEtnia}"
+											itemLabel="#{item.etnDescripcion}" itemValue="#{item.etnId}" />
+										<p:ajax event="change" update="lblEtnia , slcEtnia , msgEtnia " />
+									</h:selectOneMenu>
+								</ui:define>
+								
+								<ui:define name="etiquetaError">
+									<p:message id="msgEtnia" for="slcEtnia" />
+								</ui:define>
+							</ui:decorate>
+					</div>
+					<div class="cell colspan4"><!-- sexo -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblSexo" for="slcSexo" value="Sexo: " />
+							</ui:define>
+							<ui:define name="valor">
+								<h:selectOneMenu id="slcSexo" value="#{actaGradoSecretariaForm.agfEstudianteEstudianteActaGradoJdbcDtoEditar.prsSexo}"
+									required="true" requiredMessage="#{generalesConstantesForm.msgCampoRequerido}" style="width: 100%;">
+									<f:selectItem itemLabel="#{generalesConstantesForm.appSeleccione}" />
+									<f:selectItems var="item"  value="#{listasCombosForm.listaSexo}"
+										itemLabel="#{item.label}" itemValue="#{item.value}" />
+									<p:ajax event="change" update="lblSexo , slcSexo , msgSexo " />
+								</h:selectOneMenu>
+							</ui:define>
+							<ui:define name="etiquetaError">
+								<p:message id="msgSexo" for="slcSexo" />
+							</ui:define>
+						</ui:decorate>
+					
+					</div>
+				</div><!-- Fin fila 4 -->
+				<!-- ******************** FILA NUMERO 5 ************************ -->
+				<div class="row cells8"> 
+					<div class="cell colspan4"><!-- Mail personal -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblMailPersonal" for="txtMailPersonal" value="Mail personal: " />
+							</ui:define>
+							<ui:define name="valor">
+								<p:outputLabel id="txtMailPersonal" value="#{actaGradoSecretariaForm.agfEstudianteEstudianteActaGradoJdbcDtoEditar.prsMailPersonal}"
+			       									style="font-weight: Normal !important;" />	
+			       			</ui:define>
+						</ui:decorate>
+					</div>
+					<div class="cell colspan4"><!-- numero de telefono -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblTelefono" for="txtTelefono" value="Telefono: " />
+							</ui:define>
+							<ui:define name="valor">
+								<p:outputLabel id="txtTelefono" value="#{actaGradoSecretariaForm.agfEstudianteEstudianteActaGradoJdbcDtoEditar.prsTelefono}"
+			       									style="font-weight: Normal !important;" />	
+							</ui:define>
+						</ui:decorate>
+					</div>
+				</div><!-- Fin fila 5 -->
+				<!-- ******************** FILA NUMERO 6 ************************ -->
+				<div class="row cells8"> 
+					<div class="cell colspan4"><!-- sexo -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblPaisNacionalidad" for="slcPaisNacionalidad" value="País nacionalidad: " />
+							</ui:define>
+							<ui:define name="valor">
+								<h:selectOneMenu id="slcPaisNacionalidad" value="#{actaGradoSecretariaForm.agfEstudianteEstudianteActaGradoJdbcDtoEditar.prsUbcId}"
+									required="true" requiredMessage="#{generalesConstantesForm.msgCampoRequerido}" style="width: 100%;">
+									<f:selectItem itemLabel="#{generalesConstantesForm.appSeleccione}" />
+									<f:selectItems var="item"  value="#{actaGradoSecretariaForm.agfListPaises}"
+										itemLabel="#{item.ubcDescripcion}" itemValue="#{item.ubcId}" />
+									<p:ajax event="change" update="lblPaisNacionalidad , slcPaisNacionalidad , msgPaisNacionalidad " />
+								</h:selectOneMenu>
+							</ui:define>
+							<ui:define name="etiquetaError">
+								<p:message id="msgPaisNacionalidad" for="slcPaisNacionalidad" />
+							</ui:define>
+						</ui:decorate>
+					</div>
+					<div class="cell colspan4"><!-- pais gentilicio -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblPaisGentilicio" for="txtPaisGentilicio" value="Nacionalidad: " />
+							</ui:define>
+							<ui:define name="valor">
+								<p:outputLabel id="txtPaisGentilicio" value="#{actaGradoSecretariaForm.agfEstudianteEstudianteActaGradoJdbcDtoEditar.ubcGentilicio}"
+			       									style="font-weight: Normal !important;" />	
+							</ui:define>
+						</ui:decorate>
+					</div>
+				</div><!-- Fin fila 6 -->
+				<!-- ******************** FILA NUMERO 7 ************************ -->
+				<div class="row cells8"> 
+					<div class="cell colspan4"><!-- pais residencia -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblPaisResidencia" for="txtPaisResidencia" value="País residencia: " />
+							</ui:define>
+							<ui:define name="valor">
+								<p:outputLabel id="txtPaisResidencia" value="#{actaGradoSecretariaForm.agfEstudianteEstudianteActaGradoJdbcDtoEditar.ubcPaisDescripcion}"
+			       									style="font-weight: Normal !important;" />	
+							</ui:define>
+						</ui:decorate>
+					</div>
+					<div class="cell colspan4"><!-- provincia -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblProvResidencia" for="txtProvResidencia" value="Provincia residencia: " />
+							</ui:define>
+							<ui:define name="valor">
+								<p:outputLabel id="txtProvResidencia" value="#{actaGradoSecretariaForm.agfEstudianteEstudianteActaGradoJdbcDtoEditar.ubcProvDescripcion}"
+			       									style="font-weight: Normal !important;" />	
+							</ui:define>
+						</ui:decorate>
+					</div>
+				</div><!-- Fin fila 7-->
+				<!-- ******************** FILA NUMERO 8 ************************ -->
+				<div class="row cells8"> 
+					<div class="cell colspan4"><!-- pais residencia -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblCantonResidencia" for="txtCantonResidencia" value="Cantón residencia: " />
+							</ui:define>
+							<ui:define name="valor">
+								<p:outputLabel id="txtCantonResidencia" value="#{actaGradoSecretariaForm.agfEstudianteEstudianteActaGradoJdbcDtoEditar.ubcCantonDescripcion}"
+			       									style="font-weight: Normal !important;" />	
+							</ui:define>
+						</ui:decorate>
+					</div>
+					<div class="cell colspan2"><!-- pais residencia -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteModalGeneralBigLabelEdit.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblBtnIniciar" for="btnIniciar" value="Registro Civil: " />
+							</ui:define>
+							<ui:define name="valor">
+								<p:commandButton id="btnIniciar" value="Consultar"  action="#{actaGradoSecretariaForm.consultarDinardap()}"  ajax="false" 
+								update = "pnlDinardap" immediate="true"  style="position: relative;left: 10px;" 
+								onclick="PF('dialogoTrabajando').show();"
+								oncomplete="PF('dialogoTrabajando').hide();"  inmediate="true"
+								disabled="#{actaGradoSecretariaForm.agfEstadoConsultado}"/>
+							</ui:define>
+						</ui:decorate>
+					</div>
+				</div><!-- Fin fila 7-->
+			</div>
+		</p:panel>
+		<!-- PANEL DINARDAP -->
+		<p:panel id="pnlDinardap" header="Información del Registro Civil" visible="#{actaGradoSecretariaForm.agfEstadoConsultado}" style="  color: #333;  background-color: #bce8f1;  border-color: #ddd;">
+			<div class="grid condensed">
+				<div class="row cells8">
+					<div class="cell colspan4" >
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblNombresValidados" for="lblTextoNombres" value="Nombres validados: " style="color: #3a87ad;"/>
+							</ui:define>
+							<ui:define name="valor">
+								<p:outputLabel id="lblTextoNombres"  value="#{actaGradoSecretariaForm.agfNombreValidado}" style="color: #3a87ad;"/>
+							</ui:define>
+						</ui:decorate>
+					</div>
+					<div class="cell colspan4" >
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblFechaValidados" for="lblFechaValidada" value="Fecha de nacimiento: " style="color: #3a87ad;"/>
+							</ui:define>
+							<ui:define name="valor">
+								<p:outputLabel id="lblFechaValidada"  value="#{actaGradoSecretariaForm.agfFechaValidada}" style="color: #3a87ad;"/>
+							</ui:define>
+						</ui:decorate>
+					</div>
+				</div>
+			</div>
+		</p:panel>
+		<p:panel id="pnlProcedencia" header="Información Académica">
+			<!-- ******************** TABLA RESPONSIVA ************************ -->
+			<div class="grid condensed">
+				<!-- ******************** FILA NUMERO 1 ************************ -->
+				<div class="row cells8">
+					
+
+					<div class="cell colspan4">
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblTituloBachiller" for="slcTituloBachiller" value="Titulo de tercer nivel requerido: " />
+							</ui:define>
+							<ui:define name="valor">
+								<p:inputText id="slcTituloBachiller" value="#{actaGradoSecretariaForm.agfEstudianteEstudianteActaGradoJdbcDtoEditar.fcesTituloBachiller}"
+								required="true" maxlength="256" requiredMessage="Titulo tercer nivel requerido">
+								</p:inputText>
+							</ui:define>
+							<ui:define name="etiquetaError">
+										<p:message id="msgTituloBachiller" for="slcTituloBachiller" />
+								</ui:define>
+						</ui:decorate>
+					</div>
+					<div class="cell colspan4" >
+			       			<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+			       				<ui:define name="etiqueta">	
+			       					<p:outputLabel id="lblTipoColegio" for="slcTipoColegio" value="Tipo de universidad:"/>	
+			       				</ui:define>
+			       				<ui:define name="valor">	
+			       					<h:selectOneMenu id="slcTipoColegio" value="#{actaGradoSecretariaForm.agfEstudianteEstudianteActaGradoJdbcDtoEditar.fcesTipoColegio}" 
+			       									required="true" requiredMessage="#{generalesConstantesForm.msgCampoRequerido}"  style="width: 100%;">
+			       						<f:selectItem itemLabel="#{generalesConstantesForm.appSeleccione}" /> 
+										<f:selectItems value="#{listasCombosForm.listaTipoColegio}" var="item" 
+													  itemLabel="#{item.label}" itemValue="#{item.value}" />
+										<p:ajax event="change"  update="lblTipoColegio , slcTipoColegio , msgTipoColegio " />         
+									</h:selectOneMenu>	
+			       				</ui:define>
+			       				<ui:define name="etiquetaError">
+										<p:message id="msgTipoColegio" for="slcTipoColegio" />
+								</ui:define>
+			       			</ui:decorate>
+			        </div>
+				</div> <!-- Fin fila 1-->
+				<!-- ******************** FILA NUMERO 2 ************************ -->
+				<div class="row cells8">
+					<div class="cell colspan4">
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblOtraUniversidad" for="slcOtraUniversidad" value="Reconocimiento estudios de posgrado previos?:" />
+							</ui:define>
+							<ui:define name="valor">
+								<h:selectOneMenu id="slcOtraUniversidad" value="#{actaGradoSecretariaForm.agfEstudianteEstudianteActaGradoJdbcDtoEditar.fcesRecEstuPrevios}"
+									required="true" requiredMessage="#{generalesConstantesForm.msgCampoRequerido}"
+									 style="width: 100%;">
+									<f:selectItem itemLabel="#{generalesConstantesForm.appSeleccione}" />
+									<f:selectItems var="item"  value="#{listasCombosForm.listaGeneralSiNo}"
+										itemLabel="#{item.label}" itemValue="#{item.value}" />
+									<p:ajax event="change" update="lblOtraUniversidad , slcOtraUniversidad , msgOtraUniversidad ,lblInstitucionEstPrevios , slcInstitucionEstPrevios , msgInstitucionEstPrevios ,lblCarreraEstPrevios , txtCarreraEstPrevios , msgCarreraEstPrevios,lblTipoDuracionRec , slcTipoDuracionRec , msgTipoDuracionRec ,lblTiempoDuracionRec , txtTiempoDuracionRec , msgTiempoDuracionRec" 
+									listener="#{actaGradoSecretariaForm.limpiarInacPrevios()}"/>
+								</h:selectOneMenu>
+							</ui:define>
+							<ui:define name="etiquetaError">
+								<p:message id="msgOtraUniversidad" for="slcOtraUniversidad" />
+							</ui:define>
+						</ui:decorate>
+					</div>
+
+					<div class="cell colspan4">
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblInstitucionEstPrevios" for="slcInstitucionEstPrevios" value="Institución estudios previos : " />
+							</ui:define>
+							<ui:define name="valor">
+								<h:selectOneMenu id="slcInstitucionEstPrevios" value="#{actaGradoSecretariaForm.agfEstudianteEstudianteActaGradoJdbcDtoEditar.inacId}"
+									requiredMessage="#{generalesConstantesForm.msgCampoRequerido}"
+									required="#{actaGradoSecretariaForm.agfEstudianteEstudianteActaGradoJdbcDtoEditar.fcesRecEstuPrevios != generalesConstantesForm.siRecEstudPrevios?'false':'true'}" 
+									disabled="#{actaGradoSecretariaForm.agfEstudianteEstudianteActaGradoJdbcDtoEditar.fcesRecEstuPrevios != generalesConstantesForm.siRecEstudPrevios?'true':'false'}"
+									style="width: 100%;">
+									<f:selectItem itemValue="#{generalesConstantesForm.appIdBase}" itemLabel="#{generalesConstantesForm.appSeleccione}" />
+									<f:selectItems var="item"  value="#{actaGradoSecretariaForm.agfListUniversidades}"
+										itemLabel="#{item.inacDescripcion}" itemValue="#{item.inacId}" />
+									<p:ajax event="change" update="lblInstitucionEstPrevios , slcInstitucionEstPrevios , msgInstitucionEstPrevios " />
+								</h:selectOneMenu>
+							</ui:define>
+							<ui:define name="etiquetaError">
+								<p:message id="msgInstitucionEstPrevios" for="slcInstitucionEstPrevios" />
+							</ui:define>
+						</ui:decorate>
+					</div>
+				</div> <!-- Fin fila 2-->
+				
+				<!-- ******************** FILA NUMERO 3 ************************ -->
+				<div class="row cells8">
+					<div class="cell colspan4">
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblCarreraEstPrevios" for="txtCarreraEstPrevios" value="Programa de estudios previos : " />
+							</ui:define>
+							<ui:define name="valor">
+								<p:inputText  id="txtCarreraEstPrevios" value = "#{actaGradoSecretariaForm.agfEstudianteEstudianteActaGradoJdbcDtoEditar.fcesCrrEstudPrevios}" style="width: 100%;"
+				    						 requiredMessage="#{generalesConstantesForm.msgCampoRequerido}" validator="sinCaracteresEspecialesValidator" converterMessage="Solo se permiten letras sin tildes"
+				    						 required="#{actaGradoSecretariaForm.agfEstudianteEstudianteActaGradoJdbcDtoEditar.fcesRecEstuPrevios != generalesConstantesForm.siRecEstudPrevios?'false':'true'}"
+				    						 disabled="#{actaGradoSecretariaForm.agfEstudianteEstudianteActaGradoJdbcDtoEditar.fcesRecEstuPrevios != generalesConstantesForm.siRecEstudPrevios?'true':'false'}">
+				       				<p:ajax event="blur" update=" lblCarreraEstPrevios , txtCarreraEstPrevios , msgCarreraEstPrevios "/>			
+				       			</p:inputText>
+							</ui:define>
+							<ui:define name="etiquetaError">
+								<p:message id="msgCarreraEstPrevios" for="txtCarreraEstPrevios" />
+							</ui:define>
+						</ui:decorate>
+					</div>
+				
+					<div class="cell colspan4">
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblTipoDuracionRec" for="slcTipoDuracionRec" value="Tipo duración reconocimiento : " />
+							</ui:define>
+							<ui:define name="valor"> <!-- tipo duracion reconocimiento-->
+								<h:selectOneMenu id="slcTipoDuracionRec" value="#{actaGradoSecretariaForm.agfEstudianteEstudianteActaGradoJdbcDtoEditar.fcesTipoDuracionRec}"
+									requiredMessage="#{generalesConstantesForm.msgCampoRequerido}"
+									required="true"
+									disabled="#{actaGradoSecretariaForm.agfEstudianteEstudianteActaGradoJdbcDtoEditar.fcesRecEstuPrevios != generalesConstantesForm.siRecEstudPrevios?'true':'false'}"
+									style="width: 100%;">
+									<f:selectItem itemValue="#{generalesConstantesForm.appIdBase}" itemLabel="#{generalesConstantesForm.appSeleccione}" />
+									<f:selectItems var="item"  value="#{listasCombosForm.listaTipoDuracionReconocimiento}"
+										itemLabel="#{item.label}" itemValue="#{item.value}" />
+									<p:ajax event="change" update="lblTipoDuracionRec , slcTipoDuracionRec , msgTipoDuracionRec ,lblTiempoDuracionRec , txtTiempoDuracionRec , msgTiempoDuracionRec  " />
+								</h:selectOneMenu>
+							</ui:define>
+							<ui:define name="etiquetaError">
+								<p:message id="msgTipoDuracionRec" for="slcTipoDuracionRec" />
+							</ui:define>
+						</ui:decorate>
+					</div>
+				</div> <!-- Fin fila 3-->
+				
+				<!-- ******************** FILA NUMERO 4 ************************ -->
+				<div class="row cells8">
+					<div class="cell colspan4">  <!-- tiempo duracion reconocimiento-->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblTiempoDuracionRec" for="txtTiempoDuracionRec" value="Tiempo de reconocimiento : " />
+							</ui:define>
+							<ui:define name="valor">
+								<p:inputText  id="txtTiempoDuracionRec" value = "#{actaGradoSecretariaForm.agfEstudianteEstudianteActaGradoJdbcDtoEditar.fcesTiempoEstudRec}"  
+				    						 requiredMessage="#{generalesConstantesForm.msgCampoRequerido}"
+				    						 required="#{actaGradoSecretariaForm.agfEstudianteEstudianteActaGradoJdbcDtoEditar.fcesRecEstuPrevios != generalesConstantesForm.siRecEstudPrevios ?'false':'true'}"
+				    						 validator="duracionReconocimientoValidator" converterMessage="Solo se permiten números enteros"
+				    						 disabled="#{actaGradoSecretariaForm.agfEstudianteEstudianteActaGradoJdbcDtoEditar.fcesRecEstuPrevios != generalesConstantesForm.siRecEstudPrevios?'true':'false'}"
+				    						  style="width: 100%;">
+				    				<f:attribute name="tipoDurRec" value="#{actaGradoSecretariaForm.agfEstudianteEstudianteActaGradoJdbcDtoEditar.fcesTipoDuracionRec}" />
+				       				<p:ajax event="blur" update=" lblTiempoDuracionRec , txtTiempoDuracionRec , msgTiempoDuracionRec "/>			
+				       			</p:inputText>
+							</ui:define>
+							<ui:define name="etiquetaError">
+								<p:message id="msgTiempoDuracionRec" for="txtTiempoDuracionRec" />
+							</ui:define>
+						</ui:decorate>
+					</div>
+				</div> <!-- Fin fila 4-->
+			</div>
+		</p:panel>
+		
+		<p:panel id="pnlDatosAcademicos" header="Información del Programa de Posgrado">
+			<!-- ******************** TABLA RESPONSIVA ************************ -->
+			<div class="grid condensed">
+				<!-- ******************** FILA NUMERO 1 ************************ -->
+				<div class="row cells8">
+					<div class="cell colspan4"><!-- Fecha Inicio Estudios -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblFechaInicioEstudios" for="txtFechaInicioEstudios" value="Fecha inicio estudios (dd-mm-aaaa): " />
+							</ui:define>
+								<ui:define name="valor">
+									<p:calendar id="txtFechaInicioEstudios" value="#{actaGradoSecretariaForm.agfEstudianteEstudianteActaGradoJdbcDtoEditar.fcesFechaInicio}"
+										maxdate="#{generalesConstantesForm.fechaDelSistema}" navigator="false" showOn="none" locale="es" pattern="dd-MM-yyyy" mask="true"
+										required="true" requiredMessage="#{generalesConstantesForm.msgCampoRequerido}"  converterMessage="Ingresar una fecha válida"
+										validator="fechaEstudioValidator">
+										<f:attribute name="estudiante" value="#{actaGradoSecretariaForm.agfEstudianteEstudianteActaGradoJdbcDtoEditar}" />
+										<f:attribute name="tipoFecha" value="0" />
+										<p:ajax event="blur" update=" lblFechaInicioEstudios , txtFechaInicioEstudios , msgFechaInicioEstudios , lblFechaEgresamiento , txtFechaEgresamiento ,  msgFechaEgresamiento , msgFechaActaGrado " />
+									</p:calendar>
+								</ui:define>
+							<ui:define name="etiquetaError">
+								<p:message id="msgFechaInicioEstudios" for="txtFechaInicioEstudios" />
+							</ui:define>
+						</ui:decorate>
+					</div>
+						<div class="cell colspan4"><!-- Fecha egresamieto -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblFechaEgresamiento" for="txtFechaEgresamiento" value="Fecha culminación de malla (dd-mm-aaaa): " />
+							</ui:define>
+								<ui:define name="valor">
+									<p:calendar id="txtFechaEgresamiento" value="#{actaGradoSecretariaForm.agfEstudianteEstudianteActaGradoJdbcDtoEditar.fcesFechaEgresamiento}"
+										maxdate="#{generalesConstantesForm.fechaDelSistema}" navigator="false" showOn="none" locale="es" pattern="dd-MM-yyyy" mask="true"
+										required="true" requiredMessage="#{generalesConstantesForm.msgCampoRequerido}"
+										validator="fechaEstudioValidator">
+										<f:attribute name="estudiante" value="#{actaGradoSecretariaForm.agfEstudianteEstudianteActaGradoJdbcDtoEditar}" />
+										<f:attribute name="tipoFecha" value="1" />
+										<p:ajax event="blur" update=" lblFechaEgresamiento , txtFechaEgresamiento ,  msgFechaEgresamiento , lblFechaActaGrado , txtFechaActaGrado ,  msgFechaActaGrado ,msgFechaInicioEstudios " />
+									</p:calendar>
+								</ui:define>
+							<ui:define name="etiquetaError">
+								<p:message id="msgFechaEgresamiento" for="txtFechaEgresamiento" />
+							</ui:define>
+						</ui:decorate>
+					</div>
+				</div><!-- Fin fila 1-->
+				<!-- ******************** FILA NUMERO 2 ************************ -->
+				<div class="row cells8"> 
+					<div class="cell colspan4"><!-- Fecha Acta de grado -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblFechaActaGrado" for="txtFechaActaGrado" value="Fecha de Posgrado: " />
+							</ui:define>
+								<ui:define name="valor">
+									<p:calendar id="txtFechaActaGrado" value="#{actaGradoSecretariaForm.agfEstudianteEstudianteActaGradoJdbcDtoEditar.fcesFechaActaGrado}"
+										maxdate="#{generalesConstantesForm.fechaDelSistema}" navigator="false" showOn="none" locale="es" pattern="dd-MM-yyyy" mask="true"
+										required="true" requiredMessage="#{generalesConstantesForm.msgCampoRequerido}" converterMessage="Ingresar una fecha válida"
+										validator="fechaEstudioValidator">
+										<f:attribute name="estudiante" value="#{actaGradoSecretariaForm.agfEstudianteEstudianteActaGradoJdbcDtoEditar}" />
+										<f:attribute name="tipoFecha" value="2" />
+										<p:ajax event="blur" update=" lblFechaActaGrado , txtFechaActaGrado ,  msgFechaActaGrado" />
+									</p:calendar>
+								</ui:define>
+							<ui:define name="etiquetaError">
+								<p:message id="msgFechaActaGrado" for="txtFechaActaGrado" />
+							</ui:define>
+						</ui:decorate>
+					</div>
+					<div class="cell colspan4"><!-- Hora acta grado -->
+							<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+								<ui:define name="etiqueta">
+									<p:outputLabel id="lblHora" for="txtHora" value="Hora de Posgrado: " />
+								</ui:define>
+								<ui:define name="valor">
+										<p:inputMask  id="txtHora" value = "#{actaGradoSecretariaForm.agfEstudianteEstudianteActaGradoJdbcDtoEditar.fcesHoraActaGrado}" mask="99H99" 
+											 style="width: 100%;"
+											 required="true"
+				    						 requiredMessage="#{generalesConstantesForm.msgCampoRequerido}"
+				    						validator="horaValidator" >
+				       						<p:ajax event="blur" update=" lblHora , txtHora , msgHora "/>	
+				       					</p:inputMask> 			       									
+								</ui:define>
+									<ui:define name="etiquetaError">
+									<p:message id="msgHora" for="txtHora" />
+								</ui:define>
+							</ui:decorate>
+					</div>
+				</div>
+				<!-- ******************** FILA NUMERO 3 ************************ -->
+				<div class="row cells8"> 
+					<div class="cell colspan4"> <!-- numero acta de grado -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblNumeroActaGrado" for="txtNumeroActaGrado" value="No. acta de Posgrado: " />
+							</ui:define>
+							<ui:define name="valor">
+									<p:inputText id="txtNumeroActaGrado" value="#{actaGradoSecretariaForm.agfEstudianteEstudianteActaGradoJdbcDtoEditar.fcesNumActaGrado}"
+										requiredMessage="#{generalesConstantesForm.msgCampoRequerido}"  
+										maxlength="20" style="width: 100%;opacity:1.5;">
+										<p:ajax event="blur" update="lblNumeroActaGrado , txtNumeroActaGrado , msgNumeroActaGrado" />
+									</p:inputText>
+							</ui:define>
+							<ui:define name="etiquetaError">
+								<p:message id="msgNumeroActaGrado" for="txtNumeroActaGrado" />
+							</ui:define>
+						</ui:decorate>
+					</div>
+				</div>
+				<!-- ******************** FILA NUMERO 3 ************************ -->
+				<div class="row cells8"> <!-- mecanismo de titulación -->
+					<div class="cell colspan4">
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblMecanismoTitulacion" for="txtMecanismoTitulacion" value="Mecanismo de titulación: " />
+							</ui:define>
+							<ui:define name="valor">
+								<p:outputLabel id="txtMecanismoTitulacion" value="#{actaGradoSecretariaForm.agfEstudianteEstudianteActaGradoJdbcDtoEditar.mcttDescripcion}"
+			       									style="font-weight: Normal !important;" />	
+							</ui:define>
+						</ui:decorate>
+					</div>
+					<div class="cell colspan4"> <!-- link trabajo titulación -->
+							<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+								<ui:define name="etiqueta">
+									<p:outputLabel id="lblLinkTrabajoTitulacion" for="txtLinkTrabajoTitulacion" value="Link trabajo titulación: " />
+								</ui:define>
+								<ui:define name="valor">
+								
+										<p:inputMask id="txtLinkTrabajoTitulacion" value="#{actaGradoSecretariaForm.agfEstudianteEstudianteActaGradoJdbcDtoEditar.fcesLinkTesis}"
+											
+											requiredMessage="#{generalesConstantesForm.msgCampoRequerido}"
+											validator="urlValidator" 
+											style="width: 100%;">
+											<p:ajax event="blur" update="lblLinkTrabajoTitulacion , txtLinkTrabajoTitulacion , msgLinkTrabajoTitulacion" />
+										</p:inputMask>
+								</ui:define>
+								<ui:define name="etiquetaError">
+									<p:message id="msgLinkTrabajoTitulacion" for="txtLinkTrabajoTitulacion" />
+								</ui:define>
+							</ui:decorate>
+					</div>
+				</div>
+				<!-- ******************** FILA NUMERO 4 ************************ -->
+				<div class="row cells8">
+		       		<div class="cell colspan4" > <!-- nota promedio académico -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+			    			<ui:define name="etiqueta">	
+					       			<p:outputLabel id="lblPremedioAcademico" for="txtPremedioAcademico" value="Nota promedio académico:"/>	
+					       	</ui:define>
+					       		<ui:define name="valor">	
+					   				<p:inputNumber  id="txtPremedioAcademico" value = "#{actaGradoSecretariaForm.agfEstudianteEstudianteActaGradoJdbcDtoEditar.fcesNotaPromAcumulado}" 
+				    							 required="true" minValue="0" maxValue="10" decimalPlaces="2" 
+				    							 requiredMessage="#{generalesConstantesForm.msgCampoRequerido}"
+				    							  style="width: 100%;">
+				    					<f:convertNumber pattern="#0.00" />
+				       					<p:ajax event="blur" update=" lblPremedioAcademico , txtPremedioAcademico , msgPremedioAcademico "/>			
+				       				</p:inputNumber>
+				       		</ui:define>
+				       		<ui:define name="etiquetaError">	
+					       			<p:message id="msgPremedioAcademico" for="txtPremedioAcademico"/>
+					       	</ui:define>
+		       			</ui:decorate>
+		       		</div>
+		       		
+		       		<div class="cell colspan4" > <!-- nota trabajo titulacion-->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+			    			<ui:define name="etiqueta">	
+					       			<p:outputLabel id="lblTrabajoTitulacion" for="txtTrabajoTitulacion" value="Nota trabajo titulación:"/>	
+					       	</ui:define>
+					       	<ui:define name="valor">
+					       			<p:outputLabel id="txtTrabajoTitulacion" value="#{actaGradoSecretariaForm.agfEstudianteEstudianteActaGradoJdbcDtoEditar.fcesNotaTrabTitulacion}"
+			       									style="font-weight: Normal !important;" />	
+				       		</ui:define>
+		       			</ui:decorate>
+		       		</div>
+		       		
+		       		
+				</div><!-- Fin fila 4-->
+				<div class="row cells8">
+		       		<div class="cell colspan4" > <!-- nota promedio académico -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+			    			<ui:define name="etiqueta">	
+					       			<p:outputLabel id="lblTitulo" for="slsTitulo" value="Titulo:"/>	
+					       	</ui:define>
+				       		<ui:define name="valor">	
+					   				<h:selectOneMenu id="slsTitulo" value="#{actaGradoSecretariaForm.cncrId}" required="true" 
+									requiredMessage="#{generalesConstantesForm.msgCampoRequerido}"
+									style="width: 100%;">
+									<f:selectItem itemLabel="#{generalesConstantesForm.appSeleccione}" />
+									<f:selectItems var="item"  value="#{actaGradoSecretariaForm.agfListConfiguracionesCarrera}"
+										itemLabel="#{item.cncrDetalleActaGrado}" itemValue="#{item.cncrId}" />
+									<p:ajax event="change" update="lblTitulo , slsTitulo , msgTitulo " />
+								</h:selectOneMenu>
+				       		</ui:define>
+				       		<ui:define name="etiquetaError">	
+					       			<p:message id="msgTitulo" for="slsTitulo"/>
+					       	</ui:define>
+		       			</ui:decorate>
+		       		</div>
+		       		<div class="cell colspan4" > <!-- nota trabajo titulacion-->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+			    			<ui:define name="etiqueta">	
+					       			<p:outputLabel id="lblEscrito" for="txtEscrito" value="Nota trabajo escrito:" rendered="#{actaGradoSecretariaForm.agfTresComponentes}"/>	
+					       	</ui:define>
+					       	<ui:define name="valor">
+					       			<p:outputLabel id="txtEscrito" value="#{actaGradoSecretariaForm.agfEstudianteEstudianteActaGradoJdbcDtoEditar.asnoPrmDfnEscrito}"
+			       									style="font-weight: Normal !important;" rendered="#{actaGradoSecretariaForm.agfTresComponentes}"/>	
+				       		</ui:define>
+		       			</ui:decorate>
+		       		</div>
+		       	</div><!-- Fin fila 5-->
+		       	<div class="row cells8">
+		       		<div class="cell colspan4" > <!-- nota promedio académico -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml" >
+			    			<ui:define name="etiqueta">	
+					       			<p:outputLabel id="lblTitulo1" for="slsTitulo1" value="Titulo:" style="visibility: hidden!important;"/>	
+					       	</ui:define>
+				       		<ui:define name="valor">	
+					   				<h:selectOneMenu id="slsTitulo1" value="#{actaGradoSecretariaForm.agfEstudianteEstudianteActaGradoJdbcDtoEditar.fcesCncrId}"  
+									style="width: 100%;visibility: hidden!important;">
+									<f:selectItem itemLabel="#{generalesConstantesForm.appSeleccione}" />
+									<f:selectItems var="item"  value="#{actaGradoSecretariaForm.agfListConfiguracionesCarrera}"
+										itemLabel="#{item.cncrDetalleActaGrado}" itemValue="#{item.cncrId}" />
+									<p:ajax event="change" update="lblTitulo , slsTitulo , msgTitulo " />
+								</h:selectOneMenu>
+				       		</ui:define>
+				       		<ui:define name="etiquetaError">	
+					       			<p:message id="msgTitulo1" for="slsTitulo1" style="visibility: hidden;"/>
+					       	</ui:define>
+		       			</ui:decorate>
+		       		</div>
+		       		<div class="cell colspan4" > <!-- nota trabajo titulacion-->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+			    			<ui:define name="etiqueta">	
+					       			<p:outputLabel id="lblOral" for="txtOral" value="Nota defensa oral:" rendered="#{actaGradoSecretariaForm.agfTresComponentes}"/>	
+					       	</ui:define>
+					       	<ui:define name="valor">
+					       			<p:outputLabel id="txtOral" value="#{actaGradoSecretariaForm.agfEstudianteEstudianteActaGradoJdbcDtoEditar.asnoPrmDfnOral}"
+			       									style="font-weight: Normal !important;" rendered="#{actaGradoSecretariaForm.agfTresComponentes}"/>	
+				       		</ui:define>
+		       			</ui:decorate>
+		       		</div>
+		       	</div><!-- Fin fila 5-->
+			</div>
+		</p:panel>
+		
+				
+		<div >
+			<p:commandButton id="btnCancelar" value="Cancelar" immediate="true" ajax="false" action="#{actaGradoSecretariaForm.irRegresarActaGrado()}"  />
+			<p:commandButton id="btnGuardar" value="Guardar"  action="#{actaGradoSecretariaForm.verificarClickAceptarTramite(actaGradoSecretariaForm.agfEstudianteEstudianteActaGradoJdbcDtoEditar)}"  ajax="false" />
+			<p:commandButton id="btnAceptarModal" value="EjecutarModalAceptar" style="visibility:hidden;">
+					<p:ajax oncomplete="PF('dialogoAceptarActaGrado').show();"   update=":frmModalAceptarActaGrado" />	    				
+    		</p:commandButton>	
+		</div>
+		
+	</h:form>
+	<ui:include src="/titulacionPosgrado/validador/actaGrado/modalActaGrado.xhtml" />	
+	<h:form id="compOculto" style="visibility:hidden;">
+		<p:inputText id="txtValidador" value="#{actaGradoSecretariaForm.agfValidadorClic}" >
+		</p:inputText>	
+	</h:form>
+</ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+<html>
+  <head>
+	 <meta http-equiv="content-type" content="text/html; charset=utf-8">
+	 <title>UNIVERSIDAD CENTRAL DEL ECUADOR</title>
+  </head>
+  <body>
+    <p><strong>Estimados.-</strong></p>
+    <br/>
+	   <strong>Informo a ustedes que por requerimiento institucional, la DIRECCI&#211;N GENERAL ACAD&#201;MICA ha cambiado de la ${faseRegistroPostulacion} a la ${faseTitulacion} a partir de: ${fechaHora}</strong>
+	  <br/>
+	  <br/>
+	   Se notificar&#225; oportunamente el nuevo cambio de fase.
+	  <br/>
+	  <br/>
+	  Para su conocimiento.		  
+	  
+	  <br/>
+      <br/> 
+	  ...........................................................................................
+	  <br/>
+	  <br/>
+	  <br/>
+	  <br/>

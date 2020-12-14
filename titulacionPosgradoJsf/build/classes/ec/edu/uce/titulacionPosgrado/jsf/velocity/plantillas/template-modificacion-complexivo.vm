@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+<html>
+  <head>
+	 <meta http-equiv="content-type" content="text/html; charset=utf-8">
+	 <title>UNIVERSIDAD CENTRAL DEL ECUADOR</title>
+  </head>
+  <body>
+    <p><strong>Estimado/a.-</strong></p>
+    <p><strong>DIRECTOR/A GENERAL ACADEMICO/A</strong></p>
+    <br/>
+	   La presente tiene por objetivo informar a usted que se efectu&#243; una modificaci&#243;n de notas de examen complexivo correspondiente a:
+	   <br/>
+	   NOMBRES: ${nombres}<br/>
+	   APELLIDOS: ${apellidos}<br/>
+	   <br/>
+	   FACULTAD: ${facultad}<br/>
+	   CARRERA: ${carrera}<br/>
+	   <br/>
+	   Tipo de examen complexivo: ${tipoExamen}<br/>
+	   Componente modificado: ${tipoComponente}<br/>
+	   Porcentaje componente te&#243;rico: ${porcentaje}<br/> 
+	   <br/>
+	   Nota Anterior: ${notaOld}<br/>
+	   Nota Modificada: ${notaNew}<br/>
+	   Nota Final Anterior: ${notaFinalOld}<br/>
+	   Nota Final Modificada: ${notaFinalNew}<br/>
+	   <br/>
+	   
+	  <br/>
+	   	  
+	  <br/>
+      <br/> 
+	  ...........................................................................................
+	<br/>
+	  El proceso se realiz&#243; el ${fechaHora}
+	  <br/>	  
+	  <br/>
+	  <br/>
+	  <br/>
+	  <br/>
+	  ...........................................................................................
+	  <br/>
+	  <strong>Informaci&#243;n del Correo: </strong> Mail generado autom&#225;ticamente. Por favor no responda a este mensaje.
+	  <br/>
+	  <br/>
+	  <br/>

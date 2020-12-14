@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+<html>
+  <head>
+	 <meta http-equiv="content-type" content="text/html; charset=utf-8">
+	 <title>UNIVERSIDAD CENTRAL DEL ECUADOR</title>
+  </head>
+  <body>
+    <p><strong>Postulante: ${nombres} ${apellidos}.-</strong></p>
+    <br/>
+    <p><strong>Facultad: </strong>${facultad}</p>
+	<p><strong>Carrera/Programa: </strong> ${carrera}</p> 
+	<br/>
+	La Unidad de Titulaci&#243;n Especial de la Universidad Central del Ecuador le comunica que el mecanismo de titulaci&#243;n asignado oficialmente es: 
+	<br/>
+	${mecanismo} 
+	<br/>
+	Cuyo tema es ${tema} 
+	<br/>
+	Se le ha asignado como director cient&#237;fico - metodol&#243;gico al docente ${docenteCientifico} 
+	<br/>
+	<br/>
+	De requerir informaci&#243;n adicional, puede solicitarlo en la Direcci&#243;n del programa. 
+	<br/> 
+	El proceso se realiz&#243; el ${fechaHora}
+	<br/>	  
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	...........................................................................................
+	<br/>
+	<strong>Informaci&#243;n del Correo: </strong> Mail generado autom&#225;ticamente. Por favor no responda a este mensaje.
+	<br/>
+	<br/>
+	<br/>

@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+      
+<ui:composition template="/componentesGenerales/plantillas/pltPrincipalSinMenuEjecModal.xhtml">
+<ui:define name="paginacion">
+		<ui:include src="/componentesGenerales/plantillas/pltPaginacion.xhtml">
+			<ui:param name="pagina"
+				value=" Validación /  Registro de Actualización / Registrar pago" />
+		</ui:include>
+</ui:define>
+
+<ui:define name="cuerpo">
+<script language="JavaScript">
+//<![CDATA[
+	function verificarErrores(){
+    	var idVarError = 'compOculto:txtValidador';
+    	var varError = document.getElementById(idVarError);
+    	if(varError.value == 1){
+    		document.getElementById('frVisualizarActualizacion:btnAceptarModal').click();
+        }
+    } 
+ //]]> 
+</script>
+
+
+
+	<h:form id="frVisualizarActualizacion" enctype="multipart/form-data" acceptcharset="UTF-8" >
+		<!-- ******************** PANEL DE INFORMACION DEL POSTULADO ************************ -->
+		<p:panel id="pnlDatosPersona" header="Información del postulado">
+			<!-- ******************** TABLA RESPONSIVA ************************ -->
+			<div class="grid condensed">
+				<!-- ******************** FILA NUMERO 1 ************************ -->
+				<div class="row cells8">
+					<div class="cell colspan6"><!-- IDENTIFICACION -->
+						<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblIdentificacion" for="txtIdentificacion" value="Identificación: "/>	
+		       				</ui:define>
+		       				<ui:define name="valor">	
+		       					<p:outputLabel id="txtIdentificacion" value="#{actualizarConocimientosForm.acfEstudianteValidacionJdbcDtoBuscar.prsIdentificacion}" 
+		       									style="font-weight: Normal !important;">
+		       					</p:outputLabel>	
+		       				</ui:define>
+		       			</ui:decorate>
+					</div>
+				</div> <!-- Fin fila 1 -->
+				<!-- ******************** FILA NUMERO 2 ************************ -->
+				<div class="row cells8">
+					<div class="cell colspan6"><!-- NOMBRES -->
+						<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblNombres" for="txtNombres" value="Nombre: "/>	
+		       				</ui:define>
+		       				<ui:define name="valor">	
+		       					<p:outputLabel id="txtNombres" value="#{actualizarConocimientosForm.acfEstudianteValidacionJdbcDtoBuscar.prsPrimerApellido} #{actualizarConocimientosForm.acfEstudianteValidacionJdbcDtoBuscar.prsSegundoApellido ==null?'':actualizarConocimientosForm.acfEstudianteValidacionJdbcDtoBuscar.prsSegundoApellido} #{actualizarConocimientosForm.acfEstudianteValidacionJdbcDtoBuscar.prsNombres}"
+		       									style="font-weight: Normal !important;">
+		       					</p:outputLabel>	
+		       				</ui:define>
+		       			</ui:decorate>
+					</div> 
+				</div> <!-- Fin fila 2 -->
+				<!-- ******************** FILA NUMERO 3 ************************ -->
+			    <div class="row cells8">
+					<div class="cell colspan6"><!-- NOMBRES -->
+						<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblFacultad" for="txtFacultad" value="Facultad: "/>	
+		       				</ui:define>
+		       				<ui:define name="valor">	
+		       					<p:outputLabel id="txtFacultad" value="#{actualizarConocimientosForm.acfEstudianteValidacionJdbcDtoBuscar.fclDescripcion}"
+		       									style="font-weight: Normal !important;">
+		       					</p:outputLabel>	
+		       				</ui:define>
+		       			</ui:decorate>
+					</div>  <!-- Fin fila 3 -->
+				</div> 
+								<!-- ******************** FILA NUMERO 4 ************************ -->
+			    <div class="row cells8">
+					<div class="cell colspan6"><!-- NOMBRES -->
+						<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblCarrera" for="txtCarrera" value="Carrera: "/>	
+		       				</ui:define>
+		       				<ui:define name="valor">	
+		       					<p:outputLabel id="txtCarrera" value="#{actualizarConocimientosForm.acfEstudianteValidacionJdbcDtoBuscar.crrDetalle}"
+		       									style="font-weight: Normal !important;">
+		       					</p:outputLabel>	
+		       				</ui:define>
+		       			</ui:decorate>
+					</div>  <!-- Fin fila 4 -->
+				</div> 
+				<!-- ******************** FILA NUMERO 5 ************************ -->
+				<div class="row cells8">
+					<div class="cell colspan6"><!-- NOMBRES -->
+						<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblConvocatoria" for="txtConvocatoria" value="Convocatoria: "/>	
+		       				</ui:define>
+		       				<ui:define name="valor">	
+		       					<p:outputLabel id="txtConvocatoria" value="#{actualizarConocimientosForm.acfEstudianteValidacionJdbcDtoBuscar.cnvDescripcion}"
+		       									style="font-weight: Normal !important;">
+		       					</p:outputLabel>	
+		       				</ui:define>
+		       			</ui:decorate>
+					</div>  <!-- Fin fila 5 -->
+				</div> 
+			</div>
+				<!-- ******************** FILA NUMERO 2 ************************ -->
+		</p:panel>	
+		<!-- ******************** PANEL DE INFORMACION DEL POSTULADO ************************ -->
+		<p:panel id="pnlDatosValidar" header="Información de pago de actualización de conocimientos">
+			<!-- ******************** TABLA RESPONSIVA ************************ -->
+			<div class="grid condensed">
+		    	
+		    	<!-- ******************** FILA NUMERO 1 ************************ -->
+		       	<div class="row cells4">
+		       		<div class="cell colspan3" >
+		       			<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblPago" for="txtPago" value="Ingrese el número de comprobante de pago "/>	
+		       				</ui:define>
+		       				<ui:define name="valor">	
+		       					<p:inputText id="txtPago" value="#{actualizarConocimientosForm.acfComprobantePago}" 
+		       					required="true" requiredMessage="Campo requerido" maxlength="10"
+		       					validator="sinCaracteresEspecialesConNumerosValidator">
+		       					</p:inputText>	
+		       				</ui:define>
+		       				<ui:define name="etiquetaError">	
+		       					<p:message id="msgPago" for="txtPago"/>	
+		       				</ui:define>
+		       			</ui:decorate>
+		       		</div>
+		       	</div>
+		    </div>
+		</p:panel>	
+				
+		<div >
+		
+		
+		
+		
+			<p:commandButton id="btnCancelar" value="Regresar" action="#{actualizarConocimientosForm.cancelarRegistroActualizar()}" immediate="true" ajax="false"  />
+			<p:commandButton id="btnGuardar" value="Guardar" action="#{actualizarConocimientosForm.verificarClickAceptarTramite()}"  ajax="false"  
+			update = "msgPago , lblPago , txtPago"/>
+			<p:commandButton id="btnAceptarModal" value="EjecutarModalAceptar" style="visibility:hidden;">
+					<p:ajax oncomplete="PF('dialogoActualizarConocimientos').show();"   update=":frmModalAceptarActualizar" />	    				
+    		</p:commandButton>
+			
+		</div>
+	</h:form>
+	
+	<ui:include src="/titulacionPosgrado/validador/actualizacionConocimientos/modalAceptarActualizar.xhtml"/>
+	<h:form id="compOculto" style="visibility:hidden;">
+	 	<p:inputText id="txtValidador" value="#{actualizarConocimientosForm.acfValidadorClic}" >
+		</p:inputText>	
+	</h:form>
+</ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<ui:composition template="/componentesGenerales/plantillas/pltPrincipalSinMenuEjecModal.xhtml">
+<ui:define name="paginacion">
+		<ui:include src="/componentesGenerales/plantillas/pltPaginacion.xhtml">
+			<ui:param name="pagina"
+				value="Administración / Edición docente / Edición " />
+		</ui:include>
+</ui:define>
+
+<ui:define name="cuerpo">
+<script language="JavaScript">
+//<![CDATA[
+	function verificarErrores(){
+    	var idVarError = 'compOculto:txtValidador';
+    	var varError = document.getElementById(idVarError);
+    	if(varError.value == 1){
+    		document.getElementById('frVisualizar:btnAceptarModal').click();
+        }
+    } 
+ //]]> 
+</script>
+
+
+	<h:form id="frVisualizar" enctype="multipart/form-data" acceptcharset="UTF-8" >
+		<!-- ******************** PANEL DE INFORMACION DEL EVALUADO ************************ -->
+		<p:panel id="pnlDatosPersona" header="Información del docente">
+			<!-- ******************** TABLA RESPONSIVA ************************ -->
+			<div class="grid condensed">
+				<!-- ******************** FILA NUMERO 1 ************************ -->
+				<div class="row cells8"> <!-- Tipo de documento -->
+					<div class="cell colspan4">
+				  	 	<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblTipoDocumento" for="slcTipoDocumento" value="Tipo identificación: " />
+							</ui:define>
+							<ui:define name="valor">
+								<h:selectOneMenu id="slcTipoDocumento" value="#{edicionDocentesForm.edfDocenteEditar.prsTipoIdentificacion}"
+									required="true" requiredMessage="#{generalesConstantesForm.msgCampoRequerido}" style="width: 100%;">
+									<f:selectItem itemLabel="#{generalesConstantesForm.appSeleccione}" itemValue="#{generalesConstantesForm.appIdBase}"/>
+									<f:selectItems var="item"  value="#{listasCombosForm.listaTipoIdentificacion}"
+										itemLabel="#{item.label}" itemValue="#{item.value}" />
+									<p:ajax event="change" update="lblTipoDocumento , slcTipoDocumento , msgTipoDocumento , lblIdentificacion , txtIdentificacion , msgIdentificacion " />
+								</h:selectOneMenu>
+							</ui:define>
+							<ui:define name="etiquetaError">
+								<p:message id="msgTipoDocumento" for="slcTipoDocumento" />
+							</ui:define>
+						</ui:decorate>
+					</div>
+				
+					<div class="cell colspan4"> <!-- numero de documento -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblIdentificacion" for="txtIdentificacion" value="No. identificación: " />
+							</ui:define>
+							<ui:define name="valor">
+									<p:inputText id="txtIdentificacion" value="#{edicionDocentesForm.edfDocenteEditar.prsIdentificacion}"
+										required="true" requiredMessage="#{generalesConstantesForm.msgCampoRequerido}"
+										validator="cedulaValidator"
+										maxlength="10" style="width: 100%;">
+										<f:attribute name="tipoIdent" value="#{edicionDocentesForm.edfDocenteEditar.prsTipoIdentificacion}" />		
+										<p:ajax event="blur" update="lblIdentificacion , txtIdentificacion , msgIdentificacion" />
+									</p:inputText>
+							</ui:define>
+							<ui:define name="etiquetaError">
+								<p:message id="msgIdentificacion" for="txtIdentificacion" />
+							</ui:define>
+						</ui:decorate>
+					</div>
+				</div>
+			
+			<!-- Fin fila 1 -->
+			<!-- ******************** FILA NUMERO 2 ************************ -->
+				<div class="row cells8"> 
+					<div class="cell colspan4"><!-- Nombres -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+								<ui:define name="etiqueta">
+									<p:outputLabel id="lblNombres" for="txtNombres" value="Nombres: " />
+								</ui:define>
+								<ui:define name="valor">
+										<p:inputText id="txtNombres" value="#{edicionDocentesForm.edfDocenteEditar.prsNombres}"
+											required="true" requiredMessage="#{generalesConstantesForm.msgCampoRequerido}"
+											validator="sinCaracteresEspecialesValidator" maxlength="32" 
+											style="width: 100%;">
+											<p:ajax event="blur" update="lblNombres , txtNombres , msgNombres" />
+										</p:inputText>
+								</ui:define>
+								<ui:define name="etiquetaError">
+									<p:message id="msgNombres" for="txtNombres" />
+								</ui:define>
+						</ui:decorate>
+					</div>
+					<div class="cell colspan4"><!-- Primer apellido -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblPrimerApelido" for="txtPrimerApelido" value="Primer apellido: " />
+							</ui:define>
+							<ui:define name="valor">
+									<p:inputText id="txtPrimerApelido" value="#{edicionDocentesForm.edfDocenteEditar.prsPrimerApellido}"
+										required="true" requiredMessage="#{generalesConstantesForm.msgCampoRequerido}"
+										validator="sinCaracteresEspecialesValidator" maxlength="32" 
+										style="width: 100%;">
+										<p:ajax event="blur" update="lblPrimerApelido , txtPrimerApelido , msgPrimerApelido" />
+									</p:inputText>
+							</ui:define>
+							<ui:define name="etiquetaError">
+								<p:message id="msgPrimerApelido" for="txtPrimerApelido" />
+							</ui:define>
+						</ui:decorate>
+					</div>
+			</div><!-- Fin fila 2 -->
+				<!-- ******************** FILA NUMERO 3 ************************ -->
+			<div class="row cells8"> 
+					<div class="cell colspan4"><!-- Segundo apellido -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblSegundoApellido" for="txtSegundoApellido" value="Segundo apellido: " />
+							</ui:define>
+							<ui:define name="valor">
+									<p:inputText id="txtSegundoApellido" value="#{edicionDocentesForm.edfDocenteEditar.prsSegundoApellido}"
+										validator="sinCaracteresEspecialesValidator" maxlength="32" 
+										style="width: 100%;">
+										<p:ajax event="blur" update="lblSegundoApellido , txtSegundoApellido , msgSegundoApellido" />
+									</p:inputText>
+							</ui:define>
+							<ui:define name="etiquetaError">
+								<p:message id="msgSegundoApellido" for="txtSegundoApellido" />
+							</ui:define>
+						</ui:decorate>
+					</div>
+					<div class="cell colspan4"><!-- Mail institucional -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblMailInstitucional" for="txtMailInstitucional" value="Mail institucional: " />
+							</ui:define>
+							<ui:define name="valor">
+									<p:inputText id="txtMailInstitucional" value="#{edicionDocentesForm.edfDocenteEditar.prsMailInstitucional}"
+										required="true" requiredMessage="#{generalesConstantesForm.msgCampoRequerido}" maxlength="50" style="width: 100%;">
+										<f:validator validatorId="mailValidator" />
+										<p:ajax event="blur" update="lblMailInstitucional , txtMailInstitucional , msgMailInstitucional" />
+									</p:inputText>
+							</ui:define>
+							<ui:define name="etiquetaError">
+								<p:message id="msgMailInstitucional" for="txtMailInstitucional" />
+							</ui:define>
+						</ui:decorate>
+					</div>
+				</div>
+			</div><!-- Fin fila 3 -->
+		</p:panel >
+		
+			<!-- ******************** PANEL DE INFORMACION DEL EVALUADO ************************ -->
+		<p:panel id="pnlDatosCarrera" header="Carrera" rendered="#{edicionDocentesForm.edfDocenteBandera == generalesConstantesForm.appIdNuevo}">
+			<!-- ******************** TABLA RESPONSIVA ************************ -->
+			<div class="grid condensed">
+				<!-- ******************** FILA NUMERO 1 ************************ -->
+				<div class="row cells8"> <!-- Tipo de documento -->
+					<div class="cell colspan4">
+				  	 	<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblFacultad" for="slcFacultad" value="Facultad: " />
+							</ui:define>
+							<ui:define name="valor">
+								<h:selectOneMenu id="slcFacultad" value="#{edicionDocentesForm.pfFacultad.fclId}"
+									required="true" requiredMessage="#{generalesConstantesForm.msgCampoRequerido}"
+									style="width:100%">
+									<f:selectItem itemLabel="#{generalesConstantesForm.appSeleccione}" />
+									<f:selectItems var="item"  value="#{edicionDocentesForm.pfListFacultades}"
+										itemLabel="#{item.fclDescripcion}" itemValue="#{item.fclId}" />
+									<p:ajax event="change" listener="#{edicionDocentesForm.buscarCarreraXfacultad(edicionDocentesForm.pfFacultad.fclId)}"
+											update=" lblFacultad, slcFacultad, msgFacultad , lblCarrera, slcCarrera , msgCarrera  " />
+								</h:selectOneMenu>
+							</ui:define>
+							<ui:define name="etiquetaError">
+								<p:message id="msgFacultad" for="slcFacultad" />
+							</ui:define>
+						</ui:decorate>
+					</div>
+				</div>
+				<div class="row cells8"> <!-- Tipo de documento -->
+					<div class="cell colspan4">
+				  	 	<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblCarrera" for="slcCarrera" value="Carrera: " />
+							</ui:define>
+							<ui:define name="valor">
+								<h:selectOneMenu id="slcCarrera" value="#{edicionDocentesForm.pfCarrera.crrId}"
+									required="true" requiredMessage="#{generalesConstantesForm.msgCampoRequerido}"
+									style="width:100%">
+									<f:selectItem itemLabel="#{generalesConstantesForm.appSeleccione}" />
+									<f:selectItems var="item"  value="#{edicionDocentesForm.pfListCarreras}"
+										itemLabel="#{item.crrDetalle}" itemValue="#{item.crrId}" />
+										<p:ajax event="change" update=" lblCarrera, slcCarrera , msgCarrera " />
+								</h:selectOneMenu>
+							</ui:define>
+							<ui:define name="etiquetaError">
+								<p:message id="msgCarrera" for="slcCarrera" />
+							</ui:define>
+						</ui:decorate>
+					</div>
+				</div>
+			</div>	
+		</p:panel>	
+		<div>
+			<p:commandButton id="btnCancelar" value="Regresar" action="#{edicionDocentesForm.irCancelar()}" immediate="true" ajax="false"  />
+			<p:commandButton id="btnGuardar" value="Guardar" action="#{edicionDocentesForm.verificarClickAceptarTramite()}"  ajax="false" />
+			<p:commandButton id="btnAceptarModal" value="EjecutarModalAceptar" style="visibility:hidden;">
+					<p:ajax oncomplete="PF('dialogoAcentarEdicionDocente').show();" update=":frmModalAcentarEdicionDocente" />	    				
+    		</p:commandButton>
+		</div>
+	</h:form>
+	
+	<ui:include src="/titulacionPosgrado/validador/editarDocente/modalAceptarEdicionDocente.xhtml"/>
+		<h:form id="compOculto" style="visibility:hidden;">
+		 	<p:inputText id="txtValidador" value="#{edicionDocentesForm.edfValidadorClic}" >
+			</p:inputText>	
+		</h:form>
+</ui:define>
+</ui:composition>
+</html>

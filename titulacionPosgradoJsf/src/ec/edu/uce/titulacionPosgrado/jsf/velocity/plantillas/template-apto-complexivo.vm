@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+<html>
+  <head>
+	 <meta http-equiv="content-type" content="text/html; charset=utf-8">
+	 <title>UNIVERSIDAD CENTRAL DEL ECUADOR</title>
+  </head>
+  <body>
+    <p><strong>Postulante: ${nombres} ${apellidos}.-</strong></p>
+    <br/>
+    <p><strong>Facultad: </strong>${facultad}</p>
+	<p><strong>Carrera/Programa: </strong> ${carrera}</p> 
+	<br/>
+	En cumplimiento a la normativa vigente la <strong>Unidad de Titulaci&#243;n Especial de la Universidad Central del Ecuador</strong> le comunica que una vez  revisado el expediente acad&#233;mico, se desprende que usted ha culminado la malla curricular y presenta todos requisitos previos a la titulaci&#243;n,  por lo cual se determina que es <strong>APTO para presentarse a rendir el Examen de Grado de car&#225;cter complexivo.</strong>
+	<br/>
+	<br/>
+	<br/>
+	<br/> 
+	El proceso se realiz&#243; el ${fechaHora}
+	<br/>	  
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	...........................................................................................
+	<br/>
+	<strong>Informaci&#243;n del Correo: </strong> Mail generado autom&#225;ticamente. Por favor no responda a este mensaje.
+	<br/>
+	<br/>
+	<br/>

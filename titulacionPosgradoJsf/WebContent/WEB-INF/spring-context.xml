@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+                             http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.3.xsd
+                             http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.1.xsd
+                             http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+                             http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd"
+         xmlns="http://www.springframework.org/schema/beans"
+         xmlns:jee="http://www.springframework.org/schema/jee"
+         xmlns:security="http://www.springframework.org/schema/security"
+         xmlns:context="http://www.springframework.org/schema/context"
+         xmlns:aop="http://www.springframework.org/schema/aop">
+         
+	<!-- ========================= IMPORTACION DE CONFIGURACIONES DE BEANS ========================= -->
+	<import resource="spring-beans.xml" />
+	
+	<!-- ==================== CONFIGURACION BASICA DE ACCESO EN BASE A ROLES ========================= -->
+      <security:http auto-config="true" use-expressions="true">
+    	<security:csrf disabled="true"/>
+		<security:session-management >
+		<security:concurrency-control max-sessions="1" expired-url="/j_spring_security_logout" error-if-maximum-exceeded="true"/>
+		</security:session-management>
+        <security:intercept-url pattern="/titulacionPosgrado/generalidades/login.jsp" access="permitAll"/>
+        <security:intercept-url pattern="/titulacionPosgrado/generalidades/inicio.jsf" access="permitAll"/>
+        <security:intercept-url pattern="/titulacionPosgrado/generalidades/recuperaClave/recuperaClave.jsf" access="permitAll"/>
+        <security:intercept-url pattern="/titulacionPosgrado/generalidades/registroPostulante/registroPostulante.jsf" access="permitAll"/>
+        <security:intercept-url pattern="/titulacionPosgrado/generalidades/principal.jsf" access="isAuthenticated()"/>
+        <security:intercept-url pattern="/titulacionPosgrado/postulacion/postulacion.jsf" access="hasAnyRole('ROLE_POSTULANTE')"/>
+        <security:intercept-url pattern="/titulacionPosgrado/administracion/postulante/perfil/perfilPostulante.jsf" access="hasAnyRole('ROLE_POSTULANTE')"/>
+        <security:intercept-url pattern="/titulacionPosgrado/administracion/postulante/perfil/editarPerfilPostulante.jsf" access="hasAnyRole('ROLE_POSTULANTE')"/>
+        <security:intercept-url pattern="/titulacionPosgrado/administracion/postulante/cambioClave/cambioClave.jsf" access="hasAnyRole('ROLE_POSTULANTE')"/>
+        <security:intercept-url pattern="/titulacionPosgrado/administracion/soporte/reseteoMail/listarUsuarios.jsf" access="hasAnyRole('ROLE_ADMINISTRADOR')"/>
+        <security:intercept-url pattern="/titulacionPosgrado/administracion/soporte/reseteoMail/editarMail.jsf" access="hasAnyRole('ROLE_ADMINISTRADOR')"/>
+       
+        <security:intercept-url pattern="/titulacionPosgrado/postulacionUnidadtitulacionPosgrado/visualizacion/listarPostulacion.jsf" access="hasAnyRole('ROLE_POSTULANTE')"/>
+        <security:intercept-url pattern="/titulacionPosgrado/postulacionUnidadtitulacionPosgrado/visualizacion/visualizacion.jsf" access="hasAnyRole('ROLE_POSTULANTE')"/>
+        
+        <!-- ========================= ACCESOS PARA EL ROL VALIDADOR ========================= -->
+        <security:intercept-url pattern="/titulacionPosgrado/validador/**" access="hasAnyRole('ROLE_VALIDADOR')"/>
+        
+        
+        <!-- ========================= ACCESOS PARA EL ROL EDITOR_DGIP Y ROL CONSULTOR ========================= -->
+        <security:intercept-url pattern="/titulacionPosgrado/reportes/general/reportesEstadoPostulantes.jsf" access="hasAnyRole('ROLE_CONSULTOR','ROLE_EDITORDGIP','ROLE_VALIDADOR','ROLE_EVALUADOR')"/>
+        <security:intercept-url pattern="/titulacionPosgrado/reportes/editor_dga/reportesRegistrados.jsf" access="hasAnyRole('ROLE_CONSULTOR','ROLE_EDITORDGIP','ROLE_VALIDADOR','ROLE_EVALUADOR')"/>
+        <security:intercept-url pattern="/titulacionPosgrado/reportes/editor_dga/reportesRegistradosYPostulados.jsf" access="hasAnyRole('ROLE_CONSULTOR','ROLE_EDITORDGIP','ROLE_VALIDADOR','ROLE_EVALUADOR')"/>
+        
+        <!-- ========================= ACCESOS PARA EL ROL EVALUADOR ========================= -->
+        <security:intercept-url pattern="/titulacionPosgrado/evaluacion/**" access="hasAnyRole('ROLE_EVALUADOR')"/>
+        
+       <security:intercept-url pattern="/titulacionPosgrado/**" access="isAuthenticated()"/>
+        <security:logout invalidate-session="true" logout-url="/j_spring_security_logout"/>
+        <security:custom-filter ref="sessionManagementFilter" before="SESSION_MANAGEMENT_FILTER" />
+        <security:form-login login-page="/titulacionPosgrado/generalidades/login.jsp" default-target-url="/titulacionPosgrado/generalidades/principal.jsf" always-use-default-target="true"  
+        username-parameter="j_username" password-parameter="j_password" login-processing-url="/j_spring_security_check"  
+        authentication-failure-url="/errorLogin.jsf" />
+    </security:http>
+    
+    <!-- DEFINE EL AUTENTICATION MANAGER A PARTIR DEL BEAN PROVEEDOR DE LA AUTENTICACION -->
+    <security:authentication-manager>
+        <security:authentication-provider ref="proveedorAutenticacion" />
+    </security:authentication-manager>
+</beans>

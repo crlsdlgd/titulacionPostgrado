@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+<html>
+  <head>
+	 <meta http-equiv="content-type" content="text/html; charset=utf-8">
+	 <title>UNIVERSIDAD CENTRAL DEL ECUADOR</title>
+  </head>
+  <body>
+    <p><strong>Estimado(a): ${nombres} ${apellidos}.-</strong></p>
+    <br/>
+    <p><strong>Facultad: </strong>${facultad}</p>
+	<p><strong>Programa: </strong>${carrera}</p> 
+	<p><strong>Fecha de inicio de cohorte: </strong>${fechaInicio}</p>
+	<p><strong>Fecha de fin de cohorte: </strong>${fechaFin}</p>
+	<br/>
+	La Universidad Central del Ecuador le comunica que una vez que se ha revisado su documentaci&#243;n se ha procedido a declararlo (a) <strong>ID&#211;NEO (A)</strong> para participar en el proceso de titulaci&#243;n.  Cabe aclarar que su proceso de titulaci&#243;n se encuentra dentro de la <strong>DISPOSICI&#211;N GENERAL CUARTA</strong> del Reglamento de R&#233;gimen Acad&#233;mico. (per&#237;odo primeros 5 (cinco) a&#241;os, es decir entre 1 (uno) y 5 (cinco) a&#241;os de haber culminado la Malla Curricular del Programa de Posgrado aprobado por el Consejo de Educaci&#243;n Superior (CES), en el que usted particip&#243;. 
+ 	<br/>
+	Recuerde, en esta fase el proceso de titulaci&#243;n tiene dos momentos:
+	<br/>
+	a. ACTUALIZACI&#211;N DE CONOCIMIENTOS.
+	<br/>
+	b. TITULACI&#211;N.
+	<br/>
+	<br/>
+	Considerando lo se&#241;alado, le informamos que usted debe:
+	<br/>
+	1. REALIZAR UNA SOLICITUD para que se le considere en el proceso de ACTUALIZACI&#211;N DE CONOCIMIENTOS previo el proceso de titulaci&#243;n, observando el contenido de la disposici&#243;n general cuarta del Reglamento de R&#233;gimen Acad&#233;mico, per&#237;odo primeros cinco a&#241;os, la misma que debe ser aprobada y entregada en la secretar&#237;a del Posgrado de la Facultad.
+.
+	<br/>
+	2. REALIZAR EL PAGO DE ARANCELES  que corresponda a la actualizaci&#243;n de conocimientos y entregar una copia del comprobante de pago en la secretar&#237;a
+	<br/>
+	3. SI APRUEBA LA ACTUALIZACI&#211;N DE CONOCIMIENTOS  usted debe realizar una solicitud para iniciar su proceso de titulaci&#243;n, la  misma  que  debe  ser  aprobada  y  entregada  en  la secretar&#237;a del Posgrado de la Facultad.
+	<br/>
+	4. REALIZAR EL PAGO DE ARANCELES PROCESO DE TITULACI&#211;N y entregar una copia del comprobante de pago en la secretar&#237;a de Posgrado de la Facultad.
+	<br/>
+	5. DECLARACI&#211;N DE APTITUD, previa la presentaci&#243;n del trabajo de titulaci&#243;n usted tendr&#225; que ser declarada/o APTA/O, es decir, cuando cumpla con todos los requisitos previos a la titulaci&#243;n.
+	<br/>
+	Tomar en cuenta:
+	<br/>
+	a. Usted tiene 1 (una) sola oportunidad para graduarse en estos segundos cinco a&#241;os. Este per&#237;odo de tiempo se cuenta desde la fecha de culminaci&#241;n de la Malla Curricular del Programa de Posgrado aprobado por el Consejo de Educaci&#241;n Superior (CES) en el cual usted particip&#241;. 
+	 <br/>
+	b. Le recomendamos ingresar permanentemente al Sistema de Titulaci&#243;n de Posgrado con sus credenciales de usuario y contrase&#241;a, a fin de que usted verifique la informaci&#243;n que las secretarias se encuentran ingresando y validando.
+	<br/>
+	  <br/> 
+	  El proceso se realiz&#243; el ${fechaHora}
+	  <br/>	  
+	  <br/>
+	  <br/>
+	  <br/>
+	  <br/>
+	  ...........................................................................................
+	  <br/>
+	  <strong>Informaci&#243;n del Correo: </strong> Mail generado autom&#225;ticamente. Por favor no responda a este mensaje.
+	  <br/>
+	  <br/>
+	  <br/>

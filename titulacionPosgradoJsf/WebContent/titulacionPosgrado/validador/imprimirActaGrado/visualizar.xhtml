@@ -1,0 +1,477 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<ui:composition template="/componentesGenerales/plantillas/pltPrincipalSinMenuEjecModal.xhtml">
+<ui:define name="paginacion">
+		<ui:include src="/componentesGenerales/plantillas/pltPaginacion.xhtml">
+			<ui:param name="pagina"
+				value="Acta de grado / Vista previa " />
+		</ui:include>
+</ui:define>
+<ui:define name="cuerpo">
+<script language="JavaScript">
+//<![CDATA[
+	function verificarErrores(){
+    	var idVarError = 'compOculto:txtValidador';
+    	var varError = document.getElementById(idVarError);
+    	if(varError.value == 1){
+    		document.getElementById('frmVistaPrevia:btnAceptarModal').click();
+        }
+    } 
+
+ //]]> 
+</script>
+<script language="JavaScript">
+//<![CDATA[
+	function abrirVentaReporte(formato, nombreReporte, tipo){
+		var url = "/aplicacion/reportes";
+		url = url + "?nombreJasper=" + nombreReporte;
+		url = url + "&formato=" + formato;
+		url = url + "&tipo=" + tipo;
+		if(formato == 'vista'){
+			var reportWindow = window.open(url, "reportWindow","menubar=0,resizable=0,status=0,width=800,height=600");
+		}else{
+			var reportWindow = window.open(url, "reportWindow","menubar=0,resizable=0,status=0,width=0,height=0");
+		}
+    } 
+ //]]> 
+</script>
+	<h:form id="frmVistaPrevia" enctype="multipart/form-data" acceptcharset="UTF-8" >
+		<p:panel id="pnlDatosPersonales" header="Información personal">
+			<!-- ******************** TABLA RESPONSIVA ************************ -->
+			<div class="grid condensed">
+				<!-- ******************** FILA NUMERO 1 ************************ -->
+				<div class="row cells8"> <!-- Tipo de documento -->
+					<div class="cell colspan4">
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblTipoDocumento" for="txtTipoDocumento" value="Tipo identificación: " />
+							</ui:define>
+							<ui:define name="valor">
+		       					<p:outputLabel id="txtTipoDocumento" value="#{generalesConstantesForm.traerTipoIdentificacion(imprimirActaGradoSecretariaForm.agfEstudianteActaGradoJdbcDtoEditar.prsTipoIdentificacion)}"
+		       									 style="width: 100%;font-weight: Normal !important;"/>	
+							</ui:define>
+						</ui:decorate>
+					</div>
+					<div class="cell colspan4"> <!-- numero de documento -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblIdentificacion" for="txtIdentificacion" value="No. identificación: " />
+							</ui:define>
+							<ui:define name="valor">
+								<p:outputLabel id="txtIdentificacion" value="#{imprimirActaGradoSecretariaForm.agfEstudianteActaGradoJdbcDtoEditar.prsIdentificacion}"
+		       									 style="width: 100%;font-weight: Normal !important;"/>	
+							</ui:define>
+						</ui:decorate>
+					</div>
+				</div><!-- Fin fila 1 -->
+			
+				<!-- ******************** FILA NUMERO 2 ************************ -->
+				<div class="row cells8"> 
+						<div class="cell colspan4"><!-- Nombres -->
+							<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+								<ui:define name="etiqueta">
+									<p:outputLabel id="lblNombres" for="txtNombres" value="Nombres: " />
+								</ui:define>
+								<ui:define name="valor">
+										<p:outputLabel  id="txtNombres" value = "#{imprimirActaGradoSecretariaForm.agfEstudianteActaGradoJdbcDtoEditar.prsNombres}" 
+											  style="width: 100%;font-weight: Normal !important;">
+				       					</p:outputLabel>			       									
+								</ui:define>
+								<ui:define name="etiquetaError">
+								<p:message id="msgNombres" for="txtNombres" />
+								</ui:define>
+								
+							</ui:decorate>
+						</div>
+						<div class="cell colspan4"><!-- Primer apellido -->
+							<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+								<ui:define name="etiqueta">
+									<p:outputLabel id="lblPrimerApelido" for="txtPrimerApelido" value="Primer apellido: " />
+								</ui:define>
+								<ui:define name="valor">
+										<p:outputLabel  id="txtPrimerApelido" value = "#{imprimirActaGradoSecretariaForm.agfEstudianteActaGradoJdbcDtoEditar.prsPrimerApellido}" 
+											  style="width: 100%;font-weight: Normal !important;">
+				       					</p:outputLabel>			       									
+			       									
+								</ui:define>
+								<ui:define name="etiquetaError">
+									<p:message id="msgPrimerApelido" for="txtPrimerApelido" />
+								</ui:define>
+							</ui:decorate>
+						</div>
+						
+				</div><!-- Fin fila 2 -->
+			<!-- ******************** FILA NUMERO 3 ************************ -->
+				<div class="row cells8"> 
+						<div class="cell colspan4"><!-- Segundo apellido -->
+							<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+								<ui:define name="etiqueta">
+									<p:outputLabel id="lblSegundoApellido" for="txtSegundoApellido" value="Segundo apellido: " />
+								</ui:define>
+								<ui:define name="valor">
+										<p:outputLabel  id="txtSegundoApellido" value = "#{imprimirActaGradoSecretariaForm.agfEstudianteActaGradoJdbcDtoEditar.prsSegundoApellido}" 
+											  style="width: 100%;font-weight: Normal !important;">
+				       					</p:outputLabel>			       									
+			       									
+								</ui:define>
+								<ui:define name="etiquetaError">
+									<p:message id="msgSegundoApellido" for="txtSegundoApellido" />
+								</ui:define>
+							</ui:decorate>
+						</div>
+						<div class="cell colspan4"><!-- Sexo -->
+							<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+								<ui:define name="etiqueta">
+									<p:outputLabel id="lblSexo" for="txtSexo" value="Sexo: " />
+								</ui:define>
+								<ui:define name="valor">
+										<p:outputLabel  id="txtSexo" value = "#{generalesConstantesForm.traerTipoSexo(imprimirActaGradoSecretariaForm.agfEstudianteActaGradoJdbcDtoEditar.prsSexo)}" 
+											  style="width: 100%;font-weight: Normal !important;">
+				       					</p:outputLabel>			       									
+			       									
+								</ui:define>
+								<ui:define name="etiquetaError">
+									<p:message id="msgSexo" for="txtSexo" />
+								</ui:define>
+							</ui:decorate>
+						</div>
+				</div><!-- Fin fila 3 -->
+				
+				<!-- ******************** FILA NUMERO 4 ************************ -->
+				<div class="row cells8"> 
+						<div class="cell colspan4"><!-- Sexo -->
+							<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+								<ui:define name="etiqueta">
+									<p:outputLabel id="lblFechaNacimiento" for="txtFechaNacimiento" value="Fecha nacimiento: " />
+								</ui:define>
+								<ui:define name="valor">
+										<p:outputLabel  id="txtFechaNacimiento" value = "#{imprimirActaGradoSecretariaForm.agfEstudianteActaGradoJdbcDtoEditar.prsFechaNacimiento}" 
+											  style="width: 100%;font-weight: Normal !important;">
+				       					</p:outputLabel>			       									
+			       									
+								</ui:define>
+								<ui:define name="etiquetaError">
+									<p:message id="msgFechaNacimiento" for="txtFechaNacimiento" />
+								</ui:define>
+							</ui:decorate>
+						</div>
+						<div class="cell colspan4"><!-- Segundo apellido -->
+							<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+								<ui:define name="etiqueta">
+									<p:outputLabel id="lblMailPersonal" for="txtMailPersonal" value="Mail personal: " />
+								</ui:define>
+								<ui:define name="valor">
+										<p:outputLabel  id="txtMailPersonal" value = "#{imprimirActaGradoSecretariaForm.agfEstudianteActaGradoJdbcDtoEditar.prsMailPersonal}" 
+											  style="width: 100%;font-weight: Normal !important;">
+				       					</p:outputLabel>			       									
+			       									
+								</ui:define>
+								<ui:define name="etiquetaError">
+									<p:message id="msgMailPersonal" for="txtMailPersonal" />
+								</ui:define>
+							</ui:decorate>
+						</div>
+				</div><!-- Fin fila 4 -->
+				
+				<!-- ******************** FILA NUMERO 5 ************************ -->
+				<div class="row cells8"> 
+						<div class="cell colspan4"><!-- Nacionalidad -->
+							<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+								<ui:define name="etiqueta">
+									<p:outputLabel id="lblNacionalidad" for="txtNacionalidad" value="Nacionalidad: " />
+								</ui:define>
+								<ui:define name="valor">
+										<p:outputLabel  id="txtNacionalidad" value = "#{imprimirActaGradoSecretariaForm.agfnacionalidad.ubcDescripcion}" 
+											  style="width: 100%;font-weight: Normal !important;">
+				       					</p:outputLabel>			       									
+			       									
+								</ui:define>
+								<ui:define name="etiquetaError">
+									<p:message id="msgNacionalidad" for="txtNacionalidad" />
+								</ui:define>
+							</ui:decorate>
+						</div>
+						<div class="cell colspan4"><!-- Etnia -->
+							<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+								<ui:define name="etiqueta">
+									<p:outputLabel id="lblEtnia" for="txtEtnia" value="Etnia: " />
+								</ui:define>
+								<ui:define name="valor">
+										<p:outputLabel  id="txtEtnia" value = "#{imprimirActaGradoSecretariaForm.agfEtnia.etnDescripcion}" 
+											  style="width: 100%;font-weight: Normal !important;">
+				       					</p:outputLabel>			       									
+			       									
+								</ui:define>
+								<ui:define name="etiquetaError">
+									<p:message id="msgEtnia" for="txtEtnia" />
+								</ui:define>
+							</ui:decorate>
+						</div>
+				</div><!-- Fin fila 5 -->
+				
+			</div>
+		</p:panel>
+		
+		
+		<p:panel id="pnlDatosAcademicos" header="Información académica">
+			<!-- ******************** TABLA RESPONSIVA ************************ -->
+			<div class="grid condensed">
+				<!-- ******************** FILA NUMERO 1 ************************ -->
+				<div class="row cells8"> 
+					<div class="cell colspan4"><!-- Fecha Acta de grado -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblFechaInicio" for="txtFechaInicio" value="Fecha inicio estudios: " />
+							</ui:define>
+								<ui:define name="valor">
+									<p:outputLabel id="txtFechaInicio" 
+									value="#{imprimirActaGradoSecretariaForm.agfEstudianteActaGradoJdbcDtoEditar.fcesFechaInicio}"
+										 style="width: 100%;font-weight: Normal !important;"/>
+								</ui:define>
+						</ui:decorate>
+					</div>
+					<div class="cell colspan4"><!-- Fecha Egresamiento -->
+							<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+								<ui:define name="etiqueta">
+									<p:outputLabel id="lblFechaEgresamiento" for="txtFechaEgresamiento" value="Fecha culminación malla: " />
+								</ui:define>
+								<ui:define name="valor">
+										<p:outputLabel  id="txtFechaEgresamiento" value = "#{imprimirActaGradoSecretariaForm.agfEstudianteActaGradoJdbcDtoEditar.fcesFechaEgresamiento}" 
+											 style="width: 100%;font-weight: Normal !important;"/>
+								</ui:define>
+							</ui:decorate>
+					</div>
+				</div><!-- ******************** FIN 1 ************************ -->
+			
+			
+				<!-- ******************** FILA NUMERO 2 ************************ -->
+				<div class="row cells8"> 
+					<div class="cell colspan4"><!-- Fecha Acta de grado -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblFechaActaGrado" for="txtFechaActaGrado" value="Fecha acta de grado: " />
+							</ui:define>
+								<ui:define name="valor">
+									<p:outputLabel id="txtFechaActaGrado" 
+									value="#{imprimirActaGradoSecretariaForm.agfEstudianteActaGradoJdbcDtoEditar.fcesFechaActaGrado}"
+										 style="width: 100%;font-weight: Normal !important;"/>
+								</ui:define>
+						</ui:decorate>
+					</div>
+					<div class="cell colspan4"><!-- Hora acta grado -->
+							<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+								<ui:define name="etiqueta">
+									<p:outputLabel id="lblHora" for="txtHora" value="Hora: " />
+								</ui:define>
+								<ui:define name="valor">
+										<p:outputLabel  id="txtHora" value = "#{imprimirActaGradoSecretariaForm.agfEstudianteActaGradoJdbcDtoEditar.fcesHoraActaGrado}" 
+											 style="width: 100%;font-weight: Normal !important;"/>
+								</ui:define>
+							</ui:decorate>
+					</div>
+				</div>
+				<!-- ******************** FILA NUMERO 3 ************************ -->
+				<div class="row cells8"> 
+					<div class="cell colspan4"> <!-- numero acta de grado -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblNumeroActaGrado" for="txtNumeroActaGrado" value="No. acta de grado: " />
+							</ui:define>
+							<ui:define name="valor">
+									<p:outputLabel id="txtNumeroActaGrado" value="#{imprimirActaGradoSecretariaForm.agfEstudianteActaGradoJdbcDtoEditar.fcesNumActaGrado}"
+										maxlength="20"  style="width: 100%;font-weight: Normal !important;">
+									</p:outputLabel>
+							</ui:define>
+						</ui:decorate>
+					</div>
+				</div>
+				
+				<!-- ******************** FILA NUMERO 4 ************************ -->
+				<div class="row cells8"> 
+						<div class="cell colspan4"> <!-- numero acta de grado -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblTipoColegio" for="txtTipoColegio" value="Tipo colegio: " />
+							</ui:define>
+							<ui:define name="valor">
+									<p:outputLabel id="txtTipoColegio" value="#{listasCombosForm.getLabelTipoColegio(imprimirActaGradoSecretariaForm.agfEstudianteActaGradoJdbcDtoEditar.fcesTipoColegio)}"
+										maxlength="20"  style="width: 100%;font-weight: Normal !important;">
+									</p:outputLabel>
+							</ui:define>
+						</ui:decorate>
+					</div>
+					<div class="cell colspan4"> <!-- Titulo bachiller -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblTituloBachiller" for="txtTituloBachiller" value="Título bachiller: " />
+							</ui:define>
+							<ui:define name="valor">
+									<p:outputLabel id="txtTituloBachiller" value="#{imprimirActaGradoSecretariaForm.agfTitulo.ttlDescripcion}"
+										maxlength="20"  style="width: 100%;font-weight: Normal !important;">
+									</p:outputLabel>
+							</ui:define>
+						</ui:decorate>
+					</div>
+					
+				</div>
+				
+				<!-- ******************** FILA NUMERO 5 ************************ -->
+				<div class="row cells8"> 
+					<div class="cell colspan4"> <!-- Reconocimiento estudios previos -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblRecEstudiosPrev" for="txtRecEstudiosPrev" value="Reconocimiento estudios previos: " />
+							</ui:define>
+							<ui:define name="valor">
+									<p:outputLabel id="txtRecEstudiosPrev" value="#{listasCombosForm.getRespuestaSiNO(imprimirActaGradoSecretariaForm.agfEstudianteActaGradoJdbcDtoEditar.fcesRecEstuPrevios)}"
+										maxlength="20"  style="width: 100%;font-weight: Normal !important;">
+									</p:outputLabel>
+							</ui:define>
+						</ui:decorate>
+					</div>
+					<div class="cell colspan4"> <!-- Intitución estudios previos -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblInstEstuPrev" for="txtInstEstuPrev" value="Intitución estudios previos: " />
+							</ui:define>
+							<ui:define name="valor">
+									<p:outputLabel id="txtInstEstuPrev" value="#{imprimirActaGradoSecretariaForm.traerDescripcionInac()}"
+										maxlength="20"  style="width: 100%;font-weight: Normal !important;">
+									</p:outputLabel>
+							</ui:define>
+						</ui:decorate>
+					</div>
+				</div>
+				
+				<!-- ******************** FILA NUMERO 6 ************************ -->
+				<div class="row cells8"> 
+					<div class="cell colspan4"> <!-- numero acta de grado -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblCarreraEstPrev" for="txtCarreraEstPrev" value="Carrera estudios previos: " />
+							</ui:define>
+							<ui:define name="valor">
+									<p:outputLabel id="txtCarreraEstPrev" value="#{imprimirActaGradoSecretariaForm.agfEstudianteActaGradoJdbcDtoEditar.fcesCrrEstudPrevios}"
+										maxlength="20"  style="width: 100%;font-weight: Normal !important;">
+									</p:outputLabel>
+							</ui:define>
+						</ui:decorate>
+					</div>
+					<div class="cell colspan4"> <!-- Tipo Reconocimiento -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblTipoReconocimiento" for="txtTipoReconocimiento" value="Tipo reconocimiento: " />
+							</ui:define>
+							<ui:define name="valor">
+									<p:outputLabel id="txtTipoReconocimiento" value="#{generalesConstantesForm.traerTipoDuracionReconocimiento(imprimirActaGradoSecretariaForm.agfEstudianteActaGradoJdbcDtoEditar.fcesTipoDuracionRec)}"
+										maxlength="20"  style="width: 100%;font-weight: Normal !important;">
+									</p:outputLabel>
+							</ui:define>
+						</ui:decorate>
+					</div>
+				</div>
+				<!-- ******************** FILA NUMERO 7 ************************ -->
+				<div class="row cells8"> 
+					<div class="cell colspan4"> <!-- Tiempo reconocimeinto -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblTiempoReconoc" for="txtTiempoReconoc" value="Tiempo reconocimiento: " />
+							</ui:define>
+							<ui:define name="valor">
+									<p:outputLabel id="txtTiempoReconoc" value="#{imprimirActaGradoSecretariaForm.agfEstudianteActaGradoJdbcDtoEditar.fcesCrrEstudPrevios}"
+										maxlength="20"  style="width: 100%;font-weight: Normal !important;">
+									</p:outputLabel>
+							</ui:define>
+						</ui:decorate>
+					</div>
+					<div class="cell colspan4"> <!-- Link tesis -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblLinkTesis" for="txtLinkTesis" value="Link tesis: " />
+							</ui:define>
+							<ui:define name="valor">
+									<p:outputLabel id="txtLinkTesis" value="#{imprimirActaGradoSecretariaForm.agfEstudianteActaGradoJdbcDtoEditar.fcesLinkTesis}"
+										maxlength="20"  style="width: 100%;font-weight: Normal !important;">
+									</p:outputLabel>
+							</ui:define>
+						</ui:decorate>
+					</div>
+				</div>
+				
+				
+				
+				<!-- ******************** FILA NUMERO 3 ************************ -->
+				<div class="row cells8"> <!-- mecanismo de titulación -->
+					<div class="cell colspan4">
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblMecanismoTitulacion" for="txtMecanismoTitulacion" value="Mecanismo titulación: " />
+							</ui:define>
+							<ui:define name="valor">
+								<p:outputLabel id="txtMecanismoTitulacion" value="#{imprimirActaGradoSecretariaForm.agfEstudianteActaGradoJdbcDtoEditar.mcttdescripcion}"
+			       									 style="width: 100%;font-weight: Normal !important;"/>	
+							</ui:define>
+						</ui:decorate>
+					</div>
+				</div>
+				<!-- ******************** FILA NUMERO 4 ************************ -->
+				<div class="row cells8">
+		       		<div class="cell colspan4" > <!-- nota promedio académico -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+			    			<ui:define name="etiqueta">	
+					       			<p:outputLabel id="lblPremedioAcademico" for="txtPremedioAcademico" value="Nota promedio académico:"/>	
+					       	</ui:define>
+					       		<ui:define name="valor">	
+					   				<p:outputLabel  id="txtPremedioAcademico" value = "#{imprimirActaGradoSecretariaForm.agfEstudianteActaGradoJdbcDtoEditar.fcesNotaPromAcumulado}" 
+				    							   style="width: 100%;font-weight: Normal !important;">
+				       				</p:outputLabel>
+				       		</ui:define>
+		       			</ui:decorate>
+		       		</div>
+		       		
+		       		<div class="cell colspan4" > <!-- nota trabajo titulacion-->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+			    			<ui:define name="etiqueta">	
+					       			<p:outputLabel id="lblTrabajoTitulacion" for="txtTrabajoTitulacion" value="Nota trabajo titulación:"/>	
+					       	</ui:define>
+					       	<ui:define name="valor">
+					       			<p:outputLabel id="txtTrabajoTitulacion" value="#{imprimirActaGradoSecretariaForm.agfEstudianteActaGradoJdbcDtoEditar.fcesNotaTrabTitulacion}"
+			       									 style="width: 100%;font-weight: Normal !important;"/>	
+				       		</ui:define>
+		       			</ui:decorate>
+		       		</div>
+		       		
+		       		
+				</div><!-- Fin fila 4-->
+				<div class="row cells8">
+		       		<div class="cell colspan4" > <!-- nota promedio académico -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+			    			<ui:define name="etiqueta">	
+					       			<p:outputLabel id="lblTitulo" for="txtTitulo" value="Titulo:"/>	
+					       	</ui:define>
+				       		<ui:define name="valor">	
+					   				<p:outputLabel id="txtTitulo" value="#{imprimirActaGradoSecretariaForm.agfEstudianteActaGradoJdbcDtoEditar.ttlDescripcion}"
+									
+									 style="width: 100%;font-weight: Normal !important;"/>
+				       		</ui:define>
+		       			</ui:decorate>
+		       		</div>
+		       	</div><!-- Fin fila 5-->
+			</div>
+		</p:panel>
+		<div>
+			<p:commandButton id="btnCancelar" value="Cancelar" immediate="true" ajax="false" action="#{imprimirActaGradoSecretariaForm.irRegresarActaGrado()}"  />
+			<p:commandButton id="btnExportar" value="Generar acta" action="#{imprimirActaGradoSecretariaForm.irGenerarActa()}"   >
+    				<p:ajax oncomplete="abrirVentaReporte('PDF','ActaDeGradoComplexivo','ACTACOMPLEXIVO');" />
+    		</p:commandButton>
+		</div>
+		
+	</h:form>
+</ui:define>
+</ui:composition>
+</html>

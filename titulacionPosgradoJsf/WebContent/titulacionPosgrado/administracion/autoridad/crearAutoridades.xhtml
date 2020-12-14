@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+      
+<ui:composition template="/componentesGenerales/plantillas/pltPrincipalSinMenuEjecModal.xhtml">
+<ui:define name="paginacion">
+		<ui:include src="/componentesGenerales/plantillas/pltPaginacion.xhtml">
+			<ui:param name="pagina"
+				value=" Autoridades / Crear autoridad " />
+		</ui:include>
+</ui:define>
+
+
+<ui:define name="cuerpo">
+<script language="JavaScript">
+//<![CDATA[
+	function verificarErrores(){
+    	var idVarError = 'compOculto:txtValidador';
+    	var varError = document.getElementById(idVarError);
+    	if(varError.value == 1){
+    		document.getElementById('frVisualizar:btnNuevaModal').click();
+        }
+    } 
+ //]]> 
+</script>
+
+	<h:form id="frVisualizar" enctype="multipart/form-data" acceptcharset="UTF-8" >
+		<!-- ******************** PANEL DE INFORMACION AUTORIDADES ************************ -->
+		<p:panel id="pnlDatosAutoridades" header="Crear autoridad ">
+			<!-- ******************** TABLA RESPONSIVA ************************ -->
+			<div class="grid condensed">
+			<!-- ******************** FILA NUMERO 1 ************************ -->
+					<div class="row cells8">
+						<div class="cell colspan3">
+							<ui:decorate
+								template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+								<ui:define name="etiqueta">
+									<p:outputLabel id="lblAtrFacultad" for="slcAtrFacultad" value="Facultad: " />
+								</ui:define>
+								<ui:define name="valor">
+									<h:selectOneMenu id="slcAtrFacultad"
+										value="#{administracionAutoridadesForm.aafAutoridadBuscar.atrFacultad.fclId}"
+										required="true"
+										requiredMessage="#{generalesConstantesForm.msgCampoRequerido}"
+										style="width:100%">
+										<f:selectItem
+											itemLabel="#{generalesConstantesForm.appSeleccione}" />
+										<f:selectItems  var="item"
+											value="#{administracionAutoridadesForm.aafListFacultad}" 
+											itemLabel="#{item.fclDescripcion}" itemValue="#{item.fclId}" />
+											<p:ajax event="change" update="lblAtrFacultad , slcAtrFacultad , msgAtrFacultad " />
+									</h:selectOneMenu>
+								</ui:define>
+								<ui:define name="etiquetaError">
+								<p:message id="msgAtrFacultad" for="slcAtrFacultad" />
+								</ui:define>
+							</ui:decorate>
+						</div>
+					</div>
+					<!-- ******************** FIN FILA NUMERO 1************************ -->
+				<!-- ******************** FILA NUMERO 2 ************************ -->
+				<div class="row cells8">
+					<div class="cell colspan3">
+						<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblIdentificacion" for="txtIdentificacion" value="Identificación: "/>	
+		       				</ui:define>
+		       				<ui:define name="valor">	
+		       					<p:outputLabel id="txtIdentificacion" value="#{administracionAutoridadesForm.aafPersonaBuscar.prsIdentificacion}" 
+		       									style="font-weight: Normal !important;">
+		       					</p:outputLabel>	
+		       				</ui:define>
+		       			</ui:decorate>
+					</div>
+				</div><!-- ******************** FIN FILA NUMERO 2 ************************ -->
+				<!-- ******************** FILA NUMERO 3 ************************ -->
+				<div class="row cells8">
+					<div class="cell colspan3">
+						<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblNombres" for="txtNombres" value="Nombres: "/>	
+		       				</ui:define>
+		       				<ui:define name="valor">	
+		       					<p:outputLabel id="txtNombres" value="#{administracionAutoridadesForm.aafPersonaBuscar.prsNombres}" 
+		       									style="font-weight: Normal !important;">
+		       					</p:outputLabel>	
+		       				</ui:define>
+		       			</ui:decorate>
+					</div>
+				</div><!-- ******************** FIN FILA NUMERO 3 ************************ -->
+				<!-- ******************** FILA NUMERO 4 ************************ -->
+				<div class="row cells8">
+					<div class="cell colspan3">
+						<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblPapellido" for="txtPapellido" value="Primer Apellido: "/>	
+		       				</ui:define>
+		       				<ui:define name="valor">	
+		       					<p:outputLabel id="txtPapellido" value="#{administracionAutoridadesForm.aafPersonaBuscar.prsPrimerApellido}" 
+		       									style="font-weight: Normal !important;">
+		       					</p:outputLabel>	
+		       				</ui:define>
+		       			</ui:decorate>
+					</div>
+				</div>	<!-- ******************** FIN FILA NUMERO 4 ************************ -->
+				<!-- ******************** FILA NUMERO 5 ************************ -->
+				<div class="row cells8">
+					<div class="cell colspan3">
+						<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblSapellido" for="txtSapellido" value="Segundo Apellido: "/>	
+		       				</ui:define>
+		       				<ui:define name="valor">	
+		       					<p:outputLabel id="txtSapellido" value="#{administracionAutoridadesForm.aafPersonaBuscar.prsSegundoApellido}" 
+		       									style="font-weight: Normal !important;">
+		       					</p:outputLabel>	
+		       				</ui:define>
+		       			</ui:decorate>
+					</div> 
+				</div><!-- ******************** FIN FILA NUMERO 5 ************************ -->
+				<!-- ******************** FILA NUMERO 6 ************************ -->
+				<div class="row cells8">
+					<div class="cell colspan3">
+						<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblAtrEstado" for="txtAtrEstado"
+										value="Estado: " />
+								</ui:define>
+								<ui:define name="valor">	
+		       					<p:outputLabel id="txtAtrEstado" value="ACTIVO" 
+		       									style="font-weight: Normal !important;">
+		       					</p:outputLabel>	
+		       				</ui:define>
+		       			</ui:decorate>
+					</div>
+				</div>	<!-- ******************** FIN FILA NUMERO 6 ************************ -->
+				<!-- ******************** FILA NUMERO 7 ************************ -->
+					<div class="row cells8">
+						<div class="cell colspan3">
+							<ui:decorate
+								template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+								<ui:define name="etiqueta">
+									<p:outputLabel id="lblAtrTipo" for="slcAtrTipo" value="Tipo: " />
+								</ui:define>
+								<ui:define name="valor">
+									<h:selectOneMenu id="slcAtrTipo"
+										value="#{administracionAutoridadesForm.aafAutoridadBuscar.atrTipo}"
+										required="true"
+										requiredMessage="#{generalesConstantesForm.msgCampoRequerido}"
+										style="width:100%">
+										<f:selectItem
+											itemLabel="#{generalesConstantesForm.appSeleccione}" />
+										<f:selectItems  var="item"
+											value="#{listasCombosForm.listaTipoAutoridad}" 
+											itemLabel="#{item.description}" itemValue="#{item.value}" />
+											<p:ajax event="change" update="lblAtrTipo , slcAtrTipo , msgAtrTipo " />
+									</h:selectOneMenu>
+								</ui:define>
+								<ui:define name="etiquetaError">
+								<p:message id="msgAtrTipo" for="slcAtrTipo" />
+								</ui:define>
+							</ui:decorate>
+						</div>
+					</div>
+					<!-- ******************** FIN FILA NUMERO 7************************ -->
+			</div>
+		</p:panel>	
+		<div >
+			<p:commandButton id="btnCancelar" value="Regresar" action="#{administracionAutoridadesForm.irCancelarVer()}" immediate="true" ajax="false" 
+							 onclick="PF('dialogoTrabajando').show();" onsuccess="PF('dialogoTrabajando').hide();" />				
+			 <p:commandButton id="btnGuardar" value="Guardar"  action="#{administracionAutoridadesForm.verificarClickAceptar()}" ajax = "false"/>
+			<p:commandButton id="btnNuevaModal" value="EjecutarModalAceptar" style="visibility:hidden;">
+					<p:ajax oncomplete="PF('dialogoNuevaAutoridad').show();"   update=":frmModalNuevaAutoridad" />	    				
+    		</p:commandButton>			 
+		</div>
+	</h:form>
+	
+	<ui:include src="/titulacionPosgrado/administracion/autoridad/modalNuevaAutoridades.xhtml"/>
+		<h:form id="compOculto" style="visibility:hidden;">
+	 	<p:inputText id="txtValidador" value="#{administracionAutoridadesForm.aafValidadorClic}" >
+		</p:inputText>	
+		</h:form>
+	
+	
+	
+</ui:define>
+</ui:composition>
+</html>

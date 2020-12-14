@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+<html>
+  <head>
+	 <meta http-equiv="content-type" content="text/html; charset=utf-8">
+	 <title>UNIVERSIDAD CENTRAL DEL ECUADOR</title>
+  </head>
+  <body>
+    <p><strong>Estimado(a): ${nombres} ${apellidos}.-</strong></p>
+    <br/>
+    <p><strong>Facultad: </strong>${facultad}</p>
+	<p><strong>Programa: </strong>${carrera}</p> 
+	<br/>
+    La Universidad Central del Ecuador le comunica que una vez revisada su documentaci&#243;n se visualiza que usted ha pasado el l&#237;mite para titularse en el programa de posgrado, el cual no puede ser mayor a diez a&#241;os desde la fecha de fin de cohorte. 
+	<br/>
+	En este sentido le informamos que ha sido declarado/a NO ID&#211;NEO/A para participar en este proceso de titulaci&#243;n.
+	 <br/>
+	 
+	  <br/> 
+	  El proceso se realiz&#243; el ${fechaHora}
+	  <br/>	  
+	  <br/>
+	  <br/>
+	  <br/>
+	  <br/>
+	  ...........................................................................................
+	  <br/>
+	  <strong>Informaci&#243;n del Correo: </strong> Mail generado autom&#225;ticamente. Por favor no responda a este mensaje.
+	  <br/>
+	  <br/>
+	  <br/>

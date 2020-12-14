@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+<html>
+  <head>
+	 <meta http-equiv="content-type" content="text/html; charset=utf-8">
+	 <title>UNIVERSIDAD CENTRAL DEL ECUADOR</title>
+  </head>
+  <body>
+    <p><strong>Estimado(a): ${nombres} ${apellidos}.-</strong></p>
+    <br/>
+    <p><strong>Facultad: </strong>${facultad}</p>
+	<p><strong>Programa: </strong>${carrera}</p> 
+	<br/>
+    La Universidad Central del Ecuador le comunica que una vez que se ha revisado su documentaci&#243;n se ha determinado que su caso se contempla en el Reglamento de R&#233;gimen Acad&#233;mico, DISPOSICI&#211;N GENERAL CUARTA, p&#225;rrafo tercero, que dispone: 
+	<br/>
+	<br/>
+	
+	&#8220;En caso de que un estudiante no concluya o no apruebe la opci&#243n de titulaci&#243n luego de transcurridos m&#225;s de 10 a&#241;os, contados a partir del &#250;ltimo per&#237;odo acad&#233;mico de la carrera o programa, no podr&#225; titularse en la carrera o programa en la misma IES, ni en ninguna otra instituci&#243n de educaci&#243n superior. En este caso el estudiante podr&#225; optar por la homologaci&#243n de estudios en una carrera o programa vigente, &#250;nicamente mediante el mecanismo de validaci&#243n de conocimientos establecido en este Reglamento&#8221;.
+	 <br/>
+	 
+	  <br/> 
+	  El proceso se realiz&#243; el ${fechaHora}
+	  <br/>	  
+	  <br/>
+	  <br/>
+	  <br/>
+	  <br/>
+	  ...........................................................................................
+	  <br/>
+	  <strong>Informaci&#243;n del Correo: </strong> Mail generado autom&#225;ticamente. Por favor no responda a este mensaje.
+	  <br/>
+	  <br/>
+	  <br/>

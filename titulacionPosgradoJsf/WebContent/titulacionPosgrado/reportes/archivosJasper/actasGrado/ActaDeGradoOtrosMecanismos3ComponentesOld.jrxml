@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.2.0.final using JasperReports Library version 6.2.0  -->
+<!-- 2020-03-11T09:12:43 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ActaDeGradoComplexivo" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="44bf8946-8b64-4476-838c-c5e626fa46cd">
+	<property name="com.jaspersoft.studio.unit." value="mm"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="mm"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="mm"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="mm"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="mm"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="mm"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="mm"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="facultad" class="java.lang.String"/>
+	<parameter name="carrera" class="java.lang.String"/>
+	<parameter name="modalidad" class="java.lang.String"/>
+	<parameter name="folio" class="java.lang.String"/>
+	<parameter name="imagenCabecera" class="java.lang.String"/>
+	<parameter name="fecha_actual" class="java.lang.String"/>
+	<parameter name="hora" class="java.lang.String"/>
+	<parameter name="postulante" class="java.lang.String"/>
+	<parameter name="recordAcademico" class="java.lang.String"/>
+	<parameter name="trabajoTitulacion" class="java.lang.String"/>
+	<parameter name="promedioFinal" class="java.lang.String"/>
+	<parameter name="equivalencia" class="java.lang.String"/>
+	<parameter name="notaRecord" class="java.lang.String"/>
+	<parameter name="notaTrabajo" class="java.lang.String"/>
+	<parameter name="notaPromedio" class="java.lang.String"/>
+	<parameter name="titulo" class="java.lang.String"/>
+	<parameter name="secretario" class="java.lang.String"/>
+	<parameter name="imagenPie" class="java.lang.String"/>
+	<parameter name="texto" class="java.lang.String"/>
+	<parameter name="tema" class="java.lang.String"/>
+	<parameter name="miembro1" class="java.lang.String"/>
+	<parameter name="presidente" class="java.lang.String"/>
+	<parameter name="miembro2" class="java.lang.String"/>
+	<parameter name="tipoSede" class="java.lang.String"/>
+	<parameter name="facultadCadena" class="java.lang.String"/>
+	<parameter name="usuario" class="java.lang.String"/>
+	<parameter name="textoSecretario" class="java.lang.String"/>
+	<parameter name="formacion" class="java.lang.String"/>
+	<parameter name="imagenQR" class="java.lang.String"/>
+	<parameter name="notaEscrito" class="java.lang.String"/>
+	<parameter name="notaOral" class="java.lang.String"/>
+	<parameter name="tribunalOral" class="java.lang.String"/>
+	<parameter name="tribunalEscrito" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<columnHeader>
+		<band height="170" splitType="Stretch">
+			<textField>
+				<reportElement x="26" y="59" width="90" height="20" uuid="9b559073-95e9-406d-ba03-5cb5e571d6bf"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Helvetica New" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{tipoSede}+":"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="-20" y="80" width="136" height="20" uuid="cba6074e-fcd6-4e86-bd6c-0024b0e7800f"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Helvetica New" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Programa Posgrado:"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="38" y="120" width="78" height="20" uuid="650b6a2b-9d53-468c-a53a-2fd673c2c7a1"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Helvetica New" size="11" isBold="true" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Modalidad:"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="59" y="140" width="57" height="20" uuid="53a5b821-500c-401d-895a-154474dd3ee1"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Helvetica New" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Folio N.°"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="116" y="59" width="460" height="20" forecolor="#FFFFFF" backcolor="#0076B0" uuid="d088501b-0a77-4d2d-824f-e798024a8920"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Helvetica New" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["  "+$P{facultad}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="116" y="59" width="1" height="100" forecolor="#0076B0" uuid="794dcd69-26bf-496a-a1d3-c73db2885e29"/>
+			</line>
+			<textField>
+				<reportElement x="116" y="79" width="460" height="20" uuid="d11f7d3b-5cea-4ac8-a332-4d9448eb9fc4"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Helvetica New" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA["  "+$P{carrera}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="116" y="120" width="460" height="20" uuid="72bf3a34-18fc-403a-a5e9-4d2a1b68568b"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Helvetica New" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA["  "+$P{modalidad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="116" y="140" width="460" height="20" uuid="d4571561-d92f-46ff-9738-7ea18213dd4d"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Helvetica New" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA["  "+$P{folio}]]></textFieldExpression>
+			</textField>
+			<image scaleImage="FillFrame">
+				<reportElement x="-20" y="-20" width="595" height="65" uuid="a6581d78-e642-420e-9c68-23c5943ad538">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<imageExpression><![CDATA[$P{imagenCabecera}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="116" y="100" width="460" height="20" uuid="9605648b-6f5e-4f1d-86a9-ef768faa65b1"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Helvetica New" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA["  "+$P{formacion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="-10" y="100" width="126" height="20" uuid="a39de2d5-a593-4d69-9448-ed1bdcaf678d"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Helvetica New" size="11" isBold="true" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Tipo de Formación:"]]></textFieldExpression>
+			</textField>
+			<image scaleImage="FillFrame">
+				<reportElement x="504" y="99" width="52" height="60" uuid="d7066998-54b5-474b-8e89-5114dd8eb24f">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<imageExpression><![CDATA[$P{imagenQR}]]></imageExpression>
+			</image>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="632" splitType="Stretch">
+			<textField>
+				<reportElement x="26" y="-10" width="525" height="100" uuid="7240eb85-9c81-4b38-9cc5-d29794b7ba1c"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Helvetica New" size="9"/>
+					<paragraph lineSpacing="Double"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{texto}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="-20" y="156" width="595" height="104" backcolor="#F5F5F7" uuid="ccb50144-ce88-4255-9106-020e7da00b00"/>
+				<graphicElement>
+					<pen lineWidth="0.0" lineColor="#B6B7D4"/>
+				</graphicElement>
+			</rectangle>
+			<textField>
+				<reportElement x="18" y="174" width="242" height="19" uuid="f59fda91-90b3-4531-87d3-38d14dcc0e38"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Récord Académico:"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="18" y="195" width="242" height="19" uuid="814d0fc0-3946-483e-a6cc-f993e0919c15"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Nota del Trabajo Escrito"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="18" y="238" width="242" height="19" uuid="f585a290-25e2-4cab-9b4d-ee9a08f55501"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Nota Final de Graduación:"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="278" y="176" width="227" height="19" forecolor="#0076B0" backcolor="#FFFFFF" uuid="d816650e-ac36-4d75-bd12-6ccf4ac4ea3d"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Helvetica New" isBold="true" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{recordAcademico}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="278" y="197" width="226" height="19" forecolor="#0076B0" uuid="bdee48fc-b9eb-4394-9851-e4690519339d"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Helvetica New" isBold="true" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{tribunalEscrito}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="278" y="240" width="226" height="19" forecolor="#0076B0" uuid="16c7e69e-0342-471d-aa7e-bf74bb4a2914"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Helvetica New" isBold="true" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{promedioFinal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="506" y="174" width="37" height="19" forecolor="#FFFFFF" backcolor="#0076B0" uuid="02664915-f3a2-42b0-afe1-c31e89c2d556"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{notaRecord}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="506" y="195" width="37" height="19" forecolor="#FFFFFF" backcolor="#0076B0" uuid="a5a7f257-603d-4e95-9a98-b5b0e81464f2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{notaEscrito}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="506" y="238" width="37" height="19" forecolor="#FFFFFF" backcolor="#0076B0" uuid="63f6c24f-e848-41bc-89f5-5b913c89c754"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{notaPromedio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="18" y="262" width="521" height="38" uuid="bcec1adb-b742-447a-83cc-418c85e27235"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle" markup="styled">
+					<font fontName="Helvetica New" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{facultadCadena}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="-1" y="311" width="549" height="20" uuid="55ec99d9-8ba2-41d2-bb72-5721c325b2b1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Helvetica New" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Confiere a: "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="-1" y="331" width="549" height="20" uuid="a9c1cfec-7038-453d-a11b-8e2d5479d4a4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Helvetica New" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{postulante}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="-1" y="351" width="549" height="20" uuid="92c61222-bfb3-44c9-9e70-4621b1d04f35"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Helvetica New" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["El Título de cuarto nivel / Posgrado de: "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="-1" y="371" width="549" height="20" uuid="9d680112-66cf-49de-b137-1ae356c27079"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Helvetica New" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{titulo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2" y="391" width="546" height="29" uuid="4340c887-ac7a-4a3d-a667-c0fee777c4e5"/>
+				<textElement textAlignment="Justified" verticalAlignment="Bottom">
+					<font fontName="Helvetica New" size="9"/>
+					<paragraph lineSpacing="Double"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{textoSecretario}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="-5" y="463" width="164" height="1" uuid="a96b9bbf-495c-4325-b078-ded8a98871cf"/>
+			</line>
+			<line>
+				<reportElement x="388" y="463" width="172" height="1" uuid="7129cb5b-8854-4643-92fb-5fb998c3c40e"/>
+			</line>
+			<textField>
+				<reportElement x="-11" y="463" width="180" height="18" uuid="a137f5fc-eb70-413c-b554-a18ce48ec390"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Helvetica New" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{presidente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2" y="481" width="150" height="18" uuid="c1663377-4be3-4b18-97b4-aa8ae5407ef9"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Helvetica New" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Presidente /a del Tribunal"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="384" y="464" width="180" height="18" uuid="8b6c1310-f029-493d-8c82-94a9f6eaa6e1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Helvetica New" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{miembro2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="400" y="482" width="150" height="18" uuid="b6c9aac1-45ea-43a5-b408-2e25d9928033"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Helvetica New" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Miembro del Tribunal"]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="3" y="540" width="164" height="1" uuid="b03ed11e-342e-47b0-bb3b-4acf41930fa6"/>
+			</line>
+			<textField>
+				<reportElement x="-11" y="540" width="193" height="18" uuid="bda6b360-a615-409d-a070-df38d559b565"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Helvetica New" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{postulante}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="10" y="558" width="150" height="18" uuid="6a2232f5-e7ea-42f3-a815-65a419d628ec"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Helvetica New" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Graduado /a"]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="385" y="540" width="164" height="1" uuid="022bbb10-8130-4d80-92a3-540207a7f591"/>
+			</line>
+			<textField>
+				<reportElement x="385" y="540" width="164" height="18" uuid="2e580d27-8428-41f2-ae74-bdd876cd66c0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Helvetica New" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{secretario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="392" y="558" width="150" height="18" uuid="0db108ae-e474-4412-9a0d-c45acccc57b1"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Helvetica New" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Secretario /a Abogado /a"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="572" width="550" height="20" uuid="7fcff7b2-e916-4bb7-a93e-7e984e8f3b9a"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Helvetica New" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Refrendado en la Secretaría General de la Universidad Central del Ecuador con fecha:"]]></textFieldExpression>
+			</textField>
+			<image scaleImage="FillFrame">
+				<reportElement stretchType="RelativeToBandHeight" x="-20" y="609" width="595" height="23" uuid="5d0013cd-4467-412c-97d6-4ef5927b7c4d"/>
+				<imageExpression><![CDATA[$P{imagenPie}]]></imageExpression>
+			</image>
+			<line>
+				<reportElement x="194" y="463" width="164" height="1" uuid="f6d7643d-0ce3-4038-a221-510292e7e2e5"/>
+			</line>
+			<textField>
+				<reportElement x="186" y="463" width="180" height="18" uuid="603f23e9-9be4-438c-a896-1439d5f101bb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Helvetica New" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{miembro1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="202" y="481" width="150" height="18" uuid="7ef3783f-c804-4684-943c-8eedd80e6f3f"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Helvetica New" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Miembro del Tribunal"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="26" y="108" width="525" height="48" uuid="15e708f8-6cf6-4fc7-936e-0e81c2bf9c1b"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Helvetica New" size="8" isBold="false" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{tema}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="18" y="160" width="488" height="20" uuid="8cbc50b6-a8a5-4e73-9756-9bb6ee910685"/>
+				<textFieldExpression><![CDATA["Habiendo obtenido las calificaciones que a continuación se detallan:"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="25" y="91" width="526" height="17" uuid="3451946f-a8d6-47d2-8c9a-b6dc89965ca9"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Helvetica New" isBold="false" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Tema:"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="397" y="575" width="150" height="19" uuid="3852b4f6-9eca-42ff-99ab-0e086f1a86cf"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["______/___/___/____________"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="399" y="592" width="150" height="19" uuid="eccece61-509f-462c-84af-a7a2f4e76e48"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["   Año    mes   día   f) Resp."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="590" width="150" height="19" uuid="db312cc8-4447-4547-bac6-00d78b0410b5"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Elaborado por: "+$P{usuario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="18" y="217" width="242" height="19" uuid="ecc807a3-7bff-45b5-9de0-4f8817846b70"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Nota de la Defensa Oral:"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="278" y="219" width="226" height="19" forecolor="#0076B0" uuid="6e297a62-9df5-4f98-8b0c-908e9e7fc43c"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Helvetica New" isBold="true" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{tribunalOral}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="506" y="217" width="37" height="19" forecolor="#FFFFFF" backcolor="#0076B0" uuid="f0909975-bf1c-415d-8195-aebcbe35d3ac"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{notaOral}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

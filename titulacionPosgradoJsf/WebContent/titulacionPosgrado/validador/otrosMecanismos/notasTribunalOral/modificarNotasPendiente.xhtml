@@ -1,0 +1,413 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<ui:composition template="/componentesGenerales/plantillas/pltPrincipalSinMenuEjecModal.xhtml">
+<ui:define name="paginacion">
+		<ui:include src="/componentesGenerales/plantillas/pltPaginacion.xhtml">
+			<ui:param name="pagina"
+				value="Otros mecanismos / Ingreso notas defensa oral / Edición " />
+		</ui:include>
+</ui:define>
+
+<ui:define name="cuerpo">
+<script language="JavaScript">
+//<![CDATA[
+	function verificarErrores(){
+    	var idVarError = 'compOculto:txtValidador';
+    	var varError = document.getElementById(idVarError);
+    	if(varError.value == 1){
+    		document.getElementById('frVisualizar:btnAceptarModal').click();
+        }
+        
+    } 
+    function verificarTutor(){
+    	var idVarError = 'compOcultoAsignar:txtAsignarTutor';
+    	var varError = document.getElementById(idVarError);
+    	if(varError.value == 1){
+    		document.getElementById('frVisualizar:btnAceptarModalAsignar').click();
+        }
+    }
+      function verificarLectores(){
+    	var idVarError = 'compOcultoAsignarLectores:txtAsignarLectores';
+    	var varError = document.getElementById(idVarError);
+    	if(varError.value == 1){
+    		document.getElementById('frVisualizar:btnAceptarModalAsignarTribunal').click();
+        }
+    }
+ //]]> 
+</script>
+
+	<h:form id="frVisualizar" enctype="multipart/form-data" acceptcharset="UTF-8" >
+		<!-- ******************** PANEL DE INFORMACION DEL EVALUADO ************************ -->
+		<p:panel id="pnlDatosPersona" header="Información del postulante">
+			<!-- ******************** TABLA RESPONSIVA ************************ -->
+			<div class="grid condensed">
+				<!-- ******************** FILA NUMERO 1 ************************ -->
+				<div class="row cells9"> 
+				   <div class="cell colspan9"><!-- IDENTIFICACION -->
+						<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblIdentificacion" for="txtIdentificacion" value="No.Identificación: "/>	
+		       				</ui:define>
+		       				<ui:define name="valor">	
+		       					<p:outputLabel id="txtIdentificacion" value="#{modificarNotasTribunalSecretariaForm.mntsfEstudianteAptitudOtrosMecanismosDtoEditar.prsIdentificacion}" 
+		       									style="font-weight: Normal !important;">
+		       					</p:outputLabel>	
+		       				</ui:define>
+		       			</ui:decorate>
+					</div>	
+				   <div class="cell colspan9"><!-- NOMBRES -->
+						<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblNombres" for="txtNombres" value="Nombres: "/>	
+		       				</ui:define>
+		       				<ui:define name="valor">	
+		       					<p:outputLabel id="txtNombres" value="#{modificarNotasTribunalSecretariaForm.mntsfEstudianteAptitudOtrosMecanismosDtoEditar.prsPrimerApellido} #{modificarNotasTribunalSecretariaForm.mntsfEstudianteAptitudOtrosMecanismosDtoEditar.prsSegundoApellido==null?'':modificarNotasTribunalSecretariaForm.mntsfEstudianteAptitudOtrosMecanismosDtoEditar.prsSegundoApellido} #{modificarNotasTribunalSecretariaForm.mntsfEstudianteAptitudOtrosMecanismosDtoEditar.prsNombres} "  
+		       									style="font-weight: Normal !important;">
+		       					</p:outputLabel>	
+		       				</ui:define>
+		       			</ui:decorate>
+					</div><!-- Fin fila 1 -->
+				</div>  
+				<div class="row cells9"> 
+				   <div class="cell colspan9"><!-- Mecanismo asignado -->
+						<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblMcnAsignado" for="txtMcnAsignado" value="Mecanismo asignado: "/>	
+		       				</ui:define>
+		       				<ui:define name="valor">	
+		       					<p:outputLabel id="txtMcnAsignado" value="#{modificarNotasTribunalSecretariaForm.mntsfEstudianteAptitudOtrosMecanismosDtoEditar.mcttdescripcion}" 
+		       									style="font-weight: Normal !important;">
+		       					</p:outputLabel>	
+		       				</ui:define>
+		       			</ui:decorate>
+					</div>	
+				</div>
+			</div>
+		</p:panel>
+		<!-- ******************** PANEL DE INFORMACION DE LA ASIGNACION DE MECANISMO ************************ -->
+		<p:panel id="pnlDatosPostulcacion" header="Tema y tutor de trabajo de titulación">
+			<!-- ******************** TABLA RESPONSIVA ************************ -->
+			<div class="grid condensed">
+				<div class="row cells9"> 
+					<div class="cell colspan9">
+					<!-- *************** TEMA DE TESIS **************** -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblTema" for="txtTema" value="Tema trabajo titulación aprobado: " />
+							</ui:define>
+							<ui:define name="valor">
+									<p:outputLabel id="txtTema" value="#{modificarNotasTribunalSecretariaForm.mntsfEstudianteAptitudOtrosMecanismosDtoEditar.asttTemaTrabajo}"
+										style="font-weight: Normal !important;width: 100%;" >
+									</p:outputLabel>
+							</ui:define>
+						</ui:decorate>
+					</div>
+				</div>
+				
+				<div class="row cells9"> 
+					<div class="cell colspan9">
+					<!-- ***************** TUTOR ******************** -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblTutor" for="txtTutor" value="Nombre tutor designado: " />
+							</ui:define>
+							<ui:define name="valor">	
+		       					<p:outputLabel id="txtTutor" value="#{modificarNotasTribunalSecretariaForm.mntsfEstudianteAptitudOtrosMecanismosDtoEditar.asttTutor}" 
+		       									style="font-weight: Normal !important;" >
+		       					</p:outputLabel>	
+		       				</ui:define>
+						</ui:decorate>
+					</div>
+				 	
+				</div>
+			</div>
+		</p:panel>
+		
+		<!-- ******************** PANEL DE TRIBUNAL LECTOR ************************ -->
+		<p:panel id="pnlDatosTribunal" header="Tribunal lector" visible="#{modificarNotasTribunalSecretariaForm.mntsfHabilitadorLectorEconomia}">
+			<!-- ******************** TABLA RESPONSIVA ************************ -->
+			<div class="grid condensed">
+				<!-- ******************** FILA NUMERO 1 ************************ -->
+			   		<div class="row cells7"> 		
+						<div class="cell colspan3"><!-- ***************** NOTA LECTOR1 ******************** -->
+							<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+								<ui:define name="etiqueta">
+									<p:outputLabel id="lblTribuna1" for="txtTribunal1" value="Primer lector: " />
+								</ui:define>
+								<ui:define name="valor">	
+			       					<p:outputLabel id="txtTribunal1" value="#{modificarNotasTribunalSecretariaForm.mntsfEstudianteAptitudOtrosMecanismosDtoEditar.listaDocentesTribunal.get(0).prsPrimerApellido}
+		       					 #{modificarNotasTribunalSecretariaForm.mntsfEstudianteAptitudOtrosMecanismosDtoEditar.listaDocentesTribunal.get(0).prsSegundoApellido} 
+		       					 #{modificarNotasTribunalSecretariaForm.mntsfEstudianteAptitudOtrosMecanismosDtoEditar.listaDocentesTribunal.get(0).prsNombres}" 
+			       									style="font-weight: Normal !important;">
+			       					</p:outputLabel>	
+			       				</ui:define>
+							</ui:decorate>
+						</div>
+						<div class="cell colspan3">
+						<!-- ***************** NOTA LECTOR2 ******************** -->
+							<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEditPnlColumn.xhtml">
+								<ui:define name="etiqueta">
+									<p:outputLabel id="lblNota1" for="txtNota1" value="Nota: "/>
+								</ui:define>
+								<ui:define name="valor">	
+				       					<p:inputText id="txtNota1" value="#{modificarNotasTribunalSecretariaForm.mntsfEstudianteAptitudOtrosMecanismosDtoEditar.asnoTrbLector1}" maxlength="5" 
+				       					 style="font-weight: Normal !important;width: 100%;opacity: .8;"
+				       					disabled="true">
+				       					</p:inputText>	
+				       			</ui:define>
+				       			<ui:define name="etiquetaError">
+									<p:message id="msgNota1" for="txtNota1" />
+								</ui:define>
+							</ui:decorate>
+						</div>
+					</div><!-- *****************FIN LECTOR1 ******************** -->
+				<div class="row cells7"> 		
+						<div class="cell colspan3"><!-- ***************** NOTA LECTOR3 ******************** -->
+							<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+								<ui:define name="etiqueta">
+								<p:outputLabel id="lblTribuna2" for="txtTribunal2" value="Segundo lector: " />
+							</ui:define>
+							<ui:define name="valor">	
+		       					<p:outputLabel id="txtTribunal2" value="#{modificarNotasTribunalSecretariaForm.mntsfEstudianteAptitudOtrosMecanismosDtoEditar.listaDocentesTribunal.get(1).prsPrimerApellido}
+		       					 #{modificarNotasTribunalSecretariaForm.mntsfEstudianteAptitudOtrosMecanismosDtoEditar.listaDocentesTribunal.get(1).prsSegundoApellido} 
+		       					 #{modificarNotasTribunalSecretariaForm.mntsfEstudianteAptitudOtrosMecanismosDtoEditar.listaDocentesTribunal.get(1).prsNombres}" 
+		       									style="font-weight: Normal !important;">
+		       					</p:outputLabel>	
+		       				</ui:define>
+		       				
+						</ui:decorate>
+						</div>
+						<div class="cell colspan3">
+						<!-- ***************** NOTA LECTOR1 ******************** -->
+							<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEditPnlColumn.xhtml">
+								<ui:define name="etiqueta">
+									<p:outputLabel id="lblNota2" for="txtNota2" value="Nota: " />
+								</ui:define>
+								<ui:define name="valor">	
+				       					<p:inputText id="txtNota2" value="#{modificarNotasTribunalSecretariaForm.mntsfEstudianteAptitudOtrosMecanismosDtoEditar.asnoTrbLector2}" maxlength="5" 
+				       					 style="font-weight: Normal !important;width: 100%;opacity: .8;"
+				       					disabled="true">
+				       					</p:inputText>	
+				       				</ui:define>
+				       			<ui:define name="etiquetaError">
+									<p:message id="msgNota2" for="txtNota2" />
+								</ui:define>
+							</ui:decorate>
+						</div>
+					</div><!-- *****************FIN LECTOR2 ******************** -->
+					<div class="row cells7" > 		
+						<div class="cell colspan3"><!-- ***************** NOTA PROMEDIO ******************** -->
+							<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+								<ui:define name="etiqueta">
+								</ui:define>
+								<ui:define name="valor">	
+			       				</ui:define>
+							</ui:decorate>
+						</div>
+							<div class="cell colspan3">
+							<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralEditPnlColumn.xhtml">
+								<ui:define name="etiqueta">
+									<p:outputLabel id="lblNotaPromedio" for="txtNotaPromedio" value="Promedio trabajo escrito: " />
+								</ui:define>
+								<ui:define name="valor">	
+				       					<p:inputText id="txtNotaPromedio" 
+				       					value="#{modificarNotasTribunalSecretariaForm.mntsfEstudianteAptitudOtrosMecanismosDtoEditar.asnoPrmTrbEscrito}" 
+				       					maxlength="5" 
+				       					style="font-weight: Normal !important;width: 100%;opacity: .8;"
+				       					disabled="true">
+				       					</p:inputText>	
+				       			</ui:define>
+							</ui:decorate>
+						</div>
+					</div>
+			</div>
+		</p:panel>
+		
+		
+		<!-- ******************** PANEL DE TRIBUNAL DEFENSA ORAL ************************ -->
+		<p:panel id="pnlDatosTribunalOral" header="Tribunal de defensa oral" >
+			<!-- ******************** TABLA RESPONSIVA ************************ -->
+			<div class="grid condensed">
+				<!-- ******************** FILA NUMERO 1 ************************ -->
+			   		<div class="row cells7"> 		
+						<div class="cell colspan3"><!-- ***************** NOTA LECTOR1 ******************** -->
+							<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+								<ui:define name="etiqueta">
+									<p:outputLabel id="lblOral1" for="txtOral1" value="Presidente: " />
+								</ui:define>
+								<ui:define name="valor">	
+			       					<p:outputLabel id="txtOral1" value="#{modificarNotasTribunalSecretariaForm.mntsfPrimerOral}" 
+			       									style="font-weight: Normal !important;">
+			       					</p:outputLabel>	
+			       				</ui:define>
+							</ui:decorate>
+						</div>
+						<div class="cell colspan3">
+						<!-- ***************** NOTA LECTOR2 ******************** -->
+							<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEditPnlColumn.xhtml">
+								<ui:define name="etiqueta">
+									<p:outputLabel id="lblNotaOral1" for="txtNotaOral1" value="Nota : "/>
+								</ui:define>
+								<ui:define name="valor">	
+				       					<p:inputText id="txtNotaOral1" 
+				       					value="#{modificarNotasTribunalSecretariaForm.mntsfEstudianteAptitudOtrosMecanismosDtoEditar.asnoDfnOral1}"
+				       					maxlength="5" disabled="#{modificarNotasTribunalSecretariaForm.mntsfHabilitadorRegistrarNotas}"
+										required="true" requiredMessage="Campo requerido" validator="sinCaracteresEspecialesSoloNumerosMaximo10FloatValidator"
+										converterMessage="Solo se permiten números con punto decimal entre cero y veinte puntos">
+				       					</p:inputText>	
+				       			</ui:define>
+				       			<ui:define name="etiquetaError">
+									<p:message id="msgNotaOral1" for="txtNotaOral1" />
+								</ui:define>
+							</ui:decorate>
+						</div>
+					</div><!-- *****************FIN LECTOR1 ******************** -->
+				<div class="row cells7"> 		
+						<div class="cell colspan3"><!-- ***************** NOTA LECTOR3 ******************** -->
+							<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+								<ui:define name="etiqueta">
+								<p:outputLabel id="lblTribunaOral2" for="txtTribunalOral2" value="Tribunal 1: " />
+							</ui:define>
+							<ui:define name="valor">	
+		       					<p:outputLabel id="txtTribunalOral2" value="#{modificarNotasTribunalSecretariaForm.mntsfSegundoOral}" 
+		       									style="font-weight: Normal !important;">
+		       					</p:outputLabel>	
+		       				</ui:define>
+		       				
+						</ui:decorate>
+						</div>
+						<div class="cell colspan3">
+						<!-- ***************** NOTA LECTOR1 ******************** -->
+							<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEditPnlColumn.xhtml">
+								<ui:define name="etiqueta">
+									<p:outputLabel id="lblNotaOral2" for="txtNotaOral2" value="Nota : " />
+								</ui:define>
+								<ui:define name="valor">	
+				       					<p:inputText id="txtNotaOral2" 
+				       					value="#{modificarNotasTribunalSecretariaForm.mntsfEstudianteAptitudOtrosMecanismosDtoEditar.asnoDfnOral2}" 
+				       					maxlength="5" disabled="#{modificarNotasTribunalSecretariaForm.mntsfHabilitadorRegistrarNotas}"
+										required="true" requiredMessage="Campo requerido" validator="sinCaracteresEspecialesSoloNumerosMaximo10FloatValidator"
+										converterMessage="Solo se permiten números con punto decimal entre cero y veinte puntos">
+				       					</p:inputText>	
+				       				</ui:define>
+				       			<ui:define name="etiquetaError">
+									<p:message id="msgNotaOral2" for="txtNotaOral2" />
+								</ui:define>
+							</ui:decorate>
+						</div>
+					</div><!-- *****************FIN LECTOR2 ******************** -->
+					<div class="row cells7" > 		
+						<div class="cell colspan3"><!-- ***************** NOTA LECTOR3 ******************** -->
+							<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+								<ui:define name="etiqueta">
+									<p:outputLabel id="lblTribunaOral3" for="txtTribunalOral3" value="Tribunal 2: " />
+								</ui:define>
+								<ui:define name="valor">	
+			       					<p:outputLabel id="txtTribunalOral3" value="#{modificarNotasTribunalSecretariaForm.mntsfTercerOral}" 
+			       									style="font-weight: Normal !important;">
+			       					</p:outputLabel>	
+			       				</ui:define>
+							</ui:decorate>
+						</div>
+							<div class="cell colspan3">
+							<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralEditPnlColumn.xhtml">
+								<ui:define name="etiqueta">
+									<p:outputLabel id="lblNotaOral3" for="txtNotaOral3" value="Nota : " />
+								</ui:define>
+								<ui:define name="valor">	
+				       					<p:inputText id="txtNotaOral3" 
+				       					value="#{modificarNotasTribunalSecretariaForm.mntsfEstudianteAptitudOtrosMecanismosDtoEditar.asnoDfnOral3}" 
+				       					maxlength="5" disabled="#{modificarNotasTribunalSecretariaForm.mntsfHabilitadorTribunal3}"
+				       					required="true" requiredMessage="Campo requerido" validator="sinCaracteresEspecialesSoloNumerosMaximo10FloatValidator"
+				       					converterMessage="Solo se permiten números con punto decimal entre cero y veinte puntos">
+				       					</p:inputText>	
+				       			</ui:define>
+				       			<ui:define name="etiquetaError">
+									<p:message id="msgNotaOral3" for="txtNotaOral3" />
+							</ui:define>
+							</ui:decorate>
+						</div>
+					</div>
+					<div class="row cells7" > 		
+						<div class="cell colspan3"><!-- ***************** NOTA PROMEDIO ORAL ******************** -->
+							<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+								<ui:define name="etiqueta">
+								</ui:define>
+								<ui:define name="valor">	
+			       				</ui:define>
+							</ui:decorate>
+						</div>
+							<div class="cell colspan3">
+							<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralEditPnlColumn.xhtml">
+								<ui:define name="etiqueta">
+									<p:outputLabel id="lblNotaPromedioOral" for="txtNotaPromedioOral" value="Promedio defensa oral: " />
+								</ui:define>
+								<ui:define name="valor">	
+				       					<p:inputText id="txtNotaPromedioOral" 
+				       					value="#{modificarNotasTribunalSecretariaForm.mntsfEstudianteAptitudOtrosMecanismosDtoEditar.asnoPrmDfnOral}" 
+				       					maxlength="5" 
+				       					disabled="true">
+				       					</p:inputText>	
+				       			</ui:define>
+							</ui:decorate>
+						</div>
+					</div>
+					<div class="row cells8"> 		
+						<div class="cell colspan4"><!-- Botón asignar lectores -->
+							<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+		       					<ui:define name="etiqueta">
+									<p:commandButton id="btnAsignarLectores" value="Asignar docentes al tribunal" 
+									action="#{modificarNotasTribunalSecretariaForm.verificarClickAsignarLectores()}"  ajax="false" style="margin: 0px; width=100%;" update="btnAsignar" 
+									disabled="#{modificarNotasTribunalSecretariaForm.mntsfHabilitadorBtnAsignarLectores}"/>
+									
+									
+								</ui:define>
+		       				</ui:decorate>
+						</div>
+						<div class="cell colspan4"><!-- Botón asignar lectores -->
+							<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+		       					<ui:define name="etiqueta">
+		       						<p:commandButton id="btnRegistrarNotas" value="Registrar notas" action="#{modificarNotasTribunalSecretariaForm.registrarNotas}"  
+		       						ajax="false" style="margin: 0px;" disabled="#{modificarNotasTribunalSecretariaForm.mntsfHabilitadorRegistrarNotas}" 
+		       						update="pnlDatosValidar ,btnAsignarLectores ,txtNotaOral1 ,txtNotaOral2 ,txtNotaOral3 ,txtNotaPromedioOral"/>
+									<p:commandButton id="btnAceptarModalAsignarTribunal" value="EjecutarModalAsignarLectores" style="visibility:hidden;">
+										<p:ajax oncomplete="PF('dialogoAsignarLectores').show();" update=":frmModalAsignarLectores,pnlDatosTribunal,frVisualizar" />
+									</p:commandButton>
+		       					</ui:define>
+		       				</ui:decorate>
+		       			</div>
+		       					
+					</div>
+			</div>
+		</p:panel>
+		
+		
+				
+		<div>
+			<p:commandButton id="btnCancelar" value="Regresar" action="#{modificarNotasTribunalSecretariaForm.irCancelarModificarNotas()}" immediate="true"   />
+			<p:commandButton id="btnGuardar" value="Guardar" action="#{modificarNotasTribunalSecretariaForm.verificarClickAceptarTramite()}"  
+			ajax="false" disabled="#{modificarNotasTribunalSecretariaForm.mntsfHabilitadorGuardar}"/>
+			<p:commandButton id="btnAceptarModal" value="EjecutarModalAceptar" style="visibility:hidden;">
+					<p:ajax oncomplete="PF('dialogoDeclaratoriaAptitud').show();" update=":frmModalDeclaratoriaAptitud" />	    				
+    		</p:commandButton>
+		</div>
+	</h:form>
+	
+	<ui:include src="/titulacionPosgrado/validador/otrosMecanismos/notasTribunalLector/modalAceptarModificarNotas.xhtml"/>
+		<h:form id="compOculto" style="visibility:hidden;">
+		 	<p:inputText id="txtValidador" value="#{modificarNotasTribunalSecretariaForm.mntsfValidadorClic}" >
+			</p:inputText>	
+	</h:form>
+	<ui:include src="/titulacionPosgrado/validador/otrosMecanismos/notasTribunalLector/modalAsignarLectores.xhtml"/>
+	<h:form id="compOcultoAsignarLectores" style="visibility:hidden;">
+	 	<p:inputText id="txtAsignarLectores" value="#{modificarNotasTribunalSecretariaForm.mntsfLectoresClic}" >
+		</p:inputText>	
+	</h:form>
+</ui:define>
+</ui:composition>
+</html>

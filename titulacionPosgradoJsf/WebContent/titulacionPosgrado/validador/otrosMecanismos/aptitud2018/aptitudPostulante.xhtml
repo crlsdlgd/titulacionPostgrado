@@ -1,0 +1,347 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<ui:composition template="/componentesGenerales/plantillas/pltPrincipalSinMenuEjecModal.xhtml">
+<ui:define name="paginacion">
+		<ui:include src="/componentesGenerales/plantillas/pltPaginacion.xhtml">
+			<ui:param name="pagina"
+				value="Otros mecanismos / Declarar aptitud / Edición " />
+		</ui:include>
+</ui:define>
+
+<ui:define name="cuerpo">
+<script language="JavaScript">
+//<![CDATA[
+	function verificarErrores(){
+    	var idVarError = 'compOculto:txtValidador';
+    	var varError = document.getElementById(idVarError);
+    	if(varError.value == 1){
+    		document.getElementById('frVisualizar:btnAceptarModal').click();
+        }
+        
+    } 
+    function verificarTutor(){
+    	var idVarError = 'compOcultoAsignar:txtAsignarTutor';
+    	var varError = document.getElementById(idVarError);
+    	if(varError.value == 1){
+    		document.getElementById('frVisualizar:btnAceptarModalAsignar').click();
+        }
+    }
+      function verificarLectores(){
+    	var idVarError = 'compOcultoAsignarLectores:txtAsignarLectores';
+    	var varError = document.getElementById(idVarError);
+    	if(varError.value == 1){
+    		document.getElementById('frVisualizar:btnAceptarModalAsignarTribunal').click();
+        }
+    }
+ //]]> 
+</script>
+
+	<h:form id="frVisualizar" enctype="multipart/form-data" acceptcharset="UTF-8" >
+		<!-- ******************** PANEL DE INFORMACION DEL EVALUADO ************************ -->
+		<p:panel id="pnlDatosPersona" header="Información del postulante">
+			<!-- ******************** TABLA RESPONSIVA ************************ -->
+			<div class="grid condensed">
+				<!-- ******************** FILA NUMERO 1 ************************ -->
+				<div class="row cells9"> 
+				   <div class="cell colspan6"><!-- IDENTIFICACION -->
+						<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblIdentificacion" for="txtIdentificacion" value="No.Identificación: "/>	
+		       				</ui:define>
+		       				<ui:define name="valor">	
+		       					<p:outputLabel id="txtIdentificacion" value="#{aptitudSecretariaForm.asfEstudianteAptitudOtrosMecanismosDtoEditar.prsIdentificacion}" 
+		       									style="font-weight: Normal !important;">
+		       					</p:outputLabel>	
+		       				</ui:define>
+		       			</ui:decorate>
+					</div>	
+				   <div class="cell colspan6"><!-- NOMBRES -->
+						<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblNombres" for="txtNombres" value="Nombres: "/>	
+		       				</ui:define>
+		       				<ui:define name="valor">	
+		       					<p:outputLabel id="txtNombres" value="#{aptitudSecretariaForm.asfEstudianteAptitudOtrosMecanismosDtoEditar.prsPrimerApellido} #{aptitudSecretariaForm.asfEstudianteAptitudOtrosMecanismosDtoEditar.prsSegundoApellido==null?'':aptitudSecretariaForm.asfEstudianteAptitudOtrosMecanismosDtoEditar.prsSegundoApellido} #{aptitudSecretariaForm.asfEstudianteAptitudOtrosMecanismosDtoEditar.prsNombres} "  
+		       									style="font-weight: Normal !important;">
+		       					</p:outputLabel>	
+		       				</ui:define>
+		       			</ui:decorate>
+					</div><!-- Fin fila 1 -->
+				</div>  
+				<div class="row cells9"> 
+				 <div class="cell colspan6"><!-- EMAIL -->
+						<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblEmail" for="txtEmail" value="Email: "/>	
+		       				</ui:define>
+		       				<ui:define name="valor">	
+		       					<p:outputLabel id="txtEmail" value="#{aptitudSecretariaForm.asfEstudianteAptitudOtrosMecanismosDtoEditar.prsMailPersonal} "  
+		       									style="font-weight: Normal !important;">
+		       					</p:outputLabel>	
+		       				</ui:define>
+		       			</ui:decorate>
+					</div><!-- Fin fila 2 -->
+				   <div class="cell colspan6"><!-- Mecanismo asignado -->
+						<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblMcnAsignado" for="txtMcnAsignado" value="Mecanismo asignado: "/>	
+		       				</ui:define>
+		       				<ui:define name="valor">	
+		       					<p:outputLabel id="txtMcnAsignado" value="#{aptitudSecretariaForm.asfEstudianteAptitudOtrosMecanismosDtoEditar.mcttdescripcion}" 
+		       									style="font-weight: Normal !important;">
+		       					</p:outputLabel>	
+		       				</ui:define>
+		       			</ui:decorate>
+					</div>	
+				</div>
+			</div>
+		</p:panel>
+		<!-- ******************** PANEL DE INFORMACION DE LA ASIGNACION DE MECANISMO ************************ -->
+		
+		<!-- ******************** PANEL DE DECLARACION DE APTITUD ************************ -->
+		<p:panel id="pnlDatosValidar" header="Declaración de aptitud" >
+			<!-- ******************** TABLA RESPONSIVA ************************ -->
+			<div class="grid condensed">
+				<p:panel id="pnlConocimientos" visible="#{aptitudSecretariaForm.asfHabilitadorActualizarConocimientos}" style="border:none;" >
+				<!-- ******************** FILA NUMERO 0 ************************ -->
+			   	<div class="row cells8" >
+		       		<div class="cell colspan6"><!-- REQUISITOS -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblConocimientos" for="slcConocimientos" value="¿Aprobó la actualización de conocimientos? " />
+								
+							</ui:define>
+							<ui:define name="valor">
+								<h:selectOneMenu id="slcConocimientos" value="#{aptitudSecretariaForm.asfActualizaConocimientos}"
+									 requiredMessage="#{generalesConstantesForm.msgCampoRequerido}" style="width: 102%;position: relative;right: 2%;"
+									disabled="#{!aptitudSecretariaForm.asfHabilitadorActualizarConocimientos}">
+									<f:selectItem itemLabel="#{generalesConstantesForm.appSeleccione}" />
+									<f:selectItems var="item"  value="#{listasCombosForm.listaGeneralSiNo}"
+										itemLabel="#{item.label}" itemValue="#{item.value}" />
+									<p:ajax event="change" listener="#{aptitudSecretariaForm.cambioRequisitos()}" update="lblConocimientos , slcConocimientos , msgConocimientos,btnGuardar "/>
+								</h:selectOneMenu>
+								
+							</ui:define>
+							<ui:define name="etiquetaError">
+								<p:message id="msgConocimientos" for="slcConocimientos" />
+							</ui:define>
+						</ui:decorate>
+					</div>
+		    	</div>
+		    	</p:panel>
+				<!-- ******************** FILA NUMERO 1 ************************ -->
+			   	<div class="row cells8">
+		       		<div class="cell colspan6"><!-- REQUISITOS -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblRequisitos" for="slcRequisitos" value="¿Cumple con la suficiencia en el idioma extranjero requerido para el programa seleccionado? " />
+								
+							</ui:define>
+							<ui:define name="valor">
+								<h:selectOneMenu id="slcRequisitos" value="#{aptitudSecretariaForm.asfSuficienciaIngles}"
+									 requiredMessage="#{generalesConstantesForm.msgCampoRequerido}" style="width: 100%;"
+									disabled="#{aptitudSecretariaForm.asfHabilitadorPanelAptitud}">
+									<f:selectItem itemLabel="#{generalesConstantesForm.appSeleccione}" />
+									<f:selectItems var="item"  value="#{listasCombosForm.listaGeneralSiNo}"
+										itemLabel="#{item.label}" itemValue="#{item.value}" />
+									<p:ajax event="change" listener="#{aptitudSecretariaForm.cambioRequisitos()}" update="frVisualizar ,lblRequisitos , slcRequisitos , msgRequisitos,btnGuardar "/>
+								</h:selectOneMenu>
+								
+							</ui:define>
+							<ui:define name="etiquetaError">
+								<p:message id="msgRequisitos" for="slcRequisitos" />
+							</ui:define>
+						</ui:decorate>
+					</div>
+		    	</div>
+					<!-- ******************** FILA NUMERO 2 ************************ -->
+			   	<div class="row cells8">
+		       		<div class="cell colspan6"><!-- REPROBO -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblReprobo" for="slcReprobo" value="¿Finalizó la malla curricular? " />
+							</ui:define>
+							<ui:define name="valor">
+								<h:selectOneMenu id="slcReprobo" value="#{aptitudSecretariaForm.asfFinMalla}"
+									 requiredMessage="#{generalesConstantesForm.msgCampoRequerido}" style="width: 100%;"
+									disabled="#{aptitudSecretariaForm.asfHabilitadorPanelAptitud}">
+									<f:selectItem itemLabel="#{generalesConstantesForm.appSeleccione}" />
+									<f:selectItems var="item"  value="#{listasCombosForm.listaGeneralSiNo}"
+										itemLabel="#{item.label}" itemValue="#{item.value}" />
+									<p:ajax event="change" listener="#{aptitudSecretariaForm.cambioRequisitos()}" update="frVisualizar , lblReprobo , slcReprobo , msgReprobo,btnGuardar "/>
+								</h:selectOneMenu>
+							</ui:define>
+							<ui:define name="etiquetaError">
+								<p:message id="msgReprobo" for="slcReprobo" />
+							</ui:define>
+						</ui:decorate>
+					</div>
+		    	</div>
+		    		<!-- ******************** FILA NUMERO 3 ************************ -->
+				
+			</div>
+		</p:panel>
+		
+		
+		<!-- ******************** PANEL DE TRIBUNAL LECTOR ************************ -->
+		<p:panel id="pnlDatosTribunal" header="Tribunal lector" visible="#{aptitudSecretariaForm.asfHabilitadorPanelAptitud}">
+			<!-- ******************** TABLA RESPONSIVA ************************ -->
+			<div class="grid condensed">
+				<!-- ******************** FILA NUMERO 1 ************************ -->
+			   		<div class="row cells7"> 		
+						<div class="cell colspan3"><!-- ***************** NOTA LECTOR1 ******************** -->
+							<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+								<ui:define name="etiqueta">
+									<p:outputLabel id="lblTribuna1" for="txtTribunal1" value="Primer lector: " />
+								</ui:define>
+								<ui:define name="valor">	
+			       					<p:outputLabel id="txtTribunal1" value="#{aptitudSecretariaForm.asfPrimerLector}" 
+			       									style="font-weight: Normal !important;">
+			       					</p:outputLabel>	
+			       				</ui:define>
+							</ui:decorate>
+						</div>
+						<div class="cell colspan3">
+						<!-- ***************** NOTA LECTOR2 ******************** -->
+							<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEditPnlColumn.xhtml">
+								<ui:define name="etiqueta">
+									<p:outputLabel id="lblNota1" for="txtNota1" value="Nota: "/>
+								</ui:define>
+								<ui:define name="valor">	
+				       					<p:inputText id="txtNota1" value="#{aptitudSecretariaForm.asfNota1Cadena}" maxlength="5" disabled="#{aptitudSecretariaForm.asfHabilitadorNotasTribunal}"
+				       					 
+				       					 requiredMessage="Campo requerido" validator="sinCaracteresEspecialesSoloNumerosFloatValidator">
+				       					</p:inputText>	
+				       			</ui:define>
+				       			<ui:define name="etiquetaError">
+									<p:message id="msgNota1" for="txtNota1" />
+								</ui:define>
+							</ui:decorate>
+						</div>
+					</div><!-- *****************FIN LECTOR1 ******************** -->
+				
+					<div class="row cells7"> 		
+						<div class="cell colspan3"><!-- ***************** NOTA LECTOR3 ******************** -->
+							<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+								<ui:define name="etiqueta">
+								<p:outputLabel id="lblTribuna2" for="txtTribunal2" value="Segundo lector: " />
+							</ui:define>
+							<ui:define name="valor">	
+		       					<p:outputLabel id="txtTribunal2" value="#{aptitudSecretariaForm.asfSegundoLector}" 
+		       									style="font-weight: Normal !important;">
+		       					</p:outputLabel>	
+		       				</ui:define>
+		       				
+						</ui:decorate>
+						</div>
+						<div class="cell colspan3">
+						<!-- ***************** NOTA LECTOR1 ******************** -->
+							<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEditPnlColumn.xhtml">
+								<ui:define name="etiqueta">
+									<p:outputLabel id="lblNota2" for="txtNota2" value="Nota: " />
+								</ui:define>
+								<ui:define name="valor">	
+				       					<p:inputText id="txtNota2" value="#{aptitudSecretariaForm.asfNota2Cadena}" maxlength="5" disabled="#{aptitudSecretariaForm.asfHabilitadorNotasTribunal}" 
+				       					 requiredMessage="Campo requerido" validator="sinCaracteresEspecialesSoloNumerosFloatValidator">
+				       					</p:inputText>	
+				       				</ui:define>
+				       			<ui:define name="etiquetaError">
+									<p:message id="msgNota2" for="txtNota2" />
+								</ui:define>
+							</ui:decorate>
+						</div>
+					</div><!-- *****************FIN LECTOR2 ******************** -->
+					<div class="row cells7"> 		
+						<div class="cell colspan3"><!-- ***************** NOTA LECTOR3 ******************** -->
+							<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+								<ui:define name="etiqueta">
+								<p:outputLabel id="lblTribuna3" for="txtTribunal3" value="Tercer lector: (Opcional)" />
+							</ui:define>
+							<ui:define name="valor">	
+		       					<p:outputLabel id="txtTribunal3" value="#{aptitudSecretariaForm.asfTercerLector}" 
+		       									style="font-weight: Normal !important;">
+		       					</p:outputLabel>	
+		       				</ui:define>
+		       				
+						</ui:decorate>
+						</div>
+						<div class="cell colspan3">
+						<!-- ***************** NOTA LECTOR1 ******************** -->
+							<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEditPnlColumn.xhtml">
+								<ui:define name="etiqueta">
+									<p:outputLabel id="lblNota3" for="txtNota3" value="Nota: " />
+								</ui:define>
+								<ui:define name="valor">	
+				       					<p:inputText id="txtNota3" value="#{aptitudSecretariaForm.asfNota3Cadena}" maxlength="5" disabled="#{aptitudSecretariaForm.asfHabilitadorNotasTribunal}" 
+				       					 requiredMessage="Campo requerido" validator="sinCaracteresEspecialesSoloNumerosFloatValidator">
+				       					</p:inputText>	
+				       				</ui:define>
+				       			<ui:define name="etiquetaError">
+									<p:message id="msgNota3" for="txtNota3" />
+								</ui:define>
+							</ui:decorate>
+						</div>
+					</div><!-- *****************FIN LECTOR2 ******************** -->
+					<div class="row cells8"> 		
+						<div class="cell colspan4"><!-- Botón asignar lectores -->
+							<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+		       					<ui:define name="etiqueta">
+									<p:commandButton id="btnAsignarLectores" value="Asignar lectores" action="#{aptitudSecretariaForm.verificarClickAsignarLectores()}"  ajax="false" style="margin: 0px; width=100%;" update="btnAsignar" disabled="#{aptitudSecretariaForm.asfHabilitadorBtnAsignarLectores}" />
+									
+									
+								</ui:define>
+		       				</ui:decorate>
+						</div>
+						<div class="cell colspan4"><!-- Botón asignar lectores -->
+							<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+		       					<ui:define name="etiqueta">
+		       						<p:commandButton id="btnRegistrarNotas" value="Registrar notas" action="#{aptitudSecretariaForm.registrarNotas}"  
+		       						ajax="false" style="margin: 0px;" disabled="#{aptitudSecretariaForm.asfHabilitadorRegistrarNotas}" 
+		       						update="pnlDatosValidar,btnAsignarLectores,txtNota1,txtNota2,btnGuardar"/>
+									<p:commandButton id="btnAceptarModalAsignarTribunal" value="EjecutarModalAsignarLectores" style="visibility:hidden;">
+										<p:ajax oncomplete="PF('dialogoAsignarLectores').show();" update=":frmModalAsignarLectores,pnlDatosTribunal,frVisualizar,pnlDatosValidar,pnlConocimientos" />
+									</p:commandButton>
+		       					</ui:define>
+		       				</ui:decorate>
+		       			</div>
+		       					
+					</div>
+			</div>
+		</p:panel>
+		
+		
+		
+			
+				
+		<div>
+			<p:commandButton id="btnCancelar" value="Cancelar" action="#{aptitudSecretariaForm.irCancelarAptitud()}" immediate="true" ajax="false"  />
+			<p:commandButton id="btnGuardar" value="Guardar" action="#{aptitudSecretariaForm.verificarClickAceptarTramite()}"  ajax="false" disabled="#{aptitudSecretariaForm.asfHabilitadorGuardar}"/>
+			<p:commandButton id="btnAceptarModal" value="EjecutarModalAceptar" style="visibility:hidden;">
+					<p:ajax oncomplete="PF('dialogoDeclaratoriaAptitud').show();" update=":frmModalDeclaratoriaAptitud" />	    				
+    		</p:commandButton>
+		</div>
+	</h:form>
+	
+	<ui:include src="/titulacionPosgrado/validador/otrosMecanismos/aptitud2018/modalAceptarDeclaratoriaAptitud.xhtml"/>
+		<h:form id="compOculto" style="visibility:hidden;">
+		 	<p:inputText id="txtValidador" value="#{aptitudSecretariaForm.asfValidadorClic}" >
+			</p:inputText>	
+	</h:form>
+	<ui:include src="/titulacionPosgrado/validador/otrosMecanismos/aptitud2018/modalAsignarTutor.xhtml"/>
+		<h:form id="compOcultoAsignar" style="visibility:hidden;">
+		 	<p:inputText id="txtAsignarTutor" value="#{aptitudSecretariaForm.asfTutorClic}" >
+			</p:inputText>	
+	</h:form>
+	<ui:include src="/titulacionPosgrado/validador/otrosMecanismos/aptitud2018/modalAsignarLectores.xhtml"/>
+	<h:form id="compOcultoAsignarLectores" style="visibility:hidden;">
+	 	<p:inputText id="txtAsignarLectores" value="#{aptitudSecretariaForm.asfLectoresClic}" >
+		</p:inputText>	
+	</h:form>
+</ui:define>
+</ui:composition>
+</html>

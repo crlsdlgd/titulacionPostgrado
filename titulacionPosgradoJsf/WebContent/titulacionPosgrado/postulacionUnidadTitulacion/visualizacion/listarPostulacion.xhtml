@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+      
+
+<ui:composition template="/componentesGenerales/plantillas/pltPrincipalSinMenu.xhtml">
+<ui:define name="paginacion">
+		<ui:include src="/componentesGenerales/plantillas/pltPaginacion.xhtml">
+			<ui:param name="pagina"
+				value=" Visualización / Postulación " />
+		</ui:include>
+</ui:define>
+<ui:define name="cuerpo">
+	<h:form id="frmLstPostulacion" enctype="multipart/form-data" acceptcharset="UTF-8">
+		<p:panel id="pnlBusqueda" header="Ingrese los datos para buscar" >
+			<!-- ******************** TABLA RESPONSIVA ************************ -->
+			<div class="grid condensed">
+		    	<!-- ******************** FILA NUMERO 2 ************************ -->
+		       	<div class="row cells8">
+		       		<div class="cell colspan3" >
+		       			<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblFacultad" for="slcFacultad" value="Facultad "/>	
+		       				</ui:define>
+		       				<ui:define name="valor">	
+		       					<h:selectOneMenu id="slcFacultad" value="#{visualizacionForm.vfFacultadDto.fclId}">
+										<f:selectItem itemLabel="#{generalesConstantesForm.appSeleccioneTodos}" itemValue="#{generalesConstantesForm.appIdBase}"/> 
+										<f:selectItems value="#{visualizacionForm.vfListFacultades}" var="item" itemLabel="#{item.fclDescripcion}" itemValue="#{item.fclId}" />
+										<p:ajax event="change" listener="#{visualizacionForm.llenarCarrerasXfacultad(visualizacionForm.vfFacultadDto.fclId)}"
+											update=" lblFacultad, slcFacultad, lblCarrera, slcCarrera " />
+								</h:selectOneMenu>	
+		       				</ui:define>
+		       			</ui:decorate>
+		        	</div>
+		    	</div>
+		    	<div class="row cells8">
+		    		<div class="cell colspan3">
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblCarrera" for="slcCarrera" value="Programa: " />
+							</ui:define>
+							<ui:define name="valor">
+								<h:selectOneMenu id="slcCarrera" value="#{visualizacionForm.vfCarreraDto.crrCodSniese}" style="width:100%">
+										<f:selectItem itemLabel="#{generalesConstantesForm.appSeleccioneTodos}" itemValue="#{generalesConstantesForm.appIdBase}"/>
+										<f:selectItems value="#{visualizacionForm.vfListCarreras}"  var="item"  itemLabel="#{item.crrDetalle}" itemValue="#{item.crrCodSniese}" />
+										<p:ajax event="change" update=" lblCarrera, slcCarrera " />
+								</h:selectOneMenu>
+							</ui:define>
+						</ui:decorate>
+					</div>
+				</div>
+		   	</div> 		
+		</p:panel>
+		<div >
+			<p:commandButton id="btnBuscar" value="Buscar" action="#{visualizacionForm.buscarPostulacion()}"  update=":frmLstPostulacion:pnlResultados" ajax="false" immediate="true"/> 
+			<p:commandButton id="btnLimpiar" value="Limpiar" action="#{visualizacionForm.limpiarBusquedaVisualizacion()}" update=":frmLstPostulacion:pnlResultados , :frmLstPostulacion:pnlBusqueda"/> 
+		</div>
+
+		<p:panel id="pnlResultados" header="Resultados de la búsqueda" >
+			<p:dataTable id="dtsLstPostulacion" var="item" value="#{visualizacionForm.vfListEstudiantePostuladoJdbcDto}"
+		    		 		rows="10" paginator="true"
+		                         paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+		                         rowsPerPageTemplate="5,10,15" emptyMessage="NO SE ENCONTRARON POSTULACIONES CON LOS PARÁMETROS DE BÚSQUEDA INGRESADOS">
+				        <p:column headerText="Convocatoria" style="width: 3em ! important; text-align:center">
+				            <h:outputText value="#{item.cnvDescripcion}"/>
+				        </p:column>
+				        <p:column headerText="Facultad" style="width: 8em ! important; text-align:center">
+				            <h:outputText value="#{item.fclDescripcion}"/>
+				        </p:column>
+				        <p:column headerText="Carrera" style="width: 8em ! important; text-align:center">
+				            <h:outputText value="#{item.crrDetalle}"/>
+				        </p:column>
+			</p:dataTable>
+		</p:panel>
+		<div >
+			<p:commandButton id="btnRegresar"  value="Regresar" action="#{visualizacionForm.irInicio()}" ajax="false" immediate="true"/>
+		</div>
+
+	</h:form>		
+</ui:define>
+</ui:composition>
+</html>

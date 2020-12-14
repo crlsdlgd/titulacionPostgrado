@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+<html>
+  <head>
+	 <meta http-equiv="content-type" content="text/html; charset=utf-8">
+	 <title>UNIVERSIDAD CENTRAL DEL ECUADOR</title>
+  </head>
+  <body>
+    <p><strong>Estimado(a): ${nombres} ${apellidos}.-</strong></p>
+    <br/>
+    <p><strong>Facultad: </strong>${facultad}</p>
+	<p><strong>Programa: </strong>${carrera}</p> 
+	<p><strong>Fecha de inicio de cohorte: </strong>${fechaInicio}</p>
+	<p><strong>Fecha de culminaci&#243;n de malla: </strong>${fechaFin}</p>
+	<br/>
+	La Universidad Central del Ecuador le comunica que una vez que se ha revisado su documentaci&#243;n se ha procedido a declararlo (a) <strong>ID&#211;NEO (A)</strong> para participar en el proceso de titulaci&#243;n <strong>PRIMERA PR&#211;RROGA.</strong> 
+	<br/>
+	Para continuar con el tr&#225;mite de titulaci&#243;n, usted debe: 
+	<br/>
+	<strong>REALIZAR UNA SOLICITUD DE PRIMERA PR&#211;RROGA</strong>, conforme dispone el Reglamento de R#233;gimen Acad&#233;mico para el proceso de titulaci&#243;n; misma que la entregar&#225; en la secretar&#237;a de Posgrado de la Facultad para su an&#225;lisis y, de ser el caso, aprobaci&#243;n.
+	<br/>
+	<br/>
+
+	Tomar en cuenta:
+	<br/>
+	1. Usted tiene 6 (seis) meses para graduarse.  Este per&#237;odo de tiempo se cuenta desde la fecha de culminaci&#243;n de la Malla Curricular del Programa de Posgrado aprobado por el Consejo de Educaci&#243;n Superior (CES).
+	 <br/>
+	2. Previo la presentaci&#243;n del trabajo de titulaci&#243;n, usted deber&#225; ser declarado APTO (A). La APTITUD se otorga a quienes han cumplido con todos los requisitos previos a la titulaci&#243;n. (consultar requisitos en la secretar&#237;a de Posgrado de la Facultad).
+
+	<br/>
+	3.	Ingresar peri&#243;dicamente al Sistema de Titulaci&#243;n de Posgrado con sus credenciales (usuario y contrase&#241;a), a fin de que verifique la informaci&#243;n que los (as) secretarios (as) ingresan y validan.
+	<br/>
+	  <br/> 
+	  El proceso se realiz&#243; el ${fechaHora}
+	  <br/>	  
+	  <br/>
+	  <br/>
+	  <br/>
+	  <br/>
+	  ...........................................................................................
+	  <br/>
+	  <strong>Informaci&#243;n del Correo: </strong> Mail generado autom&#225;ticamente. Por favor no responda a este mensaje.
+	  <br/>
+	  <br/>
+	  <br/>

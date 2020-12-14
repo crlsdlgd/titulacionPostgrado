@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+      
+
+<ui:composition template="/componentesGenerales/plantillas/pltPrincipalSinMenuEjecModal.xhtml">
+<ui:define name="paginacion">
+		<ui:include src="/componentesGenerales/plantillas/pltPaginacion.xhtml">
+			<ui:param name="pagina"
+				value=" Actualización conocimientos / Registro " />
+		</ui:include>
+</ui:define>
+<ui:define name="cuerpo">
+ <script language="JavaScript">
+//<![CDATA[
+	function abrirVentaReporte(formato, nombreReporte, tipo){
+		var url = "/aplicacion/reportes";
+		url = url + "?nombreJasper=" + nombreReporte;
+		url = url + "&formato=" + formato;
+		url = url + "&tipo=" + tipo;
+		if(formato == 'vista'){
+			var reportWindow = window.open(url, "reportWindow","menubar=0,resizable=0,status=0,width=800,height=600");
+		}else{
+			var reportWindow = window.open(url, "reportWindow","menubar=0,resizable=0,status=0,width=0,height=0");
+		}
+    } 
+ //]]> 
+</script>
+	<h:form id="frVisualizar" enctype="multipart/form-data" acceptcharset="UTF-8" >
+		<!-- ******************** PANEL DE INFORMACION DEL POSTULADO ************************ -->
+		<p:panel id="pnlDatosPersona" header="Información del postulado">
+			<!-- ******************** TABLA RESPONSIVA ************************ -->
+			<div class="grid condensed">
+				<!-- ******************** FILA NUMERO 1 ************************ -->
+				<div class="row cells8"> 
+					<div class="cell colspan4"><!-- NNOMBRES -->
+						<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblNombres" for="txtNombres" value="Nombres: "/>	
+		       				</ui:define>
+		       				<ui:define name="valor">	
+		       					<p:outputLabel id="txtNombres" value="#{actualizacionConocimientosRegistroForm.acrfListaEstudianteValidacionJdbcDto.get(0).prsNombres}" 
+		       									style="font-weight: Normal !important;">
+		       					</p:outputLabel>	
+		       				</ui:define>
+		       			</ui:decorate>
+					</div>
+					<div class="cell colspan4"><!-- PRIMER APELLIDO -->
+						<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblPrimerApellido" for="txtNombres" value="Primer apellido: "/>	
+		       				</ui:define>
+		       				<ui:define name="valor">	
+		       					<p:outputLabel id="txtPrimerApellido" value="#{actualizacionConocimientosRegistroForm.acrfListaEstudianteValidacionJdbcDto.get(0).prsPrimerApellido}" 
+		       									style="font-weight: Normal !important;">
+		       					</p:outputLabel>	
+		       				</ui:define>
+		       			</ui:decorate>
+					</div>
+				</div>  <!-- Fin fila 1 -->
+				<!-- ******************** FILA NUMERO 2 ************************ -->
+				<div class="row cells8"> 
+					<div class="cell colspan4"><!-- SEGUNDO APELLIDO-->
+						<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblSegundoApellido" for="txtSegundoApellido" value="Segundo apellido: "/>	
+		       				</ui:define>
+		       				<ui:define name="valor">	
+		       					<p:outputLabel id="txtSegundoApellido" value="#{actualizacionConocimientosRegistroForm.acrfListaEstudianteValidacionJdbcDto.get(0).prsSegundoApellido}" 
+		       									style="font-weight: Normal !important;">
+		       					</p:outputLabel>	
+		       				</ui:define>
+		       			</ui:decorate>
+					</div>
+					<div class="cell colspan4"><!-- IDENTIFICACION -->
+						<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblIdentificacion" for="txtIdentificacion" value="No.Identificación: "/>	
+		       				</ui:define>
+		       				<ui:define name="valor">	
+		       					<p:outputLabel id="txtIdentificacion" value="#{actualizacionConocimientosRegistroForm.acrfListaEstudianteValidacionJdbcDto.get(0).prsIdentificacion}" 
+		       									style="font-weight: Normal !important;">
+		       					</p:outputLabel>	
+		       				</ui:define>
+		       			</ui:decorate>
+					</div>
+				</div>  <!-- Fin fila 2 -->
+			</div>
+		</p:panel>	
+		<!-- ******************** PANEL DE INFORMACION DE CARRERA  ************************ -->
+		<p:panel id="pnlConfigCarrera" header="Información de la carrera">
+			<!-- ******************** TABLA RESPONSIVA ************************ -->
+			<div class="grid condensed">
+				<!-- ******************** FILA NUMERO 1 ************************ -->
+				<div class="row cells8"> 
+						<div class="row cells8">
+		       		<div class="cell colspan3" >
+		       			<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblCarrera" for="slcCarrera" value="Carrera: "/>
+		       				</ui:define>
+		       				<ui:define name="valor">	
+								<h:selectOneMenu id="slcCarrera" value="#{actualizacionConocimientosRegistroForm.acrfCarreraSeleccionada.crrId}">
+										<f:selectItem itemLabel="#{generalesConstantesForm.appSeleccione}" itemValue="#{generalesConstantesForm.appIdBase}"/>
+										<f:selectItems value="#{actualizacionConocimientosRegistroForm.acrfListCarrerasRegistradas}" var="item" itemLabel="#{item.crrDetalle}" itemValue="#{item.crrId}" />
+										<p:ajax event="change" listener="#{actualizacionConocimientosRegistroForm.cambiarCarrera()}"
+											update="btnGuardar" />
+								</h:selectOneMenu>	
+		       				</ui:define>
+		       			</ui:decorate>
+		        	</div>
+		    	</div>
+				</div>  <!-- Fin fila 1 -->
+				<!-- ******************** FILA NUMERO 3 ************************ -->
+			</div>
+		</p:panel>
+	<div>
+			<p:commandButton id="btnCancelar" value="Regresar" action="#{actualizacionConocimientosRegistroForm.cancelarRegistroActualizacion()}" immediate="true" ajax="false"  />
+			<p:commandButton id="btnGuardar" value="Imprimir registro" action="#{actualizacionConocimientosRegistroForm.cancelarRegistroActualizacion()}"  ajax="false" 
+			disabled="#{actualizacionConocimientosRegistroForm.acrfHabilitadorGuardar}">
+					<p:ajax oncomplete="abrirVentaReporte('PDF','OrdenDeCobro','ORDENCOBRO');" />    				
+    		</p:commandButton>
+		</div>
+	</h:form>
+</ui:define>
+</ui:composition>
+</html>

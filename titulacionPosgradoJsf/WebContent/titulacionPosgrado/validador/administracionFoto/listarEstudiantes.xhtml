@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<ui:composition template="/componentesGenerales/plantillas/pltPrincipalSinMenu.xhtml">
+<ui:define name="paginacion">
+		<ui:include src="/componentesGenerales/plantillas/pltPaginacion.xhtml">
+			<ui:param name="pagina"
+				value=" Secretaría / Administrar fotografías / Busqueda de estudiante " />
+		</ui:include>
+</ui:define>
+<ui:define name="cuerpo">
+<script language="JavaScript">
+//<![CDATA[
+	function abrirVentaReporte(formato, nombreReporte, tipo){
+		var url = "/aplicacion/reporte";
+		url = url + "?nombreJasper=" + nombreReporte;
+		url = url + "&formato=" + formato;
+		url = url + "&tipo=" + tipo;
+		if(formato == 'vista'){
+			var reportWindow = window.open(url, "reportWindow","menubar=0,resizable=0,status=0,width=800,height=600");
+		}else{
+			var reportWindow = window.open(url, "reportWindow","menubar=0,resizable=0,status=0,width=0,height=0");
+		}
+
+		document.getElementById('lnkDescargaCsv').setAttribute("disabled", "disabled");
+    } 
+ //]]> 
+</script>
+	<h:form id="frmBusqueda" enctype="multipart/form-data" acceptcharset="UTF-8" >
+		<!-- ******************** PANEL PARÁMETROS DE BÚSQUEDA************************ -->
+		<p:panel id="pnlBusqueda" header="Parámetros de búsqueda">
+			<!-- ******************** TABLA RESPONSIVA ************************ -->
+			<div class="grid condensed">
+				<!-- ******************** FILA NUMERO 1 ************************ -->
+				<div class="row cells8">
+					<div class="cell colspan4"><!-- NO TRAMITE -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblIdentificacion" for="txtIdentificacion" value="Identificación: " />
+							</ui:define>
+							<ui:define name="valor">
+									<p:inputText id="txtIdentificacion" value="#{administrarFotografiasForm.affformCedulaBuscar}"
+										required="false" requiredMessage="#{generalesConstantesForm.msgCampoRequerido}" style="width: 100%;">
+										<p:ajax event="blur" update="lblIdentificacion , txtIdentificacion , msgIdentificacion" />
+									</p:inputText>
+							</ui:define>
+							<ui:define name="etiquetaError">
+								<p:message id="msgIdentificacion" for="txtIdentificacion" />
+							</ui:define>
+						</ui:decorate>
+					</div>
+				</div><!-- ******************** FIN FILA NUMERO 1 ************************ -->
+			</div>
+		</p:panel>
+		<div>
+			<p:commandButton id="btnBuscar" value="Buscar" action="#{administrarFotografiasForm.buscar()}" update="pnlResultados" 
+				onclick="PF('dialogoTrabajando').show();" onsuccess="PF('dialogoTrabajando').hide();"/>
+			<p:commandButton id="btnLimpiar" value="Limpiar" action="#{administrarFotografiasForm.limpiar()}" 
+				update="pnlBusqueda , pnlResultados"  onclick="PF('dialogoTrabajando').show();" onsuccess="PF('dialogoTrabajando').hide();"/>	
+		</div>
+		<!-- ******************** PANEL RESULTADOS DE BÚSQUEDA************************ -->
+		<p:panel id="pnlResultados" header="Resultados de la búsqueda">
+			<div class="row cells8">
+					<div class="cell colspan4"><!-- NO TRAMITE -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblDatosEstudiante" for="txtDatosEstudiante" value="Posgradista: " />
+							</ui:define>
+							<ui:define name="valor">
+								<p:outputLabel id="txtDatosEstudiante"  value="#{administrarFotografiasForm.atfEstudianteBuscar.prsPrimerApellido.concat(' '.concat(administrarFotografiasForm.atfEstudianteBuscar.prsSegundoApellido!=null?administrarFotografiasForm.atfEstudianteBuscar.prsSegundoApellido.concat(' '.concat(administrarFotografiasForm.atfEstudianteBuscar.prsNombres)):administrarFotografiasForm.atfEstudianteBuscar.prsNombres))}" />
+							</ui:define>
+						</ui:decorate>
+					</div>
+				</div><!-- ******************** FIN FILA NUMERO 1 ************************ -->
+				<div class="row cells8"> 
+					<div class="cell colspan4"> <!-- Ubicación foto -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblFoto"  value="Foto: " />
+							</ui:define>
+							<ui:define name="valor">
+								
+    							<h:panelGroup id="pnlgridInfPersonalFoto" >
+									<p:graphicImage id="graImagen" width="120" height="150" 
+										rendered="#{administrarFotografiasForm.frmAeImagen == null ? 'true':'false'}"
+										value="/paginas/imagenes/perfil.png" cache="false" />
+					
+									<p:graphicImage id="graImagen2" width="120" height="150" 
+										rendered="#{administrarFotografiasForm.frmAeImagen != null ? 'true':'false'}"
+										value="#{administrarFotografiasForm.frmAeImagen}" cache="false"  />
+								</h:panelGroup>
+								
+							</ui:define>
+						</ui:decorate>
+					</div>		
+				</div> <!-- Fin fila 0 -->
+				<div class="row cells12">
+		        <div class="cell colspan4"><!-- SEGUNDO APELLIDO-->
+						<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblSeleccion" for="foto" value="Seleccione la imagen que reemplazará a la actual "
+		       					rendered="#{administrarFotografiasForm.affHabilitadorCarga}"/>	
+		       				</ui:define>
+		       				<ui:define name="valor">
+									<p:outputLabel id="foto" style="font-weight: Normal !important;"/>
+									<p:fileUpload id="flupArchivoSubir"  rendered="#{administrarFotografiasForm.affHabilitadorCarga}"
+										fileUploadListener="#{administrarFotografiasForm.cargarImagen}" update="graImagen2 , flupArchivoSubir"
+										sizeLimit="1572864" allowTypes="/(\.|\/)(png|jpg)$/"
+										invalidSizeMessage="Tamaño de archivo excedido! máximo 1.5 Mb"
+										label="Buscar archivo" mode="advanced" fileLimit="5"
+										fileLimitMessage="Máximo 5 intentos válidos"
+										invalidFileMessage="Tipo de archivo no válido! solo formato PNG o JPG"
+										uploadLabel="Cargar" style="width:100%" required="true"
+										requiredMessage="Campo requerido" dragDropSupport="false" 
+										/>
+								</ui:define>
+		       			</ui:decorate>
+					</div>
+		        </div>
+		</p:panel>
+		<div>
+			<p:commandButton id="btnRegresar" value="Regresar" action="#{administrarFotografiasForm.irInicio()}" immediate="true" ajax="false" />
+		</div>
+	</h:form>
+</ui:define>
+</ui:composition>
+</html>

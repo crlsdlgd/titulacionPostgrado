@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Class-Path: titulacionPosgradoEjb.jar 
+ hibernate-core-5.2.10.Final.jar 
+ javassist-3.20.0-GA.jar 
+ hibernate-commons-annotations-5.0.1.Final.jar 
+ jandex-2.0.3.Final.jar 
+ itext-2.1.7.js2.jar
+

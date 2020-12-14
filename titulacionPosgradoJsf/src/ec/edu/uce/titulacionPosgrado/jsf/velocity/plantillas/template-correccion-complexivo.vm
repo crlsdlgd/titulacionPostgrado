@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+<html>
+  <head>
+	 <meta http-equiv="content-type" content="text/html; charset=utf-8">
+	 <title>UNIVERSIDAD CENTRAL DEL ECUADOR</title>
+  </head>
+  <body>
+    <br/>
+    Se&#241;or Director Acad&#233;mico, la Unidad de Titulaci&#243;n Especial de la Universidad Central del Ecuador le comunica, que se procedi&#243; a rectificar las notas cargadas en el examen complexivo de la Carrera de <strong>${carrera}</strong> per&#237;odo 2016-2016. 
+	<br/>
+	<br/>
+	<br/>
+	<br/> 
+	El proceso se realiz&#243; el ${fechaHora}
+	<br/>	  
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	...........................................................................................
+	<br/>
+	<strong>Informaci&#243;n del Correo: </strong> Mail generado autom&#225;ticamente. Por favor no responda a este mensaje.
+	<br/>
+	<br/>
+	<br/>

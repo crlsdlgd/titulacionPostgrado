@@ -1,0 +1,720 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+      
+
+<ui:composition template="/componentesGenerales/plantillas/pltPrincipalSinMenu.xhtml">
+<ui:define name="paginacion">
+		<ui:include src="/componentesGenerales/plantillas/pltPaginacion.xhtml">
+			<ui:param name="pagina"
+				value=" Visualización / Postulación " />
+		</ui:include>
+</ui:define>
+<ui:define name="cuerpo">
+	<h:form id="frVisualizar" enctype="multipart/form-data" acceptcharset="UTF-8" >
+		<!-- ******************** PANEL DE INFORMACION DEL POSTULADO ************************ -->
+		<p:panel id="pnlDatosPersona" header="Información del postulado">
+			<!-- ******************** TABLA RESPONSIVA ************************ -->
+			<div class="grid condensed">
+				<!-- ******************** FILA NUMERO 1 ************************ -->
+				<div class="row cells8"> 
+					<div class="cell colspan4"><!-- NNOMBRES -->
+						<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblNombres" for="txtNombres" value="Nombres: "/>	
+		       				</ui:define>
+		       				<ui:define name="valor">	
+		       					<p:outputLabel id="txtNombres" value="#{visualizacionForm.vfPersonaPostulante.prsNombres}" 
+		       									style="font-weight: Normal !important;">
+		       					</p:outputLabel>	
+		       				</ui:define>
+		       			</ui:decorate>
+					</div>
+					<div class="cell colspan4"><!-- PRIMER APELLIDO -->
+						<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblPrimerApellido" for="txtNombres" value="Primer apellido: "/>	
+		       				</ui:define>
+		       				<ui:define name="valor">	
+		       					<p:outputLabel id="txtPrimerApellido" value="#{visualizacionForm.vfPersonaPostulante.prsPrimerApellido}" 
+		       									style="font-weight: Normal !important;">
+		       					</p:outputLabel>	
+		       				</ui:define>
+		       			</ui:decorate>
+					</div>
+				</div>  <!-- Fin fila 1 -->
+				<!-- ******************** FILA NUMERO 2 ************************ -->
+				<div class="row cells8"> 
+					<div class="cell colspan4"><!-- SEGUNDO APELLIDO-->
+						<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblSegundoApellido" for="txtSegundoApellido" value="Segundo apellido: "/>	
+		       				</ui:define>
+		       				<ui:define name="valor">	
+		       					<p:outputLabel id="txtSegundoApellido" value="#{visualizacionForm.vfPersonaPostulante.prsSegundoApellido}" 
+		       									style="font-weight: Normal !important;">
+		       					</p:outputLabel>	
+		       				</ui:define>
+		       			</ui:decorate>
+					</div>
+					<div class="cell colspan4"><!-- IDENTIFICACION -->
+						<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblIdentificacion" for="txtIdentificacion" value="No.Identificación: "/>	
+		       				</ui:define>
+		       				<ui:define name="valor">	
+		       					<p:outputLabel id="txtIdentificacion" value="#{visualizacionForm.vfPersonaPostulante.prsIdentificacion}" 
+		       									style="font-weight: Normal !important;">
+		       					</p:outputLabel>	
+		       				</ui:define>
+		       			</ui:decorate>
+					</div>
+				</div>  <!-- Fin fila 2 -->
+			</div>
+		</p:panel>	
+		<!-- ******************** PANEL DE INFORMACION DE CARRERA  ************************ -->
+		<p:panel id="pnlConfigCarrera" header="Información de la carrera">
+			<!-- ******************** TABLA RESPONSIVA ************************ -->
+			<div class="grid condensed">
+				<!-- ******************** FILA NUMERO 1 ************************ -->
+				<div class="row cells8"> 
+					<div class="cell colspan4"><!-- FACULTAD -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblFacultad" for="txtFacultad" value="Facultad: " />
+							</ui:define>
+							<ui:define name="valor">
+								<p:outputLabel id="txtFacultad" value="#{visualizacionForm.vfEstudiantePostuladoJdbcDto.fclDescripcion}"
+		       									style="font-weight: Normal !important;" >
+		       					</p:outputLabel>
+							</ui:define>
+						</ui:decorate>
+					</div>
+					<div class="cell colspan4"><!-- MODALIDAD -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblCarrera" for="txtCarrera" value="Carrera: " />
+							</ui:define>
+							<ui:define name="valor">
+								<p:outputLabel id="txtCarrera" value="#{visualizacionForm.vfEstudiantePostuladoJdbcDto.crrDetalle}"
+		       									style="font-weight: Normal !important;" >
+		       					</p:outputLabel>
+								
+							</ui:define>
+						</ui:decorate>
+					</div>
+				</div>  <!-- Fin fila 1 -->
+				<!-- ******************** FILA NUMERO 3 ************************ -->
+				<div class="row cells8"> 
+					<div class="cell colspan4"><!-- MECANISMO DE TITULACION ESTADISTICO -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblMecanismoTitulacion" for="txtMecanismoTitulacion" value="Modalidad: " />
+							</ui:define>
+							<ui:define name="valor">
+								<p:outputLabel id="txtMecanismoTitulacion" value="#{visualizacionForm.vfEstudiantePostuladoJdbcDto.trttMcttEstadisticoSt}"
+		       									style="font-weight: Normal !important;" >
+		       					</p:outputLabel>
+							</ui:define>
+						</ui:decorate>
+					</div>
+					<div class="cell colspan4"><!-- MODALIDAD -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblConvocatoria" for="txtConvocatoria" value="Convocatoria: " />
+							</ui:define>
+							<ui:define name="valor">
+								<p:outputLabel id="txtConvocatoria" value="#{visualizacionForm.vfEstudiantePostuladoJdbcDto.cnvDescripcion}"
+		       									style="font-weight: Normal !important;" >
+		       					</p:outputLabel>
+								
+							</ui:define>
+						</ui:decorate>
+					</div>
+				</div>  <!-- Fin fila 3 -->
+			</div>
+		</p:panel>
+		<!-- ******************** PANEL DE INFORMACION DE LOS DATOS DE RESIDENCIA************************ -->
+		<p:panel id="pnlDtsResidencia" header="Información de residencia ">
+		<!-- ******************** TABLA RESPONSIVA ************************ -->
+			<div class="grid condensed">
+			<!-- ******************** FILA NUMERO 1 ************************ -->
+				<div class="row cells8"> 
+					<div class="cell colspan4"><!-- pais residencia -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblPaisResidencia" for="txtPaisResidencia" value="País residencia: " />
+							</ui:define>
+							<ui:define name="valor">
+								<p:outputLabel id="txtPaisResidencia" value="#{visualizacionForm.vfPaisResidencia.ubcDescripcion}"
+		       									style="font-weight: Normal !important;" >
+		       					</p:outputLabel>
+							</ui:define>
+						</ui:decorate>
+					</div>
+				</div><!-- Fin fila 1-->
+			</div>
+			<div class="grid condensed">
+				<!-- ******************** FILA NUMERO 2 ************************ -->
+				<div class="row cells8"> 
+					<div class="cell colspan4"><!-- prov residencia -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblProvResidencia" for="txtProvResidencia" value="Provincia residencia: " />
+							</ui:define>
+							<ui:define name="valor">
+								<p:outputLabel id="txtProvResidencia" value="#{visualizacionForm.vfProvinciaResidencia.ubcDescripcion}"
+		       									style="font-weight: Normal !important;" >
+		       					</p:outputLabel>
+							</ui:define>
+						</ui:decorate>
+					</div>
+					<div class="cell colspan4"><!-- canton residencia -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblCantonResidencia" for="txtCantonResidencia" value="Cantón residencia: " />
+							</ui:define>
+							<ui:define name="valor">
+								<p:outputLabel id="txtCantonResidencia" value="#{visualizacionForm.vfCantonResidencia.ubcDescripcion}"
+		       									style="font-weight: Normal !important;" >
+		       					</p:outputLabel>
+							</ui:define>
+						</ui:decorate>
+					</div>
+				</div><!-- Fin fila 2-->
+			</div>
+		</p:panel>
+		
+		<!-- ******************** PANEL DE INFORMACION DE LOS DATOS DE FICHA ESTUDIANTE ************************ -->
+		<p:panel id="pnlDtsProveniencia" header="Información de procedencia ">
+			<!-- ******************** TABLA RESPONSIVA ************************ -->
+			<div class="grid condensed">
+				<!-- ******************** FILA NUMERO 1 ************************ -->
+				<div class="row cells8">
+					<div class="cell colspan4" >
+			       		<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+			       			<ui:define name="etiqueta">	
+			       				<p:outputLabel id="lblTipoColegio" for="txtTipoColegio" value="Tipo colegio del que proviene:"/>	
+			     			</ui:define>
+			       			<ui:define name="valor">	
+			       				<p:outputLabel id="txtTipoColegio" value="#{visualizacionForm.vfEstudiantePostuladoJdbcDto.fcesTipoColegioSt}"
+		       									style="font-weight: Normal !important;" >
+		       					</p:outputLabel>
+			       			</ui:define>
+			       		</ui:decorate>
+			        </div>
+					<div class="cell colspan4">
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblTituloBachiller" for="txtTituloBachiller" value="Titulo bachiller: " />
+							</ui:define>
+							<ui:define name="valor">
+								<p:outputLabel id="txtTituloBachiller" value="#{visualizacionForm.vfEstudiantePostuladoJdbcDto.ttlDescripcion}"
+		       									style="font-weight: Normal !important;" >
+		       					</p:outputLabel>
+							</ui:define>
+						</ui:decorate>
+					</div>
+				</div> <!-- Fin fila 1-->
+				<!-- ******************** FILA NUMERO 2 ************************ -->
+				<div class="row cells8">
+					<div class="cell colspan4">
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblInstitucionEstPrevios" for="txtInstitucionEstPrevios" value="Institución estudios previos: " />
+							</ui:define>
+							<ui:define name="valor">
+								<p:outputLabel id="txtInstitucionEstPrevios" value="#{visualizacionForm.vfEstudiantePostuladoJdbcDto.inacUniversidadDescripcion}"
+		       									style="font-weight: Normal !important;" >
+		       					</p:outputLabel>
+							</ui:define>
+						</ui:decorate>
+					</div>
+					<div class="cell colspan4">
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblCarreraEstPrevios" for="txtCarreraEstPrevios" value="Carrera estudios previos: " />
+							</ui:define>
+							<ui:define name="valor">
+								<p:outputLabel id="txtCarreraEstPrevios" value="#{visualizacionForm.vfEstudiantePostuladoJdbcDto.fcesCrrEstudPrevios}"
+		       									style="font-weight: Normal !important;" >
+		       					</p:outputLabel>
+							</ui:define>
+						</ui:decorate>
+					</div>
+				</div> <!-- Fin fila 2-->
+			</div>
+		</p:panel>
+	    <!-- ******************** PANEL DE INFORMACION ACADEMICA ************************ -->
+		<p:panel id="pnlDtsInfoAcademica" header="Información académica ">
+			<!-- ******************** TABLA RESPONSIVA ************************ -->
+			<div class="grid condensed">
+				<!-- ******************** FILA NUMERO 1 ************************ -->
+				<div class="row cells8">
+					<div class="cell colspan4" >
+			       		<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+			       			<ui:define name="etiqueta">	
+			       				<p:outputLabel id="lblFchEgresamiento" for="txtFchEgresamiento" value="Fecha de culminación de malla: "/>	
+			     			</ui:define>
+			       			<ui:define name="valor">	
+			       				<p:outputLabel id="txtFchEgresamiento" value="#{visualizacionForm.vfEstudianteValidacionJdbcDto.fcesFechaEgresamiento}"
+		       									style="font-weight: Normal !important;" >
+		       					</p:outputLabel>
+			       			</ui:define>
+			       		</ui:decorate>
+			        </div>
+				</div> <!-- Fin fila 1-->
+			</div>
+		</p:panel>
+		 <!-- ******************** PANEL DE RESULTADOS VALIDACION SECRETARIA ************************ -->
+		<p:panel id="pnlRslValidacion" header="Resultados Validación Secretaria ">
+			<!-- ******************** TABLA RESPONSIVA ************************ -->
+			<div class="grid condensed">
+				<!-- ******************** FILA NUMERO 1 ************************ -->
+				<div class="row cells8">
+					<div class="cell colspan4" >
+			       		<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+			       			<ui:define name="etiqueta">	
+			       				<p:outputLabel id="lblClmMalla" for="txtClmMalla" value="Culminó Malla: "/>	
+			     			</ui:define>
+			       			<ui:define name="valor">	
+			       				<p:outputLabel id="txtClmMalla" value="#{visualizacionForm.culmino_malla}"
+		       									style="font-weight: Normal !important;" >
+		       					</p:outputLabel>
+			       			</ui:define>
+			       		</ui:decorate>
+			        </div>
+			        <div class="cell colspan4">
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblRprExamen" for="txtRprExamen" value="Reprobó Examen Complexivo: " />
+							</ui:define>
+							<ui:define name="valor">
+								<p:outputLabel id="txtRprExamen" value="#{visualizacionForm.reprobo_complexivo}"
+		       									style="font-weight: Normal !important;" >
+		       					</p:outputLabel>
+							</ui:define>
+						</ui:decorate>
+					</div>
+					<div class="cell colspan4">
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblAsgTutor" for="txtAsgTutor" value="Fue Asignado Tutor: " />
+							</ui:define>
+							<ui:define name="valor">
+								<p:outputLabel id="txtAsgTutor" value="#{visualizacionForm.asignado_tutor}"
+		       									style="font-weight: Normal !important;" >
+		       					</p:outputLabel>
+							</ui:define>
+						</ui:decorate>
+					</div>
+					<div class="cell colspan4">
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblUltSemestre" for="txtUltSemestre" value="Con la matrícula en el semestre actual, culmina la malla curricular: " />
+							</ui:define>
+							<ui:define name="valor">
+								<p:outputLabel id="txtUltSemestre" value="#{visualizacionForm.ultimo_semestre}"
+		       									style="font-weight: Normal !important;" >
+		       					</p:outputLabel>
+							</ui:define>
+						</ui:decorate>
+					</div>
+				</div> <!-- Fin fila 1-->
+			</div>
+		</p:panel>
+		 <!-- ******************** PANEL DE INFORMACION DE VALIDACION SECRETARIA ************************ -->
+		<p:panel id="pnlDtsInfoValidacionDatos" header="Información validación de datos ">
+			<!-- ******************** TABLA RESPONSIVA ************************ -->
+			<div class="grid condensed">
+				<!-- ******************** FILA NUMERO 1 ************************ -->
+				<div class="row cells8">
+					<div class="cell colspan4">
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblResultadoValidacion" for="txtResultadoValidacion" value="Resultado validación: " />
+							</ui:define>
+							<ui:define name="valor">
+								<p:outputLabel id="txtResultadoValidacion" value="#{visualizacionForm.vfEstudiantePostuladoJdbcDto.trttObsSecValidacion}"
+		       									style="font-weight: Normal !important;" >
+		       					</p:outputLabel>
+							</ui:define>
+						</ui:decorate>
+					</div>
+				</div> <!-- Fin fila 1-->
+			</div>
+		</p:panel>
+		 <!-- ******************** PANEL DE INFORMACION DE VALIDACION SECRETARIA ************************ -->
+		<p:panel id="pnlDtsInfoEvaluacionDatos" header="Información mecanismo de titulación " >
+			<!-- ******************** TABLA RESPONSIVA ************************ -->
+			<div class="grid condensed">
+				<!-- ******************** FILA NUMERO 1 ************************ -->
+				<div class="row cells8">
+					<div class="cell colspan4">
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblMecanismo" for="txtMecanismo" value="Mecanismo asignado: " />
+							</ui:define>
+							<ui:define name="valor">
+								<p:outputLabel id="txtMecanismo" value="#{visualizacionForm.vfEstudianteEvaluacionJdbcDto.mcttdescripcion}"
+		       									style="font-weight: Normal !important;" >
+		       					</p:outputLabel>
+							</ui:define>
+						</ui:decorate>
+					</div>
+				</div> <!-- Fin fila 1-->
+			</div>
+			<p:panel id="pnlDtsInfoAsignacion" visible="#{visualizacionForm.vfVisualizarTemaTutor}">
+			<div class="grid condensed" >
+				<!-- ******************** FILA NUMERO 1 ************************ -->
+				<div class="row cells8">
+					<div class="cell colspan4">
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblTutor" for="txtTutor" value="Tutor designado: " />
+							</ui:define>
+							<ui:define name="valor">
+								<p:outputLabel id="txtTutor" value="#{visualizacionForm.vfEstudianteEvaluacionJdbcDto.asttTutor}"
+		       									style="font-weight: Normal !important;" >
+		       					</p:outputLabel>
+							</ui:define>
+						</ui:decorate>
+					</div>
+				</div> <!-- Fin fila 1-->
+				<!-- ******************** FILA NUMERO 1 ************************ -->
+				<div class="row cells8">
+					<div class="cell colspan4">
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblTema" for="txtTema" value="Tema asignado: " />
+							</ui:define>
+							<ui:define name="valor">
+								<p:outputLabel id="txtTema" value="#{visualizacionForm.vfEstudianteEvaluacionJdbcDto.asttTemaTrabajo}"
+		       									style="font-weight: Normal !important;" >
+		       					</p:outputLabel>
+							</ui:define>
+						</ui:decorate>
+					</div>
+				</div> <!-- Fin fila 1-->
+			</div>
+		</p:panel>
+		
+		</p:panel>
+		 <!-- ******************** PANEL DE INFORMACION DE APTITUD SECRETARIA ************************ -->
+		<p:panel id="pnlDtsInfoAptitud" header="Información aptitud ">
+			<!-- ******************** TABLA RESPONSIVA ************************ -->
+			<div class="grid condensed">
+				<!-- ******************** FILA NUMERO 1 ************************ -->
+				<div class="row cells8">
+				<div class="cell colspan4" >
+			       		<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+			       			<ui:define name="etiqueta">	
+			       				<p:outputLabel id="lblRequisitos" for="txtRequisitos" value="Cumple requisitos: "/>	
+			     			</ui:define>
+			       			<ui:define name="valor">	
+			       				<p:outputLabel id="txtRequisitos" value="#{listasCombosForm.getRespuestaSiNO(visualizacionForm.vfEstudianteAptitudJdbcDto.aptRequisitos)}"
+		       									style="font-weight: Normal !important;" >
+		       					</p:outputLabel>
+			       			</ui:define>
+			       		</ui:decorate>
+			        </div>
+			        <div class="cell colspan4">
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblReprobo" for="txtReprobo" value="¿Reprobó más del 30% de créditos en forma acumulada a partir del 2010? : " />
+							</ui:define>
+							<ui:define name="valor">
+								<p:outputLabel id="txtReprobo" value="#{listasCombosForm.getRespuestaSiNO(visualizacionForm.vfEstudianteAptitudJdbcDto.aptReproboCreditos)}"
+		       									style="font-weight: Normal !important;" >
+		       					</p:outputLabel>
+							</ui:define>
+						</ui:decorate>
+					</div>
+					<div class="cell colspan4">
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblTercer" for="txtTercer" value="¿Tiene segunda carrera de tercer nivel a partir del 2008? : " />
+							</ui:define>
+							<ui:define name="valor">
+								<p:outputLabel id="txtTercer" value="#{listasCombosForm.getRespuestaSiNO(visualizacionForm.vfEstudianteAptitudJdbcDto.aptSegundaCarrera)}"
+		       									style="font-weight: Normal !important;" >
+		       					</p:outputLabel>
+							</ui:define>
+						</ui:decorate>
+					</div>
+					<div class="cell colspan4">
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblActulizar" for="txtActualizar" value="Aprobó actualización: " />
+							</ui:define>
+							<ui:define name="valor">
+								<p:outputLabel id="txtActualizar" value="#{listasCombosForm.getRespuestaSiNO(visualizacionForm.vfEstudianteAptitudJdbcDto.aptAproboActualizacion)}"
+		       									style="font-weight: Normal !important;" >
+		       					</p:outputLabel>
+							</ui:define>
+						</ui:decorate>
+					</div>
+					
+				</div> <!-- Fin fila 1-->
+			</div>
+		</p:panel>
+			 <!-- ******************** PANEL DE INFORMACION DE APTITUD SECRETARIA ************************ -->
+		<p:panel id="pnlDtsInfoAptitudDatos" header="Información aptitud ">
+			<!-- ******************** TABLA RESPONSIVA ************************ -->
+			<div class="grid condensed">
+				<!-- ******************** FILA NUMERO 1 ************************ -->
+				<div class="row cells8">
+					<div class="cell colspan4">
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblResultadoAptitud" for="txtResultadoAptitud" value="Resultado aptitud: " />
+							</ui:define>
+							<ui:define name="valor">
+								<p:outputLabel id="txtResultadoAptitud" value="#{visualizacionForm.vfEstudianteAptitudJdbcDto.aptResultado}"
+		       									style="font-weight: Normal !important;" >
+		       					</p:outputLabel>
+							</ui:define>
+						</ui:decorate>
+					</div>
+				</div> <!-- Fin fila 1-->
+			</div>
+		</p:panel>
+			 <!-- ******************** PANEL DE INFORMACION DE DETALLE COMPLEXIVO ************************ -->
+		<p:panel id="pnlDtsInfoExamenComplexivo" header="Información examen complexivo " visible="#{visualizacionForm.vfVisualizarComplexivo}">
+			<!-- ******************** TABLA RESPONSIVA ************************ -->
+			<div class="grid condensed">
+				<!-- ******************** FILA NUMERO 1 ************************ -->
+				<div class="row cells12">
+					<div class="cell colspan4">
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralBigDisplay.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblResultadoExamenComplexivo" for="txtResultadoExamenComplexivo" value="Componente teórico: " />
+							</ui:define>
+							<ui:define name="valor">
+								<p:outputLabel id="txtResultadoExamenComplexivo" value="#{visualizacionForm.vfEstudianteComplexivoDto.asnoComplexivoTeorico}"
+		       									style="font-weight: Normal !important;" >
+		       					</p:outputLabel>
+							</ui:define>
+						</ui:decorate>
+					</div>
+					<div class="cell colspan4">
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralBigDisplay.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblResultadoFechaExamenComplexivo" for="txtResultadoFechaExamenComplexivo" value="Fecha asentamiento nota: " />
+							</ui:define>
+							<ui:define name="valor">
+								<p:outputLabel id="txtResultadoFechaExamenComplexivo" value="#{visualizacionForm.vfFechaCarga}"
+		       									style="font-weight: Normal !important;" >
+		       					</p:outputLabel>
+							</ui:define>
+						</ui:decorate>
+					</div>
+					<div class="cell colspan4">
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralBigDisplay.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblResultadoPorcentaje" for="txtResultadoPocentaje" value="Porcentaje asignado examen teórico " />
+							</ui:define>
+							<ui:define name="valor">
+								<p:outputLabel id="txtResultadoPocentaje" value="#{visualizacionForm.vfEstudianteComplexivoDto.mcttcrPorcentaje} %"
+		       									style="font-weight: Normal !important;" >
+		       					</p:outputLabel>
+							</ui:define>
+						</ui:decorate>
+					</div>
+				</div> <!-- Fin fila 1-->
+				<!-- ******************** FILA NUMERO 2 ************************ -->
+				<div class="row cells12">
+					<div class="cell colspan4">
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralBigDisplay.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblResultadoExamenComplexivoPractico" for="txtResultadoExamenComplexivoPractico" value="Componente práctico: " />
+							</ui:define>
+							<ui:define name="valor">
+								<p:outputLabel id="txtResultadoExamenComplexivoPractico" value="#{visualizacionForm.vfEstudianteComplexivoDto.asnoComplexivoPractico}"
+		       									style="font-weight: Normal !important;" >
+		       					</p:outputLabel>
+							</ui:define>
+						</ui:decorate>
+					</div>
+					<div class="cell colspan4">
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralBigDisplay.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblResultadoFechaExamenPractico" for="txtResultadoFechaExamenPractico" value="Fecha asentamiento nota: " />
+							</ui:define>
+							<ui:define name="valor">
+								<p:outputLabel id="txtResultadoFechaExamenPractico" value="#{visualizacionForm.vfFechaPractico}"
+		       									style="font-weight: Normal !important;" >
+		       					</p:outputLabel>
+							</ui:define>
+						</ui:decorate>
+					</div>
+					<div class="cell colspan4">
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralBigDisplay.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblResultadoPorcentajePractico" for="txtResultadoPocentajePractico" value="Porcentaje asignado examen práctico " />
+							</ui:define>
+							<ui:define name="valor">
+								<p:outputLabel id="txtResultadoPocentajePractico" value="#{100-visualizacionForm.vfEstudianteComplexivoDto.mcttcrPorcentaje} %"
+		       									style="font-weight: Normal !important;" >
+		       					</p:outputLabel>
+							</ui:define>
+						</ui:decorate>
+					</div>
+				</div> <!-- Fin fila 2-->
+				<!-- ******************** FILA NUMERO 3 ************************ -->
+				<div class="row cells12">
+					<div class="cell colspan4">
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralBigDisplay.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblResultadoExamenResultados" for="txtResultadoExamenResultados" value="Nota final examen complexivo: " />
+							</ui:define>
+							<ui:define name="valor">
+								<p:outputLabel id="txtResultadoExamenResultados" value="#{visualizacionForm.vfEstudianteComplexivoDto.asnoComplexivoFinal}"
+		       									style="font-weight: Normal !important;" >
+		       					</p:outputLabel>
+							</ui:define>
+						</ui:decorate>
+					</div>
+					<div class="cell colspan4">
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralBigDisplay.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblResultadoFinal" for="txtResultadoFinal" value="Resultado: " />
+							</ui:define>
+							<ui:define name="valor">
+								<p:outputLabel id="txtResultadoFinal" value="#{visualizacionForm.vfResultadoComplexivo}"
+		       									style="font-weight: Normal !important;" >
+		       					</p:outputLabel>
+							</ui:define>
+						</ui:decorate>
+					</div>
+				</div> <!-- Fin fila 3-->
+			</div>
+		</p:panel>
+		
+		
+		
+			 <!-- ******************** PANEL DE INFORMACION DE DETALLE COMPLEXIVO DE GRACIA*********************** -->
+		<p:panel id="pnlDtsInfoExamenComplexivoGracia" header="Información examen complexivo de gracia" visible="#{visualizacionForm.vfVisualizarComplexivoGracia}">
+			<!-- ******************** TABLA RESPONSIVA ************************ -->
+			<div class="grid condensed">
+				<!-- ******************** FILA NUMERO 1 ************************ -->
+				<div class="row cells12">
+					<div class="cell colspan4">
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralBigDisplay.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblResultadoExamenComplexivoGracia" for="txtResultadoExamenComplexivoGracia" value="Componente teórico: " />
+							</ui:define>
+							<ui:define name="valor">
+								<p:outputLabel id="txtResultadoExamenComplexivoGracia" value="#{visualizacionForm.vfEstudianteComplexivoDto.asnoCmpGraciaTeorico}"
+		       									style="font-weight: Normal !important;" >
+		       					</p:outputLabel>
+							</ui:define>
+						</ui:decorate>
+					</div>
+					<div class="cell colspan4">
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralBigDisplay.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblResultadoFechaExamenComplexivoGracia" for="txtResultadoFechaExamenComplexivoGracia" value="Fecha asentamiento nota: " />
+							</ui:define>
+							<ui:define name="valor">
+								<p:outputLabel id="txtResultadoFechaExamenComplexivoGracia" value="#{visualizacionForm.vfFechaCargaGracia}"
+		       									style="font-weight: Normal !important;" >
+		       					</p:outputLabel>
+							</ui:define>
+						</ui:decorate>
+					</div>
+					<div class="cell colspan4">
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralBigDisplay.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblResultadoPorcentajeGracia" for="txtResultadoPocentajeGracia" value="Porcentaje asignado examen teórico " />
+							</ui:define>
+							<ui:define name="valor">
+								<p:outputLabel id="txtResultadoPocentajeGracia" value="#{visualizacionForm.vfEstudianteComplexivoDto.mcttcrPorcentaje} %"
+		       									style="font-weight: Normal !important;" >
+		       					</p:outputLabel>
+							</ui:define>
+						</ui:decorate>
+					</div>
+				</div> <!-- Fin fila 1-->
+				<!-- ******************** FILA NUMERO 2 ************************ -->
+				<div class="row cells12">
+					<div class="cell colspan4">
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralBigDisplay.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblResultadoExamenComplexivoPracticoGracia" for="txtResultadoExamenComplexivoPracticoGracia" value="Componente práctico: " />
+							</ui:define>
+							<ui:define name="valor">
+								<p:outputLabel id="txtResultadoExamenComplexivoPracticoGracia" value="#{visualizacionForm.vfEstudianteComplexivoDto.asnoCmpGraciaPractico}"
+		       									style="font-weight: Normal !important;" >
+		       					</p:outputLabel>
+							</ui:define>
+						</ui:decorate>
+					</div>
+					<div class="cell colspan4">
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralBigDisplay.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblResultadoFechaExamenPracticoGracia" for="txtResultadoFechaExamenPracticoGracia" value="Fecha asentamiento nota: " />
+							</ui:define>
+							<ui:define name="valor">
+								<p:outputLabel id="txtResultadoFechaExamenPracticoGracia" value="#{visualizacionForm.vfFechaPracticoGracia}"
+		       									style="font-weight: Normal !important;" >
+		       					</p:outputLabel>
+							</ui:define>
+						</ui:decorate>
+					</div>
+					<div class="cell colspan4">
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralBigDisplay.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblResultadoPorcentajePracticoGracia" for="txtResultadoPocentajePracticoGracia" value="Porcentaje asignado examen práctico " />
+							</ui:define>
+							<ui:define name="valor">
+								<p:outputLabel id="txtResultadoPocentajePracticoGracia" value="#{100-visualizacionForm.vfEstudianteComplexivoDto.mcttcrPorcentaje} %"
+		       									style="font-weight: Normal !important;" >
+		       					</p:outputLabel>
+							</ui:define>
+						</ui:decorate>
+					</div>
+				</div> <!-- Fin fila 2-->
+				<!-- ******************** FILA NUMERO 3 ************************ -->
+				<div class="row cells12">
+					<div class="cell colspan4">
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralBigDisplay.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblResultadoExamenResultadosGracia" for="txtResultadoExamenResultadosGracia" value="Nota final examen complexivo: " />
+							</ui:define>
+							<ui:define name="valor">
+								<p:outputLabel id="txtResultadoExamenResultadosGracia" value="#{visualizacionForm.vfEstudianteComplexivoDto.asnoCmpGraciaFinal}"
+		       									style="font-weight: Normal !important;" >
+		       					</p:outputLabel>
+							</ui:define>
+						</ui:decorate>
+					</div>
+					<div class="cell colspan4">
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralBigDisplay.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblResultadoFinalGracia" for="txtResultadoFinalGracia" value="Resultado: " />
+							</ui:define>
+							<ui:define name="valor">
+								<p:outputLabel id="txtResultadoFinalGracia" value="#{visualizacionForm.vfResultadoComplexivoGracia}"
+		       									style="font-weight: Normal !important;" >
+		       					</p:outputLabel>
+							</ui:define>
+						</ui:decorate>
+					</div>
+				</div> <!-- Fin fila 3-->
+			</div>
+		</p:panel>
+		
+		
+		
+		<div >
+			<p:commandButton id="btnCancelar" value="Regresar" action="#{visualizacionForm.regresarAListaPostulaciones()}" immediate="true" ajax="false"  />
+			
+		</div>
+	</h:form>
+</ui:define>
+</ui:composition>
+</html>

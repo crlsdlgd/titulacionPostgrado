@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+<html>
+  <head>
+	 <meta http-equiv="content-type" content="text/html; charset=utf-8">
+	 <title>UNIVERSIDAD CENTRAL DEL ECUADOR</title>
+  </head>
+  <body>
+    <p><strong>Estimado(a): ${nombres} ${apellidos}.-</strong></p>
+    <br/>
+    <p><strong>Facultad: </strong>${facultad}</p>
+	<p><strong>Carrera/Programa: </strong>${carrera}</p> 
+	<br/>
+La Universidad Central del Ecuador le comunica que una vez revisada su documentaci&#243;n se le declara <strong>ID&#211;NEO/A</strong> para participar en el proceso de titulaci&#243;n 2017-2018. No obstante, se visualiza que se le asign&#243; tutor en el proceso 2015-2016 por lo que en cumplimiento con la normativa vigente a la fecha, usted dispone de 12 meses de manera gratuita para realizar y concluir su trabajo de titulaci&#243;n, este tiempo se contabiliza a partir de la fecha de designaci&#243;n de su tema y tutor. 
+En este sentido le informamos que debe:
+<br/>
+1. Actualizar Conocimientos para lo cual usted tendr&#225; que cancelar un arancel establecido por la Universidad, mediante una orden de cobro emitida por la carrera.
+<br/>
+NOTA.- Cabe resaltar que previo a la defensa oral del trabajo de titulaci&#243;n tendr&#225; que ser declarado APTO, es decir, cuando cumpla con todos los requisitos previos a la titulaci&#243;n. 
+	<br/>
+	  El proceso se realiz&#243; el ${fechaHora}
+	  <br/>	  
+	  <br/>
+	  <br/>
+	  <br/>
+	  <br/>
+	  ...........................................................................................
+	  <br/>
+	  <strong>Informaci&#243;n del Correo: </strong> Mail generado autom&#225;ticamente. Por favor no responda a este mensaje.
+	  <br/>
+	  <br/>
+	  <br/>

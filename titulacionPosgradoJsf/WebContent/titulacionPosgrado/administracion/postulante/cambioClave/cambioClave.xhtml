@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+      
+      
+<ui:composition template="/componentesGenerales/plantillas/pltPrincipalSinMenuEjecModal.xhtml">
+<ui:define name="paginacion">
+		<ui:include src="/componentesGenerales/plantillas/pltPaginacion.xhtml">
+			<ui:param name="pagina"
+				value="Administración / Cambio contraseña " />
+		</ui:include>
+</ui:define>      
+<ui:define name="cuerpo">
+	<h:form id="frmEditar" >
+		<p:panel id="pnlPerfil" header="Datos para el cambio de contraseña" >
+			<!-- ******************** TABLA RESPONSIVA ************************ -->
+			<div class="grid condensed">
+				<!-- ******************** FILA NUMERO 1 ************************ -->
+		       	<div class="row cells8">
+		       		<!-- clave actual -->
+		       		<div class="cell colspan3" >
+		       			<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblClvActual" for="txtClvActual" value="Contraseña actual: " />
+		       				</ui:define>
+		       				<ui:define name="valor">	
+		       					<p:password id="txtClvActual" value="#{cambioClaveForm.ccfClaveActual}" >
+		       					</p:password>	
+		       				</ui:define>
+		       				<ui:define name="etiquetaError">	
+		       					<p:message id="msgClvActual" for="txtClvActual"/>	
+		       				</ui:define>
+		       			</ui:decorate>
+		        	</div>
+		    	</div>
+				<!-- ******************** FILA NUMERO 2 ************************ -->
+		       	<div class="row cells8">
+		       		<!-- Clave nueva -->
+		       		<div class="cell colspan3" oncopy="return false;" onpaste="return false;">
+		       			<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblClvNueva" for="txtClvNueva" value="Nueva contraseña: "/>		
+		       				</ui:define>
+		       				<ui:define name="valor">	
+		       					<p:password id="txtClvNueva" value="#{cambioClaveForm.ccfClaveNueva}">
+					        	</p:password>	
+		       				</ui:define>
+		       				<ui:define name="etiquetaError">	
+		       					<p:message id="msgClvNueva" for="txtClvNueva"/>	
+		       				</ui:define>
+		       			</ui:decorate>
+		        	</div>
+		    	</div>
+		    	<!-- ******************** FILA NUMERO 3 ************************ -->
+		       	<div class="row cells8">
+		       		<!-- confirmacion de clave -->
+		       		<div class="cell colspan3" oncopy="return false;" onpaste="return false;">
+		       			<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblClvConfirmacion" for="txtClvConfirmacion" value="Confirmación contraseña: "/>		
+		       				</ui:define>
+		       				<ui:define name="valor">	
+		       					<p:password id="txtClvConfirmacion" value="#{cambioClaveForm.ccfClaveConfirmacion}">
+		       					</p:password>
+		       				</ui:define>
+		       				<ui:define name="etiquetaError">	
+		       					<p:message id="msgClvConfirmacion" for="txtClvConfirmacion"/>	
+		       				</ui:define>
+		       			</ui:decorate>
+		        	</div>
+		    	</div>
+		   	</div> 		
+		</p:panel>
+		
+		<div >
+			<p:commandButton id="btnCancelar" value="Cancelar" action="#{cambioClaveForm.cancelarCambioClave()}" immediate="true" ajax="false" />
+			<p:commandButton id="btnGuardar" value="Cambiar contraseña" action="#{cambioClaveForm.cambiarClave()}" onclick="PF('dialogoTrabajando').show();" ajax="false"/>
+		</div>
+	</h:form>		
+</ui:define>
+</ui:composition>
+</html>

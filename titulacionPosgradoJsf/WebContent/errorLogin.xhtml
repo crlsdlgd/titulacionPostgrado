@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+	<ui:composition template="/componentesGenerales/plantillas/pltFondo.xhtml">
+		<ui:define name="cuerpo">
+			<h:form id="frmErrorLogin" enctype="multipart/form-data" acceptcharset="UTF-8" style="background-color:transparent !important; border:none !important;">
+				<div style="position:absolute;bottom:10vw;left:0;right: 0;text-align: center;">					
+					<div style="font-size:2vw;color:#004671;border-bottom:3px solid #E20613;margin-bottom:5px;width: 50%;margin: auto;">
+						SE HA PRODUCIDO EL SIGUIENTE ERROR :
+					</div>
+					<p:panel  style="background-color:transparent !important; border:none !important;">
+						<!-- ******************** TABLA RESPONSIVA ************************ -->
+						<div class="grid condensed">
+			                <!-- ******************** FILA NUMERO 2 ************************ -->
+			                <div class="row">
+			                    <div class="cell">
+			                    	<p:outputLabel value="#{proveedorAutenticacion.mensaje}" style="font-size: 18px; color: #000;font-weight: bolder;"/>
+			                    </div>
+			                </div>
+			                <!-- ******************** FILA NUMERO 3 ************************ -->
+			                <div class="row">
+			                    <div class="cell" style="  line-height: 5rem;">
+			                    	<a href="titulacionPosgrado/generalidades/login.jsp" title="INICIO" style="color: #000;font-weight: bolder;">REGRESAR</a>
+			                    </div>
+			                </div>
+			            </div>   
+					</p:panel>
+				</div> 
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</html>

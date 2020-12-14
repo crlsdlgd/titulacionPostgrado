@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+<html>
+  <head>
+	 <meta http-equiv="content-type" content="text/html; charset=utf-8">
+	 <title>UNIVERSIDAD CENTRAL DEL ECUADOR</title>
+  </head>
+  <body>
+    <p><strong>Postulante: ${nombres} ${apellidos}</strong></p>
+    <br/>
+    <p><strong>Facultad: </strong>${facultad}</p>
+	<p><strong>Carrera/Programa: </strong> ${carrera}</p> 
+	<br/>
+	Estimado postulante, la Unidad de Titulaci&#243;n Especial de la Universidad Central del Ecuador le comunica que usted ha sido <strong>DESACTIVADO</strong> del proceso de titulaci&#243;n ${fechaConvocatoria}, con lo que se da por concluida su participaci&#243;n en este proceso de titulaci&#243;n.
+	<br/>
+	En consecuencia para realizar su trabajo de titulaci&#243;n, tendrán que postularse a una nueva convocatoria.
+	<br/>
+	La convocatoria 2017-2018 estar&#225; disponible para su postulaci&#243;n hasta el 15 de septiembre del 2017 
+	<br/>
+	<strong>NOTA:</strong> Para mayor informaci&#243;n dirigirse a la Carrera o a la Direcci&#243;n Acad&#233;mica. 
+	 
+	<br/>
+	<br/> 
+	El proceso se realiz&#243; el ${fechaHora}
+	<br/>	  
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	...........................................................................................
+	<br/>
+	<strong>Informaci&#243;n del Correo: </strong> Mail generado autom&#225;ticamente. Por favor no responda a este mensaje.
+	<br/>
+	<br/>
+	<br/>

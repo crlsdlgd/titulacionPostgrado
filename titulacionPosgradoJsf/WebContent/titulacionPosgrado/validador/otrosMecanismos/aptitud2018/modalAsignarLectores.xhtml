@@ -1,0 +1,119 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      			xmlns:ui="http://java.sun.com/jsf/facelets"
+      			xmlns:f="http://java.sun.com/jsf/core"
+      			xmlns:h="http://java.sun.com/jsf/html"
+     			xmlns:p="http://primefaces.org/ui"> 
+     			
+     			   			  			
+	<h:form id="frmModalAsignarLectores">
+		<p:dialog widgetVar="dialogoAsignarLectores" modal="true" draggable="false" closable="false" 
+				  resizable="false" height="630" width="750" styleClass="modal-sin-header" >
+				  <p:panel id="pnlBusqueda" header="Ingrese los datos para buscar" >
+					<!-- ******************** TABLA RESPONSIVA ************************ -->
+					<div class="grid condensed">
+						  	<!-- ******************** FILA NUMERO 3 ************************ -->
+				       	<div class="row cells8">
+				       		<div class="cell colspan4" style="margin: 8px 0px ! important;" >
+				       			<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralPnlMsgSinError.xhtml">
+				       				<ui:define name="etiqueta">	
+				       					<p:outputLabel id="lblIdentificacion" for="txtIdentificacion" value="Identificación: "/>	
+				       				</ui:define>
+				       				<ui:define name="valor">	
+				       					<p:inputText id="txtIdentificacion" value="#{aptitudSecretariaForm.asfCedulaDocenteLectorBuscar}" maxlength="13">
+				       					</p:inputText>	
+				       				</ui:define>
+				       			</ui:decorate>
+				       		</div>	
+				       		<div class="cell colspan4" >
+				       			<p:panel id="pnlError" visible="#{aptitudSecretariaForm.asfHabilitadorTribunalMayorATres}" >
+				     				<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralPanelMsgDisplay.xhtml">
+				       				<ui:define name="etiqueta">	
+				       					<p:outputLabel id="lblMensajeError" value="#{aptitudSecretariaForm.asfMensajeLectores}" style="color:red;"/>	
+				       				</ui:define>
+				       				</ui:decorate>		
+								 </p:panel>
+				       		</div>	
+				       	</div>	
+				       	<div class="row cells5">
+				       		<div class="cell colspan4" >
+				       			<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+				       				<ui:define name="etiqueta">	
+				       					<p:outputLabel id="lblApellido" for="txtApellido" value="Primer apellido: "/>	
+				       				</ui:define>
+				       				<ui:define name="valor">	
+				       					<p:inputText id="txtApellido" value="#{aptitudSecretariaForm.asfApellidoDocenteBuscar}" >
+				       					</p:inputText>	
+				       				</ui:define>
+				       				<ui:define name="etiquetaError">	
+				       					<p:message id="msgApellido" for="txtApellido"/>	
+				       				</ui:define>
+				       			</ui:decorate>
+				       		</div>
+				       	</div>
+					</div>
+				  </p:panel>
+				  
+				  	<div>	
+						<p:commandButton id="btnBuscar" value="Buscar"  action="#{aptitudSecretariaForm.buscarDocentes(sesionUsuarioForm.frmSuUsuario,aptitudSecretariaForm.asfCedulaDocenteLectorBuscar)}" 
+							update=":frmModalAsignarLectores:pnlResultados" /> 
+						<p:commandButton id="btnLimpiar" value="Limpiar"  action="#{aptitudSecretariaForm.limpiarTablaDocentes()}"  
+							update="pnlResultados , pnlLectores" /> 
+						<p:commandButton id="btnGuardar" value="Guardar lectores"  action="#{aptitudSecretariaForm.guardarTribunal()}" 
+							update=":frmModalAsignarLectores,:frVisualizar,:frVisualizar:txtNota1,:frVisualizar:txtNota2,:frmModalAsignarLectores:pnlError,:frVisualizar:btnAsignarLectores" disabled="#{aptitudSecretariaForm.asfHabilitadorGuardarModalTribunal}"/> 
+						<p:commandButton id="btnRegresar" action="#{aptitudSecretariaForm.verificarClickAsignarLectoresNo()}" value="Cancelar" immediate="true" update=":frmModalAsignarLectores"/>
+					</div>
+				  
+				 <p:panel id="pnlResultados" header="Resultados de la búsqueda" >
+					<p:dataTable id="dtsUsuario" var="item" value="#{aptitudSecretariaForm.asfListDocentesDtoVisualizar}"
+		    		 		rows="3" paginator="true"
+		                         paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+		                         rowsPerPageTemplate="1" emptyMessage="#{aptitudSecretariaForm.asfMensajeTutor}">
+				        <p:column headerText="Identificación">
+				            <h:outputText value="#{item.prsIdentificacion}"/>
+				        </p:column>
+				        <p:column headerText="Primer apellido">
+				            <h:outputText value="#{item.prsPrimerApellido}"/>
+				        </p:column>
+				        <p:column headerText="Segundo apellido">
+				            <h:outputText value="#{item.prsSegundoApellido}"/>
+				        </p:column>
+				        <p:column headerText="Nombres">
+				            <h:outputText value="#{item.prsNombres}"/>
+				        </p:column>
+				          <p:column headerText="Opción" style="width: 8em ! important;" >
+				        	<p:commandLink value="Agregar" action="#{aptitudSecretariaForm.asignarDocenteLector(item)}" ajax="false" style="color:blue;" update="pnlError,pnlLectores,pnlResultados,btnGuardar"/>
+				        </p:column> 
+					</p:dataTable>
+				</p:panel>
+				  
+				   <p:panel id="pnlLectores" header="Docentes agregados al tribunal" >
+					<p:dataTable id="dtsLectores" var="item" value="#{aptitudSecretariaForm.asfListDocentesLectoresDto}"
+		    		 		rows="10" paginator="false"
+		                         paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+		                         rowsPerPageTemplate="1" emptyMessage="#{aptitudSecretariaForm.asfMensajeTutor}">
+				        <p:column headerText="Identificación">
+				            <h:outputText value="#{item.prsIdentificacion}"/>
+				        </p:column>
+				        <p:column headerText="Primer apellido">
+				            <h:outputText value="#{item.prsPrimerApellido}"/>
+				        </p:column>
+				        <p:column headerText="Segundo apellido">
+				            <h:outputText value="#{item.prsSegundoApellido}"/>
+				        </p:column>
+				        <p:column headerText="Nombres">
+				            <h:outputText value="#{item.prsNombres}"/>
+				        </p:column>
+				          <p:column headerText="Opción" style="width: 8em ! important;" >
+				        	<p:commandLink value="Eliminar" action="#{aptitudSecretariaForm.eliminarDocente(item)}" onclick="PF('dialogoTrabajando').show();" ajax="false" style="color:blue;" update="pnlLectores,dtsLectores,pnlError,pnlResultados,btnGuardar"/>
+				        </p:column> 
+					</p:dataTable>
+						
+				</p:panel>
+				
+		</p:dialog> 
+	</h:form>
+</ui:composition>

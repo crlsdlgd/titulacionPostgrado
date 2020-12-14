@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+<ui:composition template="/componentesGenerales/plantillas/pltPrincipalSinMenuEjecModal.xhtml">
+<ui:define name="paginacion">
+		<ui:include src="/componentesGenerales/plantillas/pltPaginacion.xhtml">
+			<ui:param name="pagina"
+				value="Perfil / Mi perfil / Datos de usuario" />
+		</ui:include>
+</ui:define> 
+
+<ui:define name="cuerpo">
+	<h:form id="frmEditar" enctype="multipart/form-data" acceptcharset="UTF-8"  >
+		<p:panel id="pnlInfPersonal" header="Información personal" >
+			<!-- ******************** TABLA RESPONSIVA ************************ -->
+			<div class="grid condensed">
+			<div class="row cells12">
+		       		<!-- identificacion -->
+		       		<div class="cell colspan6" >
+		       			<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblFotografia" for="txtFotografia" value="Fotografía del perfil: " />
+		       				</ui:define>
+		       				<ui:define name="valor">
+		       					<p:graphicImage id="txtFotografia" value="#{perfilPostulanteForm.image}" height="150" width="100"/>
+		       				</ui:define>
+		       				<ui:define name="etiquetaError">
+		       					<p:graphicImage id="errorFoto" value="#{perfilPostulanteForm.image}" height="150" width="100"/>
+		       				</ui:define>
+		       			</ui:decorate>
+		        	</div>
+		        </div>
+				<!-- ******************** FILA NUMERO 1 ************************ -->
+		       	<div class="row cells12">
+		       		<!-- identificacion -->
+		       		<div class="cell colspan6" >
+		       			<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblIdentificacion" for="txtIdentificacion" value="Identificación: " />
+		       				</ui:define>
+		       				<ui:define name="valor">
+		       					<p:outputLabel id="txtIdentificacion" value="#{perfilPostulanteForm.ppfPersona.prsIdentificacion}"
+		       									style="font-weight: Normal !important;" />	
+		       				</ui:define>
+		       			</ui:decorate>
+		        	</div>
+		        </div>
+		        <!-- ******************** FILA NUMERO 2 ************************ -->
+			     <div class="row cells12">		
+		        	<!-- Nombres -->
+		        	<div class="cell colspan6" >
+		       			<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblNombres" for="txtNombres" value="Nombres: "/>		
+		       				</ui:define>
+		       				<ui:define name="valor">	
+		       					<p:outputLabel id="txtNombres" value="#{perfilPostulanteForm.ppfPersona.prsNombres}"
+		       									style="font-weight: Normal !important;" />
+		       				</ui:define>
+		       			</ui:decorate>
+		        	</div>
+		    	</div>
+		        <!-- ******************** FILA NUMERO 3 ************************ -->
+		        <div class="row cells12">	
+		        	<!-- Apellido1 -->
+		       		<div class="cell colspan6" >
+		       			<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblApellido1" for="txtApellido1" value="Primer apellido: "/>		
+		       				</ui:define>
+		       				<ui:define name="valor">	
+		       					<p:outputLabel id="txtApellido1" value="#{perfilPostulanteForm.ppfPersona.prsPrimerApellido}"
+		       									style="font-weight: Normal !important;" />
+		       				</ui:define>
+		       			</ui:decorate>
+		        	</div>
+		        </div>
+		        <!-- ******************** FILA NUMERO 4 ************************ -->
+		        <div class="row cells12">		
+		        	<!-- Apellido2 -->
+			        <div class="cell colspan6" >
+			        	<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblApellido2" for="txtApellido2" value="Segundo apellido: "/>		
+		       				</ui:define>
+		       				<ui:define name="valor">
+		       					<p:outputLabel id="txtApellido2" value="#{perfilPostulanteForm.ppfPersona.prsSegundoApellido}"
+		       									style="font-weight: Normal !important;" />	
+		       				</ui:define>
+		       			</ui:decorate>
+			        </div>
+			     </div>
+		    	<!-- ******************** FILA NUMERO 5 ************************ -->
+		    	<div class="row cells12">
+		        	<div class="cell colspan6" >
+		       			<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblSexoA" for="lblSexoA" value="Sexo: "/>	
+		       				</ui:define>
+		       				<ui:define name="valor">	
+		       					<p:outputLabel id="txtSexoA" value="#{listasCombosForm.getLabelSexoUsuario(perfilPostulanteForm.ppfPersona.prsSexo)}"
+		       									style="font-weight: Normal !important;" />
+		       				</ui:define>
+		       			</ui:decorate>
+		        	</div>
+		    	</div>
+		    	<!-- ******************** FILA NUMERO 6 ************************ -->
+		       	<div class="row cells12">
+		       		<!-- e-mail -->
+		       		<div class="cell colspan6" >
+		       			<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblMail" for="txtMail" value="Correo electrónico: "/>		
+		       				</ui:define>
+		       				<ui:define name="valor">	
+		       					<p:outputLabel id="txtMail" value="#{perfilPostulanteForm.ppfPersona.prsMailPersonal}"
+		       									style="font-weight: Normal !important;" />	
+		       				</ui:define>
+		       			</ui:decorate>
+		        	</div>
+		    	</div>
+				<!-- ******************** FILA NUMERO 7 ************************ -->
+		       	<div class="row cells12">
+		       		<div class="cell colspan6" >
+		       			<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblFechaNacimiento" for="txtFechaNacimiento" value="Fecha de nacimiento (dd-mm-aaaa): "/>		
+		       				</ui:define>
+		       				<ui:define name="valor">	
+
+		       					<h:outputText id="txtFechaNacimiento"  value="#{perfilPostulanteForm.ppfPersona.prsFechaNacimiento}">
+                            		<f:convertDateTime pattern="dd-MM-yyyy" />
+                        		</h:outputText>
+		       				</ui:define>
+		       			</ui:decorate>
+		        	</div>
+		    	</div>		    	
+		    	<!-- ******************** FILA NUMERO 8 ************************ -->
+		       	<div class="row cells12">
+		       		<!-- Telefono -->
+		       		<div class="cell colspan6" >
+		       			<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblFono1" for="txtFono1" value="Teléfono: "/>		
+		       				</ui:define>
+		       				<ui:define name="valor">	
+		       					<p:outputLabel id="txtFono1" value="#{perfilPostulanteForm.ppfPersona.prsTelefono}"
+		       									style="font-weight: Normal !important;" />	
+		       				</ui:define>
+		       			</ui:decorate>
+		        	</div>
+		    	</div>
+		    		<!-- ******************** FILA NUMERO 9 ************************ -->
+		       	<div class="row cells12">
+		       		<div class="cell colspan6" >
+		       			<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblNacionalidad" for="txtNacionalidad" value="País Nacionalidad: "/>		
+		       				</ui:define>
+		       				<ui:define name="valor">	
+		       					<p:outputLabel id="txtNacionalidad" value="#{perfilPostulanteForm.ppfPersona.prsUbicacionNacionalidad.ubcDescripcion}"
+		       									style="font-weight: Normal !important;" />	
+		       				</ui:define>
+		       			</ui:decorate>
+		        	</div>
+		    	</div>
+		    	<!-- ******************** FILA NUMERO 10 ************************ -->
+		       	<div class="row cells12">
+		       		<div class="cell colspan6" >
+		       			<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblEtnia" for="txtEtnia" value="Etnia: "/>		
+		       				</ui:define>
+		       				<ui:define name="valor">	
+		       					<p:outputLabel id="txtEtnia" value="#{perfilPostulanteForm.ppfPersona.prsEtnia.etnDescripcion}"
+		       									style="font-weight: Normal !important;" />	
+		       				</ui:define>
+		       			</ui:decorate>
+		        	</div>
+		    	</div>
+		   	</div> 		
+		</p:panel>
+
+		<div >
+			<p:commandButton id="btnCancelar" value="Cancelar" action="#{perfilPostulanteForm.cancelarVisualizacion()}" immediate="true" ajax="false" />
+			<p:commandButton id="btnGuardar" value="Editar perfil" action="#{perfilPostulanteForm.irEditarPerfil()}" onclick="PF('dialogoTrabajando').show();"  ajax="false"/>
+		</div>
+	</h:form>	
+
+	
+</ui:define>
+</ui:composition>
+</html>

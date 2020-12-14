@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+<html>
+  <head>
+	 <meta http-equiv="content-type" content="text/html; charset=utf-8">
+	 <title>UNIVERSIDAD CENTRAL DEL ECUADOR</title>
+  </head>
+  <body>
+    <p><strong>Estimado(a): ${nombres} ${apellidos}.-</strong></p>
+    <br/>
+    <p><strong>Facultad: </strong>${facultad}</p>
+	<p><strong>Carrera/Programa: </strong>${carrera}</p> 
+	<br/>
+    La Universidad Central del Ecuador le comunica que en cumplimiento a la Disposici&#243;n Transitoria Sexta literal c) del Reglamento de R&#233;gimen Acad&#233;mico, expedido por el Consejo de Educaci&#243;n Superior, manifiesta: "Los estudiantes que hayan finalizado sus estudios antes de 21 de noviembre de 2008, deber&#225;n aprobar en la misma IES un examen complexivo o de grado articulado al perfil de una carrera o programa vigente o no vigente habilitada para registro de t&#237;tulos. En caso que el estudiante no apruebe, tendr&#225; derecho a un examen complexivo de gracia. La fecha m&#225;xima para que la IES tome el examen complexivo ser&#225; determinada por la IES y no podr&#225; superar el 31 de diciembre de 2016."
+<br/>
+En este sentido han trascurrido m&#225;s de diez a&#241;os de su culminaci&#243;n de malla curricular, por lo que se declara <strong>NO ID&#211;NEO/A</strong> para participar en este proceso de titulaci&#243;n 2017-2018 
+	<br/>
+	  <br/> 
+	  El proceso se realiz&#243; el ${fechaHora}
+	  <br/>	  
+	  <br/>
+	  <br/>
+	  <br/>
+	  <br/>
+	  ...........................................................................................
+	  <br/>
+	  <strong>Informaci&#243;n del Correo: </strong> Mail generado autom&#225;ticamente. Por favor no responda a este mensaje.
+	  <br/>
+	  <br/>
+	  <br/>

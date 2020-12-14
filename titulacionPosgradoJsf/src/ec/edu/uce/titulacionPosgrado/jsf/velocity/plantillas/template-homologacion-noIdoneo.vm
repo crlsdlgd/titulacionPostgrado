@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+<html>
+  <head>
+	 <meta http-equiv="content-type" content="text/html; charset=utf-8">
+	 <title>UNIVERSIDAD CENTRAL DEL ECUADOR</title>
+  </head>
+  <body>
+    <p><strong>Estimado(a): ${nombres} ${apellidos}.-</strong></p>
+    <br/>
+    <p><strong>Facultad: </strong>${facultad}</p>
+	<p><strong>Carrera/Programa: </strong> ${carrera}</p> 
+	<br/>
+    La Universidad Central del Ecuador le comunica que en cumplimiento a la Disposici&#243;n Transitoria Sexta literal c) tercer inciso del Reglamento de R&#233;gimen Acad&#233;mico, expedido por el Consejo de Educaci&#243;n Superior,  manifiesta: <i> &#34;Los estudiantes que no hayan rendido el examen complexivo en el plazo establecido en el inciso anterior o hayan reprobado el examen complexivo de gracia, no podr&#225;n matricularse en la misma carrera o programa, pudiendo solicitar la homologaci&#243;n de las asignaturas, cursos o sus equivalentes, mediante el proceso de validaci&#243;n de conocimientos.&#34; </i>
+	<br/>
+	En este sentido usted ya rindi&#243; el examen complexivo reprob&#225;ndolo y han trascurrido m&#225;s de diez a&#241;os de su egresamiento, por lo que se le declara NO ID&#211;NEO/A para participar en este proceso de titulaci&#243;n.    
+	 <br/>
+	  <br/> 
+	  El proceso se realiz&#243; el ${fechaHora}
+	  <br/>	  
+	  <br/>
+	  <br/>
+	  <br/>
+	  <br/>
+	  ...........................................................................................
+	  <br/>
+	  <strong>Informaci&#243;n del Correo: </strong> Mail generado autom&#225;ticamente. Por favor no responda a este mensaje.
+	  <br/>
+	  <br/>
+	  <br/>

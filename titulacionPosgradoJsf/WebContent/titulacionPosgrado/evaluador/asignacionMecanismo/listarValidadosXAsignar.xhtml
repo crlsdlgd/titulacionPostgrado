@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<ui:composition template="/componentesGenerales/plantillas/pltPrincipalSinMenuEjecModal.xhtml">
+<ui:define name="paginacion">
+		<ui:include src="/componentesGenerales/plantillas/pltPaginacion.xhtml">
+			<ui:param name="pagina"
+				value="Asignación mecanismo / Asignación de mecanismo de titulación / Lista de estudiantes validados" />
+		</ui:include>
+</ui:define>
+<script language="JavaScript">
+//<![CDATA[
+	function abrirVentaReporte(formato, nombreReporte, tipo){
+		var url = "/aplicacion/reportes";
+		url = url + "?nombreJasper=" + nombreReporte;
+		url = url + "&formato=" + formato;
+		url = url + "&tipo=" + tipo;
+		if(formato == 'vista'){
+			var reportWindow = window.open(url, "reportWindow","menubar=0,resizable=0,status=0,width=800,height=600");
+		}else{
+			var reportWindow = window.open(url, "reportWindow","menubar=0,resizable=0,status=0,width=0,height=0");
+		}
+    } 
+    
+ //]]> 
+</script>
+
+
+<ui:define name="cuerpo">
+
+
+
+	<h:form id="frmListarAsignacionMecanismos" enctype="multipart/form-data" acceptcharset="UTF-8">
+		<p:panel id="pnlBusqueda" header="Ingrese los datos para buscar" >
+			<!-- ******************** TABLA RESPONSIVA ************************ -->
+			<div class="grid condensed">		    	
+				<!-- ******************** FILA NUMERO 1 ************************ -->
+		         <div class="row cells8">
+		       		<div class="cell colspan3" >
+		       			<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblConvocatoria" for="slcConvocatoria" value="Convocatorias: "/>
+		       				</ui:define>
+		       				<ui:define name="valor">	
+								<h:selectOneMenu id="slcConvocatoria" value="#{asignacionMecanismoForm.amfConvocatoria.cnvId}">
+		       							<f:selectItem itemLabel="#{generalesConstantesForm.appSeleccioneTodos}" itemValue="#{generalesConstantesForm.appIdBase}"/>
+										<f:selectItems value="#{asignacionMecanismoForm.amfListConvocatorias}" var="item" itemLabel="#{item.cnvDescripcion}" itemValue="#{item.cnvId}" />
+										<p:ajax listener="#{asignacionMecanismoForm.cambiarMecanismoTitulacion()}" update=" pnlResultados"/>
+								</h:selectOneMenu>	
+		       				</ui:define>
+		       			</ui:decorate>
+		        	</div>
+		    	</div>
+		       			<!-- ******************** FILA NUMERO 2 ************************ -->
+		       	<div class="row cells8">
+		       		<div class="cell colspan3" >
+		       			<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblCarrera" for="slcCarrera" value="Programa: "/>
+		       				</ui:define>
+		       				<ui:define name="valor">	
+								<h:selectOneMenu id="slcCarrera" value="#{asignacionMecanismoForm.amfCarrera.crrId}" style="width:100%">
+		       							<f:selectItem itemLabel="#{generalesConstantesForm.appSeleccioneTodos}" itemValue="#{generalesConstantesForm.appIdBase}"/> 
+										<f:selectItems value="#{asignacionMecanismoForm.amfListCarreras}" var="item" itemLabel="#{item.crrDetalle}" itemValue="#{item.crrId}" />
+										<p:ajax update=" pnlResultados"/>
+								</h:selectOneMenu>	
+		       				</ui:define>
+		       			</ui:decorate>
+		        	</div>
+		    	</div>
+		    	
+		    	<!-- ******************** FILA NUMERO 3 ************************ -->
+		       	<div class="row cells8">
+		       		<div class="cell colspan3" >
+		       			<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblIdentificacion" for="txtIdentificacion" value="Identificación: "/>	
+		       				</ui:define>
+		       				<ui:define name="valor">	
+		       					<p:inputText id="txtIdentificacion" value="#{asignacionMecanismoForm.amfEstudianteAsignacionMecanismoDtoBuscar.prsIdentificacion}" >
+		       					</p:inputText>	
+		       				</ui:define>
+		       				<ui:define name="etiquetaError">	
+		       					<p:message id="msgIdentificacion" for="txtIdentificacion"/>	
+		       				</ui:define>
+		       			</ui:decorate>
+		       		</div>
+		       	</div>
+		    </div>
+		</p:panel>
+		<div>	
+		<p:commandButton id="btnBuscar" value="Buscar"  action="#{asignacionMecanismoForm.buscarValidados(sesionUsuarioForm.frmSuUsuario)}" 
+							update=":frmListarAsignacionMecanismos:pnlResultados,slcCarrera" /> 
+		<p:commandButton id="btnLimpiar" value="Limpiar"  action="#{asignacionMecanismoForm.limpiar()}"  
+							update=":frmListarAsignacionMecanismos:pnlResultados , :frmListarAsignacionMecanismos:pnlBusqueda" /> 
+		</div>
+
+		<p:panel id="pnlResultados" header="Resultados de la búsqueda" >
+			<p:dataTable id="dtsUsuario" var="item" value="#{asignacionMecanismoForm.amfListEstudianteAsignacionMecanismoDto}"
+		    		 		rows="10" paginator="true"
+		                         paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+		                         rowsPerPageTemplate="5,10,15" emptyMessage="NO SE ENCONTRARON DATOS CON LOS PARÁMETROS DE BÚSQUEDA INGRESADOS">
+				        <p:column headerText="Convocatoria" style="width: 6em ! important; text-align:center">
+				            <h:outputText value="#{item.cnvDescripcion}" />
+				        </p:column>
+				        <p:column headerText="Identificación" style="width: 6em ! important; text-align:center">
+				            <h:outputText value="#{item.prsIdentificacion}" />
+				        </p:column>
+				        <p:column headerText="Primer apellido" style="width: 6em ! important; text-align:center">
+				            <h:outputText value="#{item.prsPrimerApellido}"/>
+				        </p:column>
+				        <p:column headerText="Segundo apellido" style="width: 6em ! important; text-align:center">
+				            <h:outputText value="#{item.prsSegundoApellido}"/>
+				        </p:column>
+				        <p:column headerText="Nombres" style="width: 8em ! important; text-align:center">
+				            <h:outputText value="#{item.prsNombres}"/>
+				        </p:column>
+				        <p:column headerText="Facultad" style="width: 9em ! important; text-align:center">
+				            <h:outputText value="#{item.fclDescripcion}"/>
+				        </p:column>
+				        <p:column headerText="Programa" style="width: 9em ! important; text-align:center">
+				            <h:outputText value="#{item.crrDetalle}"/>
+				        </p:column>
+				        <p:column headerText="Opción" style="width: 7em ! important; text-align:center" >
+				        	<p:commandLink value="Asignar Mecanismo" style="color:blue;" action="#{asignacionMecanismoForm.irAsignacionMecanismo(item,sesionUsuarioForm.frmSuUsuario)}" onclick="PF('dialogoTrabajando').show();" ajax="false"/>
+				        </p:column>
+			</p:dataTable>
+		</p:panel>
+		
+		
+		
+		<div >
+		<p:commandButton id="btnRegresar" action="#{asignacionMecanismoForm.cancelarValidacion}" value="Regresar" immediate="true" />
+		</div>
+		
+		
+		
+	</h:form>
+</ui:define>
+</ui:composition>     
+</html>

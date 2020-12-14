@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+<html>
+  <head>
+	 <meta http-equiv="content-type" content="text/html; charset=utf-8">
+	 <title>UNIVERSIDAD CENTRAL DEL ECUADOR</title>
+  </head>
+  <body>
+    <p><strong>Postulante: ${nombres} ${apellidos}.-</strong></p>
+    <br/>
+    <p><strong>Facultad: </strong>${facultad}</p>
+	<p><strong>Carrera/Programa: </strong> ${carrera}</p> 
+	<br/>
+	Estimado postulante, la Unidad de Titulaci&#243;n Especial de la Universidad Central del Ecuador le comunica que la Disposici&#243;n General Tercera del Reglamento de R&#233;gimen Acad&#233;mico, expedido por el Consejo de Educaci&#243;n Superior manifiesta: &#34;Aquellos estudiantes que no hayan culminado y aprobado la opci&#243;n de titulaci&#243;n escogida en el per&#237;odo acad&#233;mico de culminaci&#243;n de estudios (es decir aquel en el que el estudiante se matricul&#243; en todas las actividades acad&#233;micas que requiera aprobar para concluir su carrera o programa), lo podr&#225;n desarrollar en un plazo adicional que no exceder&#225; el equivalente a 2 per&#237;odos acad&#233;micos ordinarios, para lo cual, deber&#225;n solicitar a la autoridad acad&#233;mica pertinente la correspondiente pr&#243;rroga, el primer per&#237;odo adicional no requerir&#225; de pago por concepto de matr&#237;cula o arancel, ni valor similar. De hacer uso del segundo per&#237;odo requerir&#225; de pago por concepto de matr&#237;cula o arancel.&#34;
+	<br/>
+	<br/>
+	En este contexto se ha comprobado que usted super&#243; el plazo establecido en la normativa citada, por tal raz&#243;n su participaci&#243;n en este proceso de titulaci&#243;n ha concluido. En caso que desee volver a participar del proceso de titulaci&#243;n tendr&#225; que postularse nuevamente, por lo que se comunica que la convocatoria 2017-2018 est&#225; abierta para la postulaci&#243;n hasta el 15 de septiembre de 2017.
+	<br/>
+	<br/>
+	De tener alguna inquietud, usted puede consultar con: Coordinador de la unidad de titulaci&#243;n especial de su carrera, Director de Carrera o en la Direcci&#243;n Acad&#233;mica personalmente. 
+	<br/>
+	<br/>
+	<br/> 
+	El proceso se realiz&#243; el ${fechaHora}
+	<br/>	  
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	...........................................................................................
+	<br/>
+	<strong>Informaci&#243;n del Correo: </strong> Mail generado autom&#225;ticamente. Por favor no responda a este mensaje.
+	<br/>
+	<br/>
+	<br/>

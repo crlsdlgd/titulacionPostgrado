@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<ui:composition template="/componentesGenerales/plantillas/pltPrincipalSinMenuEjecModal.xhtml">
+<ui:define name="paginacion">
+		<ui:include src="/componentesGenerales/plantillas/pltPaginacion.xhtml">
+			<ui:param name="pagina"
+				value="Otros mecanismos /  Declarar aptitud / Listar postulantes" />
+		</ui:include>
+</ui:define>
+
+
+<ui:define name="cuerpo">
+
+<script language="JavaScript">
+//<![CDATA[
+	function verificarErrores(){
+    	var idVarError = 'compOculto:txtValidador';
+    	var varError = document.getElementById(idVarError);
+    	if(varError.value == 1){
+    		document.getElementById('frVisualizar:btnAceptarModal').click();
+        }
+    } 
+    function nobackbutton(){
+   		window.location.hash="no-back-button";
+   		window.location.hash="Again-No-back-button" //chrome
+   		window.onhashchange=function(){window.location.hash="no-back-button";}
+	}
+    
+ //]]> 
+</script>
+
+
+	<h:form id="frmListarValidacionPostulacion" enctype="multipart/form-data" acceptcharset="UTF-8">
+		<p:panel id="pnlBusqueda" header="Ingrese los datos para buscar" >
+			<!-- ******************** TABLA RESPONSIVA ************************ -->
+			<div class="grid condensed">
+		    	
+				<!-- ******************** FILA NUMERO 1 ************************ -->
+		         	<div class="row cells8">
+		       		<div class="cell colspan3" >
+		       			<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblConvocatoria" for="slcConvocatoria" value="Convocatorias: "/>
+		       				</ui:define>
+		       				<ui:define name="valor">	
+								<h:selectOneMenu id="slcConvocatoria" value="#{aptitudSecretariaForm.asfConvocatoria.cnvId}">
+		       							<f:selectItem itemLabel="#{generalesConstantesForm.appSeleccioneTodos}" itemValue="#{generalesConstantesForm.appIdBase}"/>
+										<f:selectItems value="#{aptitudSecretariaForm.asfListConvocatorias}" var="item" itemLabel="#{item.cnvDescripcion}" itemValue="#{item.cnvId}" />
+										<p:ajax listener="#{aptitudSecretariaForm.cambiarCarrera()}" update=" pnlResultados"/>
+								</h:selectOneMenu>	
+		       				</ui:define>
+		       			</ui:decorate>
+		        	</div>
+		    	</div>
+		       			<!-- ******************** FILA NUMERO 2 ************************ -->
+		       	<div class="row cells8">
+		       		<div class="cell colspan3" >
+		       			<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblCarrera" for="slcCarrera" value="Programa: "/>
+		       				</ui:define>
+		       				<ui:define name="valor">	
+								<h:selectOneMenu id="slcCarrera" value="#{aptitudSecretariaForm.asfCarrera.crrId}">
+		       							<f:selectItem itemLabel="#{generalesConstantesForm.appSeleccioneTodos}" itemValue="#{generalesConstantesForm.appIdBase}" /> 
+										<f:selectItems value="#{aptitudSecretariaForm.asfListCarreras}" var="item" itemLabel="#{item.crrDetalle}" itemValue="#{item.crrId}" />
+										<p:ajax update=" pnlResultados"/>
+								</h:selectOneMenu>	
+		       				</ui:define>
+		       			</ui:decorate>
+		        	</div>
+		    	</div>
+		    	
+		    	<!-- ******************** FILA NUMERO 3 ************************ -->
+		       	<div class="row cells8">
+		       		<div class="cell colspan3" >
+		       			<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblIdentificacion" for="txtIdentificacion" value="Identificación: "/>	
+		       				</ui:define>
+		       				<ui:define name="valor">	
+		       					<p:inputText id="txtIdentificacion" value="#{aptitudSecretariaForm.asfEstudianteAptitudDtoBuscar.prsIdentificacion}" >
+		       					</p:inputText>	
+		       				</ui:define>
+		       				<ui:define name="etiquetaError">	
+		       					<p:message id="msgIdentificacion" for="txtIdentificacion"/>	
+		       				</ui:define>
+		       			</ui:decorate>
+		       		</div>
+		       	</div>
+		    </div>
+		</p:panel>
+		<div>	
+		<p:commandButton id="btnBuscar" value="Buscar"  action="#{aptitudSecretariaForm.buscarAsignadosOtrosMecanismos(sesionUsuarioForm.frmSuUsuario)}" 
+							update=":frmListarValidacionPostulacion:pnlResultados,slcCarrera" /> 
+		<p:commandButton id="btnLimpiar" value="Limpiar"  action="#{aptitudSecretariaForm.limpiar()}"  
+							update=":frmListarValidacionPostulacion:pnlResultados , :frmListarValidacionPostulacion:pnlBusqueda" /> 
+		</div>
+
+		<p:panel id="pnlResultados" header="Resultados de la búsqueda" >
+			<p:dataTable id="dtsUsuario" var="item" value="#{aptitudSecretariaForm.asfListEstudianteAptitudOtrosMecanismosDto}"
+		    		 		rows="10" paginator="true"
+		                         paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+		                         rowsPerPageTemplate="5,10,15" emptyMessage="NO SE ENCONTRARON DATOS CON LOS PARÁMETROS DE BÚSQUEDA INGRESADOS">
+				         <p:column headerText="Convocatoria" style="width: 4em ! important; text-align:center">
+				            <h:outputText value="#{item.cnvDescripcion}"/>
+				        </p:column>
+				        <p:column headerText="Carrera" style="width: 4em ! important; text-align:center">
+				            <h:outputText value="#{item.crrDescripcion}"/>
+				        </p:column>
+				        <p:column headerText="Identificación" style="width: 4em ! important; text-align:center">
+				            <h:outputText value="#{item.prsIdentificacion}"/>
+				        </p:column>
+				        <p:column headerText="Primer apellido" style="width: 4em ! important; text-align:center">
+				            <h:outputText value="#{item.prsPrimerApellido}"/>
+				        </p:column>
+				        <p:column headerText="Segundo apellido" style="width: 4em ! important; text-align:center">
+				            <h:outputText value="#{item.prsSegundoApellido}"/>
+				        </p:column>
+				        <p:column headerText="Nombres" style="width: 4em ! important; text-align:center">
+				            <h:outputText value="#{item.prsNombres}"/>
+				        </p:column>
+				        <p:column headerText="Mecanismo asignado" style="width: 4em ! important; text-align:center">
+				            <h:outputText value="#{item.mcttdescripcion}"/>
+				        </p:column>
+				        <p:column headerText="Opción" style="width: 4em ! important; text-align:center" >
+				        	<p:commandLink value="Declarar aptitud" action="#{aptitudSecretariaForm.irAptitudEvaluadoOtrosMecanismos(item,sesionUsuarioForm.frmSuUsuario)}" onclick="PF('dialogoTrabajando').show();" ajax="false" style="color:blue;"/>
+				        </p:column>
+			</p:dataTable>
+		</p:panel>
+		
+		
+		
+		<div >
+		<p:commandButton id="btnRegresar" action="#{aptitudSecretariaForm.irInicio()}" value="Regresar" immediate="true" />
+		</div>
+		
+		
+		
+	</h:form>
+</ui:define>
+</ui:composition>     
+</html>

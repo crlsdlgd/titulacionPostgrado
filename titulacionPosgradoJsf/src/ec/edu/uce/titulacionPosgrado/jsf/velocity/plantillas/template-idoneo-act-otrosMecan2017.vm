@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+<html>
+  <head>
+	 <meta http-equiv="content-type" content="text/html; charset=utf-8">
+	 <title>UNIVERSIDAD CENTRAL DEL ECUADOR</title>
+  </head>
+  <body>
+    <p><strong>Estimado(a): ${nombres} ${apellidos}.-</strong></p>
+    <br/>
+    <p><strong>Facultad: </strong>${facultad}</p>
+	<p><strong>Carrera/Programa: </strong>${carrera}</p> 
+	<br/>
+	La Universidad Central del Ecuador le comunica que una vez revisada su documentaci&#243;n se le declara <strong>ID&#211;NEO/A</strong> para participar en el proceso de titulaci&#243;n 2017-2018. No obstante, se visualiza que usted reprob&#243; el examen complexivo aplicado en procesos anteriores y excede los 12 meses de haber culminado su malla curricular,
+<br/>
+En este sentido le informamos que usted tiene que:
+<br/>
+1. Actualizar Conocimientos para lo cual usted deber&#225; cancelar un arancel establecido por la Universidad, mediante una orden de cobro emitida por la carrera.
+<br/>
+2. Tendr&#225; que titularse por un mecanismo de titulaci&#243;n diferente al examen complexivo, por lo que debe cancelar un arancel porque ha perdido el beneficio de la gratuidad que est&#225; ligado con la responsabilidad acad&#233;mica, mediante una orden de pago emitida por la carrera.
+<br/>
+NOTA.- Cabe resaltar que previo a la defensa oral del trabajo de titulaci&#243;n tendr&#225; que ser declarado APTO, es decir, cuando cumpla con todos los requisitos previos a la titulaci&#243;n. 
+	  <br/> 
+	  El proceso se realiz&#243; el ${fechaHora}
+	  <br/>	  
+	  <br/>
+	  <br/>
+	  <br/>
+	  <br/>
+	  ...........................................................................................
+	  <br/>
+	  <strong>Informaci&#243;n del Correo: </strong> Mail generado autom&#225;ticamente. Por favor no responda a este mensaje.
+	  <br/>
+	  <br/>
+	  <br/>

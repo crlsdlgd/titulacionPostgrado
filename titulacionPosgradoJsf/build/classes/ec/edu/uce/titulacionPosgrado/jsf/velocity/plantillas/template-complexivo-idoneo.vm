@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+<html>
+  <head>
+	 <meta http-equiv="content-type" content="text/html; charset=utf-8">
+	 <title>UNIVERSIDAD CENTRAL DEL ECUADOR</title>
+  </head>
+  <body>
+    <p><strong>Estimado(a): ${nombres} ${apellidos}.-</strong></p>
+    <br/>
+    <p><strong>Facultad: </strong>${facultad}</p>
+	<p><strong>Carrera/Programa: </strong>${carrera}</p> 
+	<br/>
+    La Universidad Central del Ecuador le comunica que en cumplimiento a la Disposici&#243;n Transitoria Sexta literal c) del Reglamento de R&#233;gimen Acad&#233;mico, expedido por el Consejo de Educaci&#243;n Superior,  en el que se manifiesta: <i>“c) Los estudiantes que hayan finalizado sus estudios antes de 21 de noviembre de 2008, deber&#225;n aprobar en la misma IES un examen complexivo o de grado articulado al perfil de una carrera o programa vigente o no vigente habilitada para registro de t&#237;tulos. En caso que el estudiante no apruebe, tendr&#225; derecho a un examen complexivo de gracia”</i>
+	<br/>
+	En este sentido le informamos que se le declara ID&#211;NEO/A para participar en este proceso de titulaci&#243;n.    
+	 <br/>
+	  NOTA: Recomendamos ingresar permanentemente al sistema de titulaci&#243;n, con su  usuario y contrase&#241;a, a fin que usted verifique la informaci&#243;n que las secretar&#237;as de Carrera se encuentran ingresando.
+	  <br/> 
+	  El proceso se realiz&#243; el ${fechaHora}
+	  <br/>	  
+	  <br/>
+	  <br/>
+	  <br/>
+	  <br/>
+	  ...........................................................................................
+	  <br/>
+	  <strong>Informaci&#243;n del Correo: </strong> Mail generado autom&#225;ticamente. Por favor no responda a este mensaje.
+	  <br/>
+	  <br/>
+	  <br/>

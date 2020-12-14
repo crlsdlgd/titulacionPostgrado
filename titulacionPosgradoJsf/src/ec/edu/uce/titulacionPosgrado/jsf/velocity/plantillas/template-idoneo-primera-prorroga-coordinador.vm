@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+<html>
+  <head>
+	 <meta http-equiv="content-type" content="text/html; charset=utf-8">
+	 <title>UNIVERSIDAD CENTRAL DEL ECUADOR</title>
+  </head>
+  <body>
+    <p><strong>Estimado(a): ${nombres} ${apellidos}.-</strong></p>
+    <br/>
+    <p><strong>Facultad: </strong>${facultad}</p>
+	<p><strong>Programa: </strong>${carrera}</p> 
+	<p><strong>Fecha de inicio de cohorte: </strong>${fechaInicio}</p>
+	<p><strong>Fecha de culminaci&#243;n de malla: </strong>${fechaFin}</p>
+	<br/>
+    La Universidad Central del Ecuador le comunica que una vez revisada la documentaci&#243;n se le ha declarado ID&#211;NEO/A para participar en el proceso de titulaci&#243;n y que su proceso se encuentra dentro de la PRIMERA PR&#211;RROGA. 
+	<br/>
+	Considerando lo se&#241;alado, le informamos que el postulante debe:
+	<br/>
+	1. Realizar una solicitud de primera pr&#243;rroga, conforme dispone el Reglamento de R&#233;gimen Acad&#233;mico, para su proceso de titulaci&#243;n, la misma que debe ser entregada en la secretar&#237;a del Posgrado de la Facultad para su an&#225;lisis y de ser el caso aprobada.
+
+	<br/>
+	NOTAS:
+	<br/>
+	1. Es importante recordarle que el postulante tiene 6 (seis) meses para graduarse, tiempo que debe ser contado desde  la  fecha  de  culminaci&#243;n de la malla  del programa de posgrado aprobada mediante resoluci&#243;n por el Consejo de Educaci&#243;n Superior.
+	 <br/>
+	 2. Previa la presentaci&#243;n del trabajo de titulaci&#243;n usted tendr&#225; que ser declarada/o APTA/O, es decir, cuando cumpla con todos los requisitos previos a la titulaci&#243;n.
+	<br/>
+	  <br/> 
+	  El proceso se realiz&#243; el ${fechaHora}
+	  <br/>	  
+	  <br/>
+	  <br/>
+	  <br/>
+	  <br/>
+	  ...........................................................................................
+	  <br/>
+	  <strong>Informaci&#243;n del Correo: </strong> Mail generado autom&#225;ticamente. Por favor no responda a este mensaje.
+	  <br/>
+	  <br/>
+	  <br/>

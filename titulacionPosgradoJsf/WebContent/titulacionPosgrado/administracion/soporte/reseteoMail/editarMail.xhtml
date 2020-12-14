@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+      
+
+<ui:composition template="/componentesGenerales/plantillas/pltPrincipalSinMenuEjecModal.xhtml">
+<ui:define name="paginacion">
+		<ui:include src="/componentesGenerales/plantillas/pltPaginacion.xhtml">
+			<ui:param name="pagina"
+				value="Administración / Cambio Contraseña / Lista de estudiantes / Editar e-mail " />
+		</ui:include>
+</ui:define>      
+<ui:define name="cuerpo">
+	<h:form id="frmEditarMail" enctype="multipart/form-data" acceptcharset="UTF-8">
+		<p:panel id="pnlDatosUsuario" header="Usuario seleccionado" >
+			<!-- ******************** TABLA RESPONSIVA ************************ -->
+			<div class="grid condensed">
+				<!-- ******************** FILA NUMERO 1 ************************ -->
+		       	<div class="row cells8">
+		       		<div class="cell colspan3" >
+		       			<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblIdentificacion" for="txtIdentificacion" value="Cédula: "/>	
+		       				</ui:define>
+		       				<ui:define name="valor">	
+		       					<p:outputLabel id="txtIdentificacion" value="#{reseteoMailForm.rcfPersonaEditar.prsIdentificacion}"
+		       									style="font-weight: Normal !important;" >
+		       					</p:outputLabel>	
+		       				</ui:define>
+		       			</ui:decorate>
+		        	</div>
+		        </div>
+		        
+		        <div class="row cells8">
+		        	<div class="cell colspan3" >
+		       			<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblNick" for="txtNick" value="Primer apellido: "/>	
+		       				</ui:define>
+		       				<ui:define name="valor">	
+		       					<p:outputLabel id="txtNick" value="#{reseteoMailForm.rcfPersonaEditar.prsPrimerApellido}"
+		       									style="font-weight: Normal !important;" >
+		       					</p:outputLabel>	
+		       				</ui:define>
+		       			</ui:decorate>
+		        	</div>
+		        </div>
+		        
+		         <div class="row cells8">
+		        	<div class="cell colspan3" >
+		       			<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblSegApellido" for="txtSegApellido" value="Segundo apellido: "/>	
+		       				</ui:define>
+		       				<ui:define name="valor">	
+		       					<p:outputLabel id="txtSegApellido" value="#{reseteoMailForm.rcfPersonaEditar.prsSegundoApellido}"
+		       									style="font-weight: Normal !important;" >
+		       					</p:outputLabel>	
+		       				</ui:define>
+		       			</ui:decorate>
+		        	</div>
+		        </div>
+		         <div class="row cells8">
+		        	<div class="cell colspan3" >
+		       			<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblNombres" for="txtNombres" value="Nombres: "/>	
+		       				</ui:define>
+		       				<ui:define name="valor">	
+		       					<p:outputLabel id="txtNombres" value="#{reseteoMailForm.rcfPersonaEditar.prsNombres}"
+		       									style="font-weight: Normal !important;" >
+		       					</p:outputLabel>	
+		       				</ui:define>
+		       			</ui:decorate>
+		        	</div>
+		        </div>
+		        <div class="row cells8">
+		        	<div class="cell colspan3" >
+		       			<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblMailPersonal" for="txtMailPersonal" value="E-mail: "/>	
+		       				</ui:define>
+		       				<ui:define name="valor">	
+		       					<p:outputLabel id="txtMailPersonal" value="#{reseteoMailForm.rcfPersonaEditar.prsMailPersonal}"
+		       									style="font-weight: Normal !important;" >
+		       					</p:outputLabel>	
+		       				</ui:define>
+		       			</ui:decorate>
+		        	</div>
+		    	</div>
+		   	</div> 		
+		</p:panel>
+		
+		<p:panel id="pnlDatosUsuarioEditar" header="Datos a editar" >
+			<!-- ******************** TABLA RESPONSIVA ************************ -->
+			<div class="grid condensed">
+				<!-- ******************** FILA NUMERO 1 ************************ -->
+		       	<div class="row cells8">
+		       		<div class="cell colspan3" >
+		       			<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblCorreo" for="txtMail" value="Correo electrónico: "/>	
+		       				</ui:define>
+		       				<ui:define name="valor">	
+		       					<p:inputText id="txtMail" value="#{reseteoMailForm.rcfPersonaEditar.prsMailPersonal}" style="width: 20em;"
+		       								 required="true" requiredMessage="#{constantesForm.msgCampoRequerido}" 
+		       								 validatorMessage="No es una dirección de correo válida">
+		       						<p:ajax event="blur" update="lblCorreo , txtMail , msgClave"/>
+		       					</p:inputText>
+		       				</ui:define>
+		       				<ui:define name="etiquetaError">	
+		       					<p:message id="msgClave" for="txtMail"/>	
+		       				</ui:define>
+		       			</ui:decorate>
+		        	</div>
+		    	</div>
+		    					<!-- ******************** FILA NUMERO 2 ************************ -->
+		      
+
+		   	</div> 
+		
+		</p:panel>
+		
+			<div >
+				<p:commandButton id="btnCancelar" action="#{reseteoMailForm.cancelarEditarUsuario()}" value="Cancelar"  ajax="false" />
+				<p:commandButton id="btnGenerarClave" action="#{reseteoMailForm.guardarCambios()}" value="Generar contraseña" update="pnlDatosUsuarioEditar"  onclick="PF('dialogoTrabajando').show();" ajax="false" />
+			</div>
+	</h:form>	
+</ui:define>
+</ui:composition>
+</html>

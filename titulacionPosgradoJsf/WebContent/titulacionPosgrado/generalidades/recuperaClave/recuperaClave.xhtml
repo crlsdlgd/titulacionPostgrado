@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+      
+
+	<ui:composition template="/componentesGenerales/plantillas/pltInicio.xhtml">
+		<ui:define name="cuerpo">
+			<h:form id="frmRecuerdaContrasena" enctype="multipart/form-data" acceptcharset="UTF-8">
+				<p:panel  id="pnlRecuperaClave" header="Datos para restablecer contraseña" >
+					<!-- ******************** TABLA RESPONSIVA ************************ -->
+					<div class="grid condensed">
+						
+		                 <!-- ******************** FILA NUMERO 2 ************************ -->
+		                <div class="row cells6">
+		                	<!-- seleccione opción -->
+		                    <div class="cell colspan4">
+		                    	<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+		       						<ui:define name="etiqueta">	
+		       							<p:outputLabel id="lblParametro" value="Ingrese usuario: " />
+		       						</ui:define>
+		       						<ui:define name="valor">
+										<p:inputText id="fieldParametro" value="#{recuperaClaveForm.rcfrmUsrParametroNickPass}" 
+													required="true" requiredMessage="#{generalesConstantesForm.msgCampoRequerido}">
+											<p:ajax event="blur" update="lblParametro , fieldParametro , msgParametro"/>
+										</p:inputText>
+									</ui:define>
+		       						<ui:define name="etiquetaError">	
+		       							<p:message id="msgParametro" for="fieldParametro"/>	
+		       						</ui:define>
+		       					</ui:decorate>           
+		                    </div>
+		                  </div>
+						</div>				
+				</p:panel>
+	
+
+			<div>
+					<p:commandButton id="btnCancelar" value="Cancelar" action="#{recuperaClaveForm.cancelarRecuperaClave()}" ajax="false" immediate="true" />
+					<p:commandButton id="btnRecuperar" value="Restablecer" action="#{recuperaClaveForm.recuperaClave()}" onclick="PF('dialogoTrabajando').show();" ajax="false"  />
+				</div>  
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</html>

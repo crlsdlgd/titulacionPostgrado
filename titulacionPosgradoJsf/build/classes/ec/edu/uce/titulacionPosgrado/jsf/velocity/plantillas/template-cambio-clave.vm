@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+<html>
+  <head>
+	 <meta http-equiv="content-type" content="text/html; charset=utf-8">
+	 <title>UNIVERSIDAD CENTRAL DEL ECUADOR</title>
+  </head>
+  <body>
+    <p><strong>Estimado(a): ${nombres} ${apellidos}.-</strong></p>
+    <br/>
+	   <strong>Ha solicitado que se restablezca su contrase&#241;a en el sistema titulaci&#243;n de la Universidad Central del Ecuador</strong>
+	  <br/>
+	  <br/>
+	   Su petici&#243;n se proces&#243; el ${fechaHora}, su usuario y contrase&#241;a restablecidos para el ingreso al sistema son los siguientes:
+	  <br/>
+	   <p><strong>Usuario: </strong>${usuario}</p>
+	   <p><strong>Contrase&#241;a: </strong>${clave}</p>
+	  <br/>
+	  Para ingresar al sistema haga <a target="_blank" href=${pagina}><strong>clic aqu&#237;</strong> </a>		  
+	  
+	  <br/>
+      <br/> 
+	  ...........................................................................................
+	  <br/>
+	  <strong>Informaci&#243;n del Correo: </strong> Mail generado autom&#225;ticamente. Por favor no responda a este mensaje.
+	  <br/>
+	  <br/>
+	  <br/>

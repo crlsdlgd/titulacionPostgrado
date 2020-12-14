@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<ui:composition template="/componentesGenerales/plantillas/pltPrincipalSinMenuEjecModal.xhtml">
+<ui:define name="paginacion">
+		<ui:include src="/componentesGenerales/plantillas/pltPaginacion.xhtml">
+			<ui:param name="pagina"
+				value=" Acta de posgrado /  Listar postulantes " />
+		</ui:include>
+</ui:define>
+
+
+<ui:define name="cuerpo">
+
+<script language="JavaScript">
+//<![CDATA[
+	function verificarErrores(){
+    	var idVarError = 'compOculto:txtValidador';
+    	var varError = document.getElementById(idVarError);
+    	if(varError.value == 1){
+    		document.getElementById('frVisualizar:btnAceptarModal').click();
+        }
+    } 
+    function nobackbutton(){
+   		window.location.hash="no-back-button";
+   		window.location.hash="Again-No-back-button" //chrome
+   		window.onhashchange=function(){window.location.hash="no-back-button";}
+	}
+    
+ //]]> 
+</script>
+
+
+	<h:form id="frmListarActaGrado" enctype="multipart/form-data" acceptcharset="UTF-8">
+		<p:panel id="pnlBusqueda" header="Ingrese los datos para buscar" >
+			<!-- ******************** TABLA RESPONSIVA ************************ -->
+			<div class="grid condensed">
+		    	
+				<!-- ******************** FILA NUMERO 1 ************************ -->
+		         	<div class="row cells8">
+		       		<div class="cell colspan3" >
+		       			<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblConvocatoria" for="slcConvocatoria" value="Convocatorias: "/>
+		       				</ui:define>
+		       				<ui:define name="valor">	
+								<h:selectOneMenu id="slcConvocatoria" value="#{actaGradoSecretariaForm.agfConvocatoria.cnvId}">
+		       							<f:selectItem itemLabel="#{generalesConstantesForm.appSeleccioneTodos}" itemValue="#{generalesConstantesForm.appIdBase}"/>
+										<f:selectItems value="#{actaGradoSecretariaForm.agfListConvocatorias}" var="item" itemLabel="#{item.cnvDescripcion}" itemValue="#{item.cnvId}" />
+										<p:ajax listener="#{actaGradoSecretariaForm.cambiarCarrera()}" update=" pnlResultados"/>
+								</h:selectOneMenu>	
+		       				</ui:define>
+		       			</ui:decorate>
+		        	</div>
+		    	</div>
+		       			<!-- ******************** FILA NUMERO 2 ************************ -->
+		       	<div class="row cells8">
+		       		<div class="cell colspan3" >
+		       			<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblCarrera" for="slcCarrera" value="Programa: "/>
+		       				</ui:define>
+		       				<ui:define name="valor">	
+								<h:selectOneMenu id="slcCarrera" value="#{actaGradoSecretariaForm.agfCarrera.crrId}">
+		       							<f:selectItem itemLabel="#{generalesConstantesForm.appSeleccioneTodos}" itemValue="#{generalesConstantesForm.appIdBase}" /> 
+										<f:selectItems value="#{actaGradoSecretariaForm.agfListCarreras}" var="item" itemLabel="#{item.crrDetalle}" itemValue="#{item.crrId}" />
+										<p:ajax listener="#{actaGradoSecretariaForm.cambiarCarrera()}" update=" pnlResultados"/>
+								</h:selectOneMenu>	
+		       				</ui:define>
+		       			</ui:decorate>
+		        	</div>
+		    	</div>
+		    	
+		    	<!-- ******************** FILA NUMERO 3 ************************ -->
+		       	<div class="row cells8">
+		       		<div class="cell colspan3" >
+		       			<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblIdentificacion" for="txtIdentificacion" value="Identificación: "/>	
+		       				</ui:define>
+		       				<ui:define name="valor">	
+		       					<p:inputText id="txtIdentificacion" value="#{actaGradoSecretariaForm.agfEstudianteActaGradoDtoServicioJdbcDtoBuscar.prsIdentificacion}" >
+		       					</p:inputText>	
+		       				</ui:define>
+		       				<ui:define name="etiquetaError">	
+		       					<p:message id="msgIdentificacion" for="txtIdentificacion"/>	
+		       				</ui:define>
+		       			</ui:decorate>
+		       		</div>
+		       	</div>
+		    </div>
+		</p:panel>
+		<div>	
+		<p:commandButton id="btnBuscar" value="Buscar"  action="#{actaGradoSecretariaForm.buscarPostulacion(sesionUsuarioForm.frmSuUsuario)}" 
+							update=":frmListarActaGrado:pnlResultados,slcCarrera" /> 
+		<p:commandButton id="btnLimpiar" value="Limpiar"  action="#{actaGradoSecretariaForm.limpiar()}"  
+							update=":frmListarActaGrado:pnlResultados , :frmListarActaGrado:pnlBusqueda" /> 
+		</div>
+
+		<p:panel id="pnlResultados" header="Resultados de la búsqueda" >
+			<p:dataTable id="dtsUsuario" var="item" value="#{actaGradoSecretariaForm.agfListEstudiantesActasGrado}"
+		    		 		rows="10" paginator="true"
+		                         paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+		                         rowsPerPageTemplate="5,10,15" emptyMessage="NO SE ENCONTRARON DATOS CON LOS PARÁMETROS DE BÚSQUEDA INGRESADOS">
+				        <p:column headerText="Identificación">
+				            <h:outputText value="#{item.prsIdentificacion}"/>
+				        </p:column>
+				        <p:column headerText="Primer apellido">
+				            <h:outputText value="#{item.prsPrimerApellido}"/>
+				        </p:column>
+				        <p:column headerText="Segundo apellido">
+				            <h:outputText value="#{item.prsSegundoApellido}"/>
+				        </p:column>
+				        <p:column headerText="Nombres">
+				            <h:outputText value="#{item.prsNombres}"/>
+				        </p:column>
+				        <p:column headerText="Programa">
+				            <h:outputText value="#{item.crrDetalle}"/>
+				        </p:column>
+				        <p:column headerText="Estado">
+				            <h:outputText value="#{listasCombosForm.getEstadoEstudiante(item.trttEstadoProceso)}"/>
+				        </p:column>
+				        <p:column headerText="Opción" style="width: 7em ! important;" >
+				        	<p:commandLink value="#{(item.trttEstadoProceso==106 || item.trttEstadoProceso==107 || item.trttEstadoProceso==114 || item.trttEstadoProceso==115)?'Editar acta':'Acta grado'}" 
+				        	action="#{actaGradoSecretariaForm.irActaGrado(item,sesionUsuarioForm.frmSuUsuario)}" 
+				        	onclick="PF('dialogoTrabajando').show();" ajax="false" style="color:blue;"/>
+				        </p:column>
+			</p:dataTable>
+		</p:panel>
+		
+		
+		
+		<div >
+		<p:commandButton id="btnRegresar" action="#{actaGradoSecretariaForm.cancelar}" value="Regresar" immediate="true" />
+		</div>
+		
+		
+		
+	</h:form>
+</ui:define>
+</ui:composition>     
+</html>

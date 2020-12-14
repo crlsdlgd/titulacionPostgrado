@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+<html>
+  <head>
+	 <meta http-equiv="content-type" content="text/html; charset=utf-8">
+	 <title>UNIVERSIDAD CENTRAL DEL ECUADOR</title>
+  </head>
+  <body>
+    <p><strong>Estimado(a): ${nombres} ${apellidos}.-</strong></p>
+    <br/>
+    <p><strong>Facultad: </strong>${facultad}</p>
+	<p><strong>Carrera/Programa: </strong>${carrera}</p> 
+	<br/>
+	La Universidad Central del Ecuador le comunica que la Direcci&#243;n de carrera ha resuelto:  
+<br/>
+
+1. Desactivar la Actualizaci&#243;n de conocimientos que obtuvo en el proceso de Validaci&#243;n, por lo cual usted puede continuar con el proceso normal de Titualci&#243;n.
+<br/>
+NOTA.- Cabe resaltar que previo a la defensa oral del trabajo de titulaci&#243;n tendr&#225; que ser declarado APTO, es decir, cuando cumpla con todos los requisitos previos a la titulaci&#243;n. 
+	<br/>
+	  El proceso se realiz&#243; el ${fechaHora}
+	  <br/>	  
+	  <br/>
+	  <br/>
+	  <br/>
+	  <br/>
+	  ...........................................................................................
+	  <br/>
+	  <strong>Informaci&#243;n del Correo: </strong> Mail generado autom&#225;ticamente. Por favor no responda a este mensaje.
+	  <br/>
+	  <br/>
+	  <br/>

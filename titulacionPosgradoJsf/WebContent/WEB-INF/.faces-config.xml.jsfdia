@@ -1,0 +1,1251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:*" PATH="*" SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:*:0" NAME="item" PATH="*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="logout::#j_spring_security_logout"
+    NAME="output" PATH="/j_spring_security_logout"
+    TARGET="rules:#j_spring_security_logout" TITLE="logout" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="irInicio::#titulacionPosgrado#generalidades#principal.xhtml"
+    NAME="output1"
+    PATH="/titulacionPosgrado/generalidades/principal.xhtml"
+    TARGET="rules:#titulacionPosgrado#generalidades#principal.xhtml"
+    TITLE="irInicio" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="irReporteEstados::#titulacionPosgrado#reportes#general#reportesEstadoPostulantes.xhtml"
+    NAME="output2"
+    PATH="/titulacionPosgrado/reportes/general/reportesEstadoPostulantes.xhtml"
+    TARGET="rules:#titulacionPosgrado#reportes#general#reportesEstadoPostulantes.xhtml"
+    TITLE="irReporteEstados" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="irReporteValidacion::#titulacionPosgrado#reportes#evaluador#reportesValidados.xhtml"
+    NAME="output3"
+    PATH="/titulacionPosgrado/reportes/evaluador/reportesValidados.xhtml"
+    TARGET="rules:#titulacionPosgrado#reportes#evaluador#reportesValidados.xhtml"
+    TITLE="irReporteValidacion" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="irEditarPerfilPostulante::#titulacionPosgrado#administracion#postulante#perfil#perfilPostulante.xhtml"
+    NAME="output4"
+    PATH="/titulacionPosgrado/administracion/postulante/perfil/perfilPostulante.xhtml"
+    TARGET="rules:#titulacionPosgrado#administracion#postulante#perfil#perfilPostulante.xhtml"
+    TITLE="irEditarPerfilPostulante" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="irCambioClave::#titulacionPosgrado#administracion#postulante#cambioClave#cambioClave.xhtml"
+    NAME="output5"
+    PATH="/titulacionPosgrado/administracion/postulante/cambioClave/cambioClave.xhtml"
+    TARGET="rules:#titulacionPosgrado#administracion#postulante#cambioClave#cambioClave.xhtml"
+    TITLE="irCambioClave" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="iniciarPostulacion::#titulacionPosgrado#postulacion#postulacion.xhtml"
+    NAME="output6"
+    PATH="/titulacionPosgrado/postulacion/postulacion.xhtml"
+    TARGET="rules:#titulacionPosgrado#postulacion#postulacion.xhtml"
+    TITLE="iniciarPostulacion" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="irListarPostulacion::#titulacionPosgrado#postulacionUnidadTitulacion#visualizacion#listarPostulacion.xhtml"
+    NAME="output7"
+    PATH="/titulacionPosgrado/postulacionUnidadTitulacion/visualizacion/listarPostulacion.xhtml"
+    TARGET="rules:#titulacionPosgrado#postulacionUnidadTitulacion#visualizacion#listarPostulacion.xhtml"
+    TITLE="irListarPostulacion" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="irRegistroActualizacion::#titulacionPosgrado#postulacion#impresionComprobante.xhtml"
+    NAME="output8"
+    PATH="/titulacionPosgrado/postulacion/impresionComprobante.xhtml"
+    TARGET="rules:#titulacionPosgrado#postulacion#impresionComprobante.xhtml"
+    TITLE="irRegistroActualizacion" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="iniciarImpresion::#titulacionPosgrado#postulacion#impresionComprobante.xhtml"
+    NAME="output9"
+    PATH="/titulacionPosgrado/postulacion/impresionComprobante.xhtml"
+    TARGET="rules:#titulacionPosgrado#postulacion#impresionComprobante.xhtml"
+    TITLE="iniciarImpresion" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="irListarAdmUsuario::#titulacionPosgrado#administracion#soporte#usuario#listar.xhtml"
+    NAME="output10"
+    PATH="/titulacionPosgrado/administracion/soporte/usuario/listar.xhtml"
+    TARGET="rules:#titulacionPosgrado#administracion#soporte#usuario#listar.xhtml"
+    TITLE="irListarAdmUsuario" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="irAdministracionFotografias::#titulacionPosgrado#validador#administracionFoto#listarEstudiantes.xhtml"
+    NAME="output11"
+    PATH="/titulacionPosgrado/validador/administracionFoto/listarEstudiantes.xhtml"
+    TARGET="rules:#titulacionPosgrado#validador#administracionFoto#listarEstudiantes.xhtml"
+    TITLE="irAdministracionFotografias" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="irListaReseteoMail::#titulacionPosgrado#administracion#soporte#reseteoMail#listarUsuarios.xhtml"
+    NAME="output12"
+    PATH="/titulacionPosgrado/administracion/soporte/reseteoMail/listarUsuarios.xhtml"
+    TARGET="rules:#titulacionPosgrado#administracion#soporte#reseteoMail#listarUsuarios.xhtml"
+    TITLE="irListaReseteoMail" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="irListarPostuladosValidacion::#titulacionPosgrado#validador#idoneidad#listarPostuladosValidacion.xhtml"
+    NAME="output13"
+    PATH="/titulacionPosgrado/validador/idoneidad/listarPostuladosValidacion.xhtml"
+    TARGET="rules:#titulacionPosgrado#validador#idoneidad#listarPostuladosValidacion.xhtml"
+    TITLE="irListarPostuladosValidacion" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="irReportesEstadoPostulantes::#titulacionPosgrado#reportes#general#reportesEstadoPostulantes.xhtml"
+    NAME="output14"
+    PATH="/titulacionPosgrado/reportes/general/reportesEstadoPostulantes.xhtml"
+    TARGET="rules:#titulacionPosgrado#reportes#general#reportesEstadoPostulantes.xhtml"
+    TITLE="irReportesEstadoPostulantes" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="irListarEvaluadosAptitudOtrosMecanismos::#titulacionPosgrado#validador#otrosMecanismos#aptitud2018#listarEvaluadosAptitud.xhtml"
+    NAME="output15"
+    PATH="/titulacionPosgrado/validador/otrosMecanismos/aptitud2018/listarEvaluadosAptitud.xhtml"
+    TARGET="rules:#titulacionPosgrado#validador#otrosMecanismos#aptitud2018#listarEvaluadosAptitud.xhtml"
+    TITLE="irListarEvaluadosAptitudOtrosMecanismos" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="irListarPendientesLector::#titulacionPosgrado#validador#otrosMecanismos#notasTribunalOral#listarPendientesTribunal.xhtml"
+    NAME="output16"
+    PATH="/titulacionPosgrado/validador/otrosMecanismos/notasTribunalOral/listarPendientesTribunal.xhtml"
+    TARGET="rules:#titulacionPosgrado#validador#otrosMecanismos#notasTribunalOral#listarPendientesTribunal.xhtml"
+    TITLE="irListarPendientesLector" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="irImprimirActaGrado::#titulacionPosgrado#validador#imprimirActaGrado#listar.xhtml"
+    NAME="output17"
+    PATH="/titulacionPosgrado/validador/imprimirActaGrado/listar.xhtml"
+    TARGET="rules:#titulacionPosgrado#validador#imprimirActaGrado#listar.xhtml"
+    TITLE="irImprimirActaGrado" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="irListarDocentes::#titulacionPosgrado#validador#editarDocente#listarDocentes.xhtml"
+    NAME="output18"
+    PATH="/titulacionPosgrado/validador/editarDocente/listarDocentes.xhtml"
+    TARGET="rules:#titulacionPosgrado#validador#editarDocente#listarDocentes.xhtml"
+    TITLE="irListarDocentes" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="irlistarActaGrado::#titulacionPosgrado#validador#actaGrado#listar.xhtml"
+    NAME="output23"
+    PATH="/titulacionPosgrado/validador/actaGrado/listar.xhtml"
+    TARGET="rules:#titulacionPosgrado#validador#actaGrado#listar.xhtml"
+    TITLE="irlistarActaGrado" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="irListarAsignacionMecanismos::#titulacionPosgrado#evaluador#asignacionMecanismo#listarValidadosXAsignar.xhtml"
+    NAME="output19"
+    PATH="/titulacionPosgrado/evaluador/asignacionMecanismo/listarValidadosXAsignar.xhtml"
+    TARGET="rules:#titulacionPosgrado#evaluador#asignacionMecanismo#listarValidadosXAsignar.xhtml"
+    TITLE="irListarAsignacionMecanismos" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="irListarReAsignacionMecanismos::#titulacionPosgrado#evaluador#reAsignacionMecanismo#listarEvaluadosXReAsignar.xhtml"
+    NAME="output20"
+    PATH="/titulacionPosgrado/evaluador/reAsignacionMecanismo/listarEvaluadosXReAsignar.xhtml"
+    TARGET="rules:#titulacionPosgrado#evaluador#reAsignacionMecanismo#listarEvaluadosXReAsignar.xhtml"
+    TITLE="irListarReAsignacionMecanismos" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="irReporteMigracion::#titulacionPosgrado#reportes#general#reportesMigracionDatos.xhtml"
+    NAME="output24"
+    PATH="/titulacionPosgrado/reportes/general/reportesMigracionDatos.xhtml"
+    TARGET="rules:#titulacionPosgrado#reportes#general#reportesMigracionDatos.xhtml"
+    TITLE="irReporteMigracion" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="irListarAutoridad::#titulacionPosgrado#administracion#autoridad#listarAutoridades.xhtml"
+    NAME="output21"
+    PATH="/titulacionPosgrado/administracion/autoridad/listarAutoridades.xhtml"
+    TARGET="rules:#titulacionPosgrado#administracion#autoridad#listarAutoridades.xhtml"
+    TITLE="irListarAutoridad" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="irVerAutoridad::#titulacionPosgrado#administracion#autoridad#verAutoridades.xhtml"
+    NAME="output25"
+    PATH="/titulacionPosgrado/administracion/autoridad/verAutoridades.xhtml"
+    TARGET="rules:#titulacionPosgrado#administracion#autoridad#verAutoridades.xhtml"
+    TITLE="irVerAutoridad" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="irCancelarVer::#titulacionPosgrado#administracion#autoridad#listarAutoridades.xhtml"
+    NAME="output26"
+    PATH="/titulacionPosgrado/administracion/autoridad/listarAutoridades.xhtml"
+    TARGET="rules:#titulacionPosgrado#administracion#autoridad#listarAutoridades.xhtml"
+    TITLE="irCancelarVer" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#j_spring_security_logout"
+  PATH="/j_spring_security_logout" SHAPE="304,33,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#titulacionPosgrado#postulacion#impresionComprobante.xhtml"
+  PATH="/titulacionPosgrado/postulacion/impresionComprobante.xhtml"
+  SHAPE="304,1457,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#titulacionPosgrado#postulacion#postulacion.xhtml"
+  PATH="/titulacionPosgrado/postulacion/postulacion.xhtml"
+  SHAPE="304,1089,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#titulacionPosgrado#postulacion#postulacion.xhtml:0"
+   NAME="item" PATH="/titulacionPosgrado/postulacion/postulacion.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="cancelarPostulacion::#titulacionPosgrado#generalidades#principal.xhtml"
+    NAME="output"
+    PATH="/titulacionPosgrado/generalidades/principal.xhtml"
+    TARGET="rules:#titulacionPosgrado#generalidades#principal.xhtml"
+    TITLE="cancelarPostulacion" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#titulacionPosgrado#generalidades#principal.xhtml"
+  PATH="/titulacionPosgrado/generalidades/principal.xhtml"
+  SHAPE="304,753,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#titulacionPosgrado#administracion#postulante#perfil#perfilPostulante.xhtml"
+  PATH="/titulacionPosgrado/administracion/postulante/perfil/perfilPostulante.xhtml"
+  SHAPE="304,865,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#titulacionPosgrado#administracion#postulante#perfil#perfilPostulante.xhtml:0"
+   NAME="item"
+   PATH="/titulacionPosgrado/administracion/postulante/perfil/perfilPostulante.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="irEditarPerfil::#titulacionPosgrado#administracion#postulante#perfil#editarPerfilPostulante.xhtml"
+    NAME="output"
+    PATH="/titulacionPosgrado/administracion/postulante/perfil/editarPerfilPostulante.xhtml"
+    TARGET="rules:#titulacionPosgrado#administracion#postulante#perfil#editarPerfilPostulante.xhtml"
+    TITLE="irEditarPerfil" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="irInicio::#titulacionPosgrado#generalidades#principal.xhtml"
+    NAME="output1"
+    PATH="/titulacionPosgrado/generalidades/principal.xhtml"
+    TARGET="rules:#titulacionPosgrado#generalidades#principal.xhtml"
+    TITLE="irInicio" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#titulacionPosgrado#administracion#postulante#cambioClave#cambioClave.xhtml"
+  PATH="/titulacionPosgrado/administracion/postulante/cambioClave/cambioClave.xhtml"
+  SHAPE="304,977,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#titulacionPosgrado#administracion#postulante#cambioClave#cambioClave.xhtml:0"
+   NAME="item"
+   PATH="/titulacionPosgrado/administracion/postulante/cambioClave/cambioClave.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="irInicio::#titulacionPosgrado#generalidades#principal.xhtml"
+    NAME="output"
+    PATH="/titulacionPosgrado/generalidades/principal.xhtml"
+    TARGET="rules:#titulacionPosgrado#generalidades#principal.xhtml"
+    TITLE="irInicio" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#titulacionPosgrado#postulacionUnidadtitulacionPosgrado#visualizacion#listarPostulacion.xhtml"
+  PATH="/titulacionPosgrado/postulacionUnidadtitulacionPosgrado/visualizacion/listarPostulacion.xhtml"
+  SHAPE="304,753,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#titulacionPosgrado#postulacionUnidadtitulacionPosgrado#visualizacion#listarPostulacion.xhtml:0"
+   NAME="item"
+   PATH="/titulacionPosgrado/postulacionUnidadtitulacionPosgrado/visualizacion/listarPostulacion.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="irInicio::#titulacionPosgrado#generalidades#principal.xhtml"
+    NAME="output"
+    PATH="/titulacionPosgrado/generalidades/principal.xhtml"
+    TARGET="rules:#titulacionPosgrado#generalidades#principal.xhtml"
+    TITLE="irInicio" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="irVisualizarPostulacion::#titulacionPosgrado#postulacionUnidadTitulacion#visualizacion#visualizacion.xhtml"
+    NAME="output1"
+    PATH="/titulacionPosgrado/postulacionUnidadTitulacion/visualizacion/visualizacion.xhtml"
+    TARGET="rules:#titulacionPosgrado#postulacionUnidadTitulacion#visualizacion#visualizacion.xhtml"
+    TITLE="irVisualizarPostulacion" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#titulacionPosgrado#administracion#soporte#reseteoMail#listarUsuarios.xhtml"
+  PATH="/titulacionPosgrado/administracion/soporte/reseteoMail/listarUsuarios.xhtml"
+  SHAPE="304,753,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#titulacionPosgrado#administracion#soporte#reseteoMail#listarUsuarios.xhtml:0"
+   NAME="item"
+   PATH="/titulacionPosgrado/administracion/soporte/reseteoMail/listarUsuarios.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="cancelarReseteoMail::#titulacionPosgrado#generalidades#principal.xhtml"
+    NAME="output"
+    PATH="/titulacionPosgrado/generalidades/principal.xhtml"
+    TARGET="rules:#titulacionPosgrado#generalidades#principal.xhtml"
+    TITLE="cancelarReseteoMail" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="irEditar::#titulacionPosgrado#administracion#soporte#reseteoMail#editarMail.xhtml"
+    NAME="output1"
+    PATH="/titulacionPosgrado/administracion/soporte/reseteoMail/editarMail.xhtml"
+    TARGET="rules:#titulacionPosgrado#administracion#soporte#reseteoMail#editarMail.xhtml"
+    TITLE="irEditar" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#titulacionPosgrado#reportes#general#reportesEstadoPostulantes.xhtml"
+  PATH="/titulacionPosgrado/reportes/general/reportesEstadoPostulantes.xhtml"
+  SHAPE="304,753,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#titulacionPosgrado#reportes#general#reportesMigracionDatos.xhtml"
+  PATH="/titulacionPosgrado/reportes/general/reportesMigracionDatos.xhtml"
+  SHAPE="304,753,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#titulacionPosgrado#generalidades#inicio.xhtml"
+  PATH="/titulacionPosgrado/generalidades/inicio.xhtml"
+  SHAPE="32,3793,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#titulacionPosgrado#generalidades#inicio.xhtml:0"
+   NAME="item" PATH="/titulacionPosgrado/generalidades/inicio.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="iniciarRegistro::#titulacionPosgrado#generalidades#registroPostulante#registroPostulante.xhtml"
+    NAME="output"
+    PATH="/titulacionPosgrado/generalidades/registroPostulante/registroPostulante.xhtml"
+    TARGET="rules:#titulacionPosgrado#generalidades#registroPostulante#registroPostulante.xhtml"
+    TITLE="iniciarRegistro" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#titulacionPosgrado#generalidades#registroPostulante#registroPostulante.xhtml"
+  PATH="/titulacionPosgrado/generalidades/registroPostulante/registroPostulante.xhtml"
+  SHAPE="240,4657,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#titulacionPosgrado#generalidades#registroPostulante#registroPostulante.xhtml:0"
+   NAME="item"
+   PATH="/titulacionPosgrado/generalidades/registroPostulante/registroPostulante.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="irInicio::#titulacionPosgrado#generalidades#login.jsp"
+    NAME="output" PATH="/titulacionPosgrado/generalidades/login.jsp"
+    TARGET="rules:#titulacionPosgrado#generalidades#login.jsp"
+    TITLE="irInicio" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+  <PROCESS-ITEM
+   ID="rules:#titulacionPosgrado#generalidades#registroPostulante#registroPostulante.xhtml:1"
+   NAME="item1"
+   PATH="/titulacionPosgrado/generalidades/registroPostulante/registroPostulante.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="confirmarRegistro::#titulacionPosgrado#generalidades#registroPostulante#confirmacionCorreo.xhtml"
+    NAME="output"
+    PATH="/titulacionPosgrado/generalidades/registroPostulante/confirmacionCorreo.xhtml"
+    TARGET="rules:#titulacionPosgrado#generalidades#registroPostulante#confirmacionCorreo.xhtml"
+    TITLE="confirmarRegistro" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+  <PROCESS-ITEM
+   ID="rules:#titulacionPosgrado#generalidades#registroPostulante#registroPostulante.xhtml:2"
+   NAME="item2"
+   PATH="/titulacionPosgrado/generalidades/registroPostulante/registroPostulante.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="irErrorDigitoCedula::#titulacionPosgrado#generalidades#registroPostulante#errorDigitoCedula.xhtml"
+    NAME="output"
+    PATH="/titulacionPosgrado/generalidades/registroPostulante/errorDigitoCedula.xhtml"
+    TARGET="rules:#titulacionPosgrado#generalidades#registroPostulante#errorDigitoCedula.xhtml"
+    TITLE="irErrorDigitoCedula" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#titulacionPosgrado#generalidades#login.jsp"
+  PATH="/titulacionPosgrado/generalidades/login.jsp"
+  SHAPE="448,5505,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#titulacionPosgrado#generalidades#registroPostulante#confirmacionCorreo.xhtml"
+  PATH="/titulacionPosgrado/generalidades/registroPostulante/confirmacionCorreo.xhtml"
+  SHAPE="464,5473,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#titulacionPosgrado#generalidades#registroPostulante#errorDigitoCedula.xhtml"
+  PATH="/titulacionPosgrado/generalidades/registroPostulante/errorDigitoCedula.xhtml"
+  SHAPE="480,5473,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#titulacionPosgrado#generalidades#recuperaClave#recuperaClave.xhtml"
+  PATH="/titulacionPosgrado/generalidades/recuperaClave/recuperaClave.xhtml"
+  SHAPE="240,3697,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#titulacionPosgrado#generalidades#recuperaClave#recuperaClave.xhtml:0"
+   NAME="item"
+   PATH="/titulacionPosgrado/generalidades/recuperaClave/recuperaClave.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="cancelarRecuperaClave::#titulacionPosgrado#generalidades#login.jsp"
+    NAME="output" PATH="/titulacionPosgrado/generalidades/login.jsp"
+    TARGET="rules:#titulacionPosgrado#generalidades#login.jsp"
+    TITLE="cancelarRecuperaClave" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="irVerPaginaCorreo::#titulacionPosgrado#generalidades#registroPostulante#confirmacionRecuperaPassword.xhtml"
+    NAME="output1"
+    PATH="/titulacionPosgrado/generalidades/registroPostulante/confirmacionRecuperaPassword.xhtml"
+    TARGET="rules:#titulacionPosgrado#generalidades#registroPostulante#confirmacionRecuperaPassword.xhtml"
+    TITLE="irVerPaginaCorreo" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#titulacionPosgrado#administracion#soporte#reseteoMail#editarMail.xhtml"
+  PATH="/titulacionPosgrado/administracion/soporte/reseteoMail/editarMail.xhtml"
+  SHAPE="544,1185,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#titulacionPosgrado#administracion#reseteoMail#editarMail.xhtml"
+  PATH="/titulacionPosgrado/administracion/reseteoMail/editarMail.xhtml"
+  SHAPE="32,4065,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#titulacionPosgrado#administracion#reseteoMail#editarMail.xhtml:0"
+   NAME="item"
+   PATH="/titulacionPosgrado/administracion/reseteoMail/editarMail.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="irListaReseteoMail::#titulacionPosgrado#administracion#reseteoMail#listarUsuarios.xhtml"
+    NAME="output"
+    PATH="/titulacionPosgrado/administracion/reseteoMail/listarUsuarios.xhtml"
+    TARGET="rules:#titulacionPosgrado#administracion#reseteoMail#listarUsuarios.xhtml"
+    TITLE="irListaReseteoMail" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#titulacionPosgrado#administracion#reseteoMail#listarUsuarios.xhtml"
+  PATH="/titulacionPosgrado/administracion/reseteoMail/listarUsuarios.xhtml"
+  SHAPE="240,6497,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#titulacionPosgrado#administracion#postulante#perfil#editarPerfilPostulante.xhtml"
+  PATH="/titulacionPosgrado/administracion/postulante/perfil/editarPerfilPostulante.xhtml"
+  SHAPE="544,1617,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#titulacionPosgrado#postulacionUnidadTitulacion#visualizacion#listarPostulacion.xhtml"
+  PATH="/titulacionPosgrado/postulacionUnidadTitulacion/visualizacion/listarPostulacion.xhtml"
+  SHAPE="304,753,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#titulacionPosgrado#generalidades#registroPostulante#confirmacionRecuperaPassword.xhtml"
+  PATH="/titulacionPosgrado/generalidades/registroPostulante/confirmacionRecuperaPassword.xhtml"
+  SHAPE="480,4449,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#titulacionPosgrado#validador#idoneidad#listarPostuladosValidacion.xhtml"
+  PATH="/titulacionPosgrado/validador/idoneidad/listarPostuladosValidacion.xhtml"
+  SHAPE="304,721,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#titulacionPosgrado#validador#idoneidad#listarPostuladosValidacion.xhtml:0"
+   NAME="item"
+   PATH="/titulacionPosgrado/validador/idoneidad/listarPostuladosValidacion.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="irValidacionPostulado::#titulacionPosgrado#validador#idoneidad#validacionIdoneidad.xhtml"
+    NAME="output"
+    PATH="/titulacionPosgrado/validador/idoneidad/validacionIdoneidad.xhtml"
+    TARGET="rules:#titulacionPosgrado#validador#idoneidad#validacionIdoneidad.xhtml"
+    TITLE="irValidacionPostulado" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#titulacionPosgrado#administracion#soporte#usuario#listar.xhtml"
+  PATH="/titulacionPosgrado/administracion/soporte/usuario/listar.xhtml"
+  SHAPE="304,753,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#titulacionPosgrado#administracion#soporte#usuario#listar.xhtml:0"
+   NAME="item"
+   PATH="/titulacionPosgrado/administracion/soporte/usuario/listar.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="irInicio::#titulacionPosgrado#generalidades#principal.xhtml"
+    NAME="output"
+    PATH="/titulacionPosgrado/generalidades/principal.xhtml"
+    TARGET="rules:#titulacionPosgrado#generalidades#principal.xhtml"
+    TITLE="irInicio" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+  <PROCESS-ITEM
+   ID="rules:#titulacionPosgrado#administracion#soporte#usuario#listar.xhtml:1"
+   NAME="item1"
+   PATH="/titulacionPosgrado/administracion/soporte/usuario/listar.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="irVerUsuario::#titulacionPosgrado#administracion#soporte#usuario#ver.xhtml"
+    NAME="output"
+    PATH="/titulacionPosgrado/administracion/soporte/usuario/ver.xhtml"
+    TARGET="rules:#titulacionPosgrado#administracion#soporte#usuario#ver.xhtml"
+    TITLE="irVerUsuario" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+  <PROCESS-ITEM
+   ID="rules:#titulacionPosgrado#administracion#soporte#usuario#listar.xhtml:2"
+   NAME="item2"
+   PATH="/titulacionPosgrado/administracion/soporte/usuario/listar.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="irUsuarioNuevo::#titulacionPosgrado#administracion#soporte#usuario#nuevo.xhtml"
+    NAME="output"
+    PATH="/titulacionPosgrado/administracion/soporte/usuario/nuevo.xhtml"
+    TARGET="rules:#titulacionPosgrado#administracion#soporte#usuario#nuevo.xhtml"
+    TITLE="irUsuarioNuevo" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+  <PROCESS-ITEM
+   ID="rules:#titulacionPosgrado#administracion#soporte#usuario#listar.xhtml:3"
+   NAME="item3"
+   PATH="/titulacionPosgrado/administracion/soporte/usuario/listar.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="irAdministrarcarreras::#titulacionPosgrado#administracion#soporte#usuario#agregarCarreraUsuario.xhtml"
+    NAME="output"
+    PATH="/titulacionPosgrado/administracion/soporte/usuario/agregarCarreraUsuario.xhtml"
+    TARGET="rules:#titulacionPosgrado#administracion#soporte#usuario#agregarCarreraUsuario.xhtml"
+    TITLE="irAdministrarcarreras" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#titulacionPosgrado#administracion#soporte#usuario#ver.xhtml"
+  PATH="/titulacionPosgrado/administracion/soporte/usuario/ver.xhtml"
+  SHAPE="32,1297,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#titulacionPosgrado#administracion#soporte#usuario#ver.xhtml:0"
+   NAME="item"
+   PATH="/titulacionPosgrado/administracion/soporte/usuario/ver.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="irCancelarVer::#titulacionPosgrado#administracion#soporte#usuario#listar.xhtml"
+    NAME="output"
+    PATH="/titulacionPosgrado/administracion/soporte/usuario/listar.xhtml"
+    TARGET="rules:#titulacionPosgrado#administracion#soporte#usuario#listar.xhtml"
+    TITLE="irCancelarVer" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+  <PROCESS-ITEM
+   ID="rules:#titulacionPosgrado#administracion#soporte#usuario#ver.xhtml:1"
+   NAME="item1"
+   PATH="/titulacionPosgrado/administracion/soporte/usuario/ver.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="irEditarUsuario::#titulacionPosgrado#administracion#soporte#usuario#editar.xhtml"
+    NAME="output"
+    PATH="/titulacionPosgrado/administracion/soporte/usuario/editar.xhtml"
+    TARGET="rules:#titulacionPosgrado#administracion#soporte#usuario#editar.xhtml"
+    TITLE="irEditarUsuario" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#titulacionPosgrado#administracion#soporte#usuario#editar.xhtml"
+  PATH="/titulacionPosgrado/administracion/soporte/usuario/editar.xhtml"
+  SHAPE="304,1201,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#titulacionPosgrado#administracion#soporte#usuario#editar.xhtml:0"
+   NAME="item"
+   PATH="/titulacionPosgrado/administracion/soporte/usuario/editar.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="irCancelarEdicion::#titulacionPosgrado#administracion#soporte#usuario#listar.xhtml"
+    NAME="output"
+    PATH="/titulacionPosgrado/administracion/soporte/usuario/listar.xhtml"
+    TARGET="rules:#titulacionPosgrado#administracion#soporte#usuario#listar.xhtml"
+    TITLE="irCancelarEdicion" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#titulacionPosgrado#administracion#soporte#usuario#nuevo.xhtml"
+  PATH="/titulacionPosgrado/administracion/soporte/usuario/nuevo.xhtml"
+  SHAPE="560,1297,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#titulacionPosgrado#administracion#soporte#usuario#nuevo.xhtml:0"
+   NAME="item"
+   PATH="/titulacionPosgrado/administracion/soporte/usuario/nuevo.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="irInicio::#titulacionPosgrado#generalidades#principal.xhtml"
+    NAME="output"
+    PATH="/titulacionPosgrado/generalidades/principal.xhtml"
+    TARGET="rules:#titulacionPosgrado#generalidades#principal.xhtml"
+    TITLE="irInicio" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+  <PROCESS-ITEM
+   ID="rules:#titulacionPosgrado#administracion#soporte#usuario#nuevo.xhtml:1"
+   NAME="item1"
+   PATH="/titulacionPosgrado/administracion/soporte/usuario/nuevo.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="irAgregarCarrerasNuevoUsuario::#titulacionPosgrado#administracion#soporte#usuario#nuevoAgregarCarrera.xhtml"
+    NAME="output"
+    PATH="/titulacionPosgrado/administracion/soporte/usuario/nuevoAgregarCarrera.xhtml"
+    TARGET="rules:#titulacionPosgrado#administracion#soporte#usuario#nuevoAgregarCarrera.xhtml"
+    TITLE="irAgregarCarrerasNuevoUsuario" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#titulacionPosgrado#administracion#soporte#usuario#agregarCarreraUsuario.xhtml"
+  PATH="/titulacionPosgrado/administracion/soporte/usuario/agregarCarreraUsuario.xhtml"
+  SHAPE="32,1505,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#titulacionPosgrado#administracion#soporte#usuario#agregarCarreraUsuario.xhtml:0"
+   NAME="item"
+   PATH="/titulacionPosgrado/administracion/soporte/usuario/agregarCarreraUsuario.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="irInicio::#titulacionPosgrado#administracion#soporte#usuario#listar.xhtml"
+    NAME="output"
+    PATH="/titulacionPosgrado/administracion/soporte/usuario/listar.xhtml"
+    TARGET="rules:#titulacionPosgrado#administracion#soporte#usuario#listar.xhtml"
+    TITLE="irInicio" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#titulacionPosgrado#administracion#soporte#usuario#nuevoAgregarCarrera.xhtml"
+  PATH="/titulacionPosgrado/administracion/soporte/usuario/nuevoAgregarCarrera.xhtml"
+  SHAPE="784,1313,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#titulacionPosgrado#administracion#soporte#usuario#nuevoAgregarCarrera.xhtml:0"
+   NAME="item"
+   PATH="/titulacionPosgrado/administracion/soporte/usuario/nuevoAgregarCarrera.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="irInicio::#titulacionPosgrado#generalidades#principal.xhtml"
+    NAME="output"
+    PATH="/titulacionPosgrado/generalidades/principal.xhtml"
+    TARGET="rules:#titulacionPosgrado#generalidades#principal.xhtml"
+    TITLE="irInicio" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#titulacionPosgrado#validador#idoneidad#validacionIdoneidad.xhtml"
+  PATH="/titulacionPosgrado/validador/idoneidad/validacionIdoneidad.xhtml"
+  SHAPE="32,1297,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#titulacionPosgrado#validador#idoneidad#validacionIdoneidad.xhtml:0"
+   NAME="item"
+   PATH="/titulacionPosgrado/validador/idoneidad/validacionIdoneidad.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="irCancelarPostulacion::#titulacionPosgrado#validador#idoneidad#listarPostuladosValidacion.xhtml"
+    NAME="output"
+    PATH="/titulacionPosgrado/validador/idoneidad/listarPostuladosValidacion.xhtml"
+    TARGET="rules:#titulacionPosgrado#validador#idoneidad#listarPostuladosValidacion.xhtml"
+    TITLE="irCancelarPostulacion" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+  <PROCESS-ITEM
+   ID="rules:#titulacionPosgrado#validador#idoneidad#validacionIdoneidad.xhtml:1"
+   NAME="item1"
+   PATH="/titulacionPosgrado/validador/idoneidad/validacionIdoneidad.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="irListarPostulantesValidacion::#titulacionPosgrado#validador#idoneidad#listarPostuladosValidacion.xhtml"
+    NAME="output"
+    PATH="/titulacionPosgrado/validador/idoneidad/listarPostuladosValidacion.xhtml"
+    TARGET="rules:#titulacionPosgrado#validador#idoneidad#listarPostuladosValidacion.xhtml"
+    TITLE="irListarPostulantesValidacion" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#titulacionPosgrado#postulacionUnidadTitulacion#visualizacion#visualizacion.xhtml"
+  PATH="/titulacionPosgrado/postulacionUnidadTitulacion/visualizacion/visualizacion.xhtml"
+  SHAPE="560,1297,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#titulacionPosgrado#postulacionUnidadTitulacion#visualizacion#visualizacion.xhtml:0"
+   NAME="item"
+   PATH="/titulacionPosgrado/postulacionUnidadTitulacion/visualizacion/visualizacion.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="regresarAListaPostulaciones::#titulacionPosgrado#postulacionUnidadTitulacion#visualizacion#listarPostulacion.xhtml"
+    NAME="output"
+    PATH="/titulacionPosgrado/postulacionUnidadTitulacion/visualizacion/listarPostulacion.xhtml"
+    TARGET="rules:#titulacionPosgrado#postulacionUnidadTitulacion#visualizacion#listarPostulacion.xhtml"
+    TITLE="regresarAListaPostulaciones" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#titulacionPosgrado#reportes#evaluador#reportesValidados.xhtml"
+  PATH="/titulacionPosgrado/reportes/evaluador/reportesValidados.xhtml"
+  SHAPE="304,753,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#titulacionPosgrado#evaluador#asignacionMecanismo#listarValidadosXAsignar.xhtml"
+  PATH="/titulacionPosgrado/evaluador/asignacionMecanismo/listarValidadosXAsignar.xhtml"
+  SHAPE="304,753,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#titulacionPosgrado#evaluador#asignacionMecanismo#listarValidadosXAsignar.xhtml:0"
+   NAME="item"
+   PATH="/titulacionPosgrado/evaluador/asignacionMecanismo/listarValidadosXAsignar.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="irAsignacionMecanismo::#titulacionPosgrado#evaluador#asignacionMecanismo#asignarMecanismo.xhtml"
+    NAME="output"
+    PATH="/titulacionPosgrado/evaluador/asignacionMecanismo/asignarMecanismo.xhtml"
+    TARGET="rules:#titulacionPosgrado#evaluador#asignacionMecanismo#asignarMecanismo.xhtml"
+    TITLE="irAsignacionMecanismo" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#titulacionPosgrado#evaluador#asignacionMecanismo#asignarMecanismo.xhtml"
+  PATH="/titulacionPosgrado/evaluador/asignacionMecanismo/asignarMecanismo.xhtml"
+  SHAPE="560,1297,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#titulacionPosgrado#evaluador#asignacionMecanismo#asignarMecanismo.xhtml:0"
+   NAME="item"
+   PATH="/titulacionPosgrado/evaluador/asignacionMecanismo/asignarMecanismo.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="irListarAsignacionMecanismos::#titulacionPosgrado#evaluador#asignacionMecanismo#listarValidadosXAsignar.xhtml"
+    NAME="output"
+    PATH="/titulacionPosgrado/evaluador/asignacionMecanismo/listarValidadosXAsignar.xhtml"
+    TARGET="rules:#titulacionPosgrado#evaluador#asignacionMecanismo#listarValidadosXAsignar.xhtml"
+    TITLE="irListarAsignacionMecanismos" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#titulacionPosgrado#validador#otrosMecanismos#aptitud2018#listarEvaluadosAptitud.xhtml"
+  PATH="/titulacionPosgrado/validador/otrosMecanismos/aptitud2018/listarEvaluadosAptitud.xhtml"
+  SHAPE="304,785,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#titulacionPosgrado#validador#otrosMecanismos#aptitud2018#listarEvaluadosAptitud.xhtml:0"
+   NAME="item"
+   PATH="/titulacionPosgrado/validador/otrosMecanismos/aptitud2018/listarEvaluadosAptitud.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="irAptitudEvaluadootrosMecanismos::#titulacionPosgrado#validador#otrosMecanismos#aptitud2018#aprobacionTutorPostulante.xhtml"
+    NAME="output"
+    PATH="/titulacionPosgrado/validador/otrosMecanismos/aptitud2018/aprobacionTutorPostulante.xhtml"
+    TARGET="rules:#titulacionPosgrado#validador#otrosMecanismos#aptitud2018#aprobacionTutorPostulante.xhtml"
+    TITLE="irAptitudEvaluadootrosMecanismos" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="irAptitudOtrosMecanismos::#titulacionPosgrado#validador#otrosMecanismos#aptitud2018#aptitudPostulante.xhtml"
+    NAME="output1"
+    PATH="/titulacionPosgrado/validador/otrosMecanismos/aptitud2018/aptitudPostulante.xhtml"
+    TARGET="rules:#titulacionPosgrado#validador#otrosMecanismos#aptitud2018#aptitudPostulante.xhtml"
+    TITLE="irAptitudOtrosMecanismos" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#titulacionPosgrado#validador#otrosMecanismos#aptitud2018#aptitudPostulante.xhtml"
+  PATH="/titulacionPosgrado/validador/otrosMecanismos/aptitud2018/aptitudPostulante.xhtml"
+  SHAPE="32,7297,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#titulacionPosgrado#validador#otrosMecanismos#aptitud2018#aptitudPostulante.xhtml:0"
+   NAME="item"
+   PATH="/titulacionPosgrado/validador/otrosMecanismos/aptitud2018/aptitudPostulante.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="confirmarRegistro::#titulacionPosgrado#validador#otrosMecanismos#aptitud2018#listarEvaluadosAptitud.xhtml"
+    NAME="output"
+    PATH="/titulacionPosgrado/validador/otrosMecanismos/aptitud2018/listarEvaluadosAptitud.xhtml"
+    TARGET="rules:#titulacionPosgrado#validador#otrosMecanismos#aptitud2018#listarEvaluadosAptitud.xhtml"
+    TITLE="confirmarRegistro" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="irCancelarAptitud::#titulacionPosgrado#validador#otrosMecanismos#aptitud2018#listarEvaluadosAptitud.xhtml"
+    NAME="output1"
+    PATH="/titulacionPosgrado/validador/otrosMecanismos/aptitud2018/listarEvaluadosAptitud.xhtml"
+    TARGET="rules:#titulacionPosgrado#validador#otrosMecanismos#aptitud2018#listarEvaluadosAptitud.xhtml"
+    TITLE="irCancelarAptitud" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#titulacionPosgrado#validador#otrosMecanismos#aptitud2018#aprobacionTutorPostulante.xhtml"
+  PATH="/titulacionPosgrado/validador/otrosMecanismos/aptitud2018/aprobacionTutorPostulante.xhtml"
+  SHAPE="560,1537,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#titulacionPosgrado#validador#otrosMecanismos#aptitud2018#aprobacionTutorPostulante.xhtml:0"
+   NAME="item"
+   PATH="/titulacionPosgrado/validador/otrosMecanismos/aptitud2018/aprobacionTutorPostulante.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="irListarEvaluadosAptitudOtrosMecanismos::#titulacionPosgrado#validador#otrosMecanismos#aptitud2018#listarEvaluadosAptitud.xhtml"
+    NAME="output"
+    PATH="/titulacionPosgrado/validador/otrosMecanismos/aptitud2018/listarEvaluadosAptitud.xhtml"
+    TARGET="rules:#titulacionPosgrado#validador#otrosMecanismos#aptitud2018#listarEvaluadosAptitud.xhtml"
+    TITLE="irListarEvaluadosAptitudOtrosMecanismos" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="irCancelarAptitud::#titulacionPosgrado#validador#otrosMecanismos#aptitud2018#listarEvaluadosAptitud.xhtml"
+    NAME="output1"
+    PATH="/titulacionPosgrado/validador/otrosMecanismos/aptitud2018/listarEvaluadosAptitud.xhtml"
+    TARGET="rules:#titulacionPosgrado#validador#otrosMecanismos#aptitud2018#listarEvaluadosAptitud.xhtml"
+    TITLE="irCancelarAptitud" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#titulacionPosgrado#validador#actaGrado#listar.xhtml"
+  PATH="/titulacionPosgrado/validador/actaGrado/listar.xhtml"
+  SHAPE="304,881,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#titulacionPosgrado#validador#actaGrado#listar.xhtml:0"
+   NAME="item"
+   PATH="/titulacionPosgrado/validador/actaGrado/listar.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="irActaGrado::#titulacionPosgrado#validador#actaGrado#editar.xhtml"
+    NAME="output"
+    PATH="/titulacionPosgrado/validador/actaGrado/editar.xhtml"
+    TARGET="rules:#titulacionPosgrado#validador#actaGrado#editar.xhtml"
+    TITLE="irActaGrado" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="irInicio::#titulacionPosgrado#generalidades#principal.xhtml"
+    NAME="output1"
+    PATH="/titulacionPosgrado/generalidades/principal.xhtml"
+    TARGET="rules:#titulacionPosgrado#generalidades#principal.xhtml"
+    TITLE="irInicio" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#titulacion#validacion#imprimirActaGrado#bloqueComplexivo.xhtml"
+  PATH="/titulacion/validacion/imprimirActaGrado/bloqueComplexivo.xhtml"
+  SHAPE="304,7809,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#titulacion#validacion#imprimirActaGrado#bloqueComplexivo.xhtml:0"
+   NAME="item"
+   PATH="/titulacion/validacion/imprimirActaGrado/bloqueComplexivo.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="irMenuPrincipal::#titulacion#generalidades#principal.xhtml"
+    NAME="output" PATH="/titulacion/generalidades/principal.xhtml"
+    TARGET="rules:#titulacion#generalidades#principal.xhtml"
+    TITLE="irMenuPrincipal" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#titulacion#validacion#imprimirActaGrado#listar.xhtml"
+  PATH="/titulacion/validacion/imprimirActaGrado/listar.xhtml"
+  SHAPE="304,7953,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#titulacion#validacion#imprimirActaGrado#listar.xhtml:0"
+   NAME="item"
+   PATH="/titulacion/validacion/imprimirActaGrado/listar.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="irImprimirActaGradoOtrosMecanismosEconomia::#titulacion#validacion#imprimirActaGrado#visualizarOtrosMecanismosEconomia.xhtml"
+    NAME="output"
+    PATH="/titulacion/validacion/imprimirActaGrado/visualizarOtrosMecanismosEconomia.xhtml"
+    TARGET="rules:#titulacion#validacion#imprimirActaGrado#visualizarOtrosMecanismosEconomia.xhtml"
+    TITLE="irImprimirActaGradoOtrosMecanismosEconomia" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+  <PROCESS-ITEM
+   ID="rules:#titulacion#validacion#imprimirActaGrado#listar.xhtml:1"
+   NAME="item1"
+   PATH="/titulacion/validacion/imprimirActaGrado/listar.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="irImprimirActaGradoOtrosMecanismos2Tribunal::#titulacion#validacion#imprimirActaGrado#visualizarOtrosMecanismos2Tribunal.xhtml"
+    NAME="output"
+    PATH="/titulacion/validacion/imprimirActaGrado/visualizarOtrosMecanismos2Tribunal.xhtml"
+    TARGET="rules:#titulacion#validacion#imprimirActaGrado#visualizarOtrosMecanismos2Tribunal.xhtml"
+    TITLE="irImprimirActaGradoOtrosMecanismos2Tribunal" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="irImprimirActaGradoOtrosMecanismos2Tribunal2018::#titulacion#validacion#imprimirActaGrado#visualizarOtrosMecanismos2Tribunal2018.xhtml"
+    NAME="output1"
+    PATH="/titulacion/validacion/imprimirActaGrado/visualizarOtrosMecanismos2Tribunal2018.xhtml"
+    TARGET="rules:#titulacion#validacion#imprimirActaGrado#visualizarOtrosMecanismos2Tribunal2018.xhtml"
+    TITLE="irImprimirActaGradoOtrosMecanismos2Tribunal2018" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+  <PROCESS-ITEM
+   ID="rules:#titulacion#validacion#imprimirActaGrado#listar.xhtml:2"
+   NAME="item2"
+   PATH="/titulacion/validacion/imprimirActaGrado/listar.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="irImprimirActaGradoNoVigente::#titulacion#validacion#imprimirActaGrado#visualizarNoVigente.xhtml"
+    NAME="output"
+    PATH="/titulacion/validacion/imprimirActaGrado/visualizarNoVigente.xhtml"
+    TARGET="rules:#titulacion#validacion#imprimirActaGrado#visualizarNoVigente.xhtml"
+    TITLE="irImprimirActaGradoNoVigente" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+  <PROCESS-ITEM
+   ID="rules:#titulacion#validacion#imprimirActaGrado#listar.xhtml:3"
+   NAME="item3"
+   PATH="/titulacion/validacion/imprimirActaGrado/listar.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="irImprimirActaGradoSedes::#titulacion#validacion#imprimirActaGrado#visualizarSedes.xhtml"
+    NAME="output"
+    PATH="/titulacion/validacion/imprimirActaGrado/visualizarSedes.xhtml"
+    TARGET="rules:#titulacion#validacion#imprimirActaGrado#visualizarSedes.xhtml"
+    TITLE="irImprimirActaGradoSedes" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+  <PROCESS-ITEM
+   ID="rules:#titulacion#validacion#imprimirActaGrado#listar.xhtml:4"
+   NAME="item4"
+   PATH="/titulacion/validacion/imprimirActaGrado/listar.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="irInicio::#titulacion#generalidades#principal.xhtml"
+    NAME="output" PATH="/titulacion/generalidades/principal.xhtml"
+    TARGET="rules:#titulacion#generalidades#principal.xhtml"
+    TITLE="irInicio" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#titulacion#validacion#imprimirActaGrado#visualizar.xhtml"
+  PATH="/titulacion/validacion/imprimirActaGrado/visualizar.xhtml"
+  SHAPE="32,7937,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#titulacion#validacion#imprimirActaGrado#visualizar.xhtml:0"
+   NAME="item"
+   PATH="/titulacion/validacion/imprimirActaGrado/visualizar.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="irRegresarActaGrado::#titulacion#validacion#imprimirActaGrado#listar.xhtml"
+    NAME="output"
+    PATH="/titulacion/validacion/imprimirActaGrado/listar.xhtml"
+    TARGET="rules:#titulacion#validacion#imprimirActaGrado#listar.xhtml"
+    TITLE="irRegresarActaGrado" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#titulacion#validacion#imprimirActaGrado#visualizar2018.xhtml"
+  PATH="/titulacion/validacion/imprimirActaGrado/visualizar2018.xhtml"
+  SHAPE="32,8305,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#titulacion#validacion#imprimirActaGrado#visualizar2018.xhtml:0"
+   NAME="item"
+   PATH="/titulacion/validacion/imprimirActaGrado/visualizar2018.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="irRegresarActaGrado::#titulacion#validacion#imprimirActaGrado#listar.xhtml"
+    NAME="output"
+    PATH="/titulacion/validacion/imprimirActaGrado/listar.xhtml"
+    TARGET="rules:#titulacion#validacion#imprimirActaGrado#listar.xhtml"
+    TITLE="irRegresarActaGrado" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#titulacion#validacion#imprimirActaGrado#visualizarOtrosMecanismos.xhtml"
+  PATH="/titulacion/validacion/imprimirActaGrado/visualizarOtrosMecanismos.xhtml"
+  SHAPE="32,7793,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#titulacion#validacion#imprimirActaGrado#visualizarOtrosMecanismos.xhtml:0"
+   NAME="item"
+   PATH="/titulacion/validacion/imprimirActaGrado/visualizarOtrosMecanismos.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="irInicio::#titulacion#generalidades#principal.xhtml"
+    NAME="output" PATH="/titulacion/generalidades/principal.xhtml"
+    TARGET="rules:#titulacion#generalidades#principal.xhtml"
+    TITLE="irInicio" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+  <PROCESS-ITEM
+   ID="rules:#titulacion#validacion#imprimirActaGrado#visualizarOtrosMecanismos.xhtml:1"
+   NAME="item1"
+   PATH="/titulacion/validacion/imprimirActaGrado/visualizarOtrosMecanismos.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="irRegresarActaGrado::#titulacion#validacion#imprimirActaGrado#listar.xhtml"
+    NAME="output"
+    PATH="/titulacion/validacion/imprimirActaGrado/listar.xhtml"
+    TARGET="rules:#titulacion#validacion#imprimirActaGrado#listar.xhtml"
+    TITLE="irRegresarActaGrado" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#titulacion#validacion#imprimirActaGrado#visualizarOtrosMecanismosEconomia.xhtml"
+  PATH="/titulacion/validacion/imprimirActaGrado/visualizarOtrosMecanismosEconomia.xhtml"
+  SHAPE="32,8417,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#titulacion#validacion#imprimirActaGrado#visualizarOtrosMecanismos2Tribunal.xhtml"
+  PATH="/titulacion/validacion/imprimirActaGrado/visualizarOtrosMecanismos2Tribunal.xhtml"
+  SHAPE="32,8529,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#titulacion#validacion#imprimirActaGrado#visualizarOtrosMecanismos2Tribunal.xhtml:0"
+   NAME="item"
+   PATH="/titulacion/validacion/imprimirActaGrado/visualizarOtrosMecanismos2Tribunal.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="irInicio::#titulacion#generalidades#principal.xhtml"
+    NAME="output" PATH="/titulacion/generalidades/principal.xhtml"
+    TARGET="rules:#titulacion#generalidades#principal.xhtml"
+    TITLE="irInicio" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+  <PROCESS-ITEM
+   ID="rules:#titulacion#validacion#imprimirActaGrado#visualizarOtrosMecanismos2Tribunal.xhtml:1"
+   NAME="item1"
+   PATH="/titulacion/validacion/imprimirActaGrado/visualizarOtrosMecanismos2Tribunal.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="irRegresarActaGrado::#titulacion#validacion#imprimirActaGrado#listar.xhtml"
+    NAME="output"
+    PATH="/titulacion/validacion/imprimirActaGrado/listar.xhtml"
+    TARGET="rules:#titulacion#validacion#imprimirActaGrado#listar.xhtml"
+    TITLE="irRegresarActaGrado" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#titulacion#validacion#imprimirActaGrado#visualizarOtrosMecanismos2Tribunal2018.xhtml"
+  PATH="/titulacion/validacion/imprimirActaGrado/visualizarOtrosMecanismos2Tribunal2018.xhtml"
+  SHAPE="32,8817,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#titulacion#validacion#imprimirActaGrado#visualizarOtrosMecanismos2Tribunal2018.xhtml:0"
+   NAME="item"
+   PATH="/titulacion/validacion/imprimirActaGrado/visualizarOtrosMecanismos2Tribunal2018.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="irInicio::#titulacion#generalidades#principal.xhtml"
+    NAME="output" PATH="/titulacion/generalidades/principal.xhtml"
+    TARGET="rules:#titulacion#generalidades#principal.xhtml"
+    TITLE="irInicio" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+  <PROCESS-ITEM
+   ID="rules:#titulacion#validacion#imprimirActaGrado#visualizarOtrosMecanismos2Tribunal2018.xhtml:1"
+   NAME="item1"
+   PATH="/titulacion/validacion/imprimirActaGrado/visualizarOtrosMecanismos2Tribunal2018.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="irRegresarActaGrado::#titulacion#validacion#imprimirActaGrado#listar.xhtml"
+    NAME="output"
+    PATH="/titulacion/validacion/imprimirActaGrado/listar.xhtml"
+    TARGET="rules:#titulacion#validacion#imprimirActaGrado#listar.xhtml"
+    TITLE="irRegresarActaGrado" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#titulacion#validacion#imprimirActaGrado#visualizarNoVigente.xhtml"
+  PATH="/titulacion/validacion/imprimirActaGrado/visualizarNoVigente.xhtml"
+  SHAPE="32,8961,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#titulacion#validacion#imprimirActaGrado#visualizarNoVigente.xhtml:0"
+   NAME="item"
+   PATH="/titulacion/validacion/imprimirActaGrado/visualizarNoVigente.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="irInicio::#titulacion#generalidades#principal.xhtml"
+    NAME="output" PATH="/titulacion/generalidades/principal.xhtml"
+    TARGET="rules:#titulacion#generalidades#principal.xhtml"
+    TITLE="irInicio" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+  <PROCESS-ITEM
+   ID="rules:#titulacion#validacion#imprimirActaGrado#visualizarNoVigente.xhtml:1"
+   NAME="item1"
+   PATH="/titulacion/validacion/imprimirActaGrado/visualizarNoVigente.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="irRegresarActaGrado::#titulacion#validacion#imprimirActaGrado#listar.xhtml"
+    NAME="output"
+    PATH="/titulacion/validacion/imprimirActaGrado/listar.xhtml"
+    TARGET="rules:#titulacion#validacion#imprimirActaGrado#listar.xhtml"
+    TITLE="irRegresarActaGrado" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#titulacion#validacion#imprimirActaGrado#visualizarSedes.xhtml"
+  PATH="/titulacion/validacion/imprimirActaGrado/visualizarSedes.xhtml"
+  SHAPE="32,9105,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#titulacion#validacion#imprimirActaGrado#visualizarSedes.xhtml:0"
+   NAME="item"
+   PATH="/titulacion/validacion/imprimirActaGrado/visualizarSedes.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="irInicio::#titulacion#generalidades#principal.xhtml"
+    NAME="output" PATH="/titulacion/generalidades/principal.xhtml"
+    TARGET="rules:#titulacion#generalidades#principal.xhtml"
+    TITLE="irInicio" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+  <PROCESS-ITEM
+   ID="rules:#titulacion#validacion#imprimirActaGrado#visualizarSedes.xhtml:1"
+   NAME="item1"
+   PATH="/titulacion/validacion/imprimirActaGrado/visualizarSedes.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="irRegresarActaGrado::#titulacion#validacion#imprimirActaGrado#listar.xhtml"
+    NAME="output"
+    PATH="/titulacion/validacion/imprimirActaGrado/listar.xhtml"
+    TARGET="rules:#titulacion#validacion#imprimirActaGrado#listar.xhtml"
+    TITLE="irRegresarActaGrado" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#titulacion#generalidades#principal.xhtml"
+  PATH="/titulacion/generalidades/principal.xhtml" SHAPE="576,7793,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#titulacionPosgrado#validador#actaGrado#editar.xhtml"
+  PATH="/titulacionPosgrado/validador/actaGrado/editar.xhtml"
+  SHAPE="32,1633,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#titulacionPosgrado#validador#actaGrado#editar.xhtml:0"
+   NAME="item"
+   PATH="/titulacionPosgrado/validador/actaGrado/editar.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="irRegresarActaGrado::#titulacionPosgrado#validador#actaGrado#listar.xhtml"
+    NAME="output"
+    PATH="/titulacionPosgrado/validador/actaGrado/listar.xhtml"
+    TARGET="rules:#titulacionPosgrado#validador#actaGrado#listar.xhtml"
+    TITLE="irRegresarActaGrado" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#titulacionPosgrado#validador#imprimirActaGrado#listar.xhtml"
+  PATH="/titulacionPosgrado/validador/imprimirActaGrado/listar.xhtml"
+  SHAPE="304,881,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#titulacionPosgrado#validador#imprimirActaGrado#listar.xhtml:0"
+   NAME="item"
+   PATH="/titulacionPosgrado/validador/imprimirActaGrado/listar.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="irImprimirActaGradoOtrosMecanismosTresComponentes::#titulacionPosgrado#validador#imprimirActaGrado#visualizarOtrosMecanismo3Comp.xhtml"
+    NAME="output3"
+    PATH="/titulacionPosgrado/validador/imprimirActaGrado/visualizarOtrosMecanismo3Comp.xhtml"
+    TARGET="rules:#titulacionPosgrado#validador#imprimirActaGrado#visualizarOtrosMecanismo3Comp.xhtml"
+    TITLE="irImprimirActaGradoOtrosMecanismosTresComponentes" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+  <PROCESS-ITEM
+   ID="rules:#titulacionPosgrado#validador#imprimirActaGrado#listar.xhtml:1"
+   NAME="item1"
+   PATH="/titulacionPosgrado/validador/imprimirActaGrado/listar.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="irInicio::#titulacionPosgrado#generalidades#principal.xhtml"
+    NAME="output"
+    PATH="/titulacionPosgrado/generalidades/principal.xhtml"
+    TARGET="rules:#titulacionPosgrado#generalidades#principal.xhtml"
+    TITLE="irInicio" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+  <PROCESS-ITEM
+   ID="rules:#titulacionPosgrado#validador#imprimirActaGrado#listar.xhtml:2"
+   NAME="item2"
+   PATH="/titulacionPosgrado/validador/imprimirActaGrado/listar.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="irImprimirActaGradoOtrosMecanismos::#titulacionPosgrado#validador#imprimirActaGrado#visualizarOtrosMecanismos.xhtml"
+    NAME="output"
+    PATH="/titulacionPosgrado/validador/imprimirActaGrado/visualizarOtrosMecanismos.xhtml"
+    TARGET="rules:#titulacionPosgrado#validador#imprimirActaGrado#visualizarOtrosMecanismos.xhtml"
+    TITLE="irImprimirActaGradoOtrosMecanismos" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#titulacionPosgrado#validador#imprimirActaGrado#visualizarOtrosMecanismos.xhtml"
+  PATH="/titulacionPosgrado/validador/imprimirActaGrado/visualizarOtrosMecanismos.xhtml"
+  SHAPE="560,1633,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#titulacionPosgrado#validador#imprimirActaGrado#visualizarOtrosMecanismos.xhtml:0"
+   NAME="item"
+   PATH="/titulacionPosgrado/validador/imprimirActaGrado/visualizarOtrosMecanismos.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="irRegresarActaGrado::#titulacionPosgrado#validador#imprimirActaGrado#listar.xhtml"
+    NAME="output"
+    PATH="/titulacionPosgrado/validador/imprimirActaGrado/listar.xhtml"
+    TARGET="rules:#titulacionPosgrado#validador#imprimirActaGrado#listar.xhtml"
+    TITLE="irRegresarActaGrado" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#titulacionPosgrado#validador#editarDocente#listarDocentes.xhtml"
+  PATH="/titulacionPosgrado/validador/editarDocente/listarDocentes.xhtml"
+  SHAPE="304,849,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#titulacionPosgrado#validador#editarDocente#listarDocentes.xhtml:0"
+   NAME="item"
+   PATH="/titulacionPosgrado/validador/editarDocente/listarDocentes.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="irEdiciónDocente::#titulacionPosgrado#validador#editarDocente#edicionDocente.xhtml"
+    NAME="output"
+    PATH="/titulacionPosgrado/validador/editarDocente/edicionDocente.xhtml"
+    TARGET="rules:#titulacionPosgrado#validador#editarDocente#edicionDocente.xhtml"
+    TITLE="irEdiciónDocente" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#titulacionPosgrado#validador#editarDocente#edicionDocente.xhtml"
+  PATH="/titulacionPosgrado/validador/editarDocente/edicionDocente.xhtml"
+  SHAPE="560,1601,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#titulacionPosgrado#validador#editarDocente#edicionDocente.xhtml:0"
+   NAME="item"
+   PATH="/titulacionPosgrado/validador/editarDocente/edicionDocente.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="irCancelarEdicionDocentes::#titulacionPosgrado#validador#editarDocente#listarDocentes.xhtml"
+    NAME="output"
+    PATH="/titulacionPosgrado/validador/editarDocente/listarDocentes.xhtml"
+    TARGET="rules:#titulacionPosgrado#validador#editarDocente#listarDocentes.xhtml"
+    TITLE="irCancelarEdicionDocentes" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#titulacionPosgrado#validador#actualizacionConocimientos#listarPostuladosActualizar.xhtml"
+  PATH="/titulacionPosgrado/validador/actualizacionConocimientos/listarPostuladosActualizar.xhtml"
+  SHAPE="304,849,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#titulacionPosgrado#validador#actualizacionConocimientos#listarPostuladosActualizar.xhtml:0"
+   NAME="item"
+   PATH="/titulacionPosgrado/validador/actualizacionConocimientos/listarPostuladosActualizar.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="irRegistrarActualizar::#titulacionPosgrado#validador#actualizacionConocimientos#actualizarConocimientos.xhtml"
+    NAME="output"
+    PATH="/titulacionPosgrado/validador/actualizacionConocimientos/actualizarConocimientos.xhtml"
+    TARGET="rules:#titulacionPosgrado#validador#actualizacionConocimientos#actualizarConocimientos.xhtml"
+    TITLE="irRegistrarActualizar" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#titulacionPosgrado#validador#actualizacionConocimientos#actualizarConocimientos.xhtml"
+  PATH="/titulacionPosgrado/validador/actualizacionConocimientos/actualizarConocimientos.xhtml"
+  SHAPE="32,1601,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#titulacionPosgrado#validador#actualizacionConocimientos#actualizarConocimientos.xhtml:0"
+   NAME="item"
+   PATH="/titulacionPosgrado/validador/actualizacionConocimientos/actualizarConocimientos.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="irRegresarListarActualizar::#titulacionPosgrado#validador#actualizacionConocimientos#listarPostuladosActualizar.xhtml"
+    NAME="output"
+    PATH="/titulacionPosgrado/validador/actualizacionConocimientos/listarPostuladosActualizar.xhtml"
+    TARGET="rules:#titulacionPosgrado#validador#actualizacionConocimientos#listarPostuladosActualizar.xhtml"
+    TITLE="irRegresarListarActualizar" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#titulacionPosgrado#administracion#autoridad#listarAutoridades.xhtml"
+  PATH="/titulacionPosgrado/administracion/autoridad/listarAutoridades.xhtml"
+  SHAPE="304,913,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#titulacionPosgrado#administracion#autoridad#listarAutoridades.xhtml:0"
+   NAME="item"
+   PATH="/titulacionPosgrado/administracion/autoridad/listarAutoridades.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="irInicio::#titulacion#generalidades#principal.xhtml"
+    NAME="output" PATH="/titulacion/generalidades/principal.xhtml"
+    TARGET="rules:#titulacion#generalidades#principal.xhtml"
+    TITLE="irInicio" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="irEditarAutoridad::#titulacionPosgrado#administracion#autoridad#editarAutoridades.xhtml"
+    NAME="output1"
+    PATH="/titulacionPosgrado/administracion/autoridad/editarAutoridades.xhtml"
+    TARGET="rules:#titulacionPosgrado#administracion#autoridad#editarAutoridades.xhtml"
+    TITLE="irEditarAutoridad" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="irVerAutoridad::#titulacionPosgrado#administracion#autoridad#verAutoridades.xhtml"
+    NAME="output2"
+    PATH="/titulacionPosgrado/administracion/autoridad/verAutoridades.xhtml"
+    TARGET="rules:#titulacionPosgrado#administracion#autoridad#verAutoridades.xhtml"
+    TITLE="irVerAutoridad" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="irCancelarVer::#titulacionPosgrado#administracion#autoridad#listarAutoridades.xhtml"
+    NAME="output3"
+    PATH="/titulacionPosgrado/administracion/autoridad/listarAutoridades.xhtml"
+    TARGET="rules:#titulacionPosgrado#administracion#autoridad#listarAutoridades.xhtml"
+    TITLE="irCancelarVer" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="irNuevaAutoridad::#titulacionPosgrado#administracion#autoridad#nuevaAutoridades.xhtml"
+    NAME="output4"
+    PATH="/titulacionPosgrado/administracion/autoridad/nuevaAutoridades.xhtml"
+    TARGET="rules:#titulacionPosgrado#administracion#autoridad#nuevaAutoridades.xhtml"
+    TITLE="irNuevaAutoridad" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#titulacionPosgrado#administracion#autoridad#verAutoridades.xhtml"
+  PATH="/titulacionPosgrado/administracion/autoridad/verAutoridades.xhtml"
+  SHAPE="304,977,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#titulacionPosgrado#administracion#autoridad#nuevaAutoridades.xhtml"
+  PATH="/titulacionPosgrado/administracion/autoridad/nuevaAutoridades.xhtml"
+  SHAPE="576,2145,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#titulacionPosgrado#administracion#autoridad#editarAutoridades.xhtml"
+  PATH="/titulacionPosgrado/administracion/autoridad/editarAutoridades.xhtml"
+  SHAPE="576,1905,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#titulacionPosgrado#validador#imprimirActaGrado#visualizarOtrosMecanismo3Comp.xhtml"
+  PATH="/titulacionPosgrado/validador/imprimirActaGrado/visualizarOtrosMecanismo3Comp.xhtml"
+  SHAPE="576,9409,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#titulacionPosgrado#validador#imprimirActaGrado#visualizarOtrosMecanismo3Comp.xhtml:0"
+   NAME="item"
+   PATH="/titulacionPosgrado/validador/imprimirActaGrado/visualizarOtrosMecanismo3Comp.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="irRegresarActaGrado::#titulacionPosgrado#validador#imprimirActaGrado#listar.xhtml"
+    NAME="output"
+    PATH="/titulacionPosgrado/validador/imprimirActaGrado/listar.xhtml"
+    TARGET="rules:#titulacionPosgrado#validador#imprimirActaGrado#listar.xhtml"
+    TITLE="irRegresarActaGrado" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#titulacionPosgrado#validador#administracionFoto#listarEstudiantes.xhtml"
+  PATH="/titulacionPosgrado/validador/administracionFoto/listarEstudiantes.xhtml"
+  SHAPE="304,977,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#titulacionPosgrado#evaluador#reAsignacionMecanismo#listarEvaluadosXReAsignar.xhtml"
+  PATH="/titulacionPosgrado/evaluador/reAsignacionMecanismo/listarEvaluadosXReAsignar.xhtml"
+  SHAPE="304,945,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#titulacionPosgrado#validador#otrosMecanismos#notasTribunalOral#listarPendientesTribunal.xhtml"
+  PATH="/titulacionPosgrado/validador/otrosMecanismos/notasTribunalOral/listarPendientesTribunal.xhtml"
+  SHAPE="304,945,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#titulacionPosgrado#validador#otrosMecanismos#notasTribunalOral#listarPendientesTribunal.xhtml:0"
+   NAME="item"
+   PATH="/titulacionPosgrado/validador/otrosMecanismos/notasTribunalOral/listarPendientesTribunal.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="irModificarnotasTribunalOral::#titulacionPosgrado#validador#otrosMecanismos#notasTribunalOral#modificarNotasPendiente.xhtml"
+    NAME="output"
+    PATH="/titulacionPosgrado/validador/otrosMecanismos/notasTribunalOral/modificarNotasPendiente.xhtml"
+    TARGET="rules:#titulacionPosgrado#validador#otrosMecanismos#notasTribunalOral#modificarNotasPendiente.xhtml"
+    TITLE="irModificarnotasTribunalOral" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="irModificarNotasTribunalLector2018::#titulacionPosgrado#validador#otrosMecanismos#notasTribunalOral#modificarNotasPendiente2018.xhtml"
+    NAME="output1"
+    PATH="/titulacionPosgrado/validador/otrosMecanismos/notasTribunalOral/modificarNotasPendiente2018.xhtml"
+    TARGET="rules:#titulacionPosgrado#validador#otrosMecanismos#notasTribunalOral#modificarNotasPendiente2018.xhtml"
+    TITLE="irModificarNotasTribunalLector2018" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+  <PROCESS-ITEM
+   ID="rules:#titulacionPosgrado#validador#otrosMecanismos#notasTribunalOral#listarPendientesTribunal.xhtml:1"
+   NAME="item1"
+   PATH="/titulacionPosgrado/validador/otrosMecanismos/notasTribunalOral/listarPendientesTribunal.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="irInicio::#titulacionPosgrado#generalidades#principal.xhtml"
+    NAME="output"
+    PATH="/titulacionPosgrado/generalidades/principal.xhtml"
+    TARGET="rules:#titulacionPosgrado#generalidades#principal.xhtml"
+    TITLE="irInicio" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#titulacionPosgrado#validador#otrosMecanismos#notasTribunalOral#modificarNotasPendiente.xhtml"
+  PATH="/titulacionPosgrado/validador/otrosMecanismos/notasTribunalOral/modificarNotasPendiente.xhtml"
+  SHAPE="576,1873,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#titulacionPosgrado#validador#otrosMecanismos#notasTribunalOral#modificarNotasPendiente.xhtml:0"
+   NAME="item"
+   PATH="/titulacionPosgrado/validador/otrosMecanismos/notasTribunalOral/modificarNotasPendiente.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="irCancelarModificarNotas::#titulacionPosgrado#validador#otrosMecanismos#notasTribunalOral#listarPendientesTribunal.xhtml"
+    NAME="output"
+    PATH="/titulacionPosgrado/validador/otrosMecanismos/notasTribunalOral/listarPendientesTribunal.xhtml"
+    TARGET="rules:#titulacionPosgrado#validador#otrosMecanismos#notasTribunalOral#listarPendientesTribunal.xhtml"
+    TITLE="irCancelarModificarNotas" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#titulacionPosgrado#validador#otrosMecanismos#notasTribunalOral#modificarNotasPendiente2018.xhtml"
+  PATH="/titulacionPosgrado/validador/otrosMecanismos/notasTribunalOral/modificarNotasPendiente2018.xhtml"
+  SHAPE="576,1873,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#titulacionPosgrado#validador#otrosMecanismos#notasTribunalOral#modificarNotasPendiente2018.xhtml:0"
+   NAME="item"
+   PATH="/titulacionPosgrado/validador/otrosMecanismos/notasTribunalOral/modificarNotasPendiente2018.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="irCancelarModificarNotas::#titulacionPosgrado#validador#otrosMecanismos#notasTribunalOral#listarPendientesTribunal.xhtml"
+    NAME="output"
+    PATH="/titulacionPosgrado/validador/otrosMecanismos/notasTribunalOral/listarPendientesTribunal.xhtml"
+    TARGET="rules:#titulacionPosgrado#validador#otrosMecanismos#notasTribunalOral#listarPendientesTribunal.xhtml"
+    TITLE="irCancelarModificarNotas" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+</PROCESS>

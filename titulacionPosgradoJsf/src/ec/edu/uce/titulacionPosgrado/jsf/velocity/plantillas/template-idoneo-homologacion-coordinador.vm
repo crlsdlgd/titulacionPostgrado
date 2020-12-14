@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+<html>
+  <head>
+	 <meta http-equiv="content-type" content="text/html; charset=utf-8">
+	 <title>UNIVERSIDAD CENTRAL DEL ECUADOR</title>
+  </head>
+  <body>
+    <p><strong>Estimado(a): ${nombres} ${apellidos}.-</strong></p>
+    <br/>
+    <p><strong>Facultad: </strong>${facultad}</p>
+	<p><strong>Programa: </strong>${carrera}</p> 
+	<p><strong>Fecha de inicio de cohorte: </strong>${fechaInicio}</p>
+	<p><strong>Fecha de fin de cohorte: </strong>${fechaFin}</p>
+	<br/>
+    La Universidad Central del Ecuador le comunica que una vez revisada la documentaci&#243;n se le ha declarado ID&#211;NEA/O para participar en el proceso de titulaci&#243;n, pero que su proceso se encuentra dentro de la disposici&#243;n general cuarta del Reglamento de R&#233;gimen Acad&#233;mico, per&#237;odo segundos cinco a&#241;os, es decir, m&#225;s de cinco a&#241;os  y menos de diez de haber finalizado la fecha de vigencia de la cohorte del programa de posgrado en la que el postulante particip&#243;, aprobada por el CES.
+
+ 	<br/>
+	Recuerde, en esta fase el proceso de titulaci&#243;n tiene tres momentos:
+	<br/>
+	a. >Homologaci&#243;n por validaci&#243;n de conocimientos.
+	<br/>
+	a. Actualizaci&#243;n de conocimientos.
+	<br/>
+	b. Titulaci&#243;n.
+	<br/>
+	<br/>
+	Considerando lo se&#241;alado, le informamos que el postulante debe:
+	<br/>
+	1. Realizar una solicitud para que se le considere primero en el proceso de  homologaci&#243;n por validaci&#243;n de conocimientos.
+	<br/> 
+	La validaci&#243;n de conocimientos no aplica para especializaciones m&#233;dicas u odontol&#243;gicas, maestr&#237;as de investigaci&#243;n y doctorados. El procedimiento de validaci&#243;n de conocimientos deber&#225; cumplirse obligatoriamente para la homologaci&#243;n de estudios de quienes hayan culminado sus estudios en un per&#237;odo mayor a cinco a&#241;os (Reglamento de R&#233;gimen Acad&#233;mico).
+	<br/> 
+	2. Realizar el pago de los aranceles que corresponda a la homologaci&#243;n por validaci&#243;n de conocimientos  y  entregar  una  copia  del  comprobante  de  pago  en  la  secretar&#237;a del Posgrado de la Facultad.
+	<br/>
+	3. Si aprueba la homologaci&#243;n el postulante debe  realizar  una  solicitud  para  que  se  le  considere seguidamente en el proceso de actualizaci&#243;n de conocimientos.
+
+	<br/>
+	4. Realizar el pago de los aranceles que corresponda a la actualizaci&#243;n de conocimientos y entregar una copia del comprobante de pago en la secretar&#237;a
+	<br/>
+	5. Si aprueba la actualizaci&#243;n de conocimientos el postulante debe realizar una solicitud para iniciar su proceso de titulaci&#243;n, la  misma  que  debe  ser  aprobada  y  entregada  en  la secretar&#237;a del Posgrado de la Facultad.
+	<br/>
+	6. Realizar el pago de los aranceles que corresponda al proceso de titulaci&#243;n y entregar una copia del comprobante de pago en la secretar&#237;a de Posgrado de la Facultad.
+	<br/>
+	7. Previa la presentaci&#243;n del trabajo de titulaci&#243;n usted tendr&#225; que ser declarada/o APTA/O, es decir, cuando cumpla con todos los requisitos previos a la titulaci&#243;n.
+	<br/>
+	NOTAS:
+	<br/>
+	1. Es importante recordarle que usted tiene una sola oportunidad para graduarse en estos segundos cinco a&#241;os, tiempo que debe ser contado desde la fecha de finalizaci&#243;n de la cohorte del programa de posgrado aprobada mediante resoluci&#243;n por el Consejo de Educaci&#243;n Superior.
+	 <br/>
+	<br/>
+	  <br/> 
+	  El proceso se realiz&#243; el ${fechaHora}
+	  <br/>	  
+	  <br/>
+	  <br/>
+	  <br/>
+	  <br/>
+	  ...........................................................................................
+	  <br/>
+	  <strong>Informaci&#243;n del Correo: </strong> Mail generado autom&#225;ticamente. Por favor no responda a este mensaje.
+	  <br/>
+	  <br/>
+	  <br/>

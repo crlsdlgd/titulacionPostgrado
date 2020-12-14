@@ -1,0 +1,388 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<ui:composition template="/componentesGenerales/plantillas/pltPrincipalSinMenuEjecModal.xhtml">
+<ui:define name="paginacion">
+		<ui:include src="/componentesGenerales/plantillas/pltPaginacion.xhtml">
+			<ui:param name="pagina"
+				value=" Procesos / Postulación " />
+		</ui:include>
+</ui:define>
+<ui:define name="cuerpo">
+<script language="JavaScript">
+//<![CDATA[
+	function abrirVentaReporte(formato, nombreReporte, tipo){
+		var url = "/aplicacion/reportes";
+		url = url + "?nombreJasper=" + nombreReporte;
+		url = url + "&formato=" + formato;
+		url = url + "&tipo=" + tipo;
+		if(formato == 'vista'){
+			var reportWindow = window.open(url, "reportWindow","menubar=0,resizable=0,status=0,width=800,height=600");
+		}else{
+			var reportWindow = window.open(url, "reportWindow","menubar=0,resizable=0,status=0,width=0,height=0");
+		}
+    } 
+	function readPicture(input, output)
+	{
+	    if (input.files && input.files[0])
+	    {
+	        var reader = new FileReader();
+	        reader.onload = function(e)
+	        {
+	            output.attr('src', e.target.result);
+	        };
+	        reader.readAsDataURL(input.files[0]);
+	    }
+	}
+
+	$("[id='#{upload.clientId}']").change(
+	    function()
+	    {
+	        readPicture(this, $("[id='#{image.clientId}']"));
+	    });
+ //]]> 
+</script>
+	<h:form id="frmEditar" enctype="multipart/form-data" acceptcharset="UTF-8" >
+		<!-- ******************** PANEL DE INFORMACION DEL POSTULADO ************************ -->
+		<p:panel id="pnlDatosPersona" header="Información del postulado">
+			<!-- ******************** TABLA RESPONSIVA ************************ -->
+			<div class="grid condensed">
+				<!-- ******************** FILA NUMERO 1 ************************ -->
+				<div class="row cells8"> 
+					<div class="cell colspan4"><!-- NNOMBRES -->
+						<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblNombres" for="txtNombres" value="Nombres: "/>	
+		       				</ui:define>
+		       				<ui:define name="valor">	
+		       					<p:outputLabel id="txtNombres" value="#{postulacionForm.pfPersonaPostulante.prsNombres}" 
+		       									style="font-weight: Normal !important;">
+		       					</p:outputLabel>	
+		       				</ui:define>
+		       			</ui:decorate>
+					</div>
+					<div class="cell colspan4"><!-- PRIMER APELLIDO -->
+						<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblPrimerApellido" for="txtNombres" value="Primer apellido: "/>	
+		       				</ui:define>
+		       				<ui:define name="valor">	
+		       					<p:outputLabel id="txtPrimerApellido" value="#{postulacionForm.pfPersonaPostulante.prsPrimerApellido}" 
+		       									style="font-weight: Normal !important;">
+		       					</p:outputLabel>	
+		       				</ui:define>
+		       			</ui:decorate>
+					</div>
+				</div>  <!-- Fin fila 1 -->
+				<!-- ******************** FILA NUMERO 2 ************************ -->
+				<div class="row cells8"> 
+					<div class="cell colspan4"><!-- SEGUNDO APELLIDO-->
+						<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblSegundoApellido" for="txtSegundoApellido" value="Segundo apellido: "/>	
+		       				</ui:define>
+		       				<ui:define name="valor">	
+		       					<p:outputLabel id="txtSegundoApellido" value="#{postulacionForm.pfPersonaPostulante.prsSegundoApellido}" 
+		       									style="font-weight: Normal !important;">
+		       					</p:outputLabel>	
+		       				</ui:define>
+		       			</ui:decorate>
+					</div>
+					<div class="cell colspan4"><!-- IDENTIFICACION -->
+						<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblIdentificacion" for="txtIdentificacion" value="No.Identificación: "/>	
+		       				</ui:define>
+		       				<ui:define name="valor">	
+		       					<p:outputLabel id="txtIdentificacion" value="#{postulacionForm.pfPersonaPostulante.prsIdentificacion}" 
+		       									style="font-weight: Normal !important;">
+		       					</p:outputLabel>	
+		       				</ui:define>
+		       			</ui:decorate>
+					</div>
+					
+					
+				</div>  <!-- Fin fila 2 -->
+				<div class="row cells8"> 
+					<div class="cell colspan4"><!-- SEGUNDO APELLIDO-->
+						<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblSeleccion" for="foto" value="La imagen que seleccione se imprimirá en su título de posgrado "/>	
+		       				</ui:define>
+		       				<ui:define name="valor">
+									<p:outputLabel id="foto" style="font-weight: Normal !important;"/>
+									<p:fileUpload id="flupArchivoSubir" 
+										fileUploadListener="#{postulacionForm.cargarImagen}" update="txtI3"
+										auto="true" sizeLimit="1572864" allowTypes="/(\.|\/)(png|jpg)$/"
+										invalidSizeMessage="Tamaño de archivo excedido! máximo 1.5 MB"
+										label="Buscar archivo" 
+										invalidFileMessage="Tipo de archivo no válido! solo formato PNG o JPG"
+										uploadLabel="Cargar" style="width:100%" required="true"
+										requiredMessage="Campo requerido" dragDropSupport="false" 
+										disabled="#{cargarNotasComplexivoForm.cncfHabilitadorBuscarArchivo}"/>
+								</ui:define>
+		       			</ui:decorate>
+					</div>
+					<div class="cell colspan4"><!-- IDENTIFICACION -->
+						<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralDisplay.xhtml">
+		       				<ui:define name="etiqueta">	
+		       					<p:outputLabel id="lblI3" for="txtI3" value="Imagen seleccionada: "/>	
+		       				</ui:define>
+		       				<ui:define name="valor">	
+		       					<p:graphicImage id="txtI3" value="#{postulacionForm.image}" height="150" width="100"/>
+		       				</ui:define>
+		       			</ui:decorate>
+					</div>
+					
+					
+				</div>  <!-- Fin fila 2 -->
+				
+				
+				
+				
+			</div>
+		</p:panel>	
+		
+		<!-- ******************** PANEL DE INFORMACION DE LOS DATOS DE RESIDENCIA************************ -->
+		<p:panel id="pnlDtsResidencia" header="Ingrese información de residencia ">
+		<!-- ******************** TABLA RESPONSIVA ************************ -->
+			<div class="grid condensed">
+			<!-- ******************** FILA NUMERO 1 ************************ -->
+				<div class="row cells8"> 
+					<div class="cell colspan4"><!-- pais residencia -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblPaisResidencia" for="slcPaisResidencia" value="País residencia: " />
+							</ui:define>
+							<ui:define name="valor">
+								<h:selectOneMenu id="slcPaisResidencia" value="#{postulacionForm.pfPaisResidenciaId}"
+									required="true" requiredMessage="#{generalesConstantesForm.msgCampoRequerido}" style="width: 100%;">
+									<f:selectItem itemLabel="#{generalesConstantesForm.appSeleccione}" />
+									<f:selectItems var="item"  value="#{postulacionForm.pfListPaises}"
+										itemLabel="#{item.ubcDescripcion}" itemValue="#{item.ubcId}" />
+									<p:ajax event="change" listener="#{postulacionForm.llenarProvinciasXPais(postulacionForm.pfPaisResidenciaId)}" 
+											update="lblPaisResidencia , slcPaisResidencia , msgPaisResidencia , lblProvResidencia , slcProvResidencia , msgProvResidencia, lblCantonResidencia , slcCantonResidencia , msgCantonResidencia " />
+								</h:selectOneMenu>
+							</ui:define>
+							<ui:define name="etiquetaError">
+								<p:message id="msgPaisResidencia" for="slcPaisResidencia" />
+							</ui:define>
+						</ui:decorate>
+					</div>
+			  </div><!-- Fin fila 1-->
+			<!-- ******************** FILA NUMERO 2 ************************ -->
+			<div class="row cells8"> 
+					<div class="cell colspan4"><!-- prov residencia -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblProvResidencia" for="slcProvResidencia" value="Provincia residencia: " />
+							</ui:define>
+							<ui:define name="valor">
+								<h:selectOneMenu id="slcProvResidencia" value="#{postulacionForm.pfProvinciaResidenciaId}"
+									required="#{postulacionForm.pfPaisResidenciaId != generalesConstantesForm.ecuadorValue.intValue()? 'false': true}" 
+									requiredMessage="#{generalesConstantesForm.msgCampoRequerido}"
+									disabled="#{postulacionForm.pfPaisResidenciaId != generalesConstantesForm.ecuadorValue.intValue()? 'true': false}" style="width: 100%;">
+									<f:selectItem itemLabel="#{generalesConstantesForm.appSeleccione}" itemValue="#{generalesConstantesForm.appIdBase}"/>
+									<f:selectItems var="item"  value="#{postulacionForm.pfListProvincias}"
+										itemLabel="#{item.ubcDescripcion}" itemValue="#{item.ubcId}" />
+									<p:ajax event="change" listener="#{postulacionForm.llenarCantonesXProvincias(postulacionForm.pfProvinciaResidenciaId)}"
+											update="lblProvResidencia , slcProvResidencia , msgProvResidencia , lblCantonResidencia , slcCantonResidencia , msgCantonResidencia " />
+								</h:selectOneMenu>
+							</ui:define>
+							<ui:define name="etiquetaError">
+								<p:message id="msgProvResidencia" for="slcProvResidencia" />
+							</ui:define>
+						</ui:decorate>
+					</div>
+					<div class="cell colspan4"><!-- canton residencia -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblCantonResidencia" for="slcCantonResidencia" value="Cantón residencia: " />
+							</ui:define>
+							<ui:define name="valor">
+								<h:selectOneMenu id="slcCantonResidencia" value="#{postulacionForm.pfPostulante.fcesUbicacionResidencia}"
+									required="#{postulacionForm.pfPaisResidenciaId != generalesConstantesForm.ecuadorValue.intValue()? 'false': true}" 
+									requiredMessage="#{generalesConstantesForm.msgCampoRequerido}"
+									disabled="#{postulacionForm.pfPaisResidenciaId != generalesConstantesForm.ecuadorValue.intValue()? 'true': false}"
+									style="width: 100%;">
+									<f:selectItem itemLabel="#{generalesConstantesForm.appSeleccione}" itemValue="#{generalesConstantesForm.appIdBase}"/>
+									<f:selectItems var="item"  value="#{postulacionForm.pfListCantones}"
+										itemLabel="#{item.ubcDescripcion}" itemValue="#{item.ubcId}"/>
+									<p:ajax event="change" update="lblCantonResidencia , slcCantonResidencia , msgCantonResidencia " />
+								</h:selectOneMenu>
+							</ui:define>
+							<ui:define name="etiquetaError">
+								<p:message id="msgCantonResidencia" for="slcCantonResidencia" />
+							</ui:define>
+						</ui:decorate>
+					</div>
+				</div><!-- Fin fila 2-->
+				<!-- ******************** FILA NUMERO 3 ************************ -->
+			</div>
+		</p:panel>
+		
+		<!-- ******************** PANEL DE INFORMACION DE LOS DATOS DE FICHA ESTUDIANTE ************************ -->
+		<p:panel id="pnlDtsProveniencia" header="Ingrese información académica ">
+			<!-- ******************** TABLA RESPONSIVA ************************ -->
+			<div class="grid condensed">
+				<!-- ******************** FILA NUMERO 1 ************************ -->
+				<div class="row cells8">
+			        <div class="cell colspan4" >
+			       		<ui:decorate  template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+			       			<ui:define name="etiqueta">	
+			       				<p:outputLabel id="lblTipoUniversidad" for="slcTipoUniversidad" value="Tipo de Universidad de la que proviene:"/>	
+			     			</ui:define>
+			       			<ui:define name="valor">	
+			       				<h:selectOneMenu id="slcTipoUniversidad" value="#{postulacionForm.pfPostulante.pstTipoUniversidad}" 
+			       								required="true" requiredMessage="#{generalesConstantesForm.msgCampoRequerido}"  style="width: 100%;">
+			       					<f:selectItem itemLabel="#{generalesConstantesForm.appSeleccione}" itemValue="#{generalesConstantesForm.appIdBase}"/> 
+									<f:selectItems value="#{listasCombosForm.listaTipoColegio}" var="item" 
+												  itemLabel="#{item.label}" itemValue="#{item.value}" />
+									<p:ajax event="change"  update="lblTipoUniversidad , slcTipoUniversidad , msgTipoUniversidad " />         
+								</h:selectOneMenu>	
+			       			</ui:define>
+			       			<ui:define name="etiquetaError">
+									<p:message id="msgTipoUniversidad" for="slcTipoUniversidad" />
+							</ui:define>
+			       		</ui:decorate>
+			        </div>
+					<div class="cell colspan4"> <!--Nombre Universidad combo-->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblUniversidad" for="slcUniversidad" value="Nombre de la universidad: " />
+							</ui:define>
+							<ui:define name="valor">
+								<h:selectOneMenu id="slcUniversidad" value="#{postulacionForm.pfPostulante.pstUniversidadId}"
+									requiredMessage="#{generalesConstantesForm.msgCampoRequerido}"
+									required="true"	style="width: 100%;">
+									<f:selectItem itemLabel="#{generalesConstantesForm.appSeleccione}" itemValue="#{generalesConstantesForm.appIdBase}"/>
+									<f:selectItems var="item"  value="#{postulacionForm.pfListUniversidades}"
+										itemLabel="#{item.inacDescripcion}" itemValue="#{item.inacId}" />
+									<p:ajax event="change" update="lblUniversidad , slcUniversidad , msgUniversidad , txtNombreUniversidad , lblNombreUniversidad , msgNombreUniversidad" 
+									listener="#{postulacionForm.verificarIES()}" />
+								</h:selectOneMenu>
+							</ui:define>
+							<ui:define name="etiquetaError">
+								<p:message id="msgUniversidad" for="slcUniversidad" />
+							</ui:define>
+						</ui:decorate>
+					</div>
+				</div> <!-- Fin fila 1-->
+				<!-- ******************** FILA NUMERO 2 ************************ -->
+				<div class="row cells8">
+					<div class="cell colspan4"> <!--Dirección -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblSenecyt" for="txtSenecyt" value="Registro Senescyt del Título que desea registrar: " />
+							</ui:define>
+							<ui:define name="valor">
+									<p:inputText id="txtSenecyt" value="#{postulacionForm.pfPostulante.prtrRegTtlSenecyt}"
+										required="true" requiredMessage="#{generalesConstantesForm.msgCampoRequerido}"
+										maxlength="25">
+										<p:ajax event="blur" update="lblSenecyt , txtSenecyt , msgSenecyt" />
+									</p:inputText>
+							</ui:define>
+							<ui:define name="etiquetaError">
+								<p:message id="msgSenecyt" for="txtSenecyt" />
+							</ui:define>
+						</ui:decorate>
+					</div>
+					
+				</div> <!-- Fin fila 2-->
+				
+				<!-- ******************** FILA NUMERO 3 ************************ -->
+				<div class="row cells12"> 
+					<div class="cell colspan9"> <!--Nombre  Universidad inputText por IES extranjera-->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteBigGeneralEditLarge2.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblNombreUniversidad" for="txtNombreUniversidad" value="Nombre de la Institución de Educación Extranjera :"/>
+							</ui:define>
+							<ui:define name="valor">
+									<p:inputText id="txtNombreUniversidad" value="#{postulacionForm.pfPostulante.pstNombreUniversidad}"
+									title="Nota: Requerido únicamente si se seleccionó IES Extranjeros"
+										required="#{postulacionForm.pfHabilitadorNombreuniversidad == 0? false: true}" 
+									requiredMessage="#{generalesConstantesForm.msgCampoRequerido}"
+										disabled="#{postulacionForm.pfHabilitadorNombreuniversidad == 0? true: false}">
+										<p:ajax event="blur" update="lblNombreUniversidad , txtNombreUniversidad , msgNombreUniversidad" />
+									</p:inputText>
+ 									<p:tooltip id="toolTipFocus" for="txtNombreUniversidad" showEvent="focus" hideEvent="blur" />									
+
+							</ui:define>
+							<ui:define name="etiquetaError">
+								<p:message id="msgNombreUniversidad" for="txtNombreUniversidad" rendered="#{postulacionForm.pfPostulante.pstUniversidadId==5765?true:false}"/>
+							</ui:define>
+							
+						</ui:decorate>
+					</div>
+				</div><!-- Fin fila 3-->
+					
+			</div>
+		</p:panel>
+		<!-- ******************** PANEL DE INFORMACION DE CARRERA A POSTULARSE ************************ -->
+		<p:panel id="pnlConfigCarrera" header="Ingrese la información del programa a postularse">
+			<!-- ******************** TABLA RESPONSIVA ************************ -->
+			<div class="grid condensed">
+				<!-- ******************** FILA NUMERO 1 ************************ -->
+				<div class="row cells8"> 
+					<div class="cell colspan4"><!-- FACULTAD -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblFacultad" for="slcFacultad" value="Facultad: " />
+							</ui:define>
+							<ui:define name="valor">
+								<h:selectOneMenu id="slcFacultad" value="#{postulacionForm.pfFacultad.fclId}"
+									required="true" requiredMessage="#{generalesConstantesForm.msgCampoRequerido}"
+									style="width:100%">
+									<f:selectItem itemLabel="#{generalesConstantesForm.appSeleccione}" itemValue="#{generalesConstantesForm.appIdBase}"/>
+									<f:selectItems var="item"  value="#{postulacionForm.pfListFacultades}"
+										itemLabel="#{item.fclDescripcion}" itemValue="#{item.fclId}" />
+									<p:ajax event="change" listener="#{postulacionForm.llenarCarrerasXfacultad(postulacionForm.pfFacultad.fclId)}"
+											update=" lblFacultad, slcFacultad, msgFacultad, lblCarrera, slcCarrera , msgCarrera " />
+								</h:selectOneMenu>
+							</ui:define>
+							<ui:define name="etiquetaError">
+								<p:message id="msgFacultad" for="slcFacultad" />
+							</ui:define>
+						</ui:decorate>
+					</div>
+					<div class="cell colspan4"><!-- CARRERA -->
+						<ui:decorate template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+							<ui:define name="etiqueta">
+								<p:outputLabel id="lblCarrera" for="slcCarrera" value="Programa: " />
+							</ui:define>
+							<ui:define name="valor">
+								<h:selectOneMenu id="slcCarrera" value="#{postulacionForm.pfCarrera.crrId}"
+									required="true" requiredMessage="#{generalesConstantesForm.msgCampoRequerido}"
+									style="width:100%">
+									<f:selectItem itemLabel="#{generalesConstantesForm.appSeleccione}" itemValue="#{generalesConstantesForm.appIdBase}" />
+									<f:selectItems var="item"  value="#{postulacionForm.pfListCarreras}"
+										itemLabel="#{item.crrDetalle}" itemValue="#{item.crrId}" />
+										<p:ajax event="change" listener="#{postulacionForm.buscarPostulacionActiva()}"
+										update=" lblCarrera, slcCarrera , msgCarrera , btnPostular " />
+								</h:selectOneMenu>
+							</ui:define>
+							<ui:define name="etiquetaError">
+								<p:message id="msgCarrera" for="slcCarrera" />
+							</ui:define>
+						</ui:decorate>
+					</div>
+				</div>  <!-- Fin fila 1 -->
+				<!-- ******************** FILA NUMERO 2 ************************ -->
+				
+			</div>
+		</p:panel>		
+		<div >
+			<p:commandButton id="btnCancelar" value="Cancelar" immediate="true" ajax="false" 
+				action="#{postulacionForm.cancelarPostulacion()}"  />
+			<p:commandButton id="btnPostular" value="Postular" action="#{postulacionForm.postular()}" 
+				ajax="false" disabled="#{postulacionForm.pfHabilitadorGuardar}" update = "btnPostular">
+			</p:commandButton>
+		</div>
+	</h:form>
+</ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+	<h:body>
+		<h:form>
+			<p:menubar>	
+				<p:submenu label="Procesos" rendered="#{sesionUsuarioForm.postulante}">
+					<p:menuitem value="Postulación" action="#{postulacionForm.iniciarPostulacion(sesionUsuarioForm.frmSuUsuario)}" ajax="false" />
+			    </p:submenu>
+			    <p:submenu label="Visualización" rendered="#{sesionUsuarioForm.postulante}" >
+					<p:menuitem value="Postulación" action="#{visualizacionForm.irListarPostulacion(sesionUsuarioForm.frmSuUsuario)}" ajax="false" />
+				</p:submenu>
+				<p:submenu label="Perfil" rendered="#{sesionUsuarioForm.postulante}">
+					<p:menuitem value="Cambiar contraseña" action="#{cambioClaveForm.irCambioClave(sesionUsuarioForm.frmSuUsuario)}" ajax="false" />
+					<p:menuitem value="Mi perfil" action="#{perfilPostulanteForm.iniciarPerfil(sesionUsuarioForm.frmSuUsuario)}" ajax="false" />
+			    </p:submenu>
+				<p:submenu label="Administración" rendered="#{sesionUsuarioForm.administrador}" >
+					<p:menuitem value="Modificar correo electrónico" action="#{reseteoMailForm.irListaReseteoMail(sesionUsuarioForm.frmSuUsuario)}" ajax="false" />
+				<p:menuitem value="Usuarios" action="#{administracionUsuarioForm.irListar(sesionUsuarioForm.frmSuUsuario)}" ajax="false" />
+				</p:submenu> 
+				 <p:submenu label="Validación" rendered="#{sesionUsuarioForm.secretaria}">
+					<p:menuitem value="1. Declaratoria de idoneidad" action="#{validacionPosgradistaForm.irlistarPostuladosValidacion(sesionUsuarioForm.frmSuUsuario)}" ajax="false" />
+			    	<p:menuitem value="2. Declarar aptitud" action="#{aptitudSecretariaForm.ListarEvaluadosAptitudOtrosMecanismos(sesionUsuarioForm.frmSuUsuario)}" ajax="false" />
+			    	<p:menuitem value="3. Ingresar notas de grado" action="#{modificarNotasTribunalSecretariaForm.ListarPendientesTribunalLector(sesionUsuarioForm.frmSuUsuario)}" ajax="false" />
+			    	<p:menuitem value="4. Edición docentes" action="#{edicionDocentesForm.ListarDocentes(sesionUsuarioForm.frmSuUsuario)}" ajax="false" />
+			    	<p:menuitem value="5. Registro actualización" action="#{actualizarConocimientosForm.irlistarPostuladosActualizar(sesionUsuarioForm.frmSuUsuario)}" ajax="false" />
+			    	<p:menuitem value="6. Administrar Fotografías"	action="#{administrarFotografiasForm.iniciarAdministracionFotografias(sesionUsuarioForm.frmSuUsuario)}" ajax="false" />
+			    </p:submenu>
+			    <p:submenu label="Acta de posgrado" rendered="#{sesionUsuarioForm.secretaria}">
+					<p:menuitem value="Generar" action="#{actaGradoSecretariaForm.irlistarActaGrado(sesionUsuarioForm.frmSuUsuario)}" ajax="false" />
+					 <p:submenu label="Impresión">
+						<p:menuitem value="Actas individuales" action="#{imprimirActaGradoSecretariaForm.irImprimirActaGrado(sesionUsuarioForm.frmSuUsuario)}" ajax="false" />
+		            </p:submenu>
+			    </p:submenu>
+			    <p:submenu label="Administración unidad de titulación" rendered="#{sesionUsuarioForm.evaluador}">
+			    	<p:menuitem value="1. Asignación del mecanismo de titulación" action="#{asignacionMecanismoForm.irListarAsignacionMecanismos(sesionUsuarioForm.frmSuUsuario)}" ajax="false" />
+					
+			    </p:submenu>
+			    <p:submenu label="Reportes de consulta" rendered="#{sesionUsuarioForm.secretaria or sesionUsuarioForm.consultor}">
+					<p:menuitem value="Estados de postulantes" action="#{reportesForm.irReportesEstadoPostulantes(sesionUsuarioForm.frmSuUsuario)}" ajax="false" />
+			    </p:submenu>
+			    <p:submenu label="Reportes Director" rendered="#{sesionUsuarioForm.evaluador}">
+					<p:menuitem value="Estados de postulantes" action="#{reportesForm.irReportesEstadoPostulantes(sesionUsuarioForm.frmSuUsuario)}" ajax="false" />
+			    </p:submenu>
+			     <p:submenu label="Autoridades" rendered="#{sesionUsuarioForm.editorDgip or sesionUsuarioForm.administrador}">
+					<p:menuitem value="Administración autoridades" action="#{administracionAutoridadesForm.irListarAutoridad(sesionUsuarioForm.frmSuUsuario)}" ajax="false" />
+			    </p:submenu>
+			     <p:submenu label="Reportes de consulta" rendered="#{sesionUsuarioForm.editorDgip}">
+					<p:menuitem value="Estados de postulantes" action="#{reportesForm.irReportesEstadoPostulantes(sesionUsuarioForm.frmSuUsuario)}" ajax="false" />
+			    </p:submenu>
+				<f:facet name="options">
+				<a href="#{request.contextPath}/j_spring_security_logout">Salir del Sistema</a>
+				</f:facet>
+			</p:menubar>
+		</h:form>
+	</h:body> 
+</html>

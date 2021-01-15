@@ -51,6 +51,9 @@
 			     <p:submenu label="Reportes de consulta" rendered="#{sesionUsuarioForm.editorDgip}">
 					<p:menuitem value="Estados de postulantes" action="#{reportesForm.irReportesEstadoPostulantes(sesionUsuarioForm.frmSuUsuario)}" ajax="false" />
 			    </p:submenu>
+			    <p:submenu label="Administrar Programas" rendered="#{sesionUsuarioForm.editorDgip}">
+					<p:menuitem value="Crear Programa" action="#{programasForm.irIngresarPrograma(sesionUsuarioForm.frmSuUsuario)}" ajax="false" />
+			    </p:submenu>
 				<f:facet name="options">
 				<a href="#{request.contextPath}/j_spring_security_logout">Salir del Sistema</a>
 				</f:facet>

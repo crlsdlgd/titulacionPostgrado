@@ -138,9 +138,20 @@
 			<to-view-id>/titulacionPosgrado/administracion/autoridad/verAutoridades.xhtml</to-view-id>
 		</navigation-case>
 		<!-- Navegacion hasta el xhtml regresarListarAutoridades para el rol EDITOR DGA -->
+<!-- 		<navigation-case> -->
+<!-- 			<from-outcome>irCancelarVer</from-outcome> -->
+<!-- 			<to-view-id>/titulacionPosgrado/administracion/autoridad/listarAutoridades.xhtml</to-view-id> -->
+<!-- 		</navigation-case> -->
+		
+		<!-- Navegacion hasta el xhtml ir a la pagina para crear programa para el rol EDITOR DGA -->
+		<navigation-case>
+			<from-outcome>irCrearPrograma</from-outcome>
+			<to-view-id>/titulacionPosgrado/administracion/adminDGIP/programas/crearPrograma.xhtml</to-view-id>
+		</navigation-case>
+		<!-- Navegacion hasta el xhtml regresar de crear programa para el rol EDITOR DGA -->
 		<navigation-case>
 			<from-outcome>irCancelarVer</from-outcome>
-			<to-view-id>/titulacionPosgrado/administracion/autoridad/listarAutoridades.xhtml</to-view-id>
+			<to-view-id>/titulacionPosgrado/generalidades/principal.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	<!--======================================================================================= 

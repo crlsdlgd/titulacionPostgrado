@@ -43,9 +43,11 @@
         <security:intercept-url pattern="/titulacionPosgrado/reportes/general/reportesEstadoPostulantes.jsf" access="hasAnyRole('ROLE_CONSULTOR','ROLE_EDITORDGIP','ROLE_VALIDADOR','ROLE_EVALUADOR')"/>
         <security:intercept-url pattern="/titulacionPosgrado/reportes/editor_dga/reportesRegistrados.jsf" access="hasAnyRole('ROLE_CONSULTOR','ROLE_EDITORDGIP','ROLE_VALIDADOR','ROLE_EVALUADOR')"/>
         <security:intercept-url pattern="/titulacionPosgrado/reportes/editor_dga/reportesRegistradosYPostulados.jsf" access="hasAnyRole('ROLE_CONSULTOR','ROLE_EDITORDGIP','ROLE_VALIDADOR','ROLE_EVALUADOR')"/>
-        
+        <security:intercept-url pattern="/titulacionPosgrado/administracion/adminDGIP/programas/**" access="hasAnyRole('ROLE_EDITORDGIP')"/>        
+
         <!-- ========================= ACCESOS PARA EL ROL EVALUADOR ========================= -->
-        <security:intercept-url pattern="/titulacionPosgrado/evaluacion/**" access="hasAnyRole('ROLE_EVALUADOR')"/>
+        <security:intercept-url pattern="/titulacionPosgrado/evaluador/**" access="hasAnyRole('ROLE_EVALUADOR')"/>
+
         
        <security:intercept-url pattern="/titulacionPosgrado/**" access="isAuthenticated()"/>
         <security:logout invalidate-session="true" logout-url="/j_spring_security_logout"/>

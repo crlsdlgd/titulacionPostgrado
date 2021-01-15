@@ -1,0 +1,57 @@
+/**************************************************************************
+ *				(c) Copyright UNIVERSIDAD CENTRAL DEL ECUADOR. 
+ *                            www.uce.edu.ec
+
+ * Este programa de computador es propiedad de la UNIVERSIDAD CENTRAL DEL ECUADOR
+ * y esta protegido por las leyes y tratados internacionales de derechos de 
+ * autor. El uso, reproducción o distribución no autorizada de este programa, 
+ * o cualquier porción de él, puede dar lugar a sanciones criminales y 
+ * civiles severas, y serán procesadas con el grado máximo contemplado 
+ * por la ley.
+ 
+ ************************************************************************* 
+   
+ ARCHIVO:     ProgramaImpl.java	  
+ DESCRIPCION: EJB sin estado que maneja las peticiones de programas de los usuarios. 
+ *************************************************************************
+                           	MODIFICACIONES
+                            
+ FECHA         		     AUTOR          					COMENTARIOS
+ 12/1/2021				Carlos Delgado 						Emisión Inicial
+ ***************************************************************************/
+package ec.edu.uce.titulacionPosgrado.ejb.servicios.impl;
+
+import java.util.List;
+
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+
+import ec.edu.uce.titulacionPosgrado.ejb.servicios.interfaces.ProgramaServicio;
+import ec.edu.uce.titulacionPosgrado.ejb.utilidades.constantes.GeneralesConstantes;
+import ec.edu.uce.titulacionPosgrado.ejb.utilidades.servicios.MensajeGeneradorUtilidades;
+import ec.edu.uce.titulacionPosgrado.jpa.entidades.publico.TipoSede;
+
+@Stateless
+public class ProgramaImpl implements ProgramaServicio{
+
+	@PersistenceContext(unitName=GeneralesConstantes.APP_UNIDAD_PERSISTENCIA)
+	private EntityManager em;
+	
+	//El tipo de sede se filtra x defecto por el regimen academico 2009 y 2013 (RGAC_ID IN (1,2))
+	@Override
+	public List<TipoSede> ListarTodosTipoSede() {
+		List<TipoSede> retorno =null;
+		StringBuffer sbsql = new StringBuffer();
+		sbsql.append("Select ts from TipoSede ts ");
+		sbsql.append("where ts.tiseRegimenAcademico.rgacId in (1,2)");
+		Query q = em.createQuery(sbsql.toString());
+		retorno = q.getResultList();
+		if(retorno.size()<=0){
+			//throw new TipoSedeNoEncontradoException(MensajeGeneradorUtilidades.getMsj(new MensajeGeneradorUtilidades("TipoSede.buscar.todos.no.result.exception")));
+		}
+		return retorno;
+	}
+
+}

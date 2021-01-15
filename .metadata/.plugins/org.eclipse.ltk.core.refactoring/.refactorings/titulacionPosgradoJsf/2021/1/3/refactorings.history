@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;ec.edu.uce.titulacionPosgrado.jsf.managedBeans.programas.Programa&apos; to &apos;ProgramaBean&apos;&#x0D;&#x0A;- Original project: &apos;titulacionPosgradoJsf&apos;&#x0D;&#x0A;- Original element: &apos;ec.edu.uce.titulacionPosgrado.jsf.managedBeans.programas.Programa&apos;&#x0D;&#x0A;- Renamed element: &apos;ec.edu.uce.titulacionPosgrado.jsf.managedBeans.programas.ProgramaBean&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Programa&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;ec.edu.uce.titulacionPosgrado.jsf.managedBeans.programas{Programa.java[Programa" matchStrategy="1" name="ProgramaBean" qualified="false" references="true" similarDeclarations="false" stamp="1610487316818" textual="false" version="1.0"/>
+</session>

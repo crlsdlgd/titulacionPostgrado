@@ -1,0 +1,304 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition
+	template="/componentesGenerales/plantillas/pltPrincipalSinMenuEjecModal.xhtml">
+	<ui:define name="paginacion">
+		<ui:include src="/componentesGenerales/plantillas/pltPaginacion.xhtml">
+			<ui:param name="pagina" value="Administración de Programas " />
+		</ui:include>
+	</ui:define>
+	<ui:define name="cuerpo">
+		<h:body>
+			<f:event type="preRenderView"
+				listener="#{programasForm.cargarPrograma()}" />
+			<h:form id="formBodyCrearPrograma" enctype="multipart/form-data"
+				acceptcharset="UTF-8">
+				<p:panel id="pnlPrograma" header="Ingrese datos del Programa">
+
+					<!--******************** TABLA RESPONSIVA ************************ -->
+					<div class="grid condensed">
+						<!--******************** FILA NUMERO 1 NOMBRE DE PROGRAMA************************ -->
+						<div class="row cells8">
+							<div class="cell colspan3">
+								<ui:decorate
+									template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+									<ui:define name="etiqueta">
+										<p:outputLabel id="lblAtrNombrePrograma"
+											for="inpAtrNombrePrograma" value="Nombre del Programa: " />
+									</ui:define>
+									<ui:define name="valor">
+										<p:inputText id="inpAtrNombrePrograma"
+											value="#{programasForm.nombrePrograma}" required="true" />
+									</ui:define>
+									<ui:define name="etiquetaError">
+										<p:message id="msgAtrNombrePrograma"
+											for="inpAtrNombrePrograma" />
+									</ui:define>
+								</ui:decorate>
+							</div>
+						</div>
+						<!--******************** FIN FILA NUMERO 1 NOMBRE DE PROGRAMA************************ -->
+				</p:panel>
+				<p:panel id="pnlConfiguracionPrograma"
+					header="Ingrese las Configuraciones del Programa">
+					<!-- 						******************** FILA NUMERO 2 COMBO FACULTAD************************ -->
+					<div class="row cells8">
+						<div class="cell colspan3">
+							<ui:decorate
+								template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+								<ui:define name="etiqueta">
+									<p:outputLabel id="lblFacultad" for="slcFacultad"
+										value="Facultad: " />
+
+								</ui:define>
+								<ui:define name="valor">
+									<h:selectOneMenu id="slcFacultad"
+										value="#{programasForm.listFacultad}" required="true"
+										requiredMessage="#{generalesConstantesForm.msgCampoRequerido}"
+										style="width:100%">
+										<f:selectItem
+											itemLabel="#{generalesConstantesForm.appSeleccione}" />
+										<f:selectItems var="item"
+											value="#{programasForm.listFacultad}"
+											itemLabel="#{item.fclDescripcion}" itemValue="#{item.fclId}" />
+									</h:selectOneMenu>
+								</ui:define>
+								<ui:define name="etiquetaError">
+									<p:message id="msgFacultad" for="slcFacultad" />
+								</ui:define>
+							</ui:decorate>
+						</div>
+					</div>
+					<!-- ******************** FIN FILA NUMERO 2 COMBO FACULTAD************************ -->
+					<!-- ******************** FILA NUMERO 3 COMBO TITULO************************ -->
+					<div class="row cells8">
+						<div class="cell colspan3">
+							<ui:decorate
+								template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+								<ui:define name="etiqueta">
+									<p:outputLabel id="lblAtrTitulo" for="slcAtrTitulo"
+										value="Titulo: " />
+								</ui:define>
+								<ui:define name="valor">
+									<h:selectOneMenu id="slcAtrTitulo"
+										value="#{programasForm.listTitulo}" required="true"
+										requiredMessage="#{generalesConstantesForm.msgCampoRequerido}"
+										style="width:100%">
+										<f:selectItem
+											itemLabel="#{generalesConstantesForm.appSeleccione}" />
+										<f:selectItems var="item" value="#{programasForm.listTitulo}"
+											itemLabel="#{item.ttlDescripcion}" itemValue="#{item.ttlId}" />
+										<p:ajax event="change"
+											update="lblAtrTitulo , slcAtrTitulo , msgAtrTitulo " />
+									</h:selectOneMenu>
+								</ui:define>
+								<ui:define name="etiquetaError">
+									<p:message id="msgAtrTitulo" for="slcAtrTitulo" />
+								</ui:define>
+							</ui:decorate>
+						</div>
+					</div>
+					<!-- ******************** FIN FILA NUMERO 3 COMBO TITULO************************ -->
+					<!-- ******************** FILA NUMERO 4 COMBO TIPO FORMACION ************************ -->
+					<div class="row cells8">
+						<div class="cell colspan3">
+							<ui:decorate
+								template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+								<ui:define name="etiqueta">
+									<p:outputLabel id="lblAtrTipoFormacion"
+										for="slcAtrTipoFormacion" value="Tipo de Formacion: " />
+								</ui:define>
+								<ui:define name="valor">
+									<h:selectOneMenu id="slcAtrTipoFormacion"
+										value="#{programasForm.listTipoFormacion}" required="true"
+										requiredMessage="#{generalesConstantesForm.msgCampoRequerido}"
+										style="width:100%">
+										<f:selectItem
+											itemLabel="#{generalesConstantesForm.appSeleccione}" />
+										<f:selectItems var="item"
+											value="#{programasForm.listTipoFormacion}"
+											itemLabel="#{item.tifrDescripcion}"
+											itemValue="#{item.tifrId}" />
+										<p:ajax event="change"
+											update="lblAtrTipoFormacion , slcAtrTipoFormacion , msgAtrTipoFormacion " />
+									</h:selectOneMenu>
+								</ui:define>
+								<ui:define name="etiquetaError">
+									<p:message id="msgAtrTipoFormacion" for="slcAtrTipoFormacion" />
+								</ui:define>
+							</ui:decorate>
+						</div>
+					</div>
+					<!-- ******************** FIN FILA NUMERO 4 COMBO TIPO FORMACION************************ -->
+					<!-- ******************** FILA NUMERO 5 COMBO MODALIDAD************************ -->
+					<div class="row cells8">
+						<div class="cell colspan3">
+							<ui:decorate
+								template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+								<ui:define name="etiqueta">
+									<p:outputLabel id="lblAtrModalidad" for="slcAtrModalidad"
+										value="Modalidad: " />
+								</ui:define>
+								<ui:define name="valor">
+									<h:selectOneMenu id="slcAtrModalidad"
+										value="#{programasForm.listModalidad}" required="true"
+										requiredMessage="#{generalesConstantesForm.msgCampoRequerido}"
+										style="width:100%">
+										<f:selectItem
+											itemLabel="#{generalesConstantesForm.appSeleccione}" />
+										<f:selectItems var="item"
+											value="#{programasForm.listModalidad}"
+											itemLabel="#{item.mdlDescripcion}" itemValue="#{item.mdlId}" />
+										<p:ajax event="change"
+											update="lblAtrModalidad , slcAtrModalidad , msgAtrModalidad " />
+									</h:selectOneMenu>
+								</ui:define>
+								<ui:define name="etiquetaError">
+									<p:message id="msgAtrModalidad" for="slcAtrModalidad" />
+								</ui:define>
+							</ui:decorate>
+						</div>
+					</div>
+					<!-- ******************** FIN FILA NUMERO 5 COMBO MODALIDAD************************ -->
+					<!-- ******************** FILA NUMERO 6 COMBO TIPO SEDE************************ -->
+					<div class="row cells8">
+						<div class="cell colspan3">
+							<ui:decorate
+								template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+								<ui:define name="etiqueta">
+									<p:outputLabel id="lblAtrSede" for="slcAtrSede" value="Sede: " />
+								</ui:define>
+								<ui:define name="valor">
+									<h:selectOneMenu id="slcAtrSede"
+										value="#{programasForm.listTipoSede}" required="true"
+										requiredMessage="#{generalesConstantesForm.msgCampoRequerido}"
+										style="width:100%">
+										<f:selectItem
+											itemLabel="#{generalesConstantesForm.appSeleccione}" />
+										<f:selectItems var="item"
+											value="#{programasForm.listTipoSede}"
+											itemLabel="#{item.tiseDescripcion}"
+											itemValue="#{item.tiseId}" />
+										<p:ajax event="change"
+											update="lblAtrSede , slcAtrSede , msgAtrSede " />
+									</h:selectOneMenu>
+								</ui:define>
+								<ui:define name="etiquetaError">
+									<p:message id="msgAtrSede" for="slcAtrSede" />
+								</ui:define>
+							</ui:decorate>
+						</div>
+					</div>
+					<!-- ******************** FIN FILA NUMERO 6 COMBO TIPO SEDE************************ -->
+					<!-- ******************** FILA NUMERO 7 COMBO UBICACION************************ -->
+					<div class="row cells8">
+						<div class="cell colspan3">
+							<ui:decorate
+								template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+								<ui:define name="etiqueta">
+									<p:outputLabel id="lblAtrUbicacion" for="slcAtrUbicacion"
+										value="Ubicación: " />
+								</ui:define>
+								<ui:define name="valor">
+									<h:selectOneMenu id="slcAtrUbicacion"
+										value="#{programasForm.listUbicacion}" required="true"
+										requiredMessage="#{generalesConstantesForm.msgCampoRequerido}"
+										style="width:100%">
+										<f:selectItem
+											itemLabel="#{generalesConstantesForm.appSeleccione}" />
+										<f:selectItems var="item"
+											value="#{programasForm.listUbicacion}"
+											itemLabel="#{item.ubcDescripcion}" itemValue="#{item.ubcId}" />
+										<p:ajax event="change"
+											update="lblAtrUbicacion , slcAtrUbicacion , msgAtrUbicacion " />
+									</h:selectOneMenu>
+								</ui:define>
+								<ui:define name="etiquetaError">
+									<p:message id="msgAtrUbicacion" for="slcAtrUbicacion" />
+								</ui:define>
+							</ui:decorate>
+						</div>
+					</div>
+					<!-- ******************** FIN FILA NUMERO 7 COMBO UBICACION************************ -->
+					<!-- ******************** FILA NUMERO 8 COMBO DURACION************************ -->
+					<div class="row cells8">
+						<div class="cell colspan3">
+							<ui:decorate
+								template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+								<ui:define name="etiqueta">
+									<p:outputLabel id="lblAtrDuracion" for="slcAtrDuracion"
+										value="Duración: " />
+								</ui:define>
+								<ui:define name="valor">
+									<h:selectOneMenu id="slcAtrDuracion"
+										value="#{programasForm.listDuracion}" required="true"
+										requiredMessage="#{generalesConstantesForm.msgCampoRequerido}"
+										style="width:100%">
+										<f:selectItem
+											itemLabel="#{generalesConstantesForm.appSeleccione}" />
+										<f:selectItems var="item"
+											value="#{programasForm.listDuracion}"
+											itemLabel="#{item.drcTipo}" itemValue="#{item.drcId}" />
+										<p:ajax event="change"
+											update="lblAtrDuracion , slcAtrDuracion , msgAtrDuracion " />
+									</h:selectOneMenu>
+								</ui:define>
+								<ui:define name="etiquetaError">
+									<p:message id="msgAtrDuracion" for="slcAtrDuracion" />
+								</ui:define>
+							</ui:decorate>
+						</div>
+					</div>
+					<!-- ******************** FIN FILA NUMERO 8 COMBO DURACION************************ -->
+					<!-- ******************** FILA NUMERO 9 COMBO VIGENCIA************************ -->
+					<div class="row cells8">
+						<div class="cell colspan3">
+							<ui:decorate
+								template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
+								<ui:define name="etiqueta">
+									<p:outputLabel id="lblAtrVigencia" for="slcAtrVigencia"
+										value="Vigencia: " />
+								</ui:define>
+								<ui:define name="valor">
+									<h:selectOneMenu id="slcAtrVigencia"
+										value="#{programasForm.listVigencia}" required="true"
+										requiredMessage="#{generalesConstantesForm.msgCampoRequerido}"
+										style="width:100%">
+										<f:selectItem
+											itemLabel="#{generalesConstantesForm.appSeleccione}" />
+										<f:selectItems var="item"
+											value="#{programasForm.listVigencia}"
+											itemLabel="#{item.vgnDescripcion}" itemValue="#{item.vgnId}" />
+										<p:ajax event="change"
+											update="lblAtrVigencia , slcAtrVigencia , msgAtrVigencia " />
+									</h:selectOneMenu>
+								</ui:define>
+								<ui:define name="etiquetaError">
+									<p:message id="msgAtrVigencia" for="slcAtrVigencia" />
+								</ui:define>
+							</ui:decorate>
+						</div>
+					</div>
+					<!-- ******************** FIN FILA NUMERO 9 COMBO VIGENCIA************************ -->
+					<!-- ********************   BOTONES  ************************ -->
+					<div>
+						<p:commandButton id="btnCancelar" value="Regresar"
+							action="#{programasForm.irCancelarVer()}" immediate="true"
+							ajax="false" onclick="PF('dialogoTrabajando').show();"
+							onsuccess="PF('dialogoTrabajando').hide();" />
+						<p:commandButton id="btnGuardar" value="Guardar"
+							action="#{programasForm.guardarPrograma()}" ajax="false" />
+					</div>
+					<!-- ********************   FIN BOTONES  ************************ -->
+					</div>
+				</p:panel>
+			</h:form>
+		</h:body>
+	</ui:define>
+</ui:composition>
+</html>

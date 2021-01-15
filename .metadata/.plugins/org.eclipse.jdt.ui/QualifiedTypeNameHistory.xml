@@ -1,2 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="ec.edu.uce.titulacionPosgrado.jpa.entidades.publico.Usuario"/>
+<fullyQualifiedTypeName name="ec.edu.uce.titulacionPosgrado.jpa.entidades.publico.Ubicacion"/>
+<fullyQualifiedTypeName name="ec.edu.uce.titulacionPosgrado.jpa.entidades.publico.Carrera"/>
+<fullyQualifiedTypeName name="ec.edu.uce.titulacionPosgrado.jpa.entidades.publico.Titulo"/>
+<fullyQualifiedTypeName name="ec.edu.uce.titulacionPosgrado.ejb.servicios.interfaces.UbicacionServicio"/>
+<fullyQualifiedTypeName name="ec.edu.uce.titulacionPosgrado.ejb.servicios.interfaces.CarreraServicio"/>
+<fullyQualifiedTypeName name="ec.edu.uce.titulacionPosgrado.ejb.servicios.interfaces.TituloServicio"/>
+<fullyQualifiedTypeName name="ec.edu.uce.titulacionPosgrado.jpa.entidades.publico.Facultad"/>
+<fullyQualifiedTypeName name="ec.edu.uce.titulacionPosgrado.ejb.servicios.interfaces.FacultadServicio"/>
+<fullyQualifiedTypeName name="java.lang.Exception"/>
+<fullyQualifiedTypeName name="ec.edu.uce.titulacionPosgrado.ejb.dtos.CarreraDto"/>
+<fullyQualifiedTypeName name="ec.edu.uce.titulacionPosgrado.ejb.servicios.interfaces.ProgramaServicio"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="ec.edu.uce.titulacionPosgrado.jpa.entidades.publico.TipoSede"/>
+<fullyQualifiedTypeName name="ec.edu.uce.titulacionPosgrado.jpa.entidades.publico.TipoFormacion"/>
+<fullyQualifiedTypeName name="ec.edu.uce.titulacionPosgrado.jpa.entidades.publico.Vigencia"/>
+<fullyQualifiedTypeName name="ec.edu.uce.titulacionPosgrado.jpa.entidades.publico.Modalidad"/>
+<fullyQualifiedTypeName name="ec.edu.uce.titulacionPosgrado.jpa.entidades.publico.Duracion"/>
+<fullyQualifiedTypeName name="ec.edu.uce.titulacionPosgrado.jpa.entidades.publico.ConfiguracionCarrera"/>
+</qualifiedTypeNameHistroy>

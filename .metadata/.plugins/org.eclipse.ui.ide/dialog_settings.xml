@@ -12,4 +12,6 @@
 		<item value="112" key="DIALOG_Y_ORIGIN"/>
 		<item value="true" key="BUILD_NOW"/>
 	</section>
+	<section name="NewWizardAction">
+	</section>
 </section>

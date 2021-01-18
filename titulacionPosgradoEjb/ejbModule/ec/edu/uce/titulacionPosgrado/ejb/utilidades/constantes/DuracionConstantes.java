@@ -29,7 +29,7 @@ package ec.edu.uce.titulacionPosgrado.ejb.utilidades.constantes;
  */
 public class DuracionConstantes {
 	
-	// constantes para el campo de apt_requisitos
+	// constantes para el campo de apt_requisitos duracion
 	public static final int DURACION_TIPO_ANIOS_VALUE= Integer.valueOf(0);
 	public static final String DURACION_TIPO_ANIOS_LABEL = "AÑOS";
 	public static final int DURACION_TIPO_SEMESTRES_VALUE = Integer.valueOf(1);

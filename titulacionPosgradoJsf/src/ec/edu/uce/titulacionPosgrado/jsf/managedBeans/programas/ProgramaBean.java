@@ -28,6 +28,7 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.model.SelectItem;
 
 import ec.edu.uce.titulacionPosgrado.ejb.dtos.CarreraDto;
 import ec.edu.uce.titulacionPosgrado.ejb.excepciones.UsuarioRolException;
@@ -39,6 +40,7 @@ import ec.edu.uce.titulacionPosgrado.ejb.servicios.interfaces.TituloServicio;
 import ec.edu.uce.titulacionPosgrado.ejb.servicios.interfaces.UbicacionServicio;
 import ec.edu.uce.titulacionPosgrado.ejb.servicios.interfaces.UsuarioRolServicio;
 import ec.edu.uce.titulacionPosgrado.ejb.servicios.jdbc.interfaces.CarreraDtoServicioJdbc;
+import ec.edu.uce.titulacionPosgrado.ejb.utilidades.constantes.DuracionConstantes;
 import ec.edu.uce.titulacionPosgrado.ejb.utilidades.constantes.UsuarioRolConstantes;
 import ec.edu.uce.titulacionPosgrado.ejb.utilidades.servicios.MensajeGeneradorUtilidades;
 import ec.edu.uce.titulacionPosgrado.jpa.entidades.publico.Carrera;
@@ -72,7 +74,6 @@ public class ProgramaBean implements Serializable {
 	private Integer crrEspeCodigo;
 	private Integer crrTipoEvaluacion;
 	private Integer crrNumActaGrado;
-//	private Carrera crr;
 	private String ttlDescripcion;
 
 	// Lista Datos de la tabla configuracion_carrera
@@ -85,6 +86,8 @@ public class ProgramaBean implements Serializable {
 	private List<Titulo> listTitulo;
 	private List<Vigencia> listVigencia;
 
+	private List<SelectItem> listItemDuracion;
+
 	// Datos de la tabla configuracion_carrera
 	private Integer fclId;
 	private Integer tifrId;
@@ -92,19 +95,8 @@ public class ProgramaBean implements Serializable {
 	private Integer tiseId;
 	private Integer ubcId;
 	private Integer drcId;
-//	private Integer ttlId;
 	private Integer vgnId;
 
-	// private Facultad slcFacultad;
-	// private TipoFormacion slcTipoFormacion;
-	// private Modalidad slcModalidad;
-	// private TipoSede slcTipoSede;
-	// private Ubicacion slcUbicacion;
-	// private Duracion slcDuracion;
-	// private Titulo slcTitulo;
-	// private Vigencia slcVigencia;
-
-//	private ConfiguracionCarrera cncr;
 	// *****************************************************************/
 	// ********************** Servicios de programaForm*****************/
 	// *****************************************************************/
@@ -144,7 +136,6 @@ public class ProgramaBean implements Serializable {
 
 	public void cargarPrograma() throws Exception {
 		listFacultad = servFacultadServicio.listarTodos();
-		// listTitulo= servTituloServicio.listarTodos();
 		listUbicacion = servUbicacionServicio.listarTodos();
 		listTipoSede = servProgramaServicio.ListarTodosTipoSede();
 		listTipoFormacion = servProgramaServicio.ListarTodosTipoFormacion();
@@ -169,49 +160,85 @@ public class ProgramaBean implements Serializable {
 		Carrera crr = new Carrera();
 		ConfiguracionCarrera cncr = new ConfiguracionCarrera();
 
-		slcFacultad.setFclId(fclId);
-		
-		// Seteamos Carrera
-		crr.setCrrFacultad(slcFacultad);
-		crr.setCrrDescripcion(crrNombrePrograma);
-		crr.setCrrCodSniese(crrCodSniese);
-		crr.setCrrEspeCodigo(crrEspeCodigo);
-		crr.setCrrNivel(crrNivel);
-		crr.setCrrTipoEvaluacion(crrTipoEvaluacion);
-
-		slcTipoFormacion.setTifrId(tifrId);
-		slcModalidad.setMdlId(mdlId);
-		slcTipoSede.setTiseId(tiseId);
-		slcUbicacion.setUbcId(ubcId);
-		slcDuracion.setDrcId(drcId);
-		slcTitulo.setTtlDescripcion(ttlDescripcion);
-		slcVigencia.setVgnId(vgnId);
-		
-		// Seteamos Configuracion Carrera
-		cncr.setCncrCarrera(crr);
-		cncr.setCncrTipoFormacion(slcTipoFormacion);
-		cncr.setCncrModalidad(slcModalidad);
-		cncr.setCncrTipoSede(slcTipoSede);
-		cncr.setCncrUbicacion(slcUbicacion);
-		cncr.setCncrDuracion(slcDuracion);
-		cncr.setCncrTitulo(slcTitulo);
-		cncr.setCncrVigencia(slcVigencia);
-		
 		try {
-			servProgramaServicio.guardarPrograma(crr, cncr);
-			FacesUtil.mensajeInfo("Programa creado exitosamente");
+
+			slcFacultad.setFclId(fclId);
+
+			// Seteamos Carrera
+			crr.setCrrFacultad(slcFacultad);
+			crr.setCrrDescripcion(crrNombrePrograma);
+			crr.setCrrCodSniese(crrCodSniese);
+			crr.setCrrEspeCodigo(crrEspeCodigo);
+			crr.setCrrNivel(crrNivel);
+			crr.setCrrTipoEvaluacion(crrTipoEvaluacion);
+
+			slcTipoFormacion.setTifrId(tifrId);
+			slcModalidad.setMdlId(mdlId);
+			slcTipoSede.setTiseId(tiseId);
+			slcUbicacion.setUbcId(ubcId);
+			slcDuracion.setDrcId(drcId);
+			slcTitulo.setTtlDescripcion(ttlDescripcion);
+			slcVigencia.setVgnId(vgnId);
+
+			// Seteamos Configuracion Carrera
+			cncr.setCncrCarrera(crr);
+			cncr.setCncrTipoFormacion(slcTipoFormacion);
+			cncr.setCncrModalidad(slcModalidad);
+			cncr.setCncrTipoSede(slcTipoSede);
+			cncr.setCncrUbicacion(slcUbicacion);
+			cncr.setCncrDuracion(slcDuracion);
+			cncr.setCncrTitulo(slcTitulo);
+			cncr.setCncrVigencia(slcVigencia);
+
+			boolean flag = servProgramaServicio.guardarPrograma(crr, cncr);
+
+			if (flag) {
+				FacesUtil.mensajeInfo("Programa creado exitosamente");
+			}else{
+				FacesUtil.mensajeError("El programa no se creo");
+			}
+
 		} catch (Exception e) {
-			FacesUtil.mensajeError("El programa no se creo");
+			FacesUtil.mensajeError("Ocurrio un error durante el envio del Programa");
 		}
 
+	}
+
+	private String getDuracionLabel(Integer drcTipo) {
+		String retorno = "";
+		if (drcTipo == DuracionConstantes.DURACION_TIPO_ANIOS_VALUE) {
+			retorno = DuracionConstantes.DURACION_TIPO_ANIOS_LABEL;
+		} else if (drcTipo == DuracionConstantes.DURACION_TIPO_SEMESTRES_VALUE) {
+			retorno = DuracionConstantes.DURACION_TIPO_SEMESTRES_LABEL;
+		} else {
+			retorno = DuracionConstantes.DURACION_TIPO_CREDITOS_LABEL;
+		}
+		return retorno;
 	}
 
 	// *****************************************************************/
 	// *********************** Getters and Setters**********************/
 	// *****************************************************************/
 
+	// metodo de SelectItem de la lista Duracion
+	public List<SelectItem> getListItemDuracion() {
+
+		this.listItemDuracion = new ArrayList<SelectItem>();
+		listItemDuracion.clear();
+		for (Duracion drc : listDuracion) {
+			SelectItem itemDuracion = new SelectItem(drc.getDrcId(),
+					drc.getDrcTiempo() + "-" + getDuracionLabel(drc.getDrcTipo()));
+			this.listItemDuracion.add(itemDuracion);
+		}
+		return listItemDuracion;
+	}
+
 	public String getTtlDescripcion() {
 		return ttlDescripcion;
+	}
+
+	public void setListItemDuracion(List<SelectItem> listItemDuracion) {
+		this.listItemDuracion = listItemDuracion;
 	}
 
 	public void setTtlDescripcion(String ttlDescripcion) {
@@ -269,14 +296,6 @@ public class ProgramaBean implements Serializable {
 	public void setDrcId(Integer drcId) {
 		this.drcId = drcId;
 	}
-//
-//	public Integer getTtlId() {
-//		return ttlId;
-//	}
-//
-//	public void setTtlId(Integer ttlId) {
-//		this.ttlId = ttlId;
-//	}
 
 	public Integer getVgnId() {
 		return vgnId;
@@ -285,70 +304,6 @@ public class ProgramaBean implements Serializable {
 	public void setVgnId(Integer vgnId) {
 		this.vgnId = vgnId;
 	}
-
-	// public Facultad getSlcFacultad() {
-	// return slcFacultad;
-	// }
-	//
-	// public void setSlcFacultad(Facultad slcFacultad) {
-	// this.slcFacultad = slcFacultad;
-	// }
-	//
-	// public TipoFormacion getSlcTipoFormacion() {
-	// return slcTipoFormacion;
-	// }
-	//
-	// public void setSlcTipoFormacion(TipoFormacion slcTipoFormacion) {
-	// this.slcTipoFormacion = slcTipoFormacion;
-	// }
-	//
-	// public Modalidad getSlcModalidad() {
-	// return slcModalidad;
-	// }
-	//
-	// public void setSlcModalidad(Modalidad slcModalidad) {
-	// this.slcModalidad = slcModalidad;
-	// }
-	//
-	// public TipoSede getSlcTipoSede() {
-	// return slcTipoSede;
-	// }
-	//
-	// public void setSlcTipoSede(TipoSede slcTipoSede) {
-	// this.slcTipoSede = slcTipoSede;
-	// }
-	//
-	// public Ubicacion getSlcUbicacion() {
-	// return slcUbicacion;
-	// }
-	//
-	// public void setSlcUbicacion(Ubicacion slcUbicacion) {
-	// this.slcUbicacion = slcUbicacion;
-	// }
-	//
-	// public Duracion getSlcDuracion() {
-	// return slcDuracion;
-	// }
-	//
-	// public void setSlcDuracion(Duracion slcDuracion) {
-	// this.slcDuracion = slcDuracion;
-	// }
-	//
-	// public Titulo getSlcTitulo() {
-	// return slcTitulo;
-	// }
-	//
-	// public void setSlcTitulo(Titulo slcTitulo) {
-	// this.slcTitulo = slcTitulo;
-	// }
-	//
-	// public Vigencia getSlcVigencia() {
-	// return slcVigencia;
-	// }
-	//
-	// public void setSlcVigencia(Vigencia slcVigencia) {
-	// this.slcVigencia = slcVigencia;
-	// }
 
 	public void setListModalidad(List<Modalidad> listModalidad) {
 		this.listModalidad = listModalidad;
@@ -365,14 +320,6 @@ public class ProgramaBean implements Serializable {
 	public void setCrrNombrePrograma(String crrNombrePrograma) {
 		this.crrNombrePrograma = crrNombrePrograma;
 	}
-
-//	public ConfiguracionCarrera getCncr() {
-//		return cncr;
-//	}
-//
-//	public void setCncr(ConfiguracionCarrera cncr) {
-//		this.cncr = cncr;
-//	}
 
 	public void setCrrCodSniese(String crrCodSniese) {
 		this.crrCodSniese = crrCodSniese;
@@ -425,14 +372,6 @@ public class ProgramaBean implements Serializable {
 	public void setCrrNumActaGrado(Integer crrNumActaGrado) {
 		this.crrNumActaGrado = crrNumActaGrado;
 	}
-//
-//	public Carrera getCrr() {
-//		return crr;
-//	}
-//
-//	public void setCrr(Carrera crr) {
-//		this.crr = crr;
-//	}
 
 	public List<Facultad> getListFacultad() {
 		return listFacultad;

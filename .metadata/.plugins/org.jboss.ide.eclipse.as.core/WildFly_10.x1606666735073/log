@@ -2900,3 +2900,40 @@
 
 !ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2021-01-17 22:38:52.384
 !MESSAGE Server Startup Succeeded
+!SESSION 
+
+!ENTRY org.jboss.ide.eclipse.as.core 4 0 2021-01-18 20:39:59.984
+!MESSAGE The server "WildFly 10.x" requires a JDK to run properly. The VM used to launch this server is not recognized as a valid JDK. C:\Program Files\Java\jre1.8.0_111 
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2021-01-18 20:40:03.673
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2021-01-18 20:40:31.123
+!MESSAGE Server Startup Succeeded
+
+!ENTRY org.jboss.ide.eclipse.as.wtp.core 1 16973825 2021-01-18 20:42:25.329
+!MESSAGE Server processes have terminated prematurely. Please check your server logs for more details. 
+
+!ENTRY org.jboss.ide.eclipse.as.core 4 0 2021-01-18 20:45:02.418
+!MESSAGE The server "WildFly 10.x" requires a JDK to run properly. The VM used to launch this server is not recognized as a valid JDK. C:\Program Files\Java\jre1.8.0_111 
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2021-01-18 20:45:04.513
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2021-01-18 20:45:08.442
+!MESSAGE Server Startup Succeeded
+
+!ENTRY org.jboss.ide.eclipse.as.wtp.core 1 16973825 2021-01-18 20:57:43.763
+!MESSAGE Server processes have terminated prematurely. Please check your server logs for more details. 
+
+!ENTRY org.jboss.ide.eclipse.as.core 4 0 2021-01-18 21:34:43.953
+!MESSAGE The server "WildFly 10.x" requires a JDK to run properly. The VM used to launch this server is not recognized as a valid JDK. C:\Program Files\Java\jre1.8.0_111 
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2021-01-18 21:34:46.026
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2021-01-18 21:34:50.503
+!MESSAGE Server Startup Succeeded
+
+!ENTRY org.jboss.ide.eclipse.as.wtp.core 1 16973825 2021-01-18 21:45:47.740
+!MESSAGE Server processes have terminated prematurely. Please check your server logs for more details. 

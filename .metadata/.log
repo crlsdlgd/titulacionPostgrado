@@ -6306,3 +6306,180 @@ Caused by: org.eclipse.aether.transfer.ArtifactNotFoundException: Could not find
 
 !ENTRY org.eclipse.recommenders.models.rcp 1 0 2021-01-18 16:59:48.946
 !MESSAGE org.eclipse.recommenders:index::zip:0.0.0 could not be resolved from the model repositories. Are you offline?
+
+!ENTRY org.eclipse.jface.text 2 0 2021-01-18 19:10:39.092
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2021-01-18 19:10:39.105
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
+
+!ENTRY org.jboss.ide.eclipse.as.core 4 0 2021-01-18 20:39:59.998
+!MESSAGE The server "WildFly 10.x" requires a JDK to run properly. The VM used to launch this server is not recognized as a valid JDK. C:\Program Files\Java\jre1.8.0_111 
+
+!ENTRY org.jboss.ide.eclipse.as.core 4 0 2021-01-18 20:40:43.470
+!MESSAGE Unable to retrieve a list of remote deployment scanners for server WildFly 10.x
+!STACK 0
+org.jboss.ide.eclipse.as.management.core.JBoss7ManangerException: org.jboss.ide.eclipse.as.management.core.JBoss7ManangerException: Could not execute "read-resource" for [
+    {"subsystem" => "deployment-scanner"},
+    {"scanner" => "*"}
+]. Failure was "WFLYCTL0379: System boot is in process; execution of remote management operations is not currently available".
+	at org.jboss.ide.eclipse.as.internal.management.wildfly9.Wildfly9Manager.execute(Wildfly9Manager.java:369)
+	at org.jboss.ide.eclipse.as.internal.management.wildfly9.Wildfly9ManagerService.execute(Wildfly9ManagerService.java:172)
+	at org.jboss.ide.eclipse.as.management.core.JBoss7ManagerServiceProxy.execute(JBoss7ManagerServiceProxy.java:87)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.AS7DeploymentScannerUtility$1.execute(AS7DeploymentScannerUtility.java:295)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.AS7DeploymentScannerUtility$1.execute(AS7DeploymentScannerUtility.java:1)
+	at org.jboss.ide.eclipse.as.management.core.JBoss7ManagerUtil.executeWithService(JBoss7ManagerUtil.java:136)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.AS7DeploymentScannerUtility.executeWithResult(AS7DeploymentScannerUtility.java:293)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.AS7DeploymentScannerUtility.getDeploymentScanners(AS7DeploymentScannerUtility.java:164)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.AS7DeploymentScannerUtility.getDeploymentScannersBlocking(AS7DeploymentScannerUtility.java:124)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.AS7DeploymentScannerUtility.getDeploymentScannersBlocking(AS7DeploymentScannerUtility.java:114)
+	at org.jboss.ide.eclipse.as.ui.dialogs.ModifyDeploymentScannerIntervalDialog$DeploymentScannerUIServerStartedListener$1.run(ModifyDeploymentScannerIntervalDialog.java:82)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.jboss.ide.eclipse.as.management.core.JBoss7ManangerException: Could not execute "read-resource" for [
+    {"subsystem" => "deployment-scanner"},
+    {"scanner" => "*"}
+]. Failure was "WFLYCTL0379: System boot is in process; execution of remote management operations is not currently available".
+	at org.jboss.ide.eclipse.as.internal.management.wildfly9.Wildfly9Manager.execute(Wildfly9Manager.java:360)
+	... 11 more
+
+!ENTRY org.jboss.ide.eclipse.as.core 4 0 2021-01-18 20:40:43.505
+!MESSAGE Unable to retrieve a list of remote deployment scanners for server WildFly 10.x
+!STACK 0
+org.jboss.ide.eclipse.as.management.core.JBoss7ManangerException: org.jboss.ide.eclipse.as.management.core.JBoss7ManangerException: Could not execute "read-resource" for [
+    {"subsystem" => "deployment-scanner"},
+    {"scanner" => "*"}
+]. Failure was "WFLYCTL0379: System boot is in process; execution of remote management operations is not currently available".
+	at org.jboss.ide.eclipse.as.internal.management.wildfly9.Wildfly9Manager.execute(Wildfly9Manager.java:369)
+	at org.jboss.ide.eclipse.as.internal.management.wildfly9.Wildfly9ManagerService.execute(Wildfly9ManagerService.java:172)
+	at org.jboss.ide.eclipse.as.management.core.JBoss7ManagerServiceProxy.execute(JBoss7ManagerServiceProxy.java:87)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.AS7DeploymentScannerUtility$1.execute(AS7DeploymentScannerUtility.java:295)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.AS7DeploymentScannerUtility$1.execute(AS7DeploymentScannerUtility.java:1)
+	at org.jboss.ide.eclipse.as.management.core.JBoss7ManagerUtil.executeWithService(JBoss7ManagerUtil.java:136)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.AS7DeploymentScannerUtility.executeWithResult(AS7DeploymentScannerUtility.java:293)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.AS7DeploymentScannerUtility.getDeploymentScanners(AS7DeploymentScannerUtility.java:164)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.AS7DeploymentScannerUtility.getDeploymentScannersBlocking(AS7DeploymentScannerUtility.java:124)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.AS7DeploymentScannerUtility.getDeploymentScannersBlocking(AS7DeploymentScannerUtility.java:114)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.LocalJBoss7DeploymentScannerAdditions.ensureScannersAdded(LocalJBoss7DeploymentScannerAdditions.java:63)
+	at org.jboss.ide.eclipse.as.core.server.internal.AbstractDeploymentScannerAdditions.updateDeploymentScanners(AbstractDeploymentScannerAdditions.java:60)
+	at org.jboss.ide.eclipse.as.core.server.internal.AbstractDeploymentScannerAdditions$1.run(AbstractDeploymentScannerAdditions.java:73)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.jboss.ide.eclipse.as.management.core.JBoss7ManangerException: Could not execute "read-resource" for [
+    {"subsystem" => "deployment-scanner"},
+    {"scanner" => "*"}
+]. Failure was "WFLYCTL0379: System boot is in process; execution of remote management operations is not currently available".
+	at org.jboss.ide.eclipse.as.internal.management.wildfly9.Wildfly9Manager.execute(Wildfly9Manager.java:360)
+	... 13 more
+
+!ENTRY org.jboss.ide.eclipse.as.core 4 0 2021-01-18 20:45:02.418
+!MESSAGE The server "WildFly 10.x" requires a JDK to run properly. The VM used to launch this server is not recognized as a valid JDK. C:\Program Files\Java\jre1.8.0_111 
+
+!ENTRY org.jboss.ide.eclipse.as.core 4 0 2021-01-18 20:45:19.119
+!MESSAGE Unable to retrieve a list of remote deployment scanners for server WildFly 10.x
+!STACK 0
+org.jboss.ide.eclipse.as.management.core.JBoss7ManangerException: org.jboss.ide.eclipse.as.management.core.JBoss7ManangerException: Could not execute "read-resource" for [
+    {"subsystem" => "deployment-scanner"},
+    {"scanner" => "*"}
+]. Failure was "WFLYCTL0379: System boot is in process; execution of remote management operations is not currently available".
+	at org.jboss.ide.eclipse.as.internal.management.wildfly9.Wildfly9Manager.execute(Wildfly9Manager.java:369)
+	at org.jboss.ide.eclipse.as.internal.management.wildfly9.Wildfly9ManagerService.execute(Wildfly9ManagerService.java:172)
+	at org.jboss.ide.eclipse.as.management.core.JBoss7ManagerServiceProxy.execute(JBoss7ManagerServiceProxy.java:87)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.AS7DeploymentScannerUtility$1.execute(AS7DeploymentScannerUtility.java:295)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.AS7DeploymentScannerUtility$1.execute(AS7DeploymentScannerUtility.java:1)
+	at org.jboss.ide.eclipse.as.management.core.JBoss7ManagerUtil.executeWithService(JBoss7ManagerUtil.java:136)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.AS7DeploymentScannerUtility.executeWithResult(AS7DeploymentScannerUtility.java:293)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.AS7DeploymentScannerUtility.getDeploymentScanners(AS7DeploymentScannerUtility.java:164)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.AS7DeploymentScannerUtility.getDeploymentScannersBlocking(AS7DeploymentScannerUtility.java:124)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.AS7DeploymentScannerUtility.getDeploymentScannersBlocking(AS7DeploymentScannerUtility.java:114)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.LocalJBoss7DeploymentScannerAdditions.ensureScannersAdded(LocalJBoss7DeploymentScannerAdditions.java:63)
+	at org.jboss.ide.eclipse.as.core.server.internal.AbstractDeploymentScannerAdditions.updateDeploymentScanners(AbstractDeploymentScannerAdditions.java:60)
+	at org.jboss.ide.eclipse.as.core.server.internal.AbstractDeploymentScannerAdditions$1.run(AbstractDeploymentScannerAdditions.java:73)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.jboss.ide.eclipse.as.management.core.JBoss7ManangerException: Could not execute "read-resource" for [
+    {"subsystem" => "deployment-scanner"},
+    {"scanner" => "*"}
+]. Failure was "WFLYCTL0379: System boot is in process; execution of remote management operations is not currently available".
+	at org.jboss.ide.eclipse.as.internal.management.wildfly9.Wildfly9Manager.execute(Wildfly9Manager.java:360)
+	... 13 more
+
+!ENTRY org.jboss.ide.eclipse.as.core 4 0 2021-01-18 20:45:19.139
+!MESSAGE Unable to retrieve a list of remote deployment scanners for server WildFly 10.x
+!STACK 0
+org.jboss.ide.eclipse.as.management.core.JBoss7ManangerException: org.jboss.ide.eclipse.as.management.core.JBoss7ManangerException: Could not execute "read-resource" for [
+    {"subsystem" => "deployment-scanner"},
+    {"scanner" => "*"}
+]. Failure was "WFLYCTL0379: System boot is in process; execution of remote management operations is not currently available".
+	at org.jboss.ide.eclipse.as.internal.management.wildfly9.Wildfly9Manager.execute(Wildfly9Manager.java:369)
+	at org.jboss.ide.eclipse.as.internal.management.wildfly9.Wildfly9ManagerService.execute(Wildfly9ManagerService.java:172)
+	at org.jboss.ide.eclipse.as.management.core.JBoss7ManagerServiceProxy.execute(JBoss7ManagerServiceProxy.java:87)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.AS7DeploymentScannerUtility$1.execute(AS7DeploymentScannerUtility.java:295)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.AS7DeploymentScannerUtility$1.execute(AS7DeploymentScannerUtility.java:1)
+	at org.jboss.ide.eclipse.as.management.core.JBoss7ManagerUtil.executeWithService(JBoss7ManagerUtil.java:136)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.AS7DeploymentScannerUtility.executeWithResult(AS7DeploymentScannerUtility.java:293)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.AS7DeploymentScannerUtility.getDeploymentScanners(AS7DeploymentScannerUtility.java:164)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.AS7DeploymentScannerUtility.getDeploymentScannersBlocking(AS7DeploymentScannerUtility.java:124)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.AS7DeploymentScannerUtility.getDeploymentScannersBlocking(AS7DeploymentScannerUtility.java:114)
+	at org.jboss.ide.eclipse.as.ui.dialogs.ModifyDeploymentScannerIntervalDialog$DeploymentScannerUIServerStartedListener$1.run(ModifyDeploymentScannerIntervalDialog.java:82)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.jboss.ide.eclipse.as.management.core.JBoss7ManangerException: Could not execute "read-resource" for [
+    {"subsystem" => "deployment-scanner"},
+    {"scanner" => "*"}
+]. Failure was "WFLYCTL0379: System boot is in process; execution of remote management operations is not currently available".
+	at org.jboss.ide.eclipse.as.internal.management.wildfly9.Wildfly9Manager.execute(Wildfly9Manager.java:360)
+	... 11 more
+
+!ENTRY org.jboss.ide.eclipse.as.core 4 0 2021-01-18 21:34:43.963
+!MESSAGE The server "WildFly 10.x" requires a JDK to run properly. The VM used to launch this server is not recognized as a valid JDK. C:\Program Files\Java\jre1.8.0_111 
+
+!ENTRY org.jboss.ide.eclipse.as.core 4 0 2021-01-18 21:35:01.226
+!MESSAGE Unable to retrieve a list of remote deployment scanners for server WildFly 10.x
+!STACK 0
+org.jboss.ide.eclipse.as.management.core.JBoss7ManangerException: org.jboss.ide.eclipse.as.management.core.JBoss7ManangerException: Could not execute "read-resource" for [
+    {"subsystem" => "deployment-scanner"},
+    {"scanner" => "*"}
+]. Failure was "WFLYCTL0379: System boot is in process; execution of remote management operations is not currently available".
+	at org.jboss.ide.eclipse.as.internal.management.wildfly9.Wildfly9Manager.execute(Wildfly9Manager.java:369)
+	at org.jboss.ide.eclipse.as.internal.management.wildfly9.Wildfly9ManagerService.execute(Wildfly9ManagerService.java:172)
+	at org.jboss.ide.eclipse.as.management.core.JBoss7ManagerServiceProxy.execute(JBoss7ManagerServiceProxy.java:87)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.AS7DeploymentScannerUtility$1.execute(AS7DeploymentScannerUtility.java:295)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.AS7DeploymentScannerUtility$1.execute(AS7DeploymentScannerUtility.java:1)
+	at org.jboss.ide.eclipse.as.management.core.JBoss7ManagerUtil.executeWithService(JBoss7ManagerUtil.java:136)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.AS7DeploymentScannerUtility.executeWithResult(AS7DeploymentScannerUtility.java:293)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.AS7DeploymentScannerUtility.getDeploymentScanners(AS7DeploymentScannerUtility.java:164)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.AS7DeploymentScannerUtility.getDeploymentScannersBlocking(AS7DeploymentScannerUtility.java:124)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.AS7DeploymentScannerUtility.getDeploymentScannersBlocking(AS7DeploymentScannerUtility.java:114)
+	at org.jboss.ide.eclipse.as.ui.dialogs.ModifyDeploymentScannerIntervalDialog$DeploymentScannerUIServerStartedListener$1.run(ModifyDeploymentScannerIntervalDialog.java:82)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.jboss.ide.eclipse.as.management.core.JBoss7ManangerException: Could not execute "read-resource" for [
+    {"subsystem" => "deployment-scanner"},
+    {"scanner" => "*"}
+]. Failure was "WFLYCTL0379: System boot is in process; execution of remote management operations is not currently available".
+	at org.jboss.ide.eclipse.as.internal.management.wildfly9.Wildfly9Manager.execute(Wildfly9Manager.java:360)
+	... 11 more
+
+!ENTRY org.jboss.ide.eclipse.as.core 4 0 2021-01-18 21:35:01.327
+!MESSAGE Unable to retrieve a list of remote deployment scanners for server WildFly 10.x
+!STACK 0
+org.jboss.ide.eclipse.as.management.core.JBoss7ManangerException: org.jboss.ide.eclipse.as.management.core.JBoss7ManangerException: Could not execute "read-resource" for [
+    {"subsystem" => "deployment-scanner"},
+    {"scanner" => "*"}
+]. Failure was "WFLYCTL0379: System boot is in process; execution of remote management operations is not currently available".
+	at org.jboss.ide.eclipse.as.internal.management.wildfly9.Wildfly9Manager.execute(Wildfly9Manager.java:369)
+	at org.jboss.ide.eclipse.as.internal.management.wildfly9.Wildfly9ManagerService.execute(Wildfly9ManagerService.java:172)
+	at org.jboss.ide.eclipse.as.management.core.JBoss7ManagerServiceProxy.execute(JBoss7ManagerServiceProxy.java:87)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.AS7DeploymentScannerUtility$1.execute(AS7DeploymentScannerUtility.java:295)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.AS7DeploymentScannerUtility$1.execute(AS7DeploymentScannerUtility.java:1)
+	at org.jboss.ide.eclipse.as.management.core.JBoss7ManagerUtil.executeWithService(JBoss7ManagerUtil.java:136)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.AS7DeploymentScannerUtility.executeWithResult(AS7DeploymentScannerUtility.java:293)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.AS7DeploymentScannerUtility.getDeploymentScanners(AS7DeploymentScannerUtility.java:164)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.AS7DeploymentScannerUtility.getDeploymentScannersBlocking(AS7DeploymentScannerUtility.java:124)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.AS7DeploymentScannerUtility.getDeploymentScannersBlocking(AS7DeploymentScannerUtility.java:114)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.LocalJBoss7DeploymentScannerAdditions.ensureScannersAdded(LocalJBoss7DeploymentScannerAdditions.java:63)
+	at org.jboss.ide.eclipse.as.core.server.internal.AbstractDeploymentScannerAdditions.updateDeploymentScanners(AbstractDeploymentScannerAdditions.java:60)
+	at org.jboss.ide.eclipse.as.core.server.internal.AbstractDeploymentScannerAdditions$1.run(AbstractDeploymentScannerAdditions.java:73)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.jboss.ide.eclipse.as.management.core.JBoss7ManangerException: Could not execute "read-resource" for [
+    {"subsystem" => "deployment-scanner"},
+    {"scanner" => "*"}
+]. Failure was "WFLYCTL0379: System boot is in process; execution of remote management operations is not currently available".
+	at org.jboss.ide.eclipse.as.internal.management.wildfly9.Wildfly9Manager.execute(Wildfly9Manager.java:360)
+	... 13 more

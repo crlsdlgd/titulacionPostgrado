@@ -23,7 +23,6 @@
 <fullyQualifiedTypeName name="ec.edu.uce.titulacionPosgrado.jpa.entidades.publico.Modalidad"/>
 <fullyQualifiedTypeName name="ec.edu.uce.titulacionPosgrado.jpa.entidades.publico.TipoSede"/>
 <fullyQualifiedTypeName name="ec.edu.uce.titulacionPosgrado.jpa.entidades.publico.Ubicacion"/>
-<fullyQualifiedTypeName name="ec.edu.uce.titulacionPosgrado.jpa.entidades.publico.Duracion"/>
 <fullyQualifiedTypeName name="ec.edu.uce.titulacionPosgrado.jpa.entidades.publico.Titulo"/>
 <fullyQualifiedTypeName name="ec.edu.uce.titulacionPosgrado.jpa.entidades.publico.Vigencia"/>
 <fullyQualifiedTypeName name="ec.edu.uce.titulacionPosgrado.jpa.entidades.publico.ConfiguracionCarrera"/>
@@ -32,4 +31,9 @@
 <fullyQualifiedTypeName name="java.lang.StringBuilder"/>
 <fullyQualifiedTypeName name="ec.edu.uce.titulacionPosgrado.ejb.utilidades.constantes.PersonaConstantes"/>
 <fullyQualifiedTypeName name="ec.edu.uce.titulacionPosgrado.ejb.utilidades.constantes.TramiteTituloConstantes"/>
+<fullyQualifiedTypeName name="com.lowagie.text.ListItem"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="ec.edu.uce.titulacionPosgrado.jpa.entidades.publico.Duracion"/>
+<fullyQualifiedTypeName name="javax.faces.model.SelectItem"/>
+<fullyQualifiedTypeName name="ec.edu.uce.titulacionPosgrado.ejb.utilidades.constantes.DuracionConstantes"/>
 </qualifiedTypeNameHistroy>

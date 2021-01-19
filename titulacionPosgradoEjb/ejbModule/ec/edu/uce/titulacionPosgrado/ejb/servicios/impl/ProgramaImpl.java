@@ -129,7 +129,7 @@ public class ProgramaImpl implements ProgramaServicio{
 	public List<Duracion> ListarTodosDuracion() {
 		List<Duracion> retorno =null;
 		StringBuffer sbsql = new StringBuffer();
-		sbsql.append("Select drc from Duracion drc");
+		sbsql.append("Select drc from Duracion drc order by drc.drcTipo, drc.drcTiempo");
 		Query q = em.createQuery(sbsql.toString());
 		retorno = q.getResultList();
 		if(retorno.size()<=0){
@@ -140,7 +140,7 @@ public class ProgramaImpl implements ProgramaServicio{
 
 	@Override
 	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
-	public void guardarPrograma(Carrera crr, ConfiguracionCarrera cncr) {
+	public boolean guardarPrograma(Carrera crr, ConfiguracionCarrera cncr) {
 		boolean retorno=false;
 		PreparedStatement pstmt = null;
 		PreparedStatement pstmt1 = null;
@@ -159,7 +159,6 @@ public class ProgramaImpl implements ProgramaServicio{
 			
 			crr.setCrrId(crrId+1);
 			crr.setCrrDetalle(crr.getCrrDescripcion()+" "+crr.getCrrFacultad().getFclId());//toca consultar antes
-			System.out.println("consulto id carrera: "+ crr.getCrrId()+" y detalle: "+crr.getCrrDetalle());
 			
 			//insertamos carrera
 			StringBuilder sbsql2 = new StringBuilder();
@@ -176,7 +175,7 @@ public class ProgramaImpl implements ProgramaServicio{
 			pstmt.setInt(7, crr.getCrrFacultad().getFclId());
 			pstmt.setInt(8, crr.getCrrTipoEvaluacion());
 			pstmt.executeUpdate();
-			System.out.println("ingreso carrera");
+			
 			//consultamos id de titulo
 			StringBuffer sbsql3 = new StringBuffer();
 			int ttlId=0;
@@ -196,7 +195,7 @@ public class ProgramaImpl implements ProgramaServicio{
 			pstmt1.setInt(4, TramiteTituloConstantes.ESTADO_TRAMITE_ACTIVO_VALUE);
 			pstmt1.setInt(5, TramiteTituloConstantes.TIPO_MODALIDAD_ESTA_OTRAS_MODALIDADES_VALUE);//consulta si ingresa usuario o si esta bien esta
 			pstmt1.executeUpdate();
-			System.out.println("ingreso titulo");
+			
 			//consultamos id de configuracion carrera
 			StringBuffer sbsql5 = new StringBuffer();
 			int cncrId=0;
@@ -205,12 +204,12 @@ public class ProgramaImpl implements ProgramaServicio{
 			cncrId=(int) q3.getSingleResult();
 			cncr.setCncrId(cncrId+1);
 			cncr.setCncrCarrera(crr);
-			System.out.println("Consulto config carrera");
+			
 			//Ingresamos configuracion carrera
 			StringBuilder sbsql6 = new StringBuilder();
 			sbsql6.append("INSERT INTO CONFIGURACION_CARRERA ");
-			sbsql6.append("(CNCR_ID, UBC_ID, TISE_ID, TTL_ID, TIFR_ID, CRR_ID, VGN_ID, DRC_ID) ");
-			sbsql6.append("VALUES (?,?,?,?,?,?,?,?)");
+			sbsql6.append("(CNCR_ID, UBC_ID, TISE_ID, TTL_ID, TIFR_ID, CRR_ID, VGN_ID, DRC_ID, MDL_ID) ");
+			sbsql6.append("VALUES (?,?,?,?,?,?,?,?,?)");
 			pstmt2 = con.prepareStatement(sbsql6.toString());
 			pstmt2.setInt(1, cncr.getCncrId());
 			pstmt2.setInt(2, cncr.getCncrUbicacion().getUbcId());
@@ -220,10 +219,11 @@ public class ProgramaImpl implements ProgramaServicio{
 			pstmt2.setInt(6, cncr.getCncrCarrera().getCrrId());
 			pstmt2.setInt(7, cncr.getCncrVigencia().getVgnId());
 			pstmt2.setInt(8, cncr.getCncrDuracion().getDrcId());
+			pstmt2.setInt(9, cncr.getCncrModalidad().getMdlId());
 			pstmt2.executeUpdate();
-			System.out.println("ingreso config carrera");
 
 			session.getUserTransaction().commit();
+			retorno=true;
 		} catch (Exception e) {
 			try {
 				e.printStackTrace();
@@ -233,7 +233,7 @@ public class ProgramaImpl implements ProgramaServicio{
 			}
 			
 		}
-		
+		return retorno;
 	}
 	
 }

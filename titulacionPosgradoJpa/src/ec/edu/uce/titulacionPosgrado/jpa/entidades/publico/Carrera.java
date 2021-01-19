@@ -61,7 +61,7 @@ public class Carrera implements Serializable {
 	private Facultad crrFacultad;
 	private Integer crrTipoEvaluacion;
 	
-
+	//No estan la resolucion del HCU ni CES ni el acta de grado
 	public Carrera() {
 	}
 

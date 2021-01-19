@@ -38,5 +38,5 @@ public interface ProgramaServicio {
 	public List<Modalidad> ListarTodosModalidad();
 	public List<Vigencia> ListarTodosVigencia();
 	public List<Duracion> ListarTodosDuracion();
-	public void guardarPrograma(Carrera crr, ConfiguracionCarrera cncr);
+	public boolean guardarPrograma(Carrera crr, ConfiguracionCarrera cncr);
 }

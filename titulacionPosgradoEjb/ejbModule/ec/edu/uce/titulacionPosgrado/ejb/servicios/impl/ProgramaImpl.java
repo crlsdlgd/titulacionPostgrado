@@ -42,8 +42,8 @@ import javax.transaction.UserTransaction;
 import ec.edu.uce.titulacionPosgrado.ejb.servicios.interfaces.ProgramaServicio;
 import ec.edu.uce.titulacionPosgrado.ejb.utilidades.constantes.GeneralesConstantes;
 import ec.edu.uce.titulacionPosgrado.ejb.utilidades.constantes.PersonaConstantes;
+import ec.edu.uce.titulacionPosgrado.ejb.utilidades.constantes.TituloConstantes;
 import ec.edu.uce.titulacionPosgrado.ejb.utilidades.constantes.TramiteTituloConstantes;
-import ec.edu.uce.titulacionPosgrado.ejb.utilidades.servicios.MensajeGeneradorUtilidades;
 import ec.edu.uce.titulacionPosgrado.jpa.entidades.publico.Carrera;
 import ec.edu.uce.titulacionPosgrado.jpa.entidades.publico.ConfiguracionCarrera;
 import ec.edu.uce.titulacionPosgrado.jpa.entidades.publico.Duracion;
@@ -163,26 +163,27 @@ public class ProgramaImpl implements ProgramaServicio{
 			//insertamos carrera
 			StringBuilder sbsql2 = new StringBuilder();
 			sbsql2.append("INSERT INTO CARRERA ");
-			sbsql2.append("(CRR_ID, CRR_DESCRIPCION, CRR_COD_SNIESE, CRR_NIVEL, CRR_ESPE_CODIGO, CRR_DETALLE, FCL_ID, CRR_TIPO_EVALUACION) ");
-			sbsql2.append("values (?, ?, ?, ?, ?, ?, ?, ?)");
+			sbsql2.append("(CRR_ID, CRR_DESCRIPCION, CRR_COD_SNIESE, CRR_NIVEL, CRR_ESPE_CODIGO, CRR_DETALLE, FCL_ID, CRR_TIPO_EVALUACION,CRR_NUM_ACTA_GRADO, CRR_RESOLUCION_HCU, CRR_RESOLUCION_CES) ");
+			sbsql2.append("VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 			pstmt = con.prepareStatement(sbsql2.toString());
 			pstmt.setInt(1, crr.getCrrId());
 			pstmt.setString(2, crr.getCrrDescripcion());
 			pstmt.setString(3, crr.getCrrCodSniese());
-			pstmt.setInt(4, crr.getCrrNivel());
+			pstmt.setInt(4, 0);
 			pstmt.setInt(5, crr.getCrrEspeCodigo());
 			pstmt.setString(6, crr.getCrrDetalle());
 			pstmt.setInt(7, crr.getCrrFacultad().getFclId());
 			pstmt.setInt(8, crr.getCrrTipoEvaluacion());
+			pstmt.setInt(9, 0);
+			pstmt.setString(10, crr.getCrrResolucionHuc());
+			pstmt.setString(11, crr.getCrrResolucionCes());
 			pstmt.executeUpdate();
-			
 			//consultamos id de titulo
 			StringBuffer sbsql3 = new StringBuffer();
 			int ttlId=0;
 			sbsql3.append("Select max(ttl.ttlId) as ttlId from Titulo ttl");
 			Query q2 = em.createQuery(sbsql3.toString());
 			ttlId=(int) q2.getSingleResult();
-			
 			//ingresamos titulo
 			StringBuilder sbsql4 = new StringBuilder();
 			sbsql4.append("INSERT INTO TITULO ");
@@ -192,10 +193,9 @@ public class ProgramaImpl implements ProgramaServicio{
 			pstmt1.setInt(1, ttlId+1);
 			pstmt1.setString(2, cncr.getCncrTitulo().getTtlDescripcion());
 			pstmt1.setInt(3, PersonaConstantes.SEXO_GENERICO_VALUE);
-			pstmt1.setInt(4, TramiteTituloConstantes.ESTADO_TRAMITE_ACTIVO_VALUE);
-			pstmt1.setInt(5, TramiteTituloConstantes.TIPO_MODALIDAD_ESTA_OTRAS_MODALIDADES_VALUE);//consulta si ingresa usuario o si esta bien esta
+			pstmt1.setInt(4, 0);
+			pstmt1.setInt(5, TituloConstantes.TIPO_TITULO_CUARTO_NIVEL_VALUE);//consulta si ingresa usuario o si esta bien esta
 			pstmt1.executeUpdate();
-			
 			//consultamos id de configuracion carrera
 			StringBuffer sbsql5 = new StringBuffer();
 			int cncrId=0;
@@ -204,7 +204,6 @@ public class ProgramaImpl implements ProgramaServicio{
 			cncrId=(int) q3.getSingleResult();
 			cncr.setCncrId(cncrId+1);
 			cncr.setCncrCarrera(crr);
-			
 			//Ingresamos configuracion carrera
 			StringBuilder sbsql6 = new StringBuilder();
 			sbsql6.append("INSERT INTO CONFIGURACION_CARRERA ");
@@ -221,7 +220,6 @@ public class ProgramaImpl implements ProgramaServicio{
 			pstmt2.setInt(8, cncr.getCncrDuracion().getDrcId());
 			pstmt2.setInt(9, cncr.getCncrModalidad().getMdlId());
 			pstmt2.executeUpdate();
-
 			session.getUserTransaction().commit();
 			retorno=true;
 		} catch (Exception e) {
@@ -233,6 +231,28 @@ public class ProgramaImpl implements ProgramaServicio{
 			}
 			
 		}
+		return retorno;
+	}
+
+	@Override
+	public List<TipoFormacion> ListarTipoFormacionXRegAcademico(Integer tiseId) {
+		System.out.println("ingreso a listar los tipo formacion x regimen academico de la sede: "+tiseId);
+		List<TipoFormacion> retorno=null;
+		
+		StringBuffer sbsql = new StringBuffer();
+		sbsql.append("Select tf from TipoFormacion tf, NivelFormacion nf ");
+		sbsql.append("where tf.tifrNivelFormacion.nvfrId=nf.nvfrId ");
+		sbsql.append("and nf.nvfrRegimenAcademico.rgacId in ( ");
+		sbsql.append("Select ra.rgacId from RegimenAcademico ra, TipoSede ts ");
+		sbsql.append("where ts.tiseRegimenAcademico.rgacId=ra.rgacId ");
+		sbsql.append("and ts.tiseId=:tiseId )");
+		Query q = em.createQuery(sbsql.toString());
+		q.setParameter("tiseId", tiseId);
+		retorno = q.getResultList();
+		if(retorno.size()<=0){
+			//throw new TipoSedeNoEncontradoException(MensajeGeneradorUtilidades.getMsj(new MensajeGeneradorUtilidades("TipoSede.buscar.todos.no.result.exception")));
+		}
+
 		return retorno;
 	}
 	

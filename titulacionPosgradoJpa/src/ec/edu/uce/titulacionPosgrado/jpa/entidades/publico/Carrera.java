@@ -60,7 +60,8 @@ public class Carrera implements Serializable {
 	private String crrDetalle;
 	private Facultad crrFacultad;
 	private Integer crrTipoEvaluacion;
-	
+	private String crrResolucionHcu;
+	private String crrResolucionCes;
 	//No estan la resolucion del HCU ni CES ni el acta de grado
 	public Carrera() {
 	}
@@ -150,6 +151,23 @@ public class Carrera implements Serializable {
 
 	public void setCrrTipoEvaluacion(Integer crrTipoEvaluacion) {
 		this.crrTipoEvaluacion = crrTipoEvaluacion;
+	}
+
+	@Column(name = "crr_resolucion_hcu")
+	public String getCrrResolucionHuc() {
+		return crrResolucionHcu;
+	}
+
+	public void setCrrResolucionHuc(String crrResolucionHuc) {
+		this.crrResolucionHcu = crrResolucionHuc;
+	}
+	@Column(name = "crr_resolucion_ces")
+	public String getCrrResolucionCes() {
+		return crrResolucionCes;
+	}
+
+	public void setCrrResolucionCes(String crrResolucionCes) {
+		this.crrResolucionCes = crrResolucionCes;
 	}
 
 	@Override

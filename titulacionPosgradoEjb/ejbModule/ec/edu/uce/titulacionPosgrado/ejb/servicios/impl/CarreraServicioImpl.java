@@ -22,7 +22,6 @@
 
 package ec.edu.uce.titulacionPosgrado.ejb.servicios.impl;
 
-
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -43,24 +42,29 @@ import ec.edu.uce.titulacionPosgrado.jpa.entidades.publico.Carrera;
 import ec.edu.uce.titulacionPosgrado.jpa.entidades.publico.Facultad;
 
 /**
- * Clase (Bean)CarreraServicioImpl.
- * Bean declarado como Stateless.
+ * Clase (Bean)CarreraServicioImpl. Bean declarado como Stateless.
+ * 
  * @author dalbuja
  * @version 1.0
  */
 
 @Stateless
-public class CarreraServicioImpl implements CarreraServicio{
+public class CarreraServicioImpl implements CarreraServicio {
 
-	@PersistenceContext(unitName=GeneralesConstantes.APP_UNIDAD_PERSISTENCIA)
+	@PersistenceContext(unitName = GeneralesConstantes.APP_UNIDAD_PERSISTENCIA)
 	private EntityManager em;
 
 	/**
 	 * Busca una entidad Carrera por su id
-	 * @param id - de la Carrera a buscar
+	 * 
+	 * @param id
+	 *            - de la Carrera a buscar
 	 * @return Carrera con el id solicitado
-	 * @throws CarreraNoEncontradoException - Excepcion lanzada cuando no se encuentra una Carrera con el id solicitado
-	 * @throws CarreraException - Excepcion general
+	 * @throws CarreraNoEncontradoException
+	 *             - Excepcion lanzada cuando no se encuentra una Carrera con el
+	 *             id solicitado
+	 * @throws CarreraException
+	 *             - Excepcion general
 	 */
 	@Override
 	public Carrera buscarPorId(Integer id) throws CarreraNoEncontradoException, CarreraException {
@@ -69,41 +73,45 @@ public class CarreraServicioImpl implements CarreraServicio{
 			try {
 				retorno = em.find(Carrera.class, id);
 			} catch (NoResultException e) {
-				throw new CarreraNoEncontradoException(MensajeGeneradorUtilidades.getMsj(new MensajeGeneradorUtilidades("Carrera.buscar.por.id.no.result.exception",id)));
-			}catch (NonUniqueResultException e) {
-				throw new CarreraException(MensajeGeneradorUtilidades.getMsj(new MensajeGeneradorUtilidades("Carrera.buscar.por.id.non.unique.result.exception",id)));
+				throw new CarreraNoEncontradoException(MensajeGeneradorUtilidades
+						.getMsj(new MensajeGeneradorUtilidades("Carrera.buscar.por.id.no.result.exception", id)));
+			} catch (NonUniqueResultException e) {
+				throw new CarreraException(MensajeGeneradorUtilidades.getMsj(
+						new MensajeGeneradorUtilidades("Carrera.buscar.por.id.non.unique.result.exception", id)));
 			} catch (Exception e) {
-				throw new CarreraException(MensajeGeneradorUtilidades.getMsj(new MensajeGeneradorUtilidades("Carrera.buscar.por.id.exception")));
+				throw new CarreraException(MensajeGeneradorUtilidades
+						.getMsj(new MensajeGeneradorUtilidades("Carrera.buscar.por.id.exception")));
 			}
 		}
 		return retorno;
 	}
-	
+
 	/**
 	 * Lista todas las entidades Carrera existentes en la BD
+	 * 
 	 * @return lista de todas las entidades Carrera existentes en la BD
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Carrera> listarTodos() throws CarreraNoEncontradoException{
+	public List<Carrera> listarTodos() throws CarreraNoEncontradoException {
 		List<Carrera> retorno = null;
 		StringBuffer sbsql = new StringBuffer();
 		sbsql.append(" Select crr from Carrera crr");
 		Query q = em.createQuery(sbsql.toString());
 		retorno = q.getResultList();
-		
-		if(retorno.size()<=0){
-			throw new CarreraNoEncontradoException(MensajeGeneradorUtilidades.getMsj(new MensajeGeneradorUtilidades("Carrera.buscar.todos.no.result.exception")));
+
+		if (retorno.size() <= 0) {
+			throw new CarreraNoEncontradoException(MensajeGeneradorUtilidades
+					.getMsj(new MensajeGeneradorUtilidades("Carrera.buscar.todos.no.result.exception")));
 		}
-		
+
 		return retorno;
-		
+
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<CarreraDto> listarCarrerasXFacultad(FacultadDto facultadDto)
-			throws CarreraNoEncontradoException {
+	public List<CarreraDto> listarCarrerasXFacultad(FacultadDto facultadDto) throws CarreraNoEncontradoException {
 		List<CarreraDto> retorno = null;
 		StringBuffer sbsql = new StringBuffer();
 		sbsql.append(" Select crr from Carrera crr ");
@@ -111,18 +119,18 @@ public class CarreraServicioImpl implements CarreraServicio{
 		Query q = em.createQuery(sbsql.toString());
 		q.setParameter("fclId", facultadDto.getFclId());
 		retorno = q.getResultList();
-		
-		if(retorno.size()<=0){
-			throw new CarreraNoEncontradoException(MensajeGeneradorUtilidades.getMsj(new MensajeGeneradorUtilidades("Carrera.listar.todos.facultad.no.result.exception")));
+
+		if (retorno.size() <= 0) {
+			throw new CarreraNoEncontradoException(MensajeGeneradorUtilidades
+					.getMsj(new MensajeGeneradorUtilidades("Carrera.listar.todos.facultad.no.result.exception")));
 		}
-		
+
 		return retorno;
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Carrera> listarCarrerasXFacultad(Facultad facultad)
-			throws CarreraNoEncontradoException {
+	public List<Carrera> listarCarrerasXFacultad(Facultad facultad) throws CarreraNoEncontradoException {
 		List<Carrera> retorno = null;
 		StringBuffer sbsql = new StringBuffer();
 		sbsql.append(" Select crr from Carrera crr ");
@@ -131,12 +139,38 @@ public class CarreraServicioImpl implements CarreraServicio{
 		Query q = em.createQuery(sbsql.toString());
 		q.setParameter("fclId", facultad.getFclId());
 		retorno = q.getResultList();
-		
-		if(retorno.size()<=0){
-			throw new CarreraNoEncontradoException(MensajeGeneradorUtilidades.getMsj(new MensajeGeneradorUtilidades("Carrera.listar.todos.facultad.no.result.exception")));
+
+		if (retorno.size() <= 0) {
+			throw new CarreraNoEncontradoException(MensajeGeneradorUtilidades
+					.getMsj(new MensajeGeneradorUtilidades("Carrera.listar.todos.facultad.no.result.exception")));
 		}
-		
+
 		return retorno;
 	}
-	
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public boolean ifExistEspeCodigo(Integer valorSt) throws Exception {
+
+		System.out.println("isExistEspeCodigo aaaaaaaa");
+		boolean flag = false;
+		try {
+			List<Carrera> retorno = null;
+			StringBuffer sbsql = new StringBuffer();
+			sbsql.append(" Select crr from Carrera crr ");
+			sbsql.append(" where crr.crrEspeCodigo = :crrEspeCodigo");
+			Query q = em.createQuery(sbsql.toString());
+			q.setParameter("crrEspeCodigo", valorSt);
+			System.out.println("isExistEspeCodigo bbbbbbb");
+			retorno = q.getResultList();
+			System.out.println("isExistEspeCodigo ccccccc");
+			if (retorno.size() <= 0) {
+				flag = true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return flag;
+	}
+
 }

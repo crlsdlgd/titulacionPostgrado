@@ -60,6 +60,8 @@ public interface CarreraServicio {
 	public List<CarreraDto> listarCarrerasXFacultad(FacultadDto facultadDto) throws CarreraNoEncontradoException;
 
 	public List<Carrera> listarCarrerasXFacultad(Facultad facultad)throws CarreraNoEncontradoException;
+
+	public boolean ifExistEspeCodigo(Integer valorSt) throws Exception;
 	
 	
 	

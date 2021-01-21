@@ -1,5 +1,0 @@
-package ec.edu.uce.titulacionPosgrado.ejb.servicios.interfaces;
-
-public interface ProgramaServicio {
-
-}

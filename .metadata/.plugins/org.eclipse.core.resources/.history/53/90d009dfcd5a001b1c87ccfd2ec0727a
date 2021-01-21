@@ -1,0 +1,161 @@
+/**************************************************************************
+ *                (c) Copyright UNIVERSIDAD CENTRAL DEL ECUADOR. 
+ *                            www.uce.edu.ec
+
+ * Este programa de computador es propiedad de la UNIVERSIDAD CENTRAL DEL ECUADOR
+ * y esta protegido por las leyes y tratados internacionales de derechos de 
+ * autor. El uso, reproducción distribución no autorizada de este programa, 
+ * o cualquier porción de  él, puede dar lugar a sanciones criminales y 
+ * civiles severas, y serán  procesadas con el grado  máximo contemplado 
+ * por la ley.
+ 
+ ************************************************************************* 
+   
+ ARCHIVO:     CarreraServicioImpl.java      
+ DESCRIPCION: Bean sin estado encargado de gestionar las operaciones sobre la tabla Carrera. 
+ *************************************************************************
+                               MODIFICACIONES
+                            
+ FECHA                      AUTOR                              COMENTARIOS
+ 20/02/2018           	Daniel Albuja                      Emisión Inicial
+ ***************************************************************************/
+
+package ec.edu.uce.titulacionPosgrado.ejb.servicios.impl;
+
+
+import java.util.List;
+
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
+import javax.persistence.NonUniqueResultException;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+
+import ec.edu.uce.titulacionPosgrado.ejb.dtos.CarreraDto;
+import ec.edu.uce.titulacionPosgrado.ejb.dtos.FacultadDto;
+import ec.edu.uce.titulacionPosgrado.ejb.excepciones.CarreraException;
+import ec.edu.uce.titulacionPosgrado.ejb.excepciones.CarreraNoEncontradoException;
+import ec.edu.uce.titulacionPosgrado.ejb.servicios.interfaces.CarreraServicio;
+import ec.edu.uce.titulacionPosgrado.ejb.utilidades.constantes.GeneralesConstantes;
+import ec.edu.uce.titulacionPosgrado.ejb.utilidades.servicios.MensajeGeneradorUtilidades;
+import ec.edu.uce.titulacionPosgrado.jpa.entidades.publico.Carrera;
+import ec.edu.uce.titulacionPosgrado.jpa.entidades.publico.Facultad;
+
+/**
+ * Clase (Bean)CarreraServicioImpl.
+ * Bean declarado como Stateless.
+ * @author dalbuja
+ * @version 1.0
+ */
+
+@Stateless
+public class CarreraServicioImpl implements CarreraServicio{
+
+	@PersistenceContext(unitName=GeneralesConstantes.APP_UNIDAD_PERSISTENCIA)
+	private EntityManager em;
+
+	/**
+	 * Busca una entidad Carrera por su id
+	 * @param id - de la Carrera a buscar
+	 * @return Carrera con el id solicitado
+	 * @throws CarreraNoEncontradoException - Excepcion lanzada cuando no se encuentra una Carrera con el id solicitado
+	 * @throws CarreraException - Excepcion general
+	 */
+	@Override
+	public Carrera buscarPorId(Integer id) throws CarreraNoEncontradoException, CarreraException {
+		Carrera retorno = null;
+		if (id != null) {
+			try {
+				retorno = em.find(Carrera.class, id);
+			} catch (NoResultException e) {
+				throw new CarreraNoEncontradoException(MensajeGeneradorUtilidades.getMsj(new MensajeGeneradorUtilidades("Carrera.buscar.por.id.no.result.exception",id)));
+			}catch (NonUniqueResultException e) {
+				throw new CarreraException(MensajeGeneradorUtilidades.getMsj(new MensajeGeneradorUtilidades("Carrera.buscar.por.id.non.unique.result.exception",id)));
+			} catch (Exception e) {
+				throw new CarreraException(MensajeGeneradorUtilidades.getMsj(new MensajeGeneradorUtilidades("Carrera.buscar.por.id.exception")));
+			}
+		}
+		return retorno;
+	}
+	
+	/**
+	 * Lista todas las entidades Carrera existentes en la BD
+	 * @return lista de todas las entidades Carrera existentes en la BD
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Carrera> listarTodos() throws CarreraNoEncontradoException{
+		List<Carrera> retorno = null;
+		StringBuffer sbsql = new StringBuffer();
+		sbsql.append(" Select crr from Carrera crr");
+		Query q = em.createQuery(sbsql.toString());
+		retorno = q.getResultList();
+		
+		if(retorno.size()<=0){
+			throw new CarreraNoEncontradoException(MensajeGeneradorUtilidades.getMsj(new MensajeGeneradorUtilidades("Carrera.buscar.todos.no.result.exception")));
+		}
+		
+		return retorno;
+		
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<CarreraDto> listarCarrerasXFacultad(FacultadDto facultadDto)
+			throws CarreraNoEncontradoException {
+		List<CarreraDto> retorno = null;
+		StringBuffer sbsql = new StringBuffer();
+		sbsql.append(" Select crr from Carrera crr ");
+		sbsql.append(" where crr.crrFacultad.fclId = :fclId");
+		Query q = em.createQuery(sbsql.toString());
+		q.setParameter("fclId", facultadDto.getFclId());
+		retorno = q.getResultList();
+		
+		if(retorno.size()<=0){
+			throw new CarreraNoEncontradoException(MensajeGeneradorUtilidades.getMsj(new MensajeGeneradorUtilidades("Carrera.listar.todos.facultad.no.result.exception")));
+		}
+		
+		return retorno;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Carrera> listarCarrerasXFacultad(Facultad facultad)
+			throws CarreraNoEncontradoException {
+		List<Carrera> retorno = null;
+		StringBuffer sbsql = new StringBuffer();
+		sbsql.append(" Select crr from Carrera crr ");
+		sbsql.append(" where crr.crrFacultad.fclId = :fclId");
+		sbsql.append(" order by crr.crrDetalle");
+		Query q = em.createQuery(sbsql.toString());
+		q.setParameter("fclId", facultad.getFclId());
+		retorno = q.getResultList();
+		
+		if(retorno.size()<=0){
+			throw new CarreraNoEncontradoException(MensajeGeneradorUtilidades.getMsj(new MensajeGeneradorUtilidades("Carrera.listar.todos.facultad.no.result.exception")));
+		}
+		
+		return retorno;
+	}
+
+	@Override
+	public boolean ifExistEspeCodigo(String valorSt) throws CarreraNoEncontradoException{
+		boolean flag=false;
+		List<Carrera> retorno = null;
+		StringBuffer sbsql = new StringBuffer();
+		sbsql.append(" Select crr from Carrera crr ");
+		sbsql.append(" where crr.crrFacultad.fclId = :fclId");
+		sbsql.append(" order by crr.crrDetalle");
+		Query q = em.createQuery(sbsql.toString());
+		q.setParameter("fclId", facultad.getFclId());
+		retorno = q.getResultList();
+		
+		if(retorno.size()<=0){
+			throw new CarreraNoEncontradoException(MensajeGeneradorUtilidades.getMsj(new MensajeGeneradorUtilidades("Carrera.listar.todos.facultad.no.result.exception")));
+		}
+		
+		return flag;
+	}
+	
+}

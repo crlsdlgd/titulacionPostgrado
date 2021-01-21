@@ -96,5 +96,22 @@ public class UbicacionServicioImpl implements UbicacionServicio{
 		return retorno;
 		
 	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Ubicacion> listarCantones() throws UbicacionNoEncontradoException{
+		List<Ubicacion> retorno = null;
+		StringBuffer sbsql = new StringBuffer();
+		sbsql.append(" Select ubc from Ubicacion ubc where ubc.ubcJerarquia = 2 order by ubc.ubcDescripcion");
+		Query q = em.createQuery(sbsql.toString());
+		retorno = q.getResultList();
+		
+		if(retorno.size()<=0){
+			throw new UbicacionNoEncontradoException(MensajeGeneradorUtilidades.getMsj(new MensajeGeneradorUtilidades("Ubicacion.buscar.todos.no.result.exception")));
+		}
+		
+		return retorno;
+		
+	}
 
 }

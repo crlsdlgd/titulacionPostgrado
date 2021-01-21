@@ -39,4 +39,5 @@ public interface ProgramaServicio {
 	public List<Vigencia> ListarTodosVigencia();
 	public List<Duracion> ListarTodosDuracion();
 	public boolean guardarPrograma(Carrera crr, ConfiguracionCarrera cncr);
+	public List<TipoFormacion> ListarTipoFormacionXRegAcademico(Integer tiseId);
 }

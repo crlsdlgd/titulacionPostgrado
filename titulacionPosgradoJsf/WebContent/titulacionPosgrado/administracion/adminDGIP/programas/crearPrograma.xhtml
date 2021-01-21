@@ -65,26 +65,7 @@
 							</div>
 						</div>
 						<!--******************** FIN FILA 2 CODIGO SNIESE************************ -->
-						<!--******************** PANEL1, FILA 3 NIVEL************************ -->
-						<div class="row cells8">
-							<div class="cell colspan5">
-								<ui:decorate
-									template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
-									<ui:define name="etiqueta">
-										<p:outputLabel id="lblAtrCrrNivel" for="inpAtrCrrNivel"
-											value="Nivel: " />
-									</ui:define>
-									<ui:define name="valor">
-										<p:inputText id="inpAtrCrrNivel"
-											value="#{programasForm.crrNivel}" required="true" />
-									</ui:define>
-									<ui:define name="etiquetaError">
-										<p:message id="msgAtrCrrNivel" for="inpAtrCrrNivel" />
-									</ui:define>
-								</ui:decorate>
-							</div>
-						</div>
-						<!--******************** FIN FILA 3 NIVEL************************ -->
+
 						<!--******************** PANEL1, FILA 4 RESOLUCION HCU************************ -->
 						<div class="row cells8">
 							<div class="cell colspan5">
@@ -138,7 +119,10 @@
 									</ui:define>
 									<ui:define name="valor">
 										<p:inputText id="inpAtrCrrEspeCodigo"
-											value="#{programasForm.crrEspeCodigo}" required="true" />
+											value="#{programasForm.crrEspeCodigo}" required="true"
+											validator="comprobarEspeCodigo" maxlength="32">
+											<p:ajax event="blur" update="lblAtrCrrEspeCodigo , inpAtrCrrEspeCodigo , msgAtrCrrEspeCodigo" />
+										</p:inputText>
 									</ui:define>
 									<ui:define name="etiquetaError">
 										<p:message id="msgAtrCrrEspeCodigo" for="inpAtrCrrEspeCodigo" />
@@ -153,42 +137,32 @@
 								<ui:decorate
 									template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
 									<ui:define name="etiqueta">
-										<p:outputLabel id="lblAtrCrrTipoEvaluacion"
-											for="inpAtrCrrTipoEvaluacion" value="Tipo de Evaluación: " />
+										<p:outputLabel id="lblTipoEvaluacion" for="slcTipoEvaluacion"
+											value="Tipo de Evaluación " />
 									</ui:define>
 									<ui:define name="valor">
-										<p:inputText id="inpAtrCrrTipoEvaluacion"
-											value="#{programasForm.crrTipoEvaluacion}" required="true" />
+										<h:selectOneMenu id="slcTipoEvaluacion"
+											value="#{programasForm.crrTipoEvaluacion}" required="true"
+											requiredMessage="#{generalesConstantesForm.msgCampoRequerido}"
+											style="width:100%">
+											<f:selectItem
+												itemLabel="#{generalesConstantesForm.appSeleccione}" />
+											<f:selectItems var="item"
+												value="#{programasForm.listItemTipoEvaluacion}"
+												itemLabel="#{item.crrTipoEvalucionDescripcion}"
+												itemValue="#{item.crrTipoEvaluacionId}" />
+											<p:ajax event="change"
+												update="lblTipoEvaluacion , slcTipoEvaluacion, msgTipoEvaluacion " />
+										</h:selectOneMenu>
 									</ui:define>
 									<ui:define name="etiquetaError">
-										<p:message id="msgAtrCrrTipoEvaluacion"
-											for="inpAtrCrrTipoEvaluacion" />
+										<p:message id="msgTipoEvaluacion" for="slcTipoEvaluacion" />
 									</ui:define>
 								</ui:decorate>
 							</div>
 						</div>
 						<!--******************** FIN FILA 7 TIPO EVALUACION************************ -->
-						<!--******************** PANEL1, FILA 8 NUMERO ACTA DE GRADO************************ -->
-						<div class="row cells8">
-							<div class="cell colspan5">
-								<ui:decorate
-									template="/componentesGenerales/plantillas/pltComponenteGeneralEdit.xhtml">
-									<ui:define name="etiqueta">
-										<p:outputLabel id="lblAtrCrrNumActaGrado"
-											for="inpAtrCrrNumActaGrado" value="Número de Acta de Grado: " />
-									</ui:define>
-									<ui:define name="valor">
-										<p:inputText id="inpAtrCrrNumActaGrado"
-											value="#{programasForm.crrNumActaGrado}" required="true" />
-									</ui:define>
-									<ui:define name="etiquetaError">
-										<p:message id="msgAtrCrrNumActaGrado"
-											for="inpAtrCrrNumActaGrado" />
-									</ui:define>
-								</ui:decorate>
-							</div>
-						</div>
-						<!--******************** FIN FILA 8 NUMERO ACTA DE GRADO************************ -->
+
 					</div>
 				</p:panel>
 
@@ -226,8 +200,23 @@
 								</p:column>
 								<p:column style="width:30%">
 									<p:inputText id="inpAtrTitulo"
-										value="#{programasForm.ttlDescripcion}"
-										required="true" />
+										value="#{programasForm.ttlDescripcion}" required="true" />
+								</p:column>
+
+
+								<p:column style="width:20%">
+									<p:outputLabel id="lblTipoSede" for="slcTipoSede"
+										value="Sede: " />
+								</p:column>
+								<p:column style="width:30%">
+									<h:selectOneMenu id="slcTipoSede"
+										value="#{programasForm.tiseId}" required="true"
+										requiredMessage="#{generalesConstantesForm.msgCampoRequerido}"
+										style="width:100%">
+										<f:selectItem itemLabel="#{generalesConstantesForm.appSeleccione}" />
+										<f:selectItems var="item" value="#{programasForm.listItemTipoSede}" itemLabel="#{item.tiseDescripcion}" itemValue="#{item.tiseId}" />
+										<p:ajax listener="#{programasForm.cargaTipoFormacionXRegAcademico()}" event="change" update="lblTipoSede , slcTipoSede, slcTipoFormacion, lblTipoFormacion" />
+									</h:selectOneMenu>
 								</p:column>
 
 
@@ -237,8 +226,7 @@
 								</p:column>
 								<p:column style="width:30%">
 									<h:selectOneMenu id="slcTipoFormacion"
-										value="#{programasForm.tifrId}"
-										required="true"
+										value="#{programasForm.tifrId}" required="true"
 										requiredMessage="#{generalesConstantesForm.msgCampoRequerido}"
 										style="width:100%">
 										<f:selectItem
@@ -268,26 +256,6 @@
 											value="#{programasForm.listModalidad}"
 											itemLabel="#{item.mdlDescripcion}" itemValue="#{item.mdlId}" />
 										<p:ajax event="change" update="lblModalidad , slcModalidad " />
-									</h:selectOneMenu>
-								</p:column>
-
-
-								<p:column style="width:20%">
-									<p:outputLabel id="lblTipoSede" for="slcTipoSede"
-										value="Sede: " />
-								</p:column>
-								<p:column style="width:30%">
-									<h:selectOneMenu id="slcTipoSede"
-										value="#{programasForm.tiseId}" required="true"
-										requiredMessage="#{generalesConstantesForm.msgCampoRequerido}"
-										style="width:100%">
-										<f:selectItem
-											itemLabel="#{generalesConstantesForm.appSeleccione}" />
-										<f:selectItems var="item"
-											value="#{programasForm.listTipoSede}"
-											itemLabel="#{item.tiseDescripcion}"
-											itemValue="#{item.tiseId}" />
-										<p:ajax event="change" update="lblTipoSede , slcTipoSede " />
 									</h:selectOneMenu>
 								</p:column>
 
@@ -353,7 +321,7 @@
 						</div>
 					</div>
 				</p:panel>
-				
+
 				<!-- ********************   BOTONES  ************************ -->
 				<div>
 					<p:commandButton id="btnCancelar" value="Regresar"

@@ -50,4 +50,6 @@ public interface UbicacionServicio {
 	 */
 	public List<Ubicacion> listarTodos() throws UbicacionNoEncontradoException;
 
+	List<Ubicacion> listarCantones() throws UbicacionNoEncontradoException;
+
 }

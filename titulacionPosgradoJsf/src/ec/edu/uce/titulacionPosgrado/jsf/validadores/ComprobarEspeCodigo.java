@@ -44,25 +44,22 @@ import ec.edu.uce.titulacionPosgrado.ejb.utilidades.servicios.GeneralesUtilidade
 
 @FacesValidator("comprobarEspeCodigo")
 public class ComprobarEspeCodigo implements Validator {
-//	private static final String PATRON = "^[a-zA-Z-\\s-ñÑ-áÁ-éÉ-íÍ-óÓ-úÚ]+";
+
 	
 	@EJB
-	private CarreraServicio servCarreraServicio;
+	private CarreraServicio servCarreraServicio; //no se puede utilizar EJB's en un validador, pues los validadores solo se ejecutan en el cliente y el EJB en el servidor 
 	private boolean flag;
 
 
 	@Override
 	public void validate(FacesContext fc, UIComponent comp, Object valor) throws ValidatorException {
-		System.out.println("ingreso al comprobar espe codigo aaaaaaaa");
 		//boolean flag=false;
 		flag=false;
 		int valorSt;
 		if(valor instanceof Integer){
 			valorSt=(int) valor;
-			System.out.println("ingreso al comprobar espe codigo bbbbbb: "+valorSt+flag);
 			try{
 			flag=servCarreraServicio.ifExistEspeCodigo(valorSt);
-			System.out.println("ingreso al comprobar espe codigo ccccccc: "+flag);
 			if(flag){
 				FacesMessage msg = new FacesMessage("Código ESPE Duplicado");
 				msg.setSeverity(FacesMessage.SEVERITY_ERROR);
@@ -93,5 +90,21 @@ public class ComprobarEspeCodigo implements Validator {
 //		}
 	
 	}
+
+
+	public static void espeCodDuplicado(boolean flag) throws ValidatorException {
+		if(flag){
+			FacesMessage msg = new FacesMessage("Código ESPE Duplicado");
+			msg.setSeverity(FacesMessage.SEVERITY_ERROR);
+			throw new ValidatorException(msg);
+		}else{
+			FacesMessage msg = new FacesMessage("Error al momento de leer el ESPE Código");
+			msg.setSeverity(FacesMessage.SEVERITY_ERROR);
+			throw new ValidatorException(msg);
+			
+		}
+
+	}
+
 	
 }

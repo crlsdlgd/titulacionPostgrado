@@ -236,7 +236,6 @@ public class ProgramaImpl implements ProgramaServicio{
 
 	@Override
 	public List<TipoFormacion> ListarTipoFormacionXRegAcademico(Integer tiseId) {
-		System.out.println("ingreso a listar los tipo formacion x regimen academico de la sede: "+tiseId);
 		List<TipoFormacion> retorno=null;
 		
 		StringBuffer sbsql = new StringBuffer();

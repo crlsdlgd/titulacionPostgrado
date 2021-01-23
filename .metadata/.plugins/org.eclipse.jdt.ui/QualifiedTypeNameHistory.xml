@@ -34,7 +34,8 @@
 <fullyQualifiedTypeName name="javax.faces.model.SelectItem"/>
 <fullyQualifiedTypeName name="ec.edu.uce.titulacionPosgrado.ejb.utilidades.constantes.DuracionConstantes"/>
 <fullyQualifiedTypeName name="ec.edu.uce.titulacionPosgrado.ejb.utilidades.constantes.CarreraConstantes"/>
-<fullyQualifiedTypeName name="java.lang.Exception"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="ec.edu.uce.titulacionPosgrado.jpa.entidades.publico.TipoFormacion"/>
+<fullyQualifiedTypeName name="java.lang.Exception"/>
+<fullyQualifiedTypeName name="ec.edu.uce.titulacionPosgrado.jsf.validadores.ComprobarEspeCodigo"/>
 </qualifiedTypeNameHistroy>

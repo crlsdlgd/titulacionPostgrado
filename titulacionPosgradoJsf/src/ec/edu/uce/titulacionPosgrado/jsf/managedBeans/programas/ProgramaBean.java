@@ -26,11 +26,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.EJB;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.model.SelectItem;
+import javax.faces.validator.ValidatorException;
 
-import ec.edu.uce.titulacionPosgrado.ejb.dtos.CarreraDto;
 import ec.edu.uce.titulacionPosgrado.ejb.excepciones.UsuarioRolException;
 import ec.edu.uce.titulacionPosgrado.ejb.excepciones.UsuarioRolNoEncontradoException;
 import ec.edu.uce.titulacionPosgrado.ejb.servicios.interfaces.CarreraServicio;
@@ -39,7 +40,6 @@ import ec.edu.uce.titulacionPosgrado.ejb.servicios.interfaces.ProgramaServicio;
 import ec.edu.uce.titulacionPosgrado.ejb.servicios.interfaces.TituloServicio;
 import ec.edu.uce.titulacionPosgrado.ejb.servicios.interfaces.UbicacionServicio;
 import ec.edu.uce.titulacionPosgrado.ejb.servicios.interfaces.UsuarioRolServicio;
-import ec.edu.uce.titulacionPosgrado.ejb.servicios.jdbc.interfaces.CarreraDtoServicioJdbc;
 import ec.edu.uce.titulacionPosgrado.ejb.utilidades.constantes.CarreraConstantes;
 import ec.edu.uce.titulacionPosgrado.ejb.utilidades.constantes.DuracionConstantes;
 import ec.edu.uce.titulacionPosgrado.ejb.utilidades.constantes.UsuarioRolConstantes;
@@ -57,6 +57,7 @@ import ec.edu.uce.titulacionPosgrado.jpa.entidades.publico.Usuario;
 import ec.edu.uce.titulacionPosgrado.jpa.entidades.publico.UsuarioRol;
 import ec.edu.uce.titulacionPosgrado.jpa.entidades.publico.Vigencia;
 import ec.edu.uce.titulacionPosgrado.jsf.utilidades.FacesUtil;
+import ec.edu.uce.titulacionPosgrado.jsf.validadores.ComprobarEspeCodigo;
 
 @ManagedBean(name = "programasForm")
 @SessionScoped
@@ -74,7 +75,7 @@ public class ProgramaBean implements Serializable {
 	private Integer crrEspeCodigo;
 	private Integer crrTipoEvaluacion;
 	private String ttlDescripcion;
-	
+
 	// Lista Datos de la tabla configuracion_carrera
 	private List<Facultad> listFacultad;
 	private List<TipoFormacion> listTipoFormacion;
@@ -100,14 +101,20 @@ public class ProgramaBean implements Serializable {
 	// *****************************************************************/
 	// ********************** Servicios de programaForm*****************/
 	// *****************************************************************/
-	@EJB private UsuarioRolServicio servUsuarioRolServicio;
-	@EJB private UbicacionServicio servUbicacionServicio;
-	@EJB private CarreraServicio servCarreraServicio;
-	@EJB private TituloServicio servTituloServicio;
-	@EJB private FacultadServicio servFacultadServicio;
+	@EJB
+	private UsuarioRolServicio servUsuarioRolServicio;
+	@EJB
+	private UbicacionServicio servUbicacionServicio;
+	@EJB
+	private CarreraServicio servCarreraServicio;
+	@EJB
+	private TituloServicio servTituloServicio;
+	@EJB
+	private FacultadServicio servFacultadServicio;
 	////// El siguiente servicio fue creado para traer Tipo Sede, Tipo
 	////// Formacion, Modalidad y Vigencia por Programa o Carrera
-	@EJB private ProgramaServicio servProgramaServicio;
+	@EJB
+	private ProgramaServicio servProgramaServicio;
 
 	// *****************************************************************/
 	// ********************* Metodos de programaForm********************/
@@ -123,7 +130,7 @@ public class ProgramaBean implements Serializable {
 		} catch (UsuarioRolNoEncontradoException e) {
 		} catch (UsuarioRolException e) {
 		}
-		ubcId=450;
+		ubcId = 450;
 		return "irCrearPrograma";
 
 	}
@@ -166,7 +173,7 @@ public class ProgramaBean implements Serializable {
 			crr.setCrrTipoEvaluacion(crrTipoEvaluacion);
 			crr.setCrrResolucionCes(crrResolucionCes);
 			crr.setCrrResolucionHuc(crrResolucionHcu);
-			
+
 			slcTipoFormacion.setTifrId(tifrId);
 			slcModalidad.setMdlId(mdlId);
 			slcTipoSede.setTiseId(tiseId);
@@ -189,7 +196,7 @@ public class ProgramaBean implements Serializable {
 
 			if (flag) {
 				FacesUtil.mensajeInfo("Programa creado exitosamente");
-			}else{
+			} else {
 				FacesUtil.mensajeError("El programa no se creo");
 			}
 
@@ -210,9 +217,22 @@ public class ProgramaBean implements Serializable {
 		}
 		return retorno;
 	}
-	
-	public void cargaTipoFormacionXRegAcademico(){
+
+	public void cargaTipoFormacionXRegAcademico() {
 		listTipoFormacion = servProgramaServicio.ListarTipoFormacionXRegAcademico(tiseId);
+	}
+
+	public void buscarEspeCodigo() {
+		
+			boolean flag=false;
+			try {
+				flag = servCarreraServicio.ifExistEspeCodigo(crrEspeCodigo);
+				if(flag){
+					FacesUtil.mensajeError("ESPE Código Duplicado");
+				}
+			} catch (Exception e) {
+			}
+
 	}
 
 	// *****************************************************************/
@@ -232,38 +252,41 @@ public class ProgramaBean implements Serializable {
 		return listItemDuracion;
 	}
 
-	
 	public List<SelectItem> getListItemTipoEvaluacion() {
 		this.listItemTipoEvaluacion = new ArrayList<SelectItem>();
 		listItemTipoEvaluacion.clear();
-		SelectItem itemTipoEvaluacion = new SelectItem(CarreraConstantes.CARRERA_EVALUACION_DEFENSA_ORAL_VALUE,CarreraConstantes.CARRERA_EVALUACION_DEFENSA_ORAL_LABEL);
-		SelectItem itemTipoEvaluacion1 = new SelectItem(CarreraConstantes.CARRERA_EVALUACION_DEFENSA_ESCRITO_ORAL_VALUE,CarreraConstantes.CARRERA_EVALUACION_DEFENSA_ESCRITO_ORAL_LABEL);
-		SelectItem itemTipoEvaluacion2= new SelectItem(CarreraConstantes.CARRERA_EVALUACION_DEFENSA_DIVISION_TRES_VALUE,CarreraConstantes.CARRERA_EVALUACION_DEFENSA_DIVISION_TRES_LABEL);
-		
+		SelectItem itemTipoEvaluacion = new SelectItem(CarreraConstantes.CARRERA_EVALUACION_DEFENSA_ORAL_VALUE,
+				CarreraConstantes.CARRERA_EVALUACION_DEFENSA_ORAL_LABEL);
+		SelectItem itemTipoEvaluacion1 = new SelectItem(CarreraConstantes.CARRERA_EVALUACION_DEFENSA_ESCRITO_ORAL_VALUE,
+				CarreraConstantes.CARRERA_EVALUACION_DEFENSA_ESCRITO_ORAL_LABEL);
+		SelectItem itemTipoEvaluacion2 = new SelectItem(
+				CarreraConstantes.CARRERA_EVALUACION_DEFENSA_DIVISION_TRES_VALUE,
+				CarreraConstantes.CARRERA_EVALUACION_DEFENSA_DIVISION_TRES_LABEL);
+
 		this.listItemTipoEvaluacion.add(itemTipoEvaluacion);
 		this.listItemTipoEvaluacion.add(itemTipoEvaluacion1);
 		this.listItemTipoEvaluacion.add(itemTipoEvaluacion2);
-		
+
 		return listItemTipoEvaluacion;
 	}
-	
 
 	public List<SelectItem> getListItemTipoSede() {
 		this.listItemTipoSede = new ArrayList<SelectItem>();
 		listItemTipoSede.clear();
 		String rgacDescripcion;
-		for(TipoSede tise: listTipoSede){
-			if(tise.getTiseRegimenAcademico().getRgacId()==1){
-				rgacDescripcion="2009";
-			}else{
-				rgacDescripcion="2013";
+		for (TipoSede tise : listTipoSede) {
+			if (tise.getTiseRegimenAcademico().getRgacId() == 1) {
+				rgacDescripcion = "2009";
+			} else {
+				rgacDescripcion = "2013";
 			}
-			SelectItem itemTipoSede = new SelectItem(tise.getTiseId(),tise.getTiseDescripcion()+"-"+rgacDescripcion);
+			SelectItem itemTipoSede = new SelectItem(tise.getTiseId(),
+					tise.getTiseDescripcion() + "-" + rgacDescripcion);
 			this.listItemTipoSede.add(itemTipoSede);
 		}
 		return listItemTipoSede;
 	}
-	
+
 	public void setListItemTipoSede(List<SelectItem> listItemTipoSede) {
 		this.listItemTipoSede = listItemTipoSede;
 	}
@@ -395,7 +418,6 @@ public class ProgramaBean implements Serializable {
 	public void setCrrTipoEvaluacion(Integer crrTipoEvaluacion) {
 		this.crrTipoEvaluacion = crrTipoEvaluacion;
 	}
-
 
 	public List<Facultad> getListFacultad() {
 		return listFacultad;

@@ -3580,3 +3580,161 @@
 
 !ENTRY org.jboss.ide.eclipse.as.wtp.core 1 16973825 2021-01-20 17:09:00.679
 !MESSAGE Server processes have terminated prematurely. Please check your server logs for more details. 
+!SESSION 
+
+!ENTRY org.jboss.ide.eclipse.as.core 4 0 2021-01-22 09:57:41.489
+!MESSAGE The server "WildFly 10.x" requires a JDK to run properly. The VM used to launch this server is not recognized as a valid JDK. C:\Program Files\Java\jre1.8.0_111 
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2021-01-22 09:57:45.022
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2021-01-22 09:58:13.946
+!MESSAGE Server Startup Succeeded
+
+!ENTRY org.jboss.ide.eclipse.as.wtp.core 1 16973825 2021-01-22 10:13:04.621
+!MESSAGE Server processes have terminated prematurely. Please check your server logs for more details. 
+
+!ENTRY org.jboss.ide.eclipse.as.core 4 0 2021-01-22 10:13:27.496
+!MESSAGE The server "WildFly 10.x" requires a JDK to run properly. The VM used to launch this server is not recognized as a valid JDK. C:\Program Files\Java\jre1.8.0_111 
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2021-01-22 10:13:30.108
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2021-01-22 10:13:38.107
+!MESSAGE Server Startup Succeeded
+
+!ENTRY org.jboss.ide.eclipse.as.core 4 16973826 2021-01-22 10:23:34.864
+!MESSAGE The server was shutdown forcefully. All processes were terminated.
+
+!ENTRY org.jboss.ide.eclipse.as.core 4 0 2021-01-22 10:26:41.494
+!MESSAGE The server "WildFly 10.x" requires a JDK to run properly. The VM used to launch this server is not recognized as a valid JDK. C:\Program Files\Java\jre1.8.0_111 
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2021-01-22 10:26:43.555
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2021-01-22 10:26:48.016
+!MESSAGE Server Startup Succeeded
+
+!ENTRY org.jboss.ide.eclipse.as.wtp.core 1 16973825 2021-01-22 10:29:06.780
+!MESSAGE Server processes have terminated prematurely. Please check your server logs for more details. 
+
+!ENTRY org.jboss.ide.eclipse.as.core 4 0 2021-01-22 10:29:09.873
+!MESSAGE The server "WildFly 10.x" requires a JDK to run properly. The VM used to launch this server is not recognized as a valid JDK. C:\Program Files\Java\jre1.8.0_111 
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2021-01-22 10:29:11.935
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2021-01-22 10:29:16.291
+!MESSAGE Server Startup Succeeded
+
+!ENTRY org.jboss.ide.eclipse.as.wtp.core 1 16973825 2021-01-22 10:31:47.590
+!MESSAGE Server processes have terminated prematurely. Please check your server logs for more details. 
+
+!ENTRY org.jboss.ide.eclipse.as.core 4 0 2021-01-22 10:31:53.840
+!MESSAGE The server "WildFly 10.x" requires a JDK to run properly. The VM used to launch this server is not recognized as a valid JDK. C:\Program Files\Java\jre1.8.0_111 
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2021-01-22 10:31:55.916
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2021-01-22 10:32:00.268
+!MESSAGE Server Startup Succeeded
+
+!ENTRY org.jboss.ide.eclipse.as.wtp.core 1 16973825 2021-01-22 10:37:33.565
+!MESSAGE Server processes have terminated prematurely. Please check your server logs for more details. 
+
+!ENTRY org.jboss.ide.eclipse.as.core 4 0 2021-01-22 10:38:06.139
+!MESSAGE The server "WildFly 10.x" requires a JDK to run properly. The VM used to launch this server is not recognized as a valid JDK. C:\Program Files\Java\jre1.8.0_111 
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2021-01-22 10:38:08.725
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2021-01-22 10:38:13.880
+!MESSAGE Server Startup Succeeded
+
+!ENTRY org.jboss.ide.eclipse.as.wtp.core 1 16973825 2021-01-22 10:50:11.337
+!MESSAGE Server processes have terminated prematurely. Please check your server logs for more details. 
+!SESSION 
+
+!ENTRY org.jboss.ide.eclipse.as.core 4 0 2021-01-22 19:14:36.337
+!MESSAGE The server "WildFly 10.x" requires a JDK to run properly. The VM used to launch this server is not recognized as a valid JDK. C:\Program Files\Java\jre1.8.0_111 
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2021-01-22 19:14:40.435
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2021-01-22 19:14:57.556
+!MESSAGE Server Startup Succeeded
+
+!ENTRY org.jboss.ide.eclipse.as.wtp.core 1 16973825 2021-01-22 19:17:38.102
+!MESSAGE Server processes have terminated prematurely. Please check your server logs for more details. 
+
+!ENTRY org.jboss.ide.eclipse.as.core 4 0 2021-01-22 19:17:45.825
+!MESSAGE The server "WildFly 10.x" requires a JDK to run properly. The VM used to launch this server is not recognized as a valid JDK. C:\Program Files\Java\jre1.8.0_111 
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2021-01-22 19:17:47.869
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2021-01-22 19:17:52.309
+!MESSAGE Server Startup Succeeded
+
+!ENTRY org.jboss.ide.eclipse.as.wtp.core 1 16973825 2021-01-22 19:22:02.891
+!MESSAGE Server processes have terminated prematurely. Please check your server logs for more details. 
+
+!ENTRY org.jboss.ide.eclipse.as.core 4 0 2021-01-22 19:22:36.783
+!MESSAGE The server "WildFly 10.x" requires a JDK to run properly. The VM used to launch this server is not recognized as a valid JDK. C:\Program Files\Java\jre1.8.0_111 
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2021-01-22 19:22:38.864
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2021-01-22 19:22:44.425
+!MESSAGE Server Startup Succeeded
+
+!ENTRY org.jboss.ide.eclipse.as.wtp.core 1 16973825 2021-01-22 19:29:25.756
+!MESSAGE Server processes have terminated prematurely. Please check your server logs for more details. 
+
+!ENTRY org.jboss.ide.eclipse.as.core 4 0 2021-01-22 19:30:01.472
+!MESSAGE The server "WildFly 10.x" requires a JDK to run properly. The VM used to launch this server is not recognized as a valid JDK. C:\Program Files\Java\jre1.8.0_111 
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2021-01-22 19:30:03.543
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2021-01-22 19:30:07.393
+!MESSAGE Server Startup Succeeded
+
+!ENTRY org.jboss.ide.eclipse.as.wtp.core 1 16973825 2021-01-22 19:34:59.735
+!MESSAGE Server processes have terminated prematurely. Please check your server logs for more details. 
+
+!ENTRY org.jboss.ide.eclipse.as.core 4 0 2021-01-22 19:37:28.728
+!MESSAGE The server "WildFly 10.x" requires a JDK to run properly. The VM used to launch this server is not recognized as a valid JDK. C:\Program Files\Java\jre1.8.0_111 
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2021-01-22 19:37:30.783
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2021-01-22 19:37:35.862
+!MESSAGE Server Startup Succeeded
+
+!ENTRY org.jboss.ide.eclipse.as.wtp.core 1 16973825 2021-01-22 19:51:08.545
+!MESSAGE Server processes have terminated prematurely. Please check your server logs for more details. 
+
+!ENTRY org.jboss.ide.eclipse.as.core 4 0 2021-01-22 19:51:12.039
+!MESSAGE The server "WildFly 10.x" requires a JDK to run properly. The VM used to launch this server is not recognized as a valid JDK. C:\Program Files\Java\jre1.8.0_111 
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2021-01-22 19:51:14.100
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2021-01-22 19:51:18.561
+!MESSAGE Server Startup Succeeded
+
+!ENTRY org.jboss.ide.eclipse.as.wtp.core 1 16973825 2021-01-22 19:54:20.529
+!MESSAGE Server processes have terminated prematurely. Please check your server logs for more details. 
+
+!ENTRY org.jboss.ide.eclipse.as.core 4 0 2021-01-22 19:56:23.202
+!MESSAGE The server "WildFly 10.x" requires a JDK to run properly. The VM used to launch this server is not recognized as a valid JDK. C:\Program Files\Java\jre1.8.0_111 
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2021-01-22 19:56:25.246
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2021-01-22 19:56:29.592
+!MESSAGE Server Startup Succeeded
+
+!ENTRY org.jboss.ide.eclipse.as.wtp.core 1 16973825 2021-01-22 19:58:21.157
+!MESSAGE Server processes have terminated prematurely. Please check your server logs for more details. 

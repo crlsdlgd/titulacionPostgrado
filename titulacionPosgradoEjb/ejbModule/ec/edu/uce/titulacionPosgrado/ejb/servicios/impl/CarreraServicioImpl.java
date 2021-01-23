@@ -150,9 +150,8 @@ public class CarreraServicioImpl implements CarreraServicio {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public boolean ifExistEspeCodigo(Integer valorSt) throws Exception {
+	public boolean ifExistEspeCodigo(Integer valorSt) {
 
-		System.out.println("isExistEspeCodigo aaaaaaaa");
 		boolean flag = false;
 		try {
 			List<Carrera> retorno = null;
@@ -161,14 +160,11 @@ public class CarreraServicioImpl implements CarreraServicio {
 			sbsql.append(" where crr.crrEspeCodigo = :crrEspeCodigo");
 			Query q = em.createQuery(sbsql.toString());
 			q.setParameter("crrEspeCodigo", valorSt);
-			System.out.println("isExistEspeCodigo bbbbbbb");
 			retorno = q.getResultList();
-			System.out.println("isExistEspeCodigo ccccccc");
-			if (retorno.size() <= 0) {
+			if (retorno.size() > 0) {
 				flag = true;
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
 		}
 		return flag;
 	}
